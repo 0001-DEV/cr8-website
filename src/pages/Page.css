@@ -1,0 +1,123 @@
+.page {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.page::before {
+  position: absolute;
+  top: 8rem;
+  left: 2rem;
+  font-size: 15rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.04;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-header {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-back {
+  color: #959da5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.page-back:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.page-hero {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #959da5;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.page-tagline {
+  font-size: 1.4rem;
+  color: #cccccc;
+  font-style: italic;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.page-body {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #bbbbbb;
+}
+
+.page-work::before {
+  content: "WORK";
+  color: #bced00;
+}
+
+.page-services::before {
+  content: "SERVICE";
+  color: #0036f3;
+  top: 7rem;
+}
+
+.page-methodology::before {
+  content: "METHOD";
+  color: #ff38fd;
+}
+
+.page-about::before {
+  content: "ABOUT";
+  color: #595959;
+}
+
+.page-contact::before {
+  content: "HELLO";
+  color: #fe2121;
+  font-size: 13rem;
+}
+
+.page-news::before {
+  content: attr(data-news-id);
+  color: #ffffff;
+}
+
+.page-news-1::before { content: "01"; color: #bced00; }
+.page-news-2::before { content: "02"; color: #0036f3; }
+.page-news-3::before { content: "03"; color: #ff38fd; }
+.page-news-4::before { content: "04"; color: #595959; }
+.page-news-5::before { content: "05"; color: #bced00; }
+.page-news-6::before { content: "06"; color: #0036f3; }
+.page-news-7::before { content: "07"; color: #ff38fd; }
+.page-news-8::before { content: "08"; color: #595959; }
+
+@media (max-width: 768px) {
+  .page { padding: 5rem 1.5rem; }
+  .page::before { font-size: 8rem; top: 6rem; left: 1rem; }
+  .page-title { font-size: 3rem; }
+  .page-tagline { font-size: 1.1rem; }
+}

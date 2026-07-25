@@ -1,0 +1,222 @@
+.hero {
+  margin-top: 40px;
+  min-height: 60vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 0;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0;
+}
+
+.hero-brand {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+.hero-brand-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@400;700&display=swap');
+
+.brand-line {
+  font-size: 80px;
+  font-weight: 700;
+  font-family: 'Aeonik', sans-serif;
+  letter-spacing: 0.08em;
+  color: #959da5;
+  line-height: 1;
+}
+
+.animated-char {
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.6, 1);
+  transform-origin: center;
+}
+
+/* Scale Animation */
+.morph-scale:hover {
+  transform: scale(1.3);
+  color: #bced00;
+  text-shadow: 0 0 15px rgba(188, 237, 0, 0.6);
+}
+
+/* Rotate Animation */
+.morph-rotate:hover {
+  transform: rotate(360deg) scale(1.1);
+  color: #ff38fd;
+  text-shadow: 0 0 20px rgba(255, 56, 253, 0.5);
+}
+
+/* Flip Animation */
+.morph-flip:hover {
+  transform: rotateY(180deg) scale(1.2);
+  color: #0036f3;
+  text-shadow: 0 0 25px rgba(0, 54, 243, 0.4);
+}
+
+/* Bounce Animation */
+.morph-bounce:hover {
+  animation: bounce 0.6s ease-in-out;
+  color: #ff6b6b;
+  text-shadow: 0 0 18px rgba(255, 107, 107, 0.5);
+}
+
+/* Skew Animation */
+.morph-skew:hover {
+  transform: skewX(15deg) scale(1.1);
+  color: #4ecdc4;
+  text-shadow: 0 0 22px rgba(78, 205, 196, 0.5);
+}
+
+/* Blur to Sharp Animation */
+.morph-blur:hover {
+  filter: blur(3px) brightness(1.5);
+  color: #ffe66d;
+  text-shadow: 0 0 30px rgba(255, 230, 109, 0.6);
+  animation: blur-sharp 0.5s ease-in-out;
+}
+
+/* Glow Pulse Animation */
+.morph-glow:hover {
+  color: #ff9f43;
+  text-shadow: 0 0 10px #ff9f43, 0 0 20px #ff9f43, 0 0 30px #ff9f43;
+  animation: glow-pulse 0.8s ease-in-out infinite alternate;
+}
+
+/* Shake Animation */
+.morph-shake:hover {
+  color: #ee5a52;
+  animation: shake 0.5s ease-in-out;
+  text-shadow: 0 0 15px rgba(238, 90, 82, 0.5);
+}
+
+/* Spin Animation */
+.morph-spin:hover {
+  transform: rotateZ(720deg) scale(1.15);
+  color: #9c88ff;
+  text-shadow: 0 0 25px rgba(156, 136, 255, 0.5);
+}
+
+/* Wave Animation */
+.morph-wave:hover {
+  animation: wave 0.6s ease-in-out;
+  color: #54a0ff;
+  text-shadow: 0 0 20px rgba(84, 160, 255, 0.5);
+}
+
+/* Pulse Animation */
+.morph-pulse:hover {
+  animation: pulse 0.7s ease-in-out infinite;
+  color: #26de81;
+  text-shadow: 0 0 15px rgba(38, 222, 129, 0.6);
+}
+
+/* Stretch Animation */
+.morph-stretch:hover {
+  transform: scaleX(1.5) scaleY(0.8);
+  color: #fd79a8;
+  text-shadow: 0 0 18px rgba(253, 121, 168, 0.5);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.2); }
+}
+
+@keyframes blur-sharp {
+  0% { filter: blur(0px); }
+  50% { filter: blur(5px); }
+  100% { filter: blur(0px); }
+}
+
+@keyframes glow-pulse {
+  0% { text-shadow: 0 0 10px currentColor; }
+  100% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0) rotateZ(0deg); }
+  25% { transform: translateY(-10px) rotateZ(5deg); }
+  50% { transform: translateY(0) rotateZ(0deg); }
+  75% { transform: translateY(-5px) rotateZ(-5deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #999999;
+  font-style: italic;
+}
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual-text {
+  font-size: 2rem;
+  color: #cccccc;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    margin-top: 60px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
