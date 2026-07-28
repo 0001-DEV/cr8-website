@@ -1,5 +1,5 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import IntroAnimation from './components/IntroAnimation'
 import Header from './components/Header'
@@ -22,36 +22,51 @@ import NewsArticle from './pages/NewsArticle'
 function HomePage() {
   const [introComplete, setIntroComplete] = useState(false)
   const [showHeader, setShowHeader] = useState(false)
+  const heroRef = useRef(null)
 
   useEffect(() => {
     if (introComplete) {
       setTimeout(() => {
+        if (heroRef.current) {
+          const heroTop = heroRef.current.getBoundingClientRect().top + window.scrollY
+          const headerOffset = 90
+          window.scrollTo({
+            top: Math.max(0, heroTop - headerOffset),
+            behavior: 'auto'
+          })
+        }
+      }, 190)
+
+      setTimeout(() => {
         setShowHeader(true)
-      }, 1000)
+      }, 200)
+
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 2100)
     }
   }, [introComplete])
 
   return (
     <div className="app">
       <IntroAnimation onComplete={() => setIntroComplete(true)} />
-      {introComplete && (
-        <>
-          {showHeader && <Header />}
-          {showHeader && <HeroImage />}
+      <div
+        className={`page-content ${showHeader ? 'page-content--shown' : ''}`}
+        style={{ visibility: showHeader ? 'visible' : 'hidden' }}
+      >
+        <Header />
+        <HeroImage />
+        <div ref={heroRef}>
           <Hero />
-          <SegmentedCrossIcon />
-          {showHeader && (
-            <>
-              <WhyWeExist />
-              <SelectedProjects />
-              <NewsPress />
-              <PraiseFromClients />
-              <CTA />
-              <Footer />
-            </>
-          )}
-        </>
-      )}
+        </div>
+        <SegmentedCrossIcon />
+        <WhyWeExist />
+        <SelectedProjects />
+        <NewsPress />
+        <PraiseFromClients />
+        <CTA />
+        <Footer />
+      </div>
     </div>
   )
 }

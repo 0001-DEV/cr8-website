@@ -1,6 +1,6 @@
 .why-we-exist {
   width: 100%;
-  padding: 4rem 2rem;
+  padding: clamp(3rem, 6vw, 6rem) max(1.25rem, 3vw);
   background-color: #0a0a0a;
 }
 
@@ -10,31 +10,33 @@
 }
 
 .section-title {
-  font-size: 3.7rem;
+  font-size: clamp(2rem, 4.5vw, 3.7rem);
   font-weight: 700;
   color: #959da5;
   margin-bottom: 1.5rem;
-  margin-left: 4rem;
+  margin-left: clamp(0rem, 4vw, 4rem);
+  line-height: 1.15;
 }
 
 .section-description {
-  font-size: 1.8rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.8rem);
   color: #999999;
-  margin-bottom: 4rem;
-  margin-left: 4rem;
-  line-height: 1.6;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-left: clamp(0rem, 4vw, 4rem);
+  line-height: 1.5;
+  max-width: 900px;
 }
 
 .pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin-bottom: 6rem;
+  gap: 1.5rem;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
 }
 
 .pillar {
   position: relative;
-  height: 500px;
+  height: clamp(380px, 45vh, 500px);
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -45,7 +47,7 @@
 .pillar-image-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +66,7 @@
 .pillar-text-label {
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
-  padding: 1rem;
+  padding: 0.875rem 1rem;
   text-align: center;
   flex-shrink: 0;
   display: block;
@@ -96,32 +98,32 @@
 
 .pillar-image {
   width: 100%;
-  height: 450px;
+  height: clamp(300px, 35vh, 450px);
   object-fit: cover;
   transition: height 0.3s ease;
   flex-shrink: 0;
 }
 
 .pillar-image-bottom .pillar-image {
-  height: 450px;
+  height: clamp(300px, 35vh, 450px);
 }
 
 .pillar-image-bottom:hover .pillar-image {
-  height: 370px;
+  height: clamp(240px, 28vh, 370px);
 }
 
 .pillar-image-top .pillar-image {
-  height: 450px;
+  height: clamp(300px, 35vh, 450px);
 }
 
 .pillar-image-top:hover .pillar-image {
-  height: 370px;
+  height: clamp(240px, 28vh, 370px);
 }
 
 .pillar-text-overlay {
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 0.75rem 1rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -138,7 +140,7 @@
 }
 
 .pillar-image-container:hover .pillar-text-overlay {
-  max-height: 200px;
+  max-height: 220px;
 }
 
 .pillar-text-overlay-middle {
@@ -146,8 +148,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0.2rem;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 0.5rem 1rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, top 0.3s ease;
@@ -155,47 +157,47 @@
 }
 
 .pillar-image-top:hover .pillar-text-overlay-middle {
-  max-height: 140px;
+  max-height: 160px;
   opacity: 1;
   top: 0;
 }
 
 .pillar-text {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   font-weight: 600;
   color: #ffffff;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .pillar-text-description {
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
   color: #cccccc;
-  line-height: 1.6;
+  line-height: 1.5;
   text-align: center;
   margin: 0;
 }
 
 .pillar h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   color: #ffffff;
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   z-index: 1;
   position: relative;
 }
 
 .clientele {
-  margin-top: 8rem;
+  margin-top: clamp(4rem, 8vw, 8rem);
 }
 
 .clientele h3 {
-  font-size: 3.7rem;
+  font-size: clamp(2rem, 4.5vw, 3.7rem);
   font-weight: 700;
   color: #959da5;
-  margin-bottom: 3rem;
-  margin-left: 4rem;
-  line-height: 1.3;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-left: clamp(0rem, 4vw, 4rem);
+  line-height: 1.2;
 }
 
 .clients-container {
@@ -205,15 +207,15 @@
 
 .clients-grid {
   display: flex;
-  gap: 3rem;
-  padding: 2rem;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: 1.5rem 0;
   width: max-content;
-  animation: scroll-logos 12s linear infinite;
+  animation: scroll-logos 14s linear infinite;
 }
 
 .client-logo {
-  height: 100px;
-  width: 100px;
+  height: clamp(60px, 8vw, 100px);
+  width: clamp(60px, 8vw, 100px);
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -223,36 +225,32 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 1.5rem));
+    transform: translateX(calc(-50% - 0.75rem));
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .pillars {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .section-title {
-    font-size: 2.5rem;
+  .pillar {
+    height: auto;
+    min-height: 380px;
   }
 
-  .section-description {
-    font-size: 1.2rem;
+  .section-description br {
+    display: inline;
+  }
+  
+  .clientele h3 br {
+    display: inline;
   }
 }
 
-@media (max-width: 768px) {
-  .pillar {
-    height: 300px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-    margin-left: 1rem;
-  }
-
-  .section-description {
-    font-size: 1rem;
-    margin-left: 1rem;
+@media (min-width: 1440px) {
+  .section-container {
+    max-width: 1600px;
   }
 }

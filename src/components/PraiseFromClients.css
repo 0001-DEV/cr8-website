@@ -1,26 +1,28 @@
 .praise-from-clients {
-  padding: 6rem 2rem;
+  padding: clamp(3rem, 6vw, 6rem) max(1.25rem, 3vw);
   background-color: #000000;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .praise-from-clients h2 {
-  font-size: 4.7rem;
+  font-size: clamp(2rem, 4.5vw, 4.7rem);
   font-weight: 600;
-  margin-bottom: 4rem;
-  margin-left: 4rem;
- color: #959da5;
-line-height: 1.1;
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+  margin-left: clamp(0rem, 4vw, 4rem);
+  color: #959da5;
+  line-height: 1.1;
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
-  padding: 4rem 0;
+  padding: clamp(1.5rem, 3vw, 3rem) 0;
   background-color: #000000;
-  height:25rem;
+  min-height: 18rem;
+  height: auto;
 }
 
 .testimonials-grid--next {
@@ -33,11 +35,11 @@ line-height: 1.1;
 
 .testimonial-card {
   display: flex;
-  align-items: flex-start;
-  /* gap: 1rem; */
+  flex-direction: flex-start;
+  gap: 1rem;
   background: #c3cdd8;
-  padding: 1.5rem;
-  /* border-radius: 8px; */
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border-radius: 4px;
 }
 
 .testimonial-card:nth-child(2) {
@@ -49,74 +51,73 @@ line-height: 1.1;
 }
 
 .avatar-circle {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background-color: #333333;
-  padding-left:2rem;
 }
 
 .testimonial-card:nth-child(2) .avatar-circle {
-  background-color: #888888;
+  background-color: #555555;
 }
 
 .testimonial-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .author-name {
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   font-weight: 600;
-  color: #333333;
-  margin: 0  2rem 0;
-  margin-left: 2.5rem;
-  
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
 }
 
 .testimonial-text {
-  font-size: 0.9rem;
-  color: #4d5660;
+  font-size: clamp(0.85rem, 1.05vw, 0.95rem);
+  color: #2c3238;
   line-height: 1.5;
-  margin-top: 4rem;
+  margin-top: 0.5rem;
 }
 
 .testimonial-card:nth-child(2) .author-name {
-  color: #333333;
+  color: #111111;
 }
 
 .testimonial-card:nth-child(2) .testimonial-text {
-  color: #666666;
+  color: #222222;
 }
 
 .testimonial-quotes {
   background-color: #000000;
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 4vw, 4rem) 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0 -2rem;
 }
 
 .quote-section {
   flex: 1;
-  margin-left: 9rem;
+  width: 100%;
+  margin-left: clamp(0rem, 6vw, 6rem);
 }
 
 .main-quote {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 3.8vw, 3rem);
   font-weight: 700;
   color: #c3cdd8;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 1.5rem 0;
   line-height: 1.2;
   font-style: italic;
 }
 
 .sub-quote {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 3.8vw, 3rem);
   font-weight: 700;
   color: #c3cdd8;
-  margin: 0 0 0 13rem;
-  line-height: 1.3;
+  margin: 0 0 0 clamp(1rem, 8vw, 8rem);
+  line-height: 1.25;
   font-style: italic;
 }
 
@@ -125,12 +126,12 @@ line-height: 1.1;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .nav-arrow {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   background: transparent;
   border: 1px solid #ffffff;
   color: #ffffff;
@@ -176,33 +177,32 @@ line-height: 1.1;
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .testimonial-quotes {
-    flex-direction: column;
-    gap: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
-  .praise-from-clients {
-    padding: 4rem 1.5rem;
-  }
-
-  .praise-from-clients h2 {
-    font-size: 3rem;
-    margin-left: 2rem;
-  }
-
   .testimonials-grid {
     grid-template-columns: 1fr;
-    padding: 0;
-  }
-  
-  .main-quote {
-    font-size: 3rem;
+    padding: 1rem 0;
   }
   
   .sub-quote {
-    font-size: 3rem;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .main-quote br,
+  .sub-quote br {
+    display: inline;
+  }
+
+  .praise-from-clients h2 br {
+    display: inline;
   }
 }
+
+@media (min-width: 1440px) {
+  .praise-from-clients {
+    max-width: 1600px;
+  }
+}
+

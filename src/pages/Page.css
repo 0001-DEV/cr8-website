@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  padding: 6rem 2rem;
+  padding: clamp(4rem, 6vw, 6rem) max(1.25rem, 3vw);
   background-color: #0a0a0a;
   color: #ffffff;
   position: relative;
@@ -9,9 +9,9 @@
 
 .page::before {
   position: absolute;
-  top: 8rem;
-  left: 2rem;
-  font-size: 15rem;
+  top: clamp(4rem, 10vw, 8rem);
+  left: max(1rem, 2vw);
+  font-size: clamp(3.5rem, 15vw, 15rem);
   font-weight: 900;
   line-height: 1;
   opacity: 0.04;
@@ -30,7 +30,7 @@
 .page-back {
   color: #959da5;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
   font-weight: 500;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
@@ -49,7 +49,7 @@
 }
 
 .page-title {
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   color: #959da5;
   margin-bottom: 1rem;
@@ -57,10 +57,10 @@
 }
 
 .page-tagline {
-  font-size: 1.4rem;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
   color: #cccccc;
   font-style: italic;
-  max-width: 600px;
+  max-width: 650px;
   line-height: 1.6;
 }
 
@@ -69,7 +69,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   line-height: 1.8;
   color: #bbbbbb;
 }
@@ -82,7 +82,6 @@
 .page-services::before {
   content: "SERVICE";
   color: #0036f3;
-  top: 7rem;
 }
 
 .page-methodology::before {
@@ -98,7 +97,7 @@
 .page-contact::before {
   content: "HELLO";
   color: #fe2121;
-  font-size: 13rem;
+  font-size: clamp(3.5rem, 13vw, 13rem);
 }
 
 .page-news::before {
@@ -115,9 +114,11 @@
 .page-news-7::before { content: "07"; color: #ff38fd; }
 .page-news-8::before { content: "08"; color: #595959; }
 
-@media (max-width: 768px) {
-  .page { padding: 5rem 1.5rem; }
-  .page::before { font-size: 8rem; top: 6rem; left: 1rem; }
-  .page-title { font-size: 3rem; }
-  .page-tagline { font-size: 1.1rem; }
+@media (min-width: 1440px) {
+  .page-header,
+  .page-hero,
+  .page-body {
+    max-width: 1600px;
+  }
 }
+

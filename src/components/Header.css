@@ -6,7 +6,7 @@
   background-color: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
 }
 
 .header.scrolled {
@@ -18,28 +18,38 @@
 .header-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0.875rem max(1rem, 3vw);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .logo-img {
-  height: 40px;
+  height: clamp(24px, 3vw, 36px);
   width: auto;
   object-fit: contain;
+  transition: height 0.3s ease;
 }
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  align-items: center;
 }
 
 .nav a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  font-weight: 500;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav a:hover {
@@ -67,12 +77,104 @@
   background: none;
   border: none;
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
+  z-index: 1001;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+  line-height: 1;
 }
 
+.menu-toggle:hover {
+  color: #bced00;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 75vh;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.mobile-nav-link {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.mobile-nav-link:hover {
+  transform: translateX(6px);
+}
+
+.mobile-nav-link.link-1:hover { color: #bced00; }
+.mobile-nav-link.link-2:hover { color: #0036f3; }
+.mobile-nav-link.link-3:hover { color: #ff38fd; }
+.mobile-nav-link.link-4:hover { color: #595959; }
+.mobile-nav-link.link-5:hover { color: #d4af37; }
+
+.mobile-menu-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+  width: 100%;
+}
+
+.mobile-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #959da5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-tagline {
+  font-size: 0.85rem;
+  color: #888888;
+  line-height: 1.4;
+}
+
+/* Screen Breakpoints */
 @media (max-width: 768px) {
-  .nav {
+  .desktop-nav {
     display: none;
   }
 
@@ -81,10 +183,14 @@
   }
 
   .header-container {
-    padding: 1rem 1.5rem;
-  }
-
-  .logo {
-    font-size: 1.25rem;
+    padding: 0.75rem 1.25rem;
   }
 }
+
+@media (min-width: 1440px) {
+  .header-container {
+    max-width: 1600px;
+    padding: 1.25rem 3rem;
+  }
+}
+
