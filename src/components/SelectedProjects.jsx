@@ -2,10 +2,11 @@ import './SelectedProjects.css'
 import { useState, useEffect, useRef } from 'react'
 
 export default function SelectedProjects() {
+  const [currentProject, setCurrentProject] = useState(0)
+  const [isScrollLocked, setIsScrollLocked] = useState(false)
   const [hoveredCard, setHoveredCard] = useState(null)
-  const [scrollActiveCard, setScrollActiveCard] = useState(null)
-  const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef(null)
+  const scrollTimeout = useRef(null)
 
   const projects = [
     {
@@ -32,101 +33,90 @@ export default function SelectedProjects() {
   ]
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900)
+    const handleWheel = (e) => {
+      if (!containerRef.current) return
+      
+      const rect = containerRef.current.getBoundingClientRect()
+      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100
+      
+      if (isInSection) {
+        e.preventDefault()
+        
+        if (scrollTimeout.current) {
+          clearTimeout(scrollTimeout.current)
+        }
+        
+        scrollTimeout.current = setTimeout(() => {
+          if (e.deltaY > 0 && currentProject < projects.length - 1) {
+            // Scroll down - next project
+            setCurrentProject(prev => prev + 1)
+          } else if (e.deltaY < 0 && currentProject > 0) {
+            // Scroll up - previous project  
+            setCurrentProject(prev => prev - 1)
+          } else if (e.deltaY > 0 && currentProject === projects.length - 1) {
+            // Last project - allow normal scrolling to continue
+            setIsScrollLocked(false)
+            window.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' })
+          } else if (e.deltaY < 0 && currentProject === 0) {
+            // First project - allow scrolling up to previous section
+            setIsScrollLocked(false)
+            window.scrollBy({ top: -window.innerHeight * 0.5, behavior: 'smooth' })
+          }
+        }, 50)
+      }
     }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
-  useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return
+      
       const rect = containerRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight
+      const isEntering = rect.top <= 100 && rect.top > -100
       
-      const sectionTop = rect.top
-      const sectionHeight = rect.height
-      
-      if (sectionTop > windowHeight * 0.7 || rect.bottom < 100) {
-        setScrollActiveCard(null)
-        return
-      }
-      
-      const progress = (windowHeight * 0.45 - sectionTop) / sectionHeight
-      
-      if (progress < 0.2) {
-        setScrollActiveCard(0)
-      } else if (progress < 0.5) {
-        setScrollActiveCard(1)
-      } else {
-        setScrollActiveCard(2)
+      if (isEntering && !isScrollLocked) {
+        setIsScrollLocked(true)
+        setCurrentProject(0)
+      } else if (rect.bottom < 100) {
+        setIsScrollLocked(false)
       }
     }
 
+    window.addEventListener('wheel', handleWheel, { passive: false })
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const activeCard = hoveredCard !== null ? hoveredCard : scrollActiveCard
+    
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+    }
+  }, [currentProject, projects.length, isScrollLocked])
 
   const getTransformOffset = (index) => {
-    if (index === 0) return 0
-    if (activeCard === null) return 0
-
-    if (isMobile) {
-      if (index === 1 && (activeCard === 1 || activeCard === 2)) {
-        return activeCard === 1 ? -300 : -150
+    if (hoveredCard !== null) {
+      // Original hover logic
+      if (index === 0) return 0
+      if (index === 1 && (hoveredCard === 1 || hoveredCard === 2)) {
+        return hoveredCard === 1 ? -340 : -200
       }
-      if (index === 2 && activeCard === 2) {
-        return -550
+      if (index === 2 && hoveredCard === 2) {
+        return -650
       }
-      if (index === 2 && activeCard === 1) {
-        return -300
+      if (index === 2 && hoveredCard === 1) {
+        return -340
       }
-      return 0
     }
-    
-    if (index === 1 && (activeCard === 1 || activeCard === 2)) {
-      return activeCard === 1 ? -340 : -200
-    }
-    
-    if (index === 2 && activeCard === 2) {
-      return -650
-    }
-    
-    if (index === 2 && activeCard === 1) {
-      return -340
-    }
-    
     return 0
   }
 
-  const getViewAllMarginTop = () => {
-    if (isMobile) {
-      if (activeCard === 2) return '-450px'
-      if (activeCard === 1) return '-230px'
-      return '2rem'
-    }
-    if (activeCard === 2) {
-      return '-520px'
-    }
-    if (activeCard === 1) {
-      return '-280px'
-    }
-    return '4rem'
-  }
-
   return (
-    <section className="selected-projects" id="work" ref={containerRef}>
+    <section className="selected-projects scroll-snap-section" id="work" ref={containerRef}>
       <div className="section-container">
         <div className="projects-header">
           <h2>Selected Projects</h2>
         </div>
 
-        <div className="projects-grid">
+        <div className="projects-display">
           {projects.map((project, index) => {
             let imageUrl = '';
             if (project.id === 1) imageUrl = '/assets/RAINOIL_CUP_RENDER_9.jpg';
@@ -136,16 +126,14 @@ export default function SelectedProjects() {
             return (
               <div 
                 key={project.id} 
-                className={`project-card ${project.id === 2 ? 'project-reversed' : ''} ${activeCard === index ? 'project-active' : ''}`}
+                className={`project-slide ${index === currentProject ? 'active' : ''} ${project.id === 2 ? 'project-reversed' : ''}`}
                 style={{
                   transform: `translateY(${getTransformOffset(index)}px)`,
-                  transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
-                  zIndex: activeCard === index ? 10 : (index + 1)
+                  transition: 'transform 0.4s ease-out',
+                  zIndex: hoveredCard === index ? 10 : (index + 1)
                 }}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onTouchStart={() => setHoveredCard(hoveredCard === index ? null : index)}
-                onClick={() => setHoveredCard(hoveredCard === index ? null : index)}
               >
                 <img src={imageUrl} alt={project.name} className="project-image" />
                 <div className="project-content">
@@ -160,8 +148,17 @@ export default function SelectedProjects() {
             )
           })}
         </div>
+
+        <div className="scroll-progress">
+          {projects.map((_, index) => (
+            <div 
+              key={index} 
+              className={`progress-dot ${index === currentProject ? 'active' : ''}`}
+            />
+          ))}
+        </div>
         
-        <div className="view-all-container" style={{ marginTop: getViewAllMarginTop(), transition: 'margin-top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)' }}>
+        <div className="view-all-container">
           <a href="#" className="view-all">View all projects →</a>
         </div>
       </div>

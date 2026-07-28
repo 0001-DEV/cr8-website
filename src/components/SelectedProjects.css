@@ -3,6 +3,57 @@
   background-color: #0a0a0a;
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+.scroll-snap-section {
+  scroll-snap-align: start;
+}
+
+.projects-display {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.project-slide {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 600px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease-in-out;
+}
+
+.project-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-progress {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #333333;
+  transition: background-color 0.3s ease;
+}
+
+.progress-dot.active {
+  background-color: #959da5;
 }
 
 .projects-header {
