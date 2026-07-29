@@ -1,5 +1,5 @@
 .praise-from-clients {
-  padding: clamp(4rem, 8vw, 8rem) max(1.25rem, 3vw);
+  padding: clamp(3rem, 8vw, 8rem) max(1.25rem, 3vw);
   background-color: #000000;
   max-width: 1400px;
   margin: 0 auto;
@@ -186,20 +186,25 @@
     overflow-x: auto;
     padding: 1rem 0;
     scroll-snap-type: x mandatory;
+    margin-bottom: 1rem;
+    min-height: auto;
+    height: auto;
   }
   
   .testimonial-card {
     flex: 0 0 calc(100% - 0.5rem);
     scroll-snap-align: start;
-    padding: clamp(0.875rem, 1.5vw, 1.25rem);
+    padding: 1rem;
   }
 
   .testimonial-text {
-    font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
   }
 
   .author-name {
-    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
   }
   
   .sub-quote {
@@ -214,6 +219,24 @@
 
   .praise-from-clients h2 br {
     display: inline;
+  }
+
+  .testimonial-quotes {
+    padding: clamp(1rem, 2vw, 2rem) 0;
+  }
+
+  .quote-section {
+    margin-left: clamp(0rem, 3vw, 2rem);
+  }
+
+  .main-quote {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .sub-quote {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin: 0.5rem 0 0 0;
   }
 }
 
