@@ -8,12 +8,27 @@ export default function IntroAnimation({ onComplete }) {
 
   useEffect(() => {
     const calcTarget = () => {
-      const viewportW = window.innerWidth
-      const leftPad = viewportW > 1400 ? (viewportW - 1400) / 2 + 32 : 32
-      const top = 60 + 40 + 6
-      const scale = viewportW < 768 ? 0.52 : 0.82
-      setTargetPos({ top, left: leftPad, scale })
+      // Target the .brand-line element in the Hero section
+      const heroElement = document.querySelector('.brand-line')
+      if (heroElement) {
+        const rect = heroElement.getBoundingClientRect()
+        const scrollY = window.scrollY
+        
+        const top = rect.top + scrollY
+        const left = rect.left
+        const scale = 1 // Hero text is already at scale 1
+        
+        setTargetPos({ top, left, scale })
+      } else {
+        // Fallback to original calculation
+        const viewportW = window.innerWidth
+        const leftPad = viewportW > 1400 ? (viewportW - 1400) / 2 + 32 : 32
+        const topPos = 60 + 40 + 6
+        const scaleVal = viewportW < 768 ? 0.52 : 0.82
+        setTargetPos({ top: topPos, left: leftPad, scale: scaleVal })
+      }
     }
+    
     calcTarget()
     window.addEventListener('resize', calcTarget)
     return () => window.removeEventListener('resize', calcTarget)
@@ -89,12 +104,12 @@ export default function IntroAnimation({ onComplete }) {
           className="intro-brand-inner"
           initial={{ scale: 1 }}
           animate={{
-            top: ['50%', `${targetPos.top}px`],
+            top: ['50vh', `${targetPos.top}px`],
             left: ['50%', `${targetPos.left}px`],
             x: ['-50%', '0%'],
             y: ['-50%', '0%'],
             scale: [1, targetPos.scale],
-            transition: { duration: 0.9, delay: 1.2, ease: [0.65, 0, 0.35, 1] }
+            transition: { duration: 1.2, delay: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }
           }}
         >
           {brandText.map((line, lineIndex) => (

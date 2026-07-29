@@ -1,6 +1,6 @@
 .hero-image-section {
   width: 100%;
-  height: clamp(300px, 65vh, 850px);
+  height: clamp(450px, 65vh, 850px);
   padding-top: clamp(40px, 6vw, 75px);
   display: flex;
   align-items: center;
