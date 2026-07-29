@@ -82,12 +82,12 @@ export default function SelectedProjects() {
           end: `+=${numTransitions * 100}%`,
           pin: true,
           pinSpacing: true,
-          scrub: 1, // Increased to 1 for smoother manual control, no auto-scroll
+          scrub: 0.1, // Much faster response to scroll
           snap: {
             snapTo: 1 / numTransitions,
-            duration: { min: 0.2, max: 0.4 }, // Faster snap to position
+            duration: { min: 0.1, max: 0.2 }, // Snappier transition
             delay: 0,
-            ease: 'power1.inOut'
+            ease: 'power2.out'
           },
           onUpdate: (self) => {
             const p = self.progress
