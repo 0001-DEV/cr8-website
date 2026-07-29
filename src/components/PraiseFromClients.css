@@ -175,14 +175,31 @@
 
 @media (max-width: 1024px) {
   .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .testimonials-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
     padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .testimonial-card {
+    flex: 0 0 calc(100% - 0.5rem);
+    scroll-snap-align: start;
+    padding: clamp(0.875rem, 1.5vw, 1.25rem);
+  }
+
+  .testimonial-text {
+    font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+  }
+
+  .author-name {
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
   }
   
   .sub-quote {

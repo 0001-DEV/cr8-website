@@ -403,7 +403,7 @@
   .stacked-controls-overlay {
     display: none;
   }
-}
+
   .card-inner {
     grid-template-columns: 1fr;
     grid-template-rows: 0.8fr 1.2fr;
