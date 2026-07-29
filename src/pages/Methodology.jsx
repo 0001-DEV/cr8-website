@@ -6,6 +6,9 @@ export default function Methodology() {
 
   const handleBackClick = () => {
     navigate(-1)
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 0)
   }
 
   return (
