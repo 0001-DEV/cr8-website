@@ -257,6 +257,29 @@ export default function SelectedProjects() {
         </div>
       </div>
     </section>
+
+    {/* Controls Footer - Outside section for mobile */}
+    <div className="selected-projects-footer">
+      <div className="progress-dots mobile-progress-dots">
+        {projects.map((p, idx) => (
+          <div
+            key={p.id}
+            className={`progress-dot-item ${idx === activeIndex ? 'active' : ''}`}
+            onClick={() => scrollToProject(idx)}
+            style={{ cursor: 'pointer' }}
+          >
+            <span className="dot-line" />
+            <span className="dot-label">{p.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="view-all-link-wrapper">
+        <Link to="/work" className="view-all-stacked">
+          View All Projects <span>→</span>
+        </Link>
+      </div>
+    </div>
     </>
   )
 }

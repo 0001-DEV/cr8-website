@@ -24,6 +24,7 @@
   color: #ffffff;
   box-sizing: border-box;
   overflow: hidden;
+  margin-bottom: clamp(2rem, 4vw, 4rem);
 }
 
 /* Header overlay - Absolute pinned overlay */
@@ -372,7 +373,37 @@
 }
 
 /* Responsive Adjustments */
+.selected-projects-footer {
+  display: none;
+  background-color: #0a0a0a;
+  padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-progress-dots {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 @media (max-width: 900px) {
+  .selected-projects-footer {
+    display: flex;
+  }
+
+  .stacked-controls-overlay {
+    display: none;
+  }
+}
   .card-inner {
     grid-template-columns: 1fr;
     grid-template-rows: 0.8fr 1.2fr;
@@ -425,6 +456,7 @@
     gap: 1.5rem;
     margin-top: 0;
     z-index: 1;
+    min-height: auto;
   }
 
   .progress-dots {
