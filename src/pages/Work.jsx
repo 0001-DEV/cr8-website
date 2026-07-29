@@ -5,8 +5,7 @@ export default function Work() {
   const navigate = useNavigate()
 
   const handleBackClick = () => {
-    navigate(-1)
-    // Scroll to top to skip intro animation
+    navigate('/')
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 0)

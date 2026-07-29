@@ -5,7 +5,7 @@ export default function Methodology() {
   const navigate = useNavigate()
 
   const handleBackClick = () => {
-    navigate(-1)
+    navigate('/')
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 0)
