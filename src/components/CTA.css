@@ -1,5 +1,5 @@
 .cta {
-  padding: clamp(3rem, 6vw, 8rem) max(1.25rem, 3vw);
+  padding: clamp(4rem, 8vw, 8rem) max(1.25rem, 3vw);
   background-color: #1e2121;
   text-align: center;
   max-width: 1400px;

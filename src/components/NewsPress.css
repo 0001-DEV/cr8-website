@@ -1,5 +1,5 @@
 .news-press {
-  padding: clamp(3rem, 6vw, 6rem) max(1.25rem, 3vw);
+  padding: clamp(4rem, 8vw, 8rem) max(1.25rem, 3vw) clamp(3rem, 6vw, 6rem) max(1.25rem, 3vw);
   background-color: #0a0a0a;
   max-width: 1400px;
   margin: 0 auto;
@@ -179,4 +179,4 @@
   .news-press {
     max-width: 1600px;
   }
-}
+}

@@ -19,6 +19,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NewsArticle from './pages/NewsArticle'
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 function HomePage() {
   const [introComplete, setIntroComplete] = useState(false)
   const [showHeader, setShowHeader] = useState(false)
@@ -43,6 +45,9 @@ function HomePage() {
 
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        setTimeout(() => {
+          ScrollTrigger.refresh()
+        }, 500)
       }, 2100)
     }
   }, [introComplete])

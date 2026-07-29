@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@400;700&display=swap');
+
 .hero {
-  padding-top: clamp(40px, 8vh, 100px);
+  padding-top: clamp(4rem, 10vh, 8rem);
+  padding-bottom: clamp(4rem, 10vh, 8rem);
   min-height: 50vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -36,7 +39,6 @@
   width: 100%;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@400;700&display=swap');
 
 .brand-line {
   font-size: clamp(2.2rem, 7.2vw, 5.2rem);

@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
-  margin: -2rem 0 2rem 0;
+  padding: clamp(3rem, 6vw, 6rem) 2rem;
+  margin: 0;
 }
 
 .cross-icon {

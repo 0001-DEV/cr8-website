@@ -13,6 +13,7 @@
 }
 
 .page-content--shown {
-  transform: translateY(0);
+  transform: none;
   opacity: 1;
+  will-change: auto;
 }
