@@ -5,10 +5,8 @@ export default function Services() {
   const navigate = useNavigate()
 
   const handleBackClick = () => {
+    sessionStorage.setItem('returnedFromPage', 'true')
     navigate('/', { replace: true })
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 0)
   }
 
   return (

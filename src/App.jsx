@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect, useRef } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import IntroAnimation from './components/IntroAnimation'
 import Header from './components/Header'
 import HeroImage from './components/HeroImage'
@@ -24,7 +24,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 function HomePage() {
   const [introComplete, setIntroComplete] = useState(false)
   const [showHeader, setShowHeader] = useState(false)
+  const [skipIntro, setSkipIntro] = useState(false)
   const heroRef = useRef(null)
+  const location = useLocation()
+
+  useEffect(() => {
+    // Check if returning from a feature page
+    const hasReturnedFromPage = sessionStorage.getItem('returnedFromPage')
+    if (hasReturnedFromPage) {
+      setSkipIntro(true)
+      setIntroComplete(true)
+      setShowHeader(true)
+      sessionStorage.removeItem('returnedFromPage')
+    }
+  }, [location])
 
   useEffect(() => {
     if (introComplete) {
@@ -54,7 +67,7 @@ function HomePage() {
 
   return (
     <div className="app">
-      <IntroAnimation onComplete={() => setIntroComplete(true)} />
+      {!skipIntro && <IntroAnimation onComplete={() => setIntroComplete(true)} />}
       <div
         className={`page-content ${showHeader ? 'page-content--shown' : ''}`}
         style={{ visibility: showHeader ? 'visible' : 'hidden' }}
