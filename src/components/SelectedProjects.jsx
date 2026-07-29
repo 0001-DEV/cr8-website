@@ -73,7 +73,7 @@ export default function SelectedProjects() {
 
       const numTransitions = wrappers.length - 1
 
-      // 2. GSAP Pinned timeline with snap-to-card step behavior
+      // 2. GSAP Pinned timeline with snap-to-card step behavior (manual scroll only)
       const tl = gsap.timeline({
         scrollTrigger: {
           id: 'selected-projects-pin',
@@ -82,12 +82,12 @@ export default function SelectedProjects() {
           end: `+=${numTransitions * 100}%`,
           pin: true,
           pinSpacing: true,
-          scrub: 0.6,
+          scrub: 1, // Increased to 1 for smoother manual control, no auto-scroll
           snap: {
             snapTo: 1 / numTransitions,
-            duration: { min: 0.35, max: 0.65 },
-            delay: 0.05,
-            ease: 'power2.inOut'
+            duration: { min: 0.2, max: 0.4 }, // Faster snap to position
+            delay: 0,
+            ease: 'power1.inOut'
           },
           onUpdate: (self) => {
             const p = self.progress
