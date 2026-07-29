@@ -54,11 +54,11 @@ export default function Header() {
             <img src="/assets/Asset 1.svg" alt="Xtreme Cr8tivity Logo" className="logo-img" />
           </a>
           <nav className="nav desktop-nav">
-            <a href="/work" target="_blank" rel="noopener noreferrer" className="nav-link nav-link-1">Work</a>
-            <a href="/services" target="_blank" rel="noopener noreferrer" className="nav-link nav-link-2">Services</a>
-            <a href="/methodology" target="_blank" rel="noopener noreferrer" className="nav-link nav-link-3">Our Methodology</a>
-            <a href="/about" target="_blank" rel="noopener noreferrer" className="nav-link nav-link-4">About</a>
-            <a href="/contact" target="_blank" rel="noopener noreferrer">Contact</a>
+            <Link to="/work" className="nav-link nav-link-1">Work</Link>
+            <Link to="/services" className="nav-link nav-link-2">Services</Link>
+            <Link to="/methodology" className="nav-link nav-link-3">Our Methodology</Link>
+            <Link to="/about" className="nav-link nav-link-4">About</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
           </nav>
           <button 
             className="menu-toggle" 
@@ -70,22 +70,22 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Overlay Menu */}
-      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
-        <div className="mobile-menu-content">
-          <nav className="mobile-nav">
-            <a href="/work" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-1">Work</a>
-            <a href="/services" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-2">Services</a>
-            <a href="/methodology" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-3">Our Methodology</a>
-            <a href="/about" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-4">About</a>
-            <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-5">Contact</a>
-          </nav>
-          <div className="mobile-menu-footer">
-            <p className="mobile-brand">Xtreme Cr8tivity</p>
-            <p className="mobile-tagline">Bringing excellence to everyday things of life.</p>
+          {/* Mobile Overlay Menu */}
+          <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+            <div className="mobile-menu-content">
+              <nav className="mobile-nav">
+                <Link to="/work" onClick={closeMobileMenu} className="mobile-nav-link link-1">Work</Link>
+                <Link to="/services" onClick={closeMobileMenu} className="mobile-nav-link link-2">Services</Link>
+                <Link to="/methodology" onClick={closeMobileMenu} className="mobile-nav-link link-3">Our Methodology</Link>
+                <Link to="/about" onClick={closeMobileMenu} className="mobile-nav-link link-4">About</Link>
+                <Link to="/contact" onClick={closeMobileMenu} className="mobile-nav-link link-5">Contact</Link>
+              </nav>
+              <div className="mobile-menu-footer">
+                <p className="mobile-brand">Xtreme Cr8tivity</p>
+                <p className="mobile-tagline">Bringing excellence to everyday things of life.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
     </>
   )
 }
