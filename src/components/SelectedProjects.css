@@ -411,4 +411,28 @@
   .dot-label {
     display: none !important;
   }
+
+  .stacked-controls-overlay {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    background: transparent;
+    padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 4rem);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: clamp(2rem, 4vw, 4rem);
+  }
+
+  .progress-dots {
+    margin-bottom: 1rem;
+  }
+
+  .view-all-link-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
