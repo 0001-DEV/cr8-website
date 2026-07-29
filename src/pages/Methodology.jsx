@@ -1,15 +1,17 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Page.css'
 
 export default function Methodology() {
+  const navigate = useNavigate()
+
   const handleBackClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    navigate(-1)
   }
 
   return (
     <div className="page page-methodology">
       <header className="page-header">
-        <Link to="/" onClick={handleBackClick} className="page-back">← Home</Link>
+        <button onClick={handleBackClick} className="page-back">← Back</button>
       </header>
       <section className="page-hero">
         <h1 className="page-title">Our Methodology</h1>
