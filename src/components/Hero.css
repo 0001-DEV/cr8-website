@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@400;700&family=Montserrat:wght@900&display=swap');
 
 .hero {
-  padding-top: clamp(4rem, 10vh, 8rem);
+  padding-top: clamp(2rem, 10vh, 8rem);
   padding-bottom: clamp(4rem, 10vh, 8rem);
   min-height: 50vh;
   display: grid;
@@ -36,16 +36,16 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  width: 100%;
+  width: 694px;
+  height: 302px;
 }
 
-
 .brand-line {
-  font-size: clamp(2.2rem, 7.2vw, 5.2rem);
-  font-weight: 700;
-  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 400px;
+  font-weight: 900;
+  font-family: 'Montserrat';
   letter-spacing: 0.04em;
-  color: #959da5;
+  color: white;
   line-height: 1.05;
   white-space: nowrap;
   overflow: visible;
@@ -240,7 +240,4 @@
     font-size: 5.5rem;
   }
 }
-
-
-
 
