@@ -36,19 +36,18 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  width: 694px;
-  height: 302px;
+  width: 100%;
 }
 
 .brand-line {
-  font-size: 400px;
+  font-size: clamp(1.8rem, 7vw, 220px);
   font-weight: 900;
   font-family: 'Montserrat';
   letter-spacing: 0.04em;
   color: white;
   line-height: 1.05;
   white-space: nowrap;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .animated-char {
@@ -57,136 +56,46 @@
   transform-origin: center;
 }
 
-/* Scale Animation */
-.morph-scale:hover {
-  transform: scale(1.3);
-  color: #bced00;
-  text-shadow: 0 0 15px rgba(188, 237, 0, 0.6);
-}
-
-/* Rotate Animation */
-.morph-rotate:hover {
-  transform: rotate(360deg) scale(1.1);
-  color: #ff38fd;
-  text-shadow: 0 0 20px rgba(255, 56, 253, 0.5);
-}
-
-/* Flip Animation */
-.morph-flip:hover {
-  transform: rotateY(180deg) scale(1.2);
-  color: #0036f3;
-  text-shadow: 0 0 25px rgba(0, 54, 243, 0.4);
-}
-
-/* Bounce Animation */
-.morph-bounce:hover {
-  animation: bounce 0.6s ease-in-out;
-  color: #ff6b6b;
-  text-shadow: 0 0 18px rgba(255, 107, 107, 0.5);
-}
-
-/* Skew Animation */
-.morph-skew:hover {
-  transform: skewX(15deg) scale(1.1);
-  color: #4ecdc4;
-  text-shadow: 0 0 22px rgba(78, 205, 196, 0.5);
-}
-
-/* Blur to Sharp Animation */
-.morph-blur:hover {
-  filter: blur(3px) brightness(1.5);
-  color: #ffe66d;
-  text-shadow: 0 0 30px rgba(255, 230, 109, 0.6);
-  animation: blur-sharp 0.5s ease-in-out;
-}
-
-/* Glow Pulse Animation */
-.morph-glow:hover {
-  color: #ff9f43;
-  text-shadow: 0 0 10px #ff9f43, 0 0 20px #ff9f43, 0 0 30px #ff9f43;
-  animation: glow-pulse 0.8s ease-in-out infinite alternate;
-}
-
-/* Shake Animation */
-.morph-shake:hover {
-  color: #ee5a52;
-  animation: shake 0.5s ease-in-out;
-  text-shadow: 0 0 15px rgba(238, 90, 82, 0.5);
-}
-
-/* Spin Animation */
-.morph-spin:hover {
-  transform: rotateZ(720deg) scale(1.15);
-  color: #9c88ff;
-  text-shadow: 0 0 25px rgba(156, 136, 255, 0.5);
-}
-
-/* Wave Animation */
-.morph-wave:hover {
-  animation: wave 0.6s ease-in-out;
-  color: #54a0ff;
-  text-shadow: 0 0 20px rgba(84, 160, 255, 0.5);
-}
-
-/* Pulse Animation */
-.morph-pulse:hover {
-  animation: pulse 0.7s ease-in-out infinite;
-  color: #26de81;
-  text-shadow: 0 0 15px rgba(38, 222, 129, 0.6);
-}
-
-/* Stretch Animation */
-.morph-stretch:hover {
-  transform: scaleX(1.5) scaleY(0.8);
-  color: #fd79a8;
-  text-shadow: 0 0 18px rgba(253, 121, 168, 0.5);
-}
+.morph-scale:hover { transform: scale(1.3); color: #bced00; text-shadow: 0 0 15px rgba(188,237,0,0.6); }
+.morph-rotate:hover { transform: rotate(360deg) scale(1.1); color: #ff38fd; text-shadow: 0 0 20px rgba(255,56,253,0.5); }
+.morph-flip:hover { transform: rotateY(180deg) scale(1.2); color: #0036f3; text-shadow: 0 0 25px rgba(0,54,243,0.4); }
+.morph-bounce:hover { animation: bounce 0.6s ease-in-out; color: #ff6b6b; text-shadow: 0 0 18px rgba(255,107,107,0.5); }
+.morph-skew:hover { transform: skewX(15deg) scale(1.1); color: #4ecdc4; text-shadow: 0 0 22px rgba(78,205,196,0.5); }
+.morph-blur:hover { filter: blur(3px) brightness(1.5); color: #ffe66d; text-shadow: 0 0 30px rgba(255,230,109,0.6); animation: blur-sharp 0.5s ease-in-out; }
+.morph-glow:hover { color: #ff9f43; text-shadow: 0 0 10px #ff9f43, 0 0 20px #ff9f43, 0 0 30px #ff9f43; animation: glow-pulse 0.8s ease-in-out infinite alternate; }
+.morph-shake:hover { color: #ee5a52; animation: shake 0.5s ease-in-out; text-shadow: 0 0 15px rgba(238,90,82,0.5); }
+.morph-spin:hover { transform: rotateZ(720deg) scale(1.15); color: #9c88ff; text-shadow: 0 0 25px rgba(156,136,255,0.5); }
+.morph-wave:hover { animation: wave 0.6s ease-in-out; color: #54a0ff; text-shadow: 0 0 20px rgba(84,160,255,0.5); }
+.morph-pulse:hover { animation: pulse 0.7s ease-in-out infinite; color: #26de81; text-shadow: 0 0 15px rgba(38,222,129,0.6); }
+.morph-stretch:hover { transform: scaleX(1.5) scaleY(0.8); color: #fd79a8; text-shadow: 0 0 18px rgba(253,121,168,0.5); }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-20px) scale(1.2); }
 }
-
 @keyframes blur-sharp {
   0% { filter: blur(0px); }
   50% { filter: blur(5px); }
   100% { filter: blur(0px); }
 }
-
 @keyframes glow-pulse {
   0% { text-shadow: 0 0 10px currentColor; }
   100% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
 }
-
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
   20%, 40%, 60%, 80% { transform: translateX(3px); }
 }
-
 @keyframes wave {
   0%, 100% { transform: translateY(0) rotateZ(0deg); }
   25% { transform: translateY(-10px) rotateZ(5deg); }
   50% { transform: translateY(0) rotateZ(0deg); }
   75% { transform: translateY(-5px) rotateZ(-5deg); }
 }
-
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.3); }
-}
-
-.hero-title {
-  font-size: clamp(1.75rem, 4vw, 3.5rem);
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.hero-subtitle {
-  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
-  color: #999999;
-  font-style: italic;
 }
 
 .hero-visual {
@@ -197,22 +106,13 @@
 }
 
 .hero-visual-text {
-  font-size: clamp(1.15rem, 2.4vw, 2rem);
+  font-size: clamp(1rem, 2.4vw, 2rem);
   color: #cccccc;
   line-height: 1.45;
   font-weight: 300;
   letter-spacing: 0.02em;
   white-space: normal;
-}
-
-@media (max-width: 900px) {
-  .hero-visual-text br {
-    display: none;
-  }
-
-  .hero-visual-text {
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  }
+  max-width: 770px;
 }
 
 @media (max-width: 900px) {
@@ -222,12 +122,16 @@
     padding-top: 30px;
   }
 
+  .brand-line {
+    font-size: clamp(1.8rem, 10vw, 80px);
+  }
+
   .hero-visual {
     justify-content: flex-start;
   }
 
-  .hero-visual-text br {
-    display: inline;
+  .hero-visual-text {
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
   }
 }
 
@@ -235,11 +139,4 @@
   .hero {
     max-width: 1600px;
   }
-  
-  .brand-line {
-    font-size: 5.5rem;
-  }
 }
-
-
-
