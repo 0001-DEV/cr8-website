@@ -4,10 +4,7 @@ export default function SegmentedCrossIcon() {
   return (
     <div className="cross-icon-container">
       <div className="cross-icon">
-        <div className="cross-bar cross-top"></div>
-        <div className="cross-bar cross-right"></div>
-        <div className="cross-bar cross-bottom"></div>
-        <div className="cross-bar cross-left"></div>
+        <img src="/assets/Asset 34.svg" alt="Cross Icon" className="cross-img" />
       </div>
     </div>
   )

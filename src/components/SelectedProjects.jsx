@@ -33,7 +33,7 @@ export default function SelectedProjects() {
       description: "Crafting bespoke commemorative packaging celebrating heritage and excellence for Nigeria's premier brewing company, combining traditional craftsmanship with modern luxury aesthetic.",
       image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.jpg',
       tags: ['Packaging Design', '3D Rendering', 'Luxury Packaging'],
-
+      imageLeft: true,
     },
     {
       id: 3,
@@ -175,7 +175,7 @@ export default function SelectedProjects() {
               className={`stacked-card ${index === activeIndex ? 'is-active' : ''}`}
               ref={(el) => (cardsRef.current[index] = el)}
             >
-              <div className="card-inner">
+              <div className={`card-inner${project.imageLeft ? ' image-left' : ''}`}>
                 {/* Left Column: Project Metadata */}
                 <div className="card-info">
                   <div className="card-meta">
