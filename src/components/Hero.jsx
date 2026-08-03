@@ -36,7 +36,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-visual">
-        <p className="hero-visual-text">Bringing excellence to<br />mundane everyday things of life.</p>
+        <p className="hero-visual-text">Bringing excellence to mundane everyday things of life.</p>
       </div>
     </section>
   )
