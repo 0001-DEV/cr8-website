@@ -57,8 +57,10 @@ export default function SelectedProjects() {
     const cards = cardsRef.current.filter(Boolean)
     if (!container || wrappers.length === 0) return
 
+    const isMobile = window.matchMedia('(max-width: 900px)').matches
+    const isSmallMobile = window.matchMedia('(max-width: 600px)').matches
+
     let ctx = gsap.context(() => {
-      // 1. Initial card positions: Card 0 at 0; Card 1 & 2 100% translated down
       wrappers.forEach((wrapper, i) => {
         if (i > 0) {
           gsap.set(wrapper, { yPercent: 100 })
@@ -73,19 +75,20 @@ export default function SelectedProjects() {
 
       const numTransitions = wrappers.length - 1
 
-      // 2. GSAP Pinned timeline with snap-to-card step behavior (manual scroll only)
+      const endMultiplier = isSmallMobile ? 150 : (isMobile ? 125 : 100)
+
       const tl = gsap.timeline({
         scrollTrigger: {
           id: 'selected-projects-pin',
           trigger: container,
           start: 'top top',
-          end: `+=${numTransitions * 100}%`,
+          end: `+=${numTransitions * endMultiplier}%`,
           pin: true,
           pinSpacing: true,
-          scrub: 0.1, // Much faster response to scroll
+          scrub: isMobile ? 0.15 : 0.1,
           snap: {
             snapTo: 1 / numTransitions,
-            duration: { min: 0.1, max: 0.2 }, // Snappier transition
+            duration: { min: isMobile ? 0.15 : 0.1, max: isMobile ? 0.3 : 0.2 },
             delay: 0,
             ease: 'power2.out'
           },
@@ -102,30 +105,27 @@ export default function SelectedProjects() {
         }
       })
 
-      // 3. Chain discrete card transitions
       for (let i = 0; i < numTransitions; i++) {
         const nextWrapper = wrappers[i + 1]
         const currentCard = cards[i]
 
-        // Slide next card UP over current card
         tl.to(
           nextWrapper,
           {
             yPercent: 0,
-            duration: 1,
+            duration: isMobile ? 1.2 : 1,
             ease: 'power1.inOut'
           },
           i
         )
 
-        // Scale down and dim current card underneath
         tl.to(
           currentCard,
           {
-            scale: 0.92,
+            scale: isMobile ? 0.95 : 0.92,
             opacity: 0.6,
             filter: 'brightness(0.4)',
-            duration: 1,
+            duration: isMobile ? 1.2 : 1,
             ease: 'power1.inOut'
           },
           i
@@ -133,13 +133,25 @@ export default function SelectedProjects() {
       }
     }, containerRef)
 
-    // Trigger ScrollTrigger refresh after initial mount & intro animation complete
+    const handleResize = () => {
+      ScrollTrigger.refresh()
+    }
+
     const t1 = setTimeout(() => ScrollTrigger.refresh(), 300)
     const t2 = setTimeout(() => ScrollTrigger.refresh(), 2200)
+    const t3 = setTimeout(() => ScrollTrigger.refresh(), 3500)
+
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => ScrollTrigger.refresh(), 100)
+      setTimeout(() => ScrollTrigger.refresh(), 500)
+    })
 
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
+      clearTimeout(t3)
+      window.removeEventListener('resize', handleResize)
       ctx.revert()
     }
   }, [projects.length])
@@ -179,15 +191,15 @@ export default function SelectedProjects() {
                 {/* Left Column: Project Metadata */}
                 <div className="card-info">
                   <div className="card-meta">
-                    <span className="card-number">{project.number}</span>
                     <span className="card-category-badge">{project.category}</span>
                     {project.year && <span className="card-year">{project.year}</span>}
                   </div>
 
                   <h3 className="card-title">{project.name}</h3>
-                  <h4 className="card-subcategory">{project.subcategory}</h4>
-                  <p className="card-description">{project.description}</p>
-
+                  <div className="card-body">
+                    <h4 className="card-subcategory">{project.subcategory}</h4>
+                    <p className="card-description">{project.description}</p>
+                  </div>
                   <div className="card-tags">
                     {project.tags.map((tag, tIdx) => (
                       <span key={tIdx} className="card-tag">
