@@ -240,7 +240,7 @@ export default function SelectedProjects() {
                   </div>
 
                   <div className="card-actions">
-                    <Link to={`/case-study/${project.id}`} className="card-btn">
+                    <Link to={`/case-study/${project.id}`} className="card-btn" onClick={(e) => { e.stopPropagation(); sessionStorage.setItem('returnedFromPage', 'true') }}>
                       <span>Explore Case Study</span>
                       <svg
                         width="16"
@@ -262,6 +262,10 @@ export default function SelectedProjects() {
                     to={`/case-study/${project.id}`}
                     className="card-corner-arrow"
                     aria-label={`View ${project.name} case study`}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      sessionStorage.setItem('returnedFromPage', 'true')
+                    }}
                   >
                     <img src="/assets/Asset 35.svg" alt="Open case study" />
                   </Link>
