@@ -88,6 +88,11 @@
   padding: 0;
   box-sizing: border-box;
   will-change: transform;
+  pointer-events: none;
+}
+
+.stacked-card {
+  pointer-events: auto;
 }
 
 .stacked-card {
