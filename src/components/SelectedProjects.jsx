@@ -2,7 +2,7 @@ import './SelectedProjects.css'
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -11,6 +11,7 @@ export default function SelectedProjects() {
   const cardsRef = useRef([])
   const wrapperRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
+  const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== 'undefined' && window.matchMedia('(max-width: 900px)').matches
   )
@@ -240,7 +241,7 @@ export default function SelectedProjects() {
                   </div>
 
                   <div className="card-actions">
-                    <Link to={`/case-study/${project.id}`} className="card-btn" onClick={(e) => { e.stopPropagation(); sessionStorage.setItem('returnedFromPage', 'true') }}>
+                    <button className="card-btn" onClick={(e) => { e.stopPropagation(); e.preventDefault(); sessionStorage.setItem('returnedFromPage', 'true'); navigate(`/case-study/${project.id}`) }}>
                       <span>Explore Case Study</span>
                       <svg
                         width="16"
@@ -255,20 +256,21 @@ export default function SelectedProjects() {
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
-                    </Link>
+                    </button>
                   </div>
 
-                  <Link
-                    to={`/case-study/${project.id}`}
+                  <button
                     className="card-corner-arrow"
                     aria-label={`View ${project.name} case study`}
                     onClick={(e) => {
                       e.stopPropagation()
+                      e.preventDefault()
                       sessionStorage.setItem('returnedFromPage', 'true')
+                      navigate(`/case-study/${project.id}`)
                     }}
                   >
                     <img src="/assets/Asset 35.svg" alt="Open case study" />
-                  </Link>
+                  </button>
                 </div>
 
                 {/* Right Column: Visual Image Render */}
