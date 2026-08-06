@@ -21,7 +21,7 @@
   margin-bottom: 1.5rem;
   padding: clamp(1.5rem, 3vw, 3rem) 0;
   background-color: #000000;
-  min-height: 18rem;
+  min-height: 24rem;
   height: auto;
 }
 
@@ -35,11 +35,14 @@
 
 .testimonial-card {
   display: flex;
-  flex-direction: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.25rem;
   background: #c3cdd8;
-  padding: clamp(1.25rem, 2vw, 1.75rem);
+  padding: clamp(1.75rem, 2.5vw, 2.25rem);
   border-radius: 4px;
+  min-height: 260px;
+  box-sizing: border-box;
+  justify-content: space-between;
 }
 
 .testimonial-card:nth-child(2) {
@@ -48,11 +51,12 @@
 
 .testimonial-avatar {
   flex-shrink: 0;
+  align-self: flex-start;
 }
 
 .avatar-circle {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background-color: #333333;
 }
@@ -65,20 +69,26 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
 }
 
+/* Fix author name to appear on top */
 .author-name {
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  font-weight: 600;
+  font-weight: 700;
   color: #1a1a1a;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
+  order: 1;
+  letter-spacing: -0.01em;
 }
 
 .testimonial-text {
-  font-size: clamp(0.85rem, 1.05vw, 0.95rem);
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   color: #2c3238;
-  line-height: 1.5;
-  margin-top: 0.5rem;
+  line-height: 1.65;
+  margin: 0;
+  order: 2;
+  flex: 1;
 }
 
 .testimonial-card:nth-child(2) .author-name {
@@ -110,15 +120,25 @@
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
   font-style: italic;
+  width: 563px;
+  max-width: 563px;
+  height: 218px;
+  min-height: 218px;
+  box-sizing: border-box;
 }
 
 .sub-quote {
   font-size: clamp(1.5rem, 3.8vw, 3rem);
   font-weight: 700;
   color: #c3cdd8;
-  margin: 0 0 0 clamp(1rem, 8vw, 8rem);
+  margin: 0 0 1rem clamp(1rem, 8vw, 8rem);
   line-height: 1.25;
   font-style: italic;
+  width: 563px;
+  max-width: 563px;
+  height: 218px;
+  min-height: 218px;
+  box-sizing: border-box;
 }
 
 .navigation-arrows {
@@ -127,26 +147,48 @@
   align-items: center;
   width: 100%;
   margin-bottom: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-arrow {
-  width: 48px;
-  height: 48px;
+  width: auto;
+  height: auto;
   background: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  border-radius: 50%;
+  border: none;
   cursor: pointer;
-  font-size: 1.2rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
 }
 
-.nav-arrow:hover {
-  background: #ffffff;
-  color: #000000;
+.nav-arrow-img {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(0.6);
+  object-fit: contain;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.nav-arrow-img-prev {
+  transform: rotate(180deg);
+}
+
+.nav-arrow-img-next {
+  transform: rotate(0deg);
+}
+
+.nav-arrow:hover .nav-arrow-img {
+  filter: brightness(0) invert(1);
+}
+
+.nav-arrow-prev:hover .nav-arrow-img-prev {
+  transform: rotate(180deg) translateX(4px);
+}
+
+.nav-arrow-next:hover .nav-arrow-img-next {
+  transform: translateX(4px);
 }
 
 @keyframes slideInFromRight {

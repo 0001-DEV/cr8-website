@@ -11,6 +11,12 @@ export default function SelectedProjects() {
   const cardsRef = useRef([])
   const wrapperRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 900px)').matches
+  )
+  const [isSmallMobile, setIsSmallMobile] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 600px)').matches
+  )
 
   const projects = [
     {
@@ -49,6 +55,34 @@ export default function SelectedProjects() {
   ]
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const mqMobile = window.matchMedia('(max-width: 900px)')
+    const mqSmallMobile = window.matchMedia('(max-width: 600px)')
+
+    const handleMobileChange = (e) => setIsMobile(e.matches)
+    const handleSmallMobileChange = (e) => setIsSmallMobile(e.matches)
+
+    if (mqMobile.addEventListener) {
+      mqMobile.addEventListener('change', handleMobileChange)
+      mqSmallMobile.addEventListener('change', handleSmallMobileChange)
+    } else {
+      mqMobile.addListener(handleMobileChange)
+      mqSmallMobile.addListener(handleSmallMobileChange)
+    }
+
+    return () => {
+      if (mqMobile.removeEventListener) {
+        mqMobile.removeEventListener('change', handleMobileChange)
+        mqSmallMobile.removeEventListener('change', handleSmallMobileChange)
+      } else {
+        mqMobile.removeListener(handleMobileChange)
+        mqSmallMobile.removeListener(handleSmallMobileChange)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     wrapperRefs.current = wrapperRefs.current.slice(0, projects.length)
     cardsRef.current = cardsRef.current.slice(0, projects.length)
 
@@ -56,9 +90,6 @@ export default function SelectedProjects() {
     const wrappers = wrapperRefs.current.filter(Boolean)
     const cards = cardsRef.current.filter(Boolean)
     if (!container || wrappers.length === 0) return
-
-    const isMobile = window.matchMedia('(max-width: 900px)').matches
-    const isSmallMobile = window.matchMedia('(max-width: 600px)').matches
 
     let ctx = gsap.context(() => {
       wrappers.forEach((wrapper, i) => {
@@ -154,7 +185,7 @@ export default function SelectedProjects() {
       window.removeEventListener('resize', handleResize)
       ctx.revert()
     }
-  }, [projects.length])
+  }, [projects.length, isMobile, isSmallMobile])
 
   const scrollToProject = (index) => {
     const st = ScrollTrigger.getById('selected-projects-pin')
@@ -209,7 +240,7 @@ export default function SelectedProjects() {
                   </div>
 
                   <div className="card-actions">
-                    <Link to="/work" className="card-btn">
+                    <Link to={`/case-study/${project.id}`} className="card-btn">
                       <span>Explore Case Study</span>
                       <svg
                         width="16"
@@ -226,6 +257,20 @@ export default function SelectedProjects() {
                       </svg>
                     </Link>
                   </div>
+
+                  <Link
+                    to={`/case-study/${project.id}`}
+                    className="card-corner-arrow"
+                    aria-label={`View ${project.name} case study`}
+                    onClick={(e) => {
+                      const arrow = e.currentTarget.querySelector('img')
+                      if (arrow) {
+                        arrow.classList.add('clicked')
+                      }
+                    }}
+                  >
+                    <img src="/assets/Asset 35.svg" alt="Open case study" />
+                  </Link>
                 </div>
 
                 {/* Right Column: Visual Image Render */}

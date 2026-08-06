@@ -1,4 +1,5 @@
 import './NewsPress.css'
+import { Link } from 'react-router-dom'
 
 export default function NewsPress() {
   const items = [
@@ -108,10 +109,8 @@ export default function NewsPress() {
                 <div className="news-text">
                   <p className="news-title">{item.title}</p>
                   <p className="news-meta">{item.meta}</p>
-                  <a
-                    href={`/news/${item.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/news"
                     className="news-arrow-link"
                   >
                     <svg
@@ -126,7 +125,7 @@ export default function NewsPress() {
                       <line x1="5" y1="5" x2="19" y2="19" />
                       <polyline points="12 19 19 19 19 12" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
                 {item.reverse && (
                   <img

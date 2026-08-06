@@ -96,16 +96,19 @@
 .pillar-text-overlay {
   width: 100%;
   background: rgba(0, 0, 0, 0.85);
-  padding: 0.75rem 1rem;
+  padding: 0 1rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease, padding 0.3s ease;
   flex-shrink: 0;
 }
 
 .pillar-text-bottom { max-height: 0; }
 .pillar-text-top { max-height: 0; order: 1; }
-.pillar-image-container:hover .pillar-text-overlay { max-height: 220px; }
+.pillar-image-container:hover .pillar-text-overlay {
+  max-height: 220px;
+  padding: 0.75rem 1rem;
+}
 
 .pillar-text-overlay-middle {
   position: absolute;
@@ -113,10 +116,10 @@
   left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.85);
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, top 0.3s ease;
+  transition: max-height 0.3s ease, top 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
   opacity: 0;
 }
 
@@ -124,6 +127,7 @@
   max-height: 160px;
   opacity: 1;
   top: 0;
+  padding: 0.5rem 1rem;
 }
 
 .pillar-text {
@@ -149,6 +153,66 @@
   margin-top: 1rem;
   z-index: 1;
   position: relative;
+}
+
+.pillar-arrow {
+  color: #959da5;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  width: clamp(16px, 2vw, 20px);
+  height: auto;
+  filter: brightness(0) invert(0.6);
+  object-fit: contain;
+}
+
+.pillar-text-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.pillar-text-label h3 {
+  margin-top: 0;
+  text-align: center;
+  flex: 1;
+  padding-left: 2.5rem;
+}
+
+.pillar-arrow-label {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pillar-image-container:hover .pillar-arrow-label {
+  transform: rotate(-45deg) translateY(-50%) translateX(4px);
+}
+
+.pillar-text-overlay {
+  position: relative;
+}
+
+.pillar-text-overlay h3 {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.pillar-text-overlay-middle {
+  position: absolute;
+}
+
+.pillar-arrow-overlay {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 0.875rem;
+  transform: rotate(-45deg);
+}
+
+.pillar-image-container:hover .pillar-arrow-overlay {
+  transform: rotate(-45deg) translateX(4px);
 }
 
 .clientele {

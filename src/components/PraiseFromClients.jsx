@@ -83,8 +83,12 @@ export default function PraiseFromClients() {
         </div>
 
         <div className="navigation-arrows">
-          <button type="button" className="nav-arrow prev" onClick={showPreviousPage} aria-label="Show previous testimonials">←</button>
-          <button type="button" className="nav-arrow next" onClick={showNextPage} aria-label="Show next testimonials">→</button>
+          <button type="button" className="nav-arrow nav-arrow-prev" onClick={showPreviousPage} aria-label="Show previous testimonials">
+            <img src="/assets/Asset 35.svg" alt="Previous" className="nav-arrow-img nav-arrow-img-prev" />
+          </button>
+          <button type="button" className="nav-arrow nav-arrow-next" onClick={showNextPage} aria-label="Show next testimonials">
+            <img src="/assets/Asset 35.svg" alt="Next" className="nav-arrow-img nav-arrow-img-next" />
+          </button>
         </div>
 
         <div className="testimonial-quotes">

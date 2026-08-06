@@ -18,6 +18,7 @@ import Methodology from './pages/Methodology'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NewsArticle from './pages/NewsArticle'
+import CaseStudy from './pages/CaseStudy'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -100,6 +101,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/news/:id" element={<NewsArticle />} />
+        <Route path="/case-study/:id" element={<CaseStudy />} />
       </Routes>
     </BrowserRouter>
   )

@@ -36,10 +36,12 @@ export default function WhyWeExist() {
               <img src="/assets/Paper postal packages.jpg" alt="Brand Memorability" className="pillar-image" />
               <div className="pillar-text-label">
                 <h3 className="pillar-text">Brand Memorability</h3>
+                <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
               <div className="pillar-text-overlay pillar-text-bottom">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <p className="pillar-text-description">{description}</p>
+                <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-overlay" />
               </div>
             </div>
           </div>
@@ -51,11 +53,13 @@ export default function WhyWeExist() {
             <div className="pillar-image-container pillar-image-top">
               <div className="pillar-text-label pillar-text-label-top">
                 <h3 className="pillar-text">Brand Memorability</h3>
+                <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
               <img src="/assets/Asset 1 (1).png" alt="Brand Memorability" className="pillar-image" />
               <div className="pillar-text-overlay-middle">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <p className="pillar-text-description">{description}</p>
+                <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-overlay" />
               </div>
             </div>
           </div>
@@ -68,10 +72,12 @@ export default function WhyWeExist() {
               <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.jpg" alt="Brand Memorability" className="pillar-image" />
               <div className="pillar-text-label">
                 <h3 className="pillar-text">Brand Memorability</h3>
+                <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
               <div className="pillar-text-overlay pillar-text-bottom">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <p className="pillar-text-description">{description}</p>
+                <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-overlay" />
               </div>
             </div>
           </div>
