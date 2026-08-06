@@ -71,11 +71,13 @@ export default function PraiseFromClients() {
         >
           {visibleTestimonials.map((testimonial) => (
             <div key={testimonial.id} className="testimonial-card">
-              <div className="testimonial-avatar">
-                <div className="avatar-circle"></div>
+              <div className="testimonial-header">
+                <div className="testimonial-avatar">
+                  <div className="avatar-circle"></div>
+                </div>
+                <h4 className="author-name">{testimonial.author}, {testimonial.company}</h4>
               </div>
               <div className="testimonial-content">
-                <h4 className="author-name">{testimonial.author}, {testimonial.company}</h4>
                 <p className="testimonial-text">{testimonial.text}</p>
               </div>
             </div>
@@ -84,10 +86,16 @@ export default function PraiseFromClients() {
 
         <div className="navigation-arrows">
           <button type="button" className="nav-arrow nav-arrow-prev" onClick={showPreviousPage} aria-label="Show previous testimonials">
-            <img src="/assets/Asset 35.svg" alt="Previous" className="nav-arrow-img nav-arrow-img-prev" />
+            <svg className="nav-arrow-svg nav-arrow-svg-prev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 5 5 12 12 19" />
+            </svg>
           </button>
           <button type="button" className="nav-arrow nav-arrow-next" onClick={showNextPage} aria-label="Show next testimonials">
-            <img src="/assets/Asset 35.svg" alt="Next" className="nav-arrow-img nav-arrow-img-next" />
+            <svg className="nav-arrow-svg nav-arrow-svg-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
           </button>
         </div>
 
