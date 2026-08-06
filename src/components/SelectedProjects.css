@@ -155,24 +155,22 @@
   background: transparent;
   border: none;
   text-decoration: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
   padding: 0.5rem;
-  color: rgba(255,255,255,0.6);
 }
 
-.card-corner-arrow svg {
+.card-corner-arrow img {
   width: clamp(28px, 3vw, 36px);
-  height: clamp(28px, 3vw, 36px);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  height: auto;
+  filter: brightness(0) invert(0.6);
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  transform: rotate(-45deg);
 }
 
-.card-corner-arrow:hover {
-  color: #ffffff;
-}
-
-.card-corner-arrow:hover svg {
-  transform: translateX(4px);
+.card-corner-arrow:hover img {
+  filter: brightness(0) invert(1);
+  transform: rotate(-45deg) translateX(4px);
 }
 
 .card-corner-arrow:focus-visible {
