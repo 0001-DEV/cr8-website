@@ -172,8 +172,9 @@
   height: auto;
   filter: brightness(0) invert(0.6);
   object-fit: contain;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
   transform: rotate(0deg);
+  pointer-events: none;
 }
 
 .card-corner-arrow:hover img {
