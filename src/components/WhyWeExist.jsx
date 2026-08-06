@@ -81,7 +81,7 @@ export default function WhyWeExist() {
           <h3>Our clientele and<br />trusted partners</h3>
           <div className="clients-container">
             <div className="clients-grid">
-              {clientLogos.concat(clientLogos).map((logo, index) => (
+              {clientLogos.concat(clientLogos, clientLogos).map((logo, index) => (
                 <img
                   key={`${logo}-${index}`}
                   src={logo}
