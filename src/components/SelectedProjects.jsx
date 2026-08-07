@@ -261,6 +261,19 @@ export default function SelectedProjects() {
                       </svg>
                     </button>
                   </div>
+
+                  <button
+                    className="card-corner-arrow"
+                    aria-label={`View ${project.name} case study`}
+                    onMouseDown={(e) => {
+                      e.stopPropagation()
+                      e.preventDefault()
+                      sessionStorage.setItem('returnedFromPage', 'true')
+                      navigate(`/case-study/${project.id}`)
+                    }}
+                  >
+                    <img src="/assets/Asset 35.svg" alt="Open case study" />
+                  </button>
                 </div>
 
                 {/* Right Column: Visual Image Render */}
