@@ -71,7 +71,12 @@
 
 .testimonial-avatar {
   flex-shrink: 0;
-  align-self: flex-start;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .avatar-circle {

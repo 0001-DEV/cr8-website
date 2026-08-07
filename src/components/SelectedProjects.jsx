@@ -303,7 +303,6 @@ export default function SelectedProjects() {
                 onClick={() => scrollToProject(idx)}
                 style={{ cursor: 'pointer' }}
               >
-                <span className="dot-line" />
                 <span className="dot-label">{p.name}</span>
               </div>
             ))}
@@ -326,7 +325,6 @@ export default function SelectedProjects() {
               onClick={() => scrollToProject(idx)}
               style={{ cursor: 'pointer' }}
             >
-              <span className="dot-line" />
               <span className="dot-label">{p.name}</span>
             </div>
           ))}
