@@ -66,10 +66,6 @@ export default function PraiseFromClients() {
         <h2>Praise from<br />clients</h2>
 
         <div className="testimonials-stage">
-          <button type="button" className="nav-arrow nav-arrow-prev" onClick={showPreviousPage} aria-label="Show previous testimonials">
-            <img src="/assets/Asset 35.svg" alt="Previous" className="nav-arrow-img nav-arrow-img-prev" />
-          </button>
-
           <div
             key={`${slideDirection}-${currentIndex}`}
             className={`testimonials-grid testimonials-grid--${slideDirection}`}
@@ -87,9 +83,14 @@ export default function PraiseFromClients() {
             ))}
           </div>
 
-          <button type="button" className="nav-arrow nav-arrow-next" onClick={showNextPage} aria-label="Show next testimonials">
-            <img src="/assets/Asset 35.svg" alt="Next" className="nav-arrow-img nav-arrow-img-next" />
-          </button>
+          <div className="testimonials-nav">
+            <button type="button" className="nav-arrow nav-arrow-prev" onClick={showPreviousPage} aria-label="Show previous testimonials">
+              <img src="/assets/Asset 35.svg" alt="Previous" className="nav-arrow-img nav-arrow-img-prev" />
+            </button>
+            <button type="button" className="nav-arrow nav-arrow-next" onClick={showNextPage} aria-label="Show next testimonials">
+              <img src="/assets/Asset 35.svg" alt="Next" className="nav-arrow-img nav-arrow-img-next" />
+            </button>
+          </div>
         </div>
 
         <div className="testimonial-quotes">
