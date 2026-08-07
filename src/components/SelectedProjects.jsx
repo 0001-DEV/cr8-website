@@ -10,6 +10,7 @@ export default function SelectedProjects() {
   const containerRef = useRef(null)
   const cardsRef = useRef([])
   const wrapperRefs = useRef([])
+  const arrowRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
   const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(() =>
@@ -82,6 +83,27 @@ export default function SelectedProjects() {
       }
     }
   }, [])
+
+  // Native DOM listeners on arrows - bypasses GSAP interception
+  useEffect(() => {
+    const handlers = []
+    arrowRefs.current.forEach((btn, i) => {
+      if (!btn) return
+      const handler = (e) => {
+        e.stopImmediatePropagation()
+        e.preventDefault()
+        sessionStorage.setItem('returnedFromPage', 'true')
+        navigate(`/case-study/${projects[i].id}`)
+      }
+      btn.addEventListener('pointerdown', handler, { capture: true })
+      handlers.push({ btn, handler })
+    })
+    return () => {
+      handlers.forEach(({ btn, handler }) => {
+        btn.removeEventListener('pointerdown', handler, { capture: true })
+      })
+    }
+  }, [navigate])
 
   useEffect(() => {
     wrapperRefs.current = wrapperRefs.current.slice(0, projects.length)
@@ -205,98 +227,89 @@ export default function SelectedProjects() {
         <h2 className="stacked-section-tag">Selected Works</h2>
       </div>
 
-      <section className="selected-projects-section" id="work" ref={containerRef}
-        onClickCapture={(e) => {
-          const btn = e.target.closest('.card-corner-arrow')
-          if (btn) {
-            e.stopPropagation()
-            const projectId = btn.getAttribute('data-project-id')
-            if (projectId) {
-              sessionStorage.setItem('returnedFromPage', 'true')
-              navigate(`/case-study/${projectId}`)
-            }
-          }
-        }}
-      >
-        {/* Stage Container holding absolute stacked card wrappers */}
-      <div className="cards-stack-stage">
-        {projects.map((project, index) => (
-          <div
-            key={project.id}
-            className="stacked-card-wrapper"
-            style={{ zIndex: index + 1 }}
-            ref={(el) => (wrapperRefs.current[index] = el)}
-          >
+      <section className="selected-projects-section" id="work" ref={containerRef}>
+        <div className="cards-stack-stage">
+          {projects.map((project, index) => (
             <div
-              className={`stacked-card ${index === activeIndex ? 'is-active' : ''}`}
-              ref={(el) => (cardsRef.current[index] = el)}
+              key={project.id}
+              className="stacked-card-wrapper"
+              style={{ zIndex: index + 1 }}
+              ref={(el) => (wrapperRefs.current[index] = el)}
             >
-              <div className={`card-inner${project.imageLeft ? ' image-left' : ''}`}>
-                {/* Left Column: Project Metadata */}
-                <div className="card-info">
-                  <div className="card-meta">
-                    <span className="card-category-badge">{project.category}</span>
-                    {project.year && <span className="card-year">{project.year}</span>}
-                  </div>
-
-                  <h3 className="card-title">{project.name}</h3>
-                  <div className="card-body">
-                    <h4 className="card-subcategory">{project.subcategory}</h4>
-                    <p className="card-description">{project.description}</p>
-                  </div>
-                  <div className="card-tags">
-                    {project.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="card-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="card-actions">
-                    <button className="card-btn" onClick={(e) => { e.stopPropagation(); e.preventDefault(); sessionStorage.setItem('returnedFromPage', 'true'); navigate(`/case-study/${project.id}`) }}>
-                      <span>Explore Case Study</span>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                      </svg>
+              <div
+                className={`stacked-card ${index === activeIndex ? 'is-active' : ''}`}
+                ref={(el) => (cardsRef.current[index] = el)}
+              >
+                <div className={`card-inner${project.imageLeft ? ' image-left' : ''}`}>
+                  <div className="card-info">
+                    <div className="card-meta">
+                      <span className="card-category-badge">{project.category}</span>
+                      {project.year && <span className="card-year">{project.year}</span>}
+                    </div>
+                    <h3 className="card-title">{project.name}</h3>
+                    <div className="card-body">
+                      <h4 className="card-subcategory">{project.subcategory}</h4>
+                      <p className="card-description">{project.description}</p>
+                    </div>
+                    <div className="card-tags">
+                      {project.tags.map((tag, tIdx) => (
+                        <span key={tIdx} className="card-tag">{tag}</span>
+                      ))}
+                    </div>
+                    <div className="card-actions">
+                      <button className="card-btn" onClick={(e) => { e.stopPropagation(); e.preventDefault(); sessionStorage.setItem('returnedFromPage', 'true'); navigate(`/case-study/${project.id}`) }}>
+                        <span>Explore Case Study</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </button>
+                    </div>
+                    <button
+                      className="card-corner-arrow"
+                      aria-label={`View ${project.name} case study`}
+                      ref={(el) => (arrowRefs.current[index] = el)}
+                    >
+                      <img src="/assets/Asset 35.svg" alt="Open case study" />
                     </button>
                   </div>
-
-                  <button
-                    className="card-corner-arrow"
-                    aria-label={`View ${project.name} case study`}
-                    onMouseDown={(e) => {
-                      e.stopPropagation()
-                      e.preventDefault()
-                      sessionStorage.setItem('returnedFromPage', 'true')
-                      navigate(`/case-study/${project.id}`)
-                    }}
-                  >
-                    <img src="/assets/Asset 35.svg" alt="Open case study" />
-                  </button>
-                </div>
-
-                {/* Right Column: Visual Image Render */}
-                <div className="card-visual">
-                  <div className="card-image-wrapper">
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="card-image"
-                      loading="eager"
-                    />
-                    <div className="card-image-overlay" />
+                  <div className="card-visual">
+                    <div className="card-image-wrapper">
+                      <img src={project.image} alt={project.name} className="card-image" loading="eager" />
+                      <div className="card-image-overlay" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Floating Controls at bottom */}
-      <div className="stacked-controls-overlay">
-        <div className="progress-dots">
+        <div className="stacked-controls-overlay">
+          <div className="progress-dots">
+            {projects.map((p, idx) => (
+              <div
+                key={p.id}
+                className={`progress-dot-item ${idx === activeIndex ? 'active' : ''}`}
+                onClick={() => scrollToProject(idx)}
+                style={{ cursor: 'pointer' }}
+              >
+                <span className="dot-line" />
+                <span className="dot-label">{p.name}</span>
+              </div>
+            ))}
+          </div>
+          <div className="view-all-link-wrapper">
+            <Link to="/work" className="view-all-stacked">
+              View All Projects <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Controls Footer - Outside section for mobile */}
+      <div className="selected-projects-footer">
+        <div className="progress-dots mobile-progress-dots">
           {projects.map((p, idx) => (
             <div
               key={p.id}
@@ -309,46 +322,12 @@ export default function SelectedProjects() {
             </div>
           ))}
         </div>
-
         <div className="view-all-link-wrapper">
           <Link to="/work" className="view-all-stacked">
             View All Projects <span>→</span>
           </Link>
         </div>
-    {/* Fixed Arrow Overlay - Outside pinned section */}
-    <button
-      className="card-corner-arrow-fixed"
-      onClick={() => {
-        sessionStorage.setItem('returnedFromPage', 'true')
-        navigate(`/case-study/${projects[activeIndex].id}`)
-      }}
-      aria-label={`View ${projects[activeIndex]?.name} case study`}
-    >
-      <img src="/assets/Asset 35.svg" alt="Open case study" />
-    </button>
-
-    {/* Controls Footer - Outside section for mobile */}
-    <div className="selected-projects-footer">
-      <div className="progress-dots mobile-progress-dots">
-        {projects.map((p, idx) => (
-          <div
-            key={p.id}
-            className={`progress-dot-item ${idx === activeIndex ? 'active' : ''}`}
-            onClick={() => scrollToProject(idx)}
-            style={{ cursor: 'pointer' }}
-          >
-            <span className="dot-line" />
-            <span className="dot-label">{p.name}</span>
-          </div>
-        ))}
       </div>
-
-      <div className="view-all-link-wrapper">
-        <Link to="/work" className="view-all-stacked">
-          View All Projects <span>→</span>
-        </Link>
-      </div>
-    </div>
     </>
   )
 }
