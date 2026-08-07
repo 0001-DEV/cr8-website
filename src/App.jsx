@@ -24,59 +24,67 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 function HomePage() {
   const [introComplete, setIntroComplete] = useState(false)
-  const [showHeader, setShowHeader] = useState(false)
   const [skipIntro, setSkipIntro] = useState(false)
-  const heroRef = useRef(null)
+  const [heroBrandRect, setHeroBrandRect] = useState(null)
+  const heroBrandRef = useRef(null)
+  const pageContentRef = useRef(null)
   const location = useLocation()
 
   useEffect(() => {
-    // Check if returning from a feature page
     const hasReturnedFromPage = sessionStorage.getItem('returnedFromPage')
     if (hasReturnedFromPage) {
       setSkipIntro(true)
       setIntroComplete(true)
-      setShowHeader(true)
       sessionStorage.removeItem('returnedFromPage')
     }
   }, [location])
 
   useEffect(() => {
+    const measureHeroBrand = () => {
+      if (heroBrandRef.current) {
+        const rect = heroBrandRef.current.getBoundingClientRect()
+        setHeroBrandRect({
+          top: rect.top + window.scrollY,
+          left: rect.left + window.scrollX,
+          width: rect.width,
+          height: rect.height,
+        })
+      }
+    }
+    // Run ASAP then multiple times during load to catch layout changes
+    requestAnimationFrame(measureHeroBrand)
+    const t1 = setTimeout(measureHeroBrand, 16)
+    const t2 = setTimeout(measureHeroBrand, 100)
+    const t3 = setTimeout(measureHeroBrand, 300)
+    const t4 = setTimeout(measureHeroBrand, 600)
+    const t5 = setTimeout(measureHeroBrand, 1200)
+    window.addEventListener('resize', measureHeroBrand)
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
+      clearTimeout(t4)
+      clearTimeout(t5)
+      window.removeEventListener('resize', measureHeroBrand)
+    }
+  }, [skipIntro])
+
+  useEffect(() => {
     if (introComplete) {
       setTimeout(() => {
-        if (heroRef.current) {
-          const heroTop = heroRef.current.getBoundingClientRect().top + window.scrollY
-          const headerOffset = 90
-          window.scrollTo({
-            top: Math.max(0, heroTop - headerOffset),
-            behavior: 'auto'
-          })
-        }
-      }, 190)
-
-      setTimeout(() => {
-        setShowHeader(true)
-      }, 200)
-
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-        setTimeout(() => {
-          ScrollTrigger.refresh()
-        }, 500)
-      }, 2100)
+        ScrollTrigger.refresh()
+      }, 1500)
     }
   }, [introComplete])
 
   return (
-    <div className="app">
-      {!skipIntro && <IntroAnimation onComplete={() => setIntroComplete(true)} />}
-      <div
-        className={`page-content ${showHeader ? 'page-content--shown' : ''}`}
-        style={{ visibility: showHeader ? 'visible' : 'hidden' }}
-      >
+    <div className="app" ref={pageContentRef}>
+      {!skipIntro && <IntroAnimation onComplete={() => setIntroComplete(true)} targetRect={heroBrandRect} />}
+      <div className={`page-content ${introComplete || skipIntro ? 'page-content--shown' : 'page-content--hidden-during-intro'}`}>
         <Header />
         <HeroImage />
-        <div ref={heroRef}>
-          <Hero />
+        <div>
+          <Hero brandRef={heroBrandRef} showText={introComplete || skipIntro} />
         </div>
         <SegmentedCrossIcon />
         <WhyWeExist />

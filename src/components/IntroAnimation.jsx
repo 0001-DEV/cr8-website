@@ -2,31 +2,51 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import './IntroAnimation.css'
 
-export default function IntroAnimation({ onComplete }) {
+export default function IntroAnimation({ onComplete, targetRect }) {
   const [showIntro, setShowIntro] = useState(true)
-  const [targetPos, setTargetPos] = useState({ top: 130, left: 32, scale: 0.82 })
+  const [targetPos, setTargetPos] = useState(null)
 
   useEffect(() => {
     const calcTarget = () => {
+      if (targetRect) {
+        setTargetPos({
+          top: targetRect.top,
+          left: targetRect.left,
+          scale: 1,
+          heroWidth: targetRect.width,
+          heroHeight: targetRect.height,
+        })
+        return
+      }
+
       const viewportW = window.innerWidth
-      const leftPad = viewportW > 1400 ? (viewportW - 1400) / 2 + 32 : 32
-      const top = 60 + 40 + 6
-      const scale = viewportW < 768 ? 0.52 : 0.82
-      setTargetPos({ top, left: leftPad, scale })
+
+      const heroTopPad = 60 + 30
+      const heroLeftPad = viewportW > 1400 ? (viewportW - 1400) / 2 : 0
+      const heroInnerLeft = heroLeftPad + Math.max(20, viewportW * 0.03)
+
+      setTargetPos({
+        top: heroTopPad,
+        left: heroInnerLeft,
+        scale: 1,
+        heroWidth: null,
+        heroHeight: null,
+      })
     }
+
     calcTarget()
     window.addEventListener('resize', calcTarget)
     return () => window.removeEventListener('resize', calcTarget)
-  }, [])
+  }, [targetRect])
 
   useEffect(() => {
     const completeTimer = setTimeout(() => {
       onComplete()
-    }, 1100)
+    }, 1400)
 
     const unmountTimer = setTimeout(() => {
       setShowIntro(false)
-    }, 1800)
+    }, 2400)
 
     return () => {
       clearTimeout(completeTimer)
@@ -34,11 +54,11 @@ export default function IntroAnimation({ onComplete }) {
     }
   }, [onComplete])
 
-  if (!showIntro) return null
+  if (!showIntro || !targetPos) return null
 
   const brandText = [
-    { text: "XTREME", line: 1 },
-    { text: "CR8TIVITY", line: 2 }
+    { text: "Xtreme", line: 1 },
+    { text: "Cr8tivity", line: 2 }
   ]
 
   const container = {
@@ -71,10 +91,10 @@ export default function IntroAnimation({ onComplete }) {
   return (
     <motion.div
       className="intro-animation"
-      initial={{ opacity: 1 }}
+      initial={{ backgroundColor: '#0a0a0a' }}
       animate={{
-        opacity: [1, 1, 0],
-        transition: { duration: 2.4, times: [0, 0.85, 1], ease: 'easeInOut' }
+        backgroundColor: ['#0a0a0a', '#0a0a0a', 'rgba(10,10,10,0)'],
+        transition: { duration: 2.4, times: [0, 0.5, 0.92], ease: 'easeInOut' }
       }}
     >
       <motion.div
@@ -83,32 +103,69 @@ export default function IntroAnimation({ onComplete }) {
         initial="hidden"
         animate="visible"
         style={{ transformOrigin: 'top left' }}
-        custom={targetPos}
       >
         <motion.div
           className="intro-brand-inner"
-          initial={{ scale: 1 }}
-          animate={{
-            top: ['50%', `${targetPos.top}px`],
-            left: ['50%', `${targetPos.left}px`],
-            x: ['-50%', '0%'],
-            y: ['-50%', '0%'],
-            scale: [1, targetPos.scale],
-            transition: { duration: 0.9, delay: 1.2, ease: [0.65, 0, 0.35, 1] }
+          initial={{
+            top: '50%',
+            left: '50%',
+            x: '-50%',
+            y: '-50%',
+            gap: '0.5rem',
+            opacity: 1,
           }}
+          animate={
+            targetPos
+              ? {
+                  top: [`50%`, `${targetPos.top}px`],
+                  left: [`50%`, `${targetPos.left}px`],
+                  x: [`-50%`, '0%'],
+                  y: [`-50%`, '0%'],
+                  gap: ['0.5rem', '0.25rem'],
+                  opacity: [1, 1, 1, 0],
+                  transition: {
+                    top:    { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
+                    left:   { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
+                    x:      { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
+                    y:      { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
+                    gap:    { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
+                    opacity:{ duration: 0.4, delay: 2.0, ease: 'easeOut' },
+                  }
+                }
+              : {}
+          }
         >
           {brandText.map((line, lineIndex) => (
-            <div key={lineIndex} className="intro-brand-line">
+            <motion.div
+              key={lineIndex}
+              className="intro-brand-line"
+              initial={{
+                color: '#959da5',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                lineHeight: 1,
+              }}
+              animate={
+                targetPos
+                  ? {
+                      color: ['#959da5', '#ffffff'],
+                      fontWeight: [700, 900],
+                      letterSpacing: ['0.08em', '0.04em'],
+                      lineHeight: [1, 1.05],
+                      transition: { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] }
+                    }
+                  : {}
+              }
+            >
               {line.text.split("").map((char, charIndex) => (
                 <motion.span key={charIndex} variants={child}>
                   {char}
                 </motion.span>
               ))}
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </motion.div>
     </motion.div>
   )
 }
-

@@ -1,7 +1,7 @@
 import './Hero.css'
 import SegmentedCrossIcon from './SegmentedCrossIcon'
 
-export default function Hero() {
+export default function Hero({ brandRef }) {
   const brandText = [
     { text: "Xtreme", line: 1 },
     { text: "Cr8tivity", line: 2 }
@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <div className="hero-brand-container">
+        <div className="hero-brand-container" ref={brandRef}>
           {brandText.map((line, lineIndex) => (
             <div key={lineIndex} className="brand-line">
               {line.text.split('').map((char, charIndex) => (

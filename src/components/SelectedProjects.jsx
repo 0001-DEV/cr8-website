@@ -11,6 +11,7 @@ export default function SelectedProjects() {
   const cardsRef = useRef([])
   const wrapperRefs = useRef([])
   const arrowRefs = useRef([])
+  const btnRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
   const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(() =>
@@ -84,23 +85,28 @@ export default function SelectedProjects() {
     }
   }, [])
 
-  // Native DOM listeners on arrows - bypasses GSAP interception
+  const openCaseStudy = (projectId) => {
+    sessionStorage.setItem('returnedFromPage', 'true')
+    navigate(`/case-study/${projectId}`)
+  }
+
   useEffect(() => {
     const handlers = []
-    arrowRefs.current.forEach((btn, i) => {
-      if (!btn) return
+    const attach = (el, i) => {
+      if (!el) return
       const handler = (e) => {
         e.stopImmediatePropagation()
         e.preventDefault()
-        sessionStorage.setItem('returnedFromPage', 'true')
-        navigate(`/case-study/${projects[i].id}`)
+        openCaseStudy(projects[i].id)
       }
-      btn.addEventListener('pointerdown', handler, { capture: true })
-      handlers.push({ btn, handler })
-    })
+      el.addEventListener('pointerdown', handler, { capture: true })
+      handlers.push({ el, handler })
+    }
+    arrowRefs.current.forEach((el, i) => attach(el, i))
+    btnRefs.current.forEach((el, i) => attach(el, i))
     return () => {
-      handlers.forEach(({ btn, handler }) => {
-        btn.removeEventListener('pointerdown', handler, { capture: true })
+      handlers.forEach(({ el, handler }) => {
+        el.removeEventListener('pointerdown', handler, { capture: true })
       })
     }
   }, [navigate])
@@ -257,7 +263,10 @@ export default function SelectedProjects() {
                       ))}
                     </div>
                     <div className="card-actions">
-                      <button className="card-btn" onClick={(e) => { e.stopPropagation(); e.preventDefault(); sessionStorage.setItem('returnedFromPage', 'true'); navigate(`/case-study/${project.id}`) }}>
+                      <button
+                        className="card-btn"
+                        ref={(el) => (btnRefs.current[index] = el)}
+                      >
                         <span>Explore Case Study</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12" />
@@ -270,11 +279,6 @@ export default function SelectedProjects() {
                       className="card-corner-arrow"
                       aria-label={`View ${project.name} case study`}
                       ref={(el) => (arrowRefs.current[index] = el)}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        sessionStorage.setItem('returnedFromPage', 'true')
-                        window.location.href = `/case-study/${project.id}`
-                      }}
                     >
                       <img src="/assets/Asset 35.svg" alt="Open case study" />
                     </a>                  </div>

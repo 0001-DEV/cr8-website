@@ -88,11 +88,6 @@
   padding: 0;
   box-sizing: border-box;
   will-change: transform;
-  pointer-events: none;
-}
-
-.stacked-card {
-  pointer-events: auto;
 }
 
 .stacked-card {
@@ -148,6 +143,7 @@
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   box-sizing: border-box;
   position: relative;
+  z-index: 2;
   pointer-events: auto;
 }
 
@@ -158,13 +154,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto;
+  height: auto;
   background: transparent;
   border: none;
+  border-radius: 0;
   text-decoration: none;
-  z-index: 50;
-  padding: 0.5rem;
-  pointer-events: auto;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 200;
+  padding: 1rem;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .card-corner-arrow img {
@@ -172,10 +172,17 @@
   height: auto;
   filter: brightness(0) invert(0.6);
   object-fit: contain;
-  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  transform: rotate(0deg);
 }
 
 .card-corner-arrow:hover img {
+  filter: brightness(0) invert(1);
+  transform: rotate(0deg) translateX(6px);
+}
+
+.card-corner-arrow img.clicked {
+  transform: rotate(0deg) translateX(10px);
   filter: brightness(0) invert(1);
 }
 
@@ -355,7 +362,7 @@
   align-items: center;
   padding: clamp(1rem, 2.2vh, 1.8rem) clamp(1.5rem, 4vw, 4rem);
   box-sizing: border-box;
-  pointer-events: auto;
+  pointer-events: none;
   background: transparent;
 }
 
@@ -368,6 +375,8 @@
   padding: 0.5rem 1.25rem;
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .progress-dot-item {
@@ -422,6 +431,7 @@
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
+  pointer-events: auto;
 }
 
 .view-all-stacked:hover {
@@ -792,28 +802,4 @@
   .progress-dot-item.active .dot-line {
     width: 28px;
   }
-}
-
-.card-corner-arrow-fixed {
-  position: fixed;
-  left: calc(25% - clamp(28px, 3vw, 36px) - clamp(1.5rem, 3vw, 2.5rem));
-  bottom: clamp(1.5rem, 3vw, 2.5rem);
-  z-index: 9999;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  display: none;
-}
-
-.card-corner-arrow-fixed img {
-  width: clamp(28px, 3vw, 36px);
-  height: auto;
-  filter: brightness(0) invert(0.6);
-  pointer-events: none;
-  transition: filter 0.3s ease;
-}
-
-.card-corner-arrow-fixed:hover img {
-  filter: brightness(0) invert(1);
 }
