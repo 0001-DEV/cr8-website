@@ -205,7 +205,19 @@ export default function SelectedProjects() {
         <h2 className="stacked-section-tag">Selected Works</h2>
       </div>
 
-      <section className="selected-projects-section" id="work" ref={containerRef}>
+      <section className="selected-projects-section" id="work" ref={containerRef}
+        onClickCapture={(e) => {
+          const btn = e.target.closest('.card-corner-arrow')
+          if (btn) {
+            e.stopPropagation()
+            const projectId = btn.getAttribute('data-project-id')
+            if (projectId) {
+              sessionStorage.setItem('returnedFromPage', 'true')
+              navigate(`/case-study/${projectId}`)
+            }
+          }
+        }}
+      >
         {/* Stage Container holding absolute stacked card wrappers */}
       <div className="cards-stack-stage">
         {projects.map((project, index) => (
@@ -262,6 +274,7 @@ export default function SelectedProjects() {
                   <button
                     className="card-corner-arrow"
                     aria-label={`View ${project.name} case study`}
+                    data-project-id={project.id}
                     onClick={(e) => {
                       e.stopPropagation()
                       e.preventDefault()
