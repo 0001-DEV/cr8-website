@@ -793,3 +793,27 @@
     width: 28px;
   }
 }
+
+.card-corner-arrow-fixed {
+  position: fixed;
+  left: calc(25% - clamp(28px, 3vw, 36px) - clamp(1.5rem, 3vw, 2.5rem));
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 9999;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+}
+
+.card-corner-arrow-fixed img {
+  width: clamp(28px, 3vw, 36px);
+  height: auto;
+  filter: brightness(0) invert(0.6);
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}
+
+.card-corner-arrow-fixed:hover img {
+  filter: brightness(0) invert(1);
+}

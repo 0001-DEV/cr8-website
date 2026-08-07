@@ -255,35 +255,12 @@ export default function SelectedProjects() {
                   <div className="card-actions">
                     <button className="card-btn" onClick={(e) => { e.stopPropagation(); e.preventDefault(); sessionStorage.setItem('returnedFromPage', 'true'); navigate(`/case-study/${project.id}`) }}>
                       <span>Explore Case Study</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
                     </button>
                   </div>
-
-                  <button
-                    className="card-corner-arrow"
-                    aria-label={`View ${project.name} case study`}
-                    data-project-id={project.id}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      e.preventDefault()
-                      sessionStorage.setItem('returnedFromPage', 'true')
-                      navigate(`/case-study/${project.id}`)
-                    }}
-                  >
-                    <img src="/assets/Asset 35.svg" alt="Open case study" />
-                  </button>
                 </div>
 
                 {/* Right Column: Visual Image Render */}
@@ -325,8 +302,17 @@ export default function SelectedProjects() {
             View All Projects <span>→</span>
           </Link>
         </div>
-      </div>
-    </section>
+    {/* Fixed Arrow Overlay - Outside pinned section */}
+    <button
+      className="card-corner-arrow-fixed"
+      onClick={() => {
+        sessionStorage.setItem('returnedFromPage', 'true')
+        navigate(`/case-study/${projects[activeIndex].id}`)
+      }}
+      aria-label={`View ${projects[activeIndex]?.name} case study`}
+    >
+      <img src="/assets/Asset 35.svg" alt="Open case study" />
+    </button>
 
     {/* Controls Footer - Outside section for mobile */}
     <div className="selected-projects-footer">
