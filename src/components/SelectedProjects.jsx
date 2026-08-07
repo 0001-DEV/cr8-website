@@ -265,14 +265,19 @@ export default function SelectedProjects() {
                         </svg>
                       </button>
                     </div>
-                    <button
+                    <a
+                      href={`/case-study/${project.id}`}
                       className="card-corner-arrow"
                       aria-label={`View ${project.name} case study`}
                       ref={(el) => (arrowRefs.current[index] = el)}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        sessionStorage.setItem('returnedFromPage', 'true')
+                        window.location.href = `/case-study/${project.id}`
+                      }}
                     >
                       <img src="/assets/Asset 35.svg" alt="Open case study" />
-                    </button>
-                  </div>
+                    </a>                  </div>
                   <div className="card-visual">
                     <div className="card-image-wrapper">
                       <img src={project.image} alt={project.name} className="card-image" loading="eager" />
