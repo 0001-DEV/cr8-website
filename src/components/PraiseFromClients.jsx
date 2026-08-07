@@ -72,11 +72,13 @@ export default function PraiseFromClients() {
           >
             {visibleTestimonials.map((testimonial) => (
               <div key={testimonial.id} className="testimonial-card">
-                <div className="testimonial-avatar">
-                  <div className="avatar-circle"></div>
+                <div className="testimonial-header">
+                  <div className="testimonial-avatar">
+                    <div className="avatar-circle"></div>
+                  </div>
+                  <h4 className="author-name">{testimonial.author}, {testimonial.company}</h4>
                 </div>
                 <div className="testimonial-content">
-                  <h4 className="author-name">{testimonial.author}, {testimonial.company}</h4>
                   <p className="testimonial-text">{testimonial.text}</p>
                 </div>
               </div>
