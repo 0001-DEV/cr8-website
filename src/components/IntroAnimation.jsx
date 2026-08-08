@@ -5,7 +5,31 @@ import './IntroAnimation.css'
 export default function IntroAnimation({ onLand, onFinished, targetRect }) {
   const [showIntro, setShowIntro] = useState(true)
   const [landed, setLanded] = useState(false)
-  const [targetPos, setTargetPos] = useState(null)
+  const [fadeOverlay, setFadeOverlay] = useState(false)
+  const [targetPos, setTargetPos] = useState(() => {
+    if (targetRect) {
+      return {
+        top: targetRect.top,
+        left: targetRect.left,
+        scale: 1,
+        heroWidth: targetRect.width,
+        heroHeight: targetRect.height,
+      }
+    }
+
+    const viewportW = typeof window !== 'undefined' ? window.innerWidth : 1200
+    const heroTopPad = 60 + 30
+    const heroLeftPad = viewportW > 1400 ? (viewportW - 1400) / 2 : 0
+    const heroInnerLeft = heroLeftPad + Math.max(20, viewportW * 0.03)
+
+    return {
+      top: heroTopPad,
+      left: heroInnerLeft,
+      scale: 1,
+      heroWidth: null,
+      heroHeight: null,
+    }
+  })
 
   useEffect(() => {
     const calcTarget = () => {
@@ -41,6 +65,10 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
   }, [targetRect])
 
   useEffect(() => {
+    const fadeTimer = setTimeout(() => {
+      setFadeOverlay(true)
+    }, 1200)
+
     const landTimer = setTimeout(() => {
       setLanded(true)
       onLand?.()
@@ -48,16 +76,13 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
 
     const unmountTimer = setTimeout(() => {
       setShowIntro(false)
-    }, 2280)
-
-    const finishTimer = setTimeout(() => {
       onFinished?.()
-    }, 2360)
+    }, 2380)
 
     return () => {
+      clearTimeout(fadeTimer)
       clearTimeout(landTimer)
       clearTimeout(unmountTimer)
-      clearTimeout(finishTimer)
     }
   }, [onLand, onFinished])
 
@@ -98,9 +123,9 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
   return (
     <motion.div
       className="intro-animation"
-      initial={{ backgroundColor: '#0a0a0a' }}
-      animate={{ backgroundColor: landed ? 'rgba(10,10,10,0)' : '#0a0a0a' }}
-      transition={{ duration: landed ? 0.15 : 0, ease: 'easeOut' }}
+      initial={{ backgroundColor: 'rgba(10,10,10,0.85)' }}
+      animate={{ backgroundColor: fadeOverlay ? 'rgba(10,10,10,0)' : 'rgba(10,10,10,0.85)' }}
+      transition={{ duration: 0.8, ease: [0.25, 1, 0.35, 1] }}
     >
       <motion.div
         className="intro-brand-container"
@@ -116,23 +141,26 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
             left: '50%',
             x: '-50%',
             y: '-50%',
+            scale: 1.35,
             gap: '0.5rem',
             opacity: 1,
           }}
           animate={
             targetPos
               ? {
-                  top: [`50%`, `${targetPos.top}px`],
-                  left: [`50%`, `${targetPos.left}px`],
-                  x: [`-50%`, '0%'],
-                  y: [`-50%`, '0%'],
-                  gap: ['0.5rem', '0.25rem'],
+                  top: `${targetPos.top}px`,
+                  left: `${targetPos.left}px`,
+                  x: '0%',
+                  y: '0%',
+                  scale: 1.0,
+                  gap: '0.25rem',
                   transition: {
-                    top:    { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
-                    left:   { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
-                    x:      { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
-                    y:      { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
-                    gap:    { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
+                    top:    { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] },
+                    left:   { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] },
+                    x:      { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] },
+                    y:      { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] },
+                    scale:  { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] },
+                    gap:    { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] },
                   }
                 }
               : {}
@@ -151,11 +179,11 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
               animate={
                 targetPos
                   ? {
-                      color: ['#959da5', '#ffffff'],
-                      fontWeight: [700, 900],
-                      letterSpacing: ['0.08em', '0.04em'],
-                      lineHeight: [1, 1.05],
-                      transition: { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] }
+                      color: '#ffffff',
+                      fontWeight: 900,
+                      letterSpacing: '0.04em',
+                      lineHeight: 1.05,
+                      transition: { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] }
                     }
                   : {}
               }

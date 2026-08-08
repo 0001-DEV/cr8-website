@@ -39,7 +39,7 @@
   transform: translate(-50%, -50%);
   z-index: 10000;
   font-family: 'Montserrat', 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  transition: opacity 0.05s linear;
+  transition: opacity 0.15s ease-out;
 }
 
 .intro-brand-inner--landed {

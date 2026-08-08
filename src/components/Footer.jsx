@@ -9,12 +9,9 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <div className="hero-brand-container" aria-label="Xtreme Cr8tivity">
-              {brandText.map((line) => (
-                <div key={line} className="brand-line">
-                  {line}
-                </div>
-              ))}
+            <div className="footer-brand" aria-label="Xtreme Cr8tivity">
+              <span className="footer-brand-line">Xtreme</span>
+              <span className="footer-brand-line">Cr8tivity</span>
             </div>
             <p className="footer-tagline">
               Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex consequat.
