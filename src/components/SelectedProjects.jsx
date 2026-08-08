@@ -216,16 +216,6 @@ export default function SelectedProjects() {
     }
   }, [projects.length, isMobile, isSmallMobile])
 
-  const scrollToProject = (index) => {
-    const st = ScrollTrigger.getById('selected-projects-pin')
-    if (st) {
-      const numTransitions = projects.length - 1
-      const progress = index / numTransitions
-      const targetScroll = st.start + progress * (st.end - st.start)
-      window.scrollTo({ top: targetScroll, behavior: 'smooth' })
-    }
-  }
-
   return (
     <>
       {/* Section Header - Outside container */}
@@ -295,18 +285,6 @@ export default function SelectedProjects() {
         </div>
 
         <div className="stacked-controls-overlay">
-          <div className="progress-dots">
-            {projects.map((p, idx) => (
-              <div
-                key={p.id}
-                className={`progress-dot-item ${idx === activeIndex ? 'active' : ''}`}
-                onClick={() => scrollToProject(idx)}
-                style={{ cursor: 'pointer' }}
-              >
-                <span className="dot-label">{p.name}</span>
-              </div>
-            ))}
-          </div>
           <div className="view-all-link-wrapper">
             <Link to="/work" className="view-all-stacked">
               View All Projects <span>→</span>
@@ -317,18 +295,6 @@ export default function SelectedProjects() {
 
       {/* Controls Footer - Outside section for mobile */}
       <div className="selected-projects-footer">
-        <div className="progress-dots mobile-progress-dots">
-          {projects.map((p, idx) => (
-            <div
-              key={p.id}
-              className={`progress-dot-item ${idx === activeIndex ? 'active' : ''}`}
-              onClick={() => scrollToProject(idx)}
-              style={{ cursor: 'pointer' }}
-            >
-              <span className="dot-label">{p.name}</span>
-            </div>
-          ))}
-        </div>
         <div className="view-all-link-wrapper">
           <Link to="/work" className="view-all-stacked">
             View All Projects <span>→</span>

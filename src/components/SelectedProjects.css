@@ -358,7 +358,7 @@
   width: 100%;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: clamp(1rem, 2.2vh, 1.8rem) clamp(1.5rem, 4vw, 4rem);
   box-sizing: border-box;

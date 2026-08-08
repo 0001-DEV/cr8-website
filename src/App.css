@@ -9,7 +9,6 @@
   transform: none;
   opacity: 1;
   will-change: auto;
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.55s ease-out;
 }
 
 .page-content--hidden-during-intro .header,
@@ -23,22 +22,66 @@
 .page-content--hidden-during-intro .praise-from-clients,
 .page-content--hidden-during-intro .cta,
 .page-content--hidden-during-intro .footer,
-.page-content--hidden-during-intro .hero-visual-text {
+.page-content--hidden-during-intro .hero-visual-text,
+.page-content--handoff .header,
+.page-content--handoff .hero-image,
+.page-content--handoff .segmented-cross-icon,
+.page-content--handoff .why-we-exist,
+.page-content--handoff .selected-projects-header,
+.page-content--handoff .selected-projects-section,
+.page-content--handoff .selected-projects-footer,
+.page-content--handoff .news-press,
+.page-content--handoff .praise-from-clients,
+.page-content--handoff .cta,
+.page-content--handoff .footer,
+.page-content--handoff .hero-visual-text {
   visibility: hidden;
   opacity: 0;
 }
 
-.page-content--hidden-during-intro .hero-brand-container {
+.page-content--hidden-during-intro .hero-brand-container,
+.page-content--handoff .hero-brand-container {
   visibility: visible;
   opacity: 0;
   pointer-events: none;
 }
 
+.page-content--handoff .hero-brand-container {
+  opacity: 1;
+  transition: none;
+}
+
 .page-content--shown .hero-brand-container {
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.4s ease-out;
+  transition: none;
   pointer-events: auto;
+}
+
+.page-content--shown .header,
+.page-content--shown .hero-image,
+.page-content--shown .segmented-cross-icon,
+.page-content--shown .why-we-exist,
+.page-content--shown .selected-projects-header,
+.page-content--shown .selected-projects-section,
+.page-content--shown .selected-projects-footer,
+.page-content--shown .news-press,
+.page-content--shown .praise-from-clients,
+.page-content--shown .cta,
+.page-content--shown .footer,
+.page-content--shown .hero-visual-text {
+  visibility: visible;
+  animation: reveal-section 0.55s ease forwards;
+}
+
+@keyframes reveal-section {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .page-content--shown .page-content--hidden-during-intro-element {

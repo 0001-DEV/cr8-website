@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import './IntroAnimation.css'
 
-export default function IntroAnimation({ onComplete, targetRect }) {
+export default function IntroAnimation({ onLand, onFinished, targetRect }) {
   const [showIntro, setShowIntro] = useState(true)
+  const [landed, setLanded] = useState(false)
   const [targetPos, setTargetPos] = useState(null)
 
   useEffect(() => {
@@ -40,19 +41,25 @@ export default function IntroAnimation({ onComplete, targetRect }) {
   }, [targetRect])
 
   useEffect(() => {
-    const completeTimer = setTimeout(() => {
-      onComplete()
-    }, 1400)
+    const landTimer = setTimeout(() => {
+      setLanded(true)
+      onLand?.()
+    }, 2200)
 
     const unmountTimer = setTimeout(() => {
       setShowIntro(false)
-    }, 2400)
+    }, 2280)
+
+    const finishTimer = setTimeout(() => {
+      onFinished?.()
+    }, 2360)
 
     return () => {
-      clearTimeout(completeTimer)
+      clearTimeout(landTimer)
       clearTimeout(unmountTimer)
+      clearTimeout(finishTimer)
     }
-  }, [onComplete])
+  }, [onLand, onFinished])
 
   if (!showIntro || !targetPos) return null
 
@@ -92,10 +99,8 @@ export default function IntroAnimation({ onComplete, targetRect }) {
     <motion.div
       className="intro-animation"
       initial={{ backgroundColor: '#0a0a0a' }}
-      animate={{
-        backgroundColor: ['#0a0a0a', '#0a0a0a', 'rgba(10,10,10,0)'],
-        transition: { duration: 2.4, times: [0, 0.5, 0.92], ease: 'easeInOut' }
-      }}
+      animate={{ backgroundColor: landed ? 'rgba(10,10,10,0)' : '#0a0a0a' }}
+      transition={{ duration: landed ? 0.15 : 0, ease: 'easeOut' }}
     >
       <motion.div
         className="intro-brand-container"
@@ -105,7 +110,7 @@ export default function IntroAnimation({ onComplete, targetRect }) {
         style={{ transformOrigin: 'top left' }}
       >
         <motion.div
-          className="intro-brand-inner"
+          className={`intro-brand-inner${landed ? ' intro-brand-inner--landed' : ''}`}
           initial={{
             top: '50%',
             left: '50%',
@@ -122,14 +127,12 @@ export default function IntroAnimation({ onComplete, targetRect }) {
                   x: [`-50%`, '0%'],
                   y: [`-50%`, '0%'],
                   gap: ['0.5rem', '0.25rem'],
-                  opacity: [1, 1, 1, 0],
                   transition: {
                     top:    { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
                     left:   { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
                     x:      { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
                     y:      { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
                     gap:    { duration: 1.0, delay: 1.2, ease: [0.65, 0, 0.35, 1] },
-                    opacity:{ duration: 0.4, delay: 2.0, ease: 'easeOut' },
                   }
                 }
               : {}

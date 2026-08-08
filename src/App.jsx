@@ -23,29 +23,38 @@ import CaseStudy from './pages/CaseStudy'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 function HomePage() {
-  const [introComplete, setIntroComplete] = useState(false)
+  const [introLanded, setIntroLanded] = useState(false)
+  const [pageRevealed, setPageRevealed] = useState(false)
   const [skipIntro, setSkipIntro] = useState(false)
   const [heroBrandRect, setHeroBrandRect] = useState(null)
   const heroBrandRef = useRef(null)
   const pageContentRef = useRef(null)
   const location = useLocation()
 
+  const introComplete = skipIntro || pageRevealed
+
   useEffect(() => {
     const hasReturnedFromPage = sessionStorage.getItem('returnedFromPage')
     if (hasReturnedFromPage) {
       setSkipIntro(true)
-      setIntroComplete(true)
+      setIntroLanded(true)
+      setPageRevealed(true)
       sessionStorage.removeItem('returnedFromPage')
     }
   }, [location])
+
+  useEffect(() => {
+    if (skipIntro) return
+    window.scrollTo(0, 0)
+  }, [skipIntro])
 
   useEffect(() => {
     const measureHeroBrand = () => {
       if (heroBrandRef.current) {
         const rect = heroBrandRef.current.getBoundingClientRect()
         setHeroBrandRect({
-          top: rect.top + window.scrollY,
-          left: rect.left + window.scrollX,
+          top: rect.top,
+          left: rect.left,
           width: rect.width,
           height: rect.height,
         })
@@ -77,10 +86,22 @@ function HomePage() {
     }
   }, [introComplete])
 
+  const pageContentClass = skipIntro || pageRevealed
+    ? 'page-content--shown'
+    : introLanded
+      ? 'page-content--handoff'
+      : 'page-content--hidden-during-intro'
+
   return (
     <div className="app" ref={pageContentRef}>
-      {!skipIntro && <IntroAnimation onComplete={() => setIntroComplete(true)} targetRect={heroBrandRect} />}
-      <div className={`page-content ${introComplete || skipIntro ? 'page-content--shown' : 'page-content--hidden-during-intro'}`}>
+      {!skipIntro && (
+        <IntroAnimation
+          targetRect={heroBrandRect}
+          onLand={() => setIntroLanded(true)}
+          onFinished={() => setPageRevealed(true)}
+        />
+      )}
+      <div className={`page-content ${pageContentClass}`}>
         <Header />
         <HeroImage />
         <div>
