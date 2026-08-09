@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@300;400;700&family=Montserrat:wght@900&display=swap');
+
 .page {
   min-height: 100vh;
   padding: clamp(4rem, 6vw, 6rem) max(1.25rem, 3vw);
@@ -377,6 +379,7 @@
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  font-family: 'Aeonik', sans-serif;
 }
 
 .rainoil-hero-section {
@@ -396,7 +399,7 @@
 
 .rainoil-hero-title {
   font-size: clamp(3rem, 10vw, 180px);
-  font-weight: 800;
+  font-weight: 400;
   color: #ffffff;
   max-width: 100%;
   width: auto;
@@ -479,7 +482,7 @@
 
 .rainoil-challenge-heading {
   font-size: clamp(3rem, 7.5vw, 136px);
-  font-weight: 800;
+  font-weight: 400;
   color: #ffffff;
   max-width: 1705px;
   min-height: 144px;
@@ -528,7 +531,7 @@
   width: 100%;
   max-width: 1852px;
   height: 1080px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;
@@ -550,7 +553,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -575,7 +578,7 @@
   width: 100%;
   max-width: 1920px;
   min-height: 1002px;
-  margin: 0 auto 6rem auto;
+  margin: 0 auto 1.5rem auto;
   padding: 2rem max(2rem, 4vw);
   box-sizing: border-box;
   background-color: #000000;
@@ -595,7 +598,7 @@
 
 .rainoil-strategy-heading {
   font-size: clamp(2.8rem, 6.5vw, 149px);
-  font-weight: 800;
+  font-weight: 400;
   color: #ffffff;
   max-width: 1709px;
   min-height: 118px;
@@ -625,12 +628,12 @@
 .rainoil-flask3-postprocess-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -670,7 +673,7 @@
   width: 100%;
   max-width: 1869px;
   height: 1080px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;
@@ -689,12 +692,12 @@
 .rainoil-cups-9-10-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -723,7 +726,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -768,7 +771,7 @@
 
 .rainoil-solution-heading {
   font-size: clamp(2.2rem, 5.8vw, 125px);
-  font-weight: 800;
+  font-weight: 400;
   color: #ffffff;
   max-width: 1709px;
   width: 100%;
@@ -800,12 +803,12 @@
 .rainoil-compiled-cup8-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -844,12 +847,12 @@
 .rainoil-mugs-1-2-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -873,12 +876,12 @@
 .rainoil-mug1-mug3-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 8px auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -917,14 +920,57 @@
 .rainoil-mugs-4-6-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 6rem auto;
+  margin: 0 auto 8px auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
+}
+
+/* Next Project Section (w=1870 h=380) with text overlay */
+.rainoil-next-project-section {
+  width: 100%;
+  max-width: 1870px;
+  height: 380px;
+  margin: 380px auto 6rem auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #000000;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+
+.rainoil-next-project-section img {
+  width: 100%;
+  height: auto;
+  object-fit: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rainoil-next-project-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 419px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Aeonik', sans-serif;
+  font-size: 80pt;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 @media (max-width: 900px) {
@@ -1019,6 +1065,19 @@
     height: auto;
     max-height: 550px;
     aspect-ratio: 1 / 1;
+  }
+
+  .rainoil-next-project-section {
+    height: auto;
+    max-height: 380px;
+    aspect-ratio: 1870 / 380;
+  }
+
+  .rainoil-next-project-text {
+    width: auto;
+    height: auto;
+    font-size: clamp(2rem, 10vw, 80pt);
+    padding: 0 1rem;
   }
 }
 

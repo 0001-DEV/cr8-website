@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import './Page.css'
@@ -6,9 +7,24 @@ export default function CaseStudy() {
   const navigate = useNavigate()
   const { id } = useParams()
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [id])
+
   const handleBackClick = () => {
     sessionStorage.setItem('returnedFromPage', 'true')
     navigate('/', { replace: true })
+  }
+
+  if (id !== '1') {
+    return (
+      <div className="rainoil-page-container">
+        <Header />
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
+          <button onClick={handleBackClick} className="page-back">← Back</button>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -205,18 +221,18 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* Section 14: Mug Render 3 (w=650, h=930) + Mug Render 7 (w=1195, h=930) */}
+      {/* Section 14: Mug Render 7 (w=650, h=930) + Mug Render 3 (w=1195, h=930) */}
       <section className="rainoil-mug1-mug3-section">
         <div className="rainoil-mug650-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_3.jpg"
-            alt="Rainoil Mug Render 3"
+            src="/assets/RAINOIL_MUG_RENDER_7.jpg"
+            alt="Rainoil Mug Render 7"
           />
         </div>
         <div className="rainoil-mug1195-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_7.jpg"
-            alt="Rainoil Mug Render 7"
+            src="/assets/RAINOIL_MUG_RENDER_3.jpg"
+            alt="Rainoil Mug Render 3"
           />
         </div>
       </section>
@@ -234,6 +250,20 @@ export default function CaseStudy() {
             src="/assets/RAINOIL_MUG_RENDER_6.jpg"
             alt="Rainoil Mug Render 6"
           />
+        </div>
+      </section>
+
+      {/* Section 16: Next Project - LOOK DEV 2 (w=1870, h=380) with text overlay */}
+      <section className="rainoil-next-project-section">
+        <img
+          src="/assets/LOOK DEV 2.png"
+          alt="LOOK DEV 2 Next Project"
+        />
+        <div
+          className="rainoil-next-project-text"
+          onClick={() => navigate('/case-study/4')}
+        >
+          Next Project
         </div>
       </section>
     </div>

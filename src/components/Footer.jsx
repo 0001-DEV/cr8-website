@@ -2,26 +2,17 @@ import './Footer.css'
 import './Hero.css'
 
 export default function Footer() {
-  const brandText = ['Xtreme', 'Cr8tivity']
-
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <div className="hero-brand-container" aria-label="Xtreme Cr8tivity">
-              {brandText.map((line) => (
-                <div key={line} className="brand-line">
-                  {line}
-                </div>
-              ))}
-            </div>
-            <p className="footer-tagline">
-              Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex consequat.
+            <p className="footer-tagline footer-main-tagline">
+              The world doesn't need more brands. It needs better ideas. At Xtreme Cr8tivity, we challenge ordinary thinking to create brands, products, and experiences that leave a lasting impression.
             </p>
           </div>
 
-          <div className="footer-section footer-section-connect">
+          <div className="footer-section">
             <h4>Connect with us</h4>
             <ul className="social-links">
               <li><a href="#">Instagram</a></li>
@@ -42,6 +33,10 @@ export default function Footer() {
               <li><a href="#">Why we exist</a></li>
             </ul>
           </div>
+        </div>
+
+        <div className="footer-brand-line">
+          Xtreme Cr8tivity
         </div>
 
         <div className="footer-bottom">
