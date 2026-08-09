@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import Header from '../components/Header'
 import './Page.css'
 
 export default function NewsArticle() {
@@ -17,7 +18,8 @@ export default function NewsArticle() {
 
   return (
     <div className={`page page-news page-news-${id}`}>
-      <header className="page-header">
+      <Header />
+      <header className="page-header" style={{ paddingTop: 'clamp(2.5rem, 5vw, 4rem)' }}>
         <Link to="/" className="page-back">← Home</Link>
       </header>
       <section className="page-hero">

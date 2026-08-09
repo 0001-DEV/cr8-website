@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     watch: {
-      ignored: ['**/dist/**', '**/.git/**'],
+      ignored: ['**/dist/**', '**/.git/**', '**/*copy*', '**/public/assets/**'],
     },
   },
 })

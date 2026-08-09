@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import Header from '../components/Header'
 import './Page.css'
 
 export default function Contact() {
@@ -11,15 +12,16 @@ export default function Contact() {
 
   return (
     <div className="page page-contact">
-      <header className="page-header">
+      <Header />
+      <header className="page-header" style={{ paddingTop: 'clamp(2.5rem, 5vw, 4rem)' }}>
         <button onClick={handleBackClick} className="page-back">← Back</button>
       </header>
       <section className="page-hero">
         <h1 className="page-title">Contact</h1>
-        <p className="page-tagline">Let's Create Awesomeness Together — reach out today.</p>
+        <p className="page-tagline">Let's talk about your next project.</p>
       </section>
       <section className="page-body">
-        <p>This is the dedicated Contact page — get in touch with us.</p>
+        <p>This is the dedicated Contact page — reach out to us.</p>
       </section>
     </div>
   )

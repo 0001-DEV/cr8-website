@@ -24,20 +24,8 @@
   letter-spacing: 0.05em;
 }
 
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+.footer .hero-brand-container {
   margin-bottom: 1rem;
-}
-
-.footer-brand-line {
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-  font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  line-height: 1.05;
 }
 
 .footer-section-connect {

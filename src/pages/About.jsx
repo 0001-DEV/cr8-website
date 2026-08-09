@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import Header from '../components/Header'
 import './Page.css'
 
 export default function About() {
@@ -11,7 +12,8 @@ export default function About() {
 
   return (
     <div className="page page-about">
-      <header className="page-header">
+      <Header />
+      <header className="page-header" style={{ paddingTop: 'clamp(2.5rem, 5vw, 4rem)' }}>
         <button onClick={handleBackClick} className="page-back">← Back</button>
       </header>
       <section className="page-hero">
