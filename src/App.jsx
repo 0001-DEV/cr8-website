@@ -8,6 +8,7 @@ import Hero from './components/Hero'
 import SegmentedCrossIcon from './components/SegmentedCrossIcon'
 import WhyWeExist from './components/WhyWeExist'
 import SelectedProjects from './components/SelectedProjects'
+import Carousel from './components/Carousel'
 import NewsPress from './components/NewsPress'
 import PraiseFromClients from './components/PraiseFromClients'
 import Footer from './components/Footer'
@@ -109,6 +110,7 @@ function HomePage() {
         <SegmentedCrossIcon />
         <WhyWeExist />
         <SelectedProjects />
+        <Carousel />
         <NewsPress />
         <PraiseFromClients />
         <Footer />

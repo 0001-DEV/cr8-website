@@ -1,8 +1,80 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Page.css'
+
+function RenaissanceCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [slideDirection, setSlideDirection] = useState('next')
+
+  const images = [
+    { id: 1, src: '/assets/RENDER 1.jpg', alt: 'Renaissance Render 1' },
+    { id: 2, src: '/assets/RENDER 13 copy.jpg', alt: 'Renaissance Render 13' },
+    { id: 3, src: '/assets/RENDER 12.jpg', alt: 'Renaissance Render 12' },
+    { id: 4, src: '/assets/RENDER 11.jpg', alt: 'Renaissance Render 11' },
+    { id: 5, src: '/assets/RENDER 7.jpg', alt: 'Renaissance Render 7' },
+  ]
+
+  const imagesPerView = 2
+
+  const getVisibleImages = () => {
+    const result = []
+    for (let i = 0; i < imagesPerView; i++) {
+      const idx = (currentIndex + i) % images.length
+      result.push(images[idx])
+    }
+    return result
+  }
+
+  const showPrevious = () => {
+    setSlideDirection('prev')
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+  }
+
+  const showNext = () => {
+    setSlideDirection('next')
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const visibleImages = getVisibleImages()
+
+  return (
+    <section className="renaissance-carousel-nav-section">
+      <div
+        key={`renaissance-carousel-${slideDirection}-${currentIndex}`}
+        className={`renaissance-carousel-images renaissance-carousel-images--${slideDirection}`}
+      >
+        {visibleImages.map((image) => (
+          <div key={image.id} className="renaissance-carousel-image-card">
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading="eager"
+            />
+          </div>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        className="renaissance-nav-arrow renaissance-nav-arrow--prev"
+        onClick={showPrevious}
+        aria-label="Previous images"
+      >
+        ←
+      </button>
+      <button
+        type="button"
+        className="renaissance-nav-arrow renaissance-nav-arrow--next"
+        onClick={showNext}
+        aria-label="Next images"
+      >
+        →
+      </button>
+    </section>
+  )
+}
 
 export default function CaseStudy() {
   const navigate = useNavigate()
@@ -101,46 +173,8 @@ export default function CaseStudy() {
               />
             </section>
 
-            {/* Section 5: Carousel Images (w=892px, h=930px each) */}
-            <section className="renaissance-carousel-section">
-              <div className="renaissance-carousel-container" id="renaissance-carousel">
-                <button className="carousel-arrow carousel-arrow-left" onClick={() => {
-                  const track = document.getElementById('renaissance-carousel-track');
-                  if (track) {
-                    console.log('Left arrow clicked, scrolling by:', -(892 * 2));
-                    track.scrollBy({ left: -(892 * 2), behavior: 'smooth' });
-                  }
-                }}>
-                  ←
-                </button>
-                <div className="renaissance-carousel-track" id="renaissance-carousel-track">
-                  <div className="renaissance-carousel-item">
-                    <img src="/assets/RENDER 1.jpg" alt="Renaissance Render 1" />
-                  </div>
-                  <div className="renaissance-carousel-item">
-                    <img src="/assets/RENDER 13 copy.jpg" alt="Renaissance Render 13" />
-                  </div>
-                  <div className="renaissance-carousel-item">
-                    <img src="/assets/RENDER 12.jpg" alt="Renaissance Render 12" />
-                  </div>
-                  <div className="renaissance-carousel-item">
-                    <img src="/assets/RENDER 11.jpg" alt="Renaissance Render 11" />
-                  </div>
-                  <div className="renaissance-carousel-item">
-                    <img src="/assets/RENDER 7.jpg" alt="Renaissance Render 7" />
-                  </div>
-                </div>
-                <button className="carousel-arrow carousel-arrow-right" onClick={() => {
-                  const track = document.getElementById('renaissance-carousel-track');
-                  if (track) {
-                    console.log('Right arrow clicked, scrolling by:', 892 * 2);
-                    track.scrollBy({ left: (892 * 2), behavior: 'smooth' });
-                  }
-                }}>
-                  →
-                </button>
-              </div>
-            </section>
+            {/* Section 5: Navigable Carousel - 2 images at once, 930px each */}
+            <RenaissanceCarousel />
 
             {/* Section 6: Our Strategy Section */}
             <section className="rainoil-strategy-section">
@@ -159,7 +193,7 @@ export default function CaseStudy() {
               </div>
             </section>
 
-            {/* Section 7: RENDER 9 copy Image (w=1870, h=1080) */}
+            {/* Section 6: RENDER 9 copy Image (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img
                 src="/assets/RENDER 9 copy.jpg"
