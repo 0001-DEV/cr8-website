@@ -10,7 +10,6 @@ import WhyWeExist from './components/WhyWeExist'
 import SelectedProjects from './components/SelectedProjects'
 import NewsPress from './components/NewsPress'
 import PraiseFromClients from './components/PraiseFromClients'
-import CTA from './components/CTA'
 import Footer from './components/Footer'
 import Work from './pages/Work'
 import Services from './pages/Services'
@@ -112,7 +111,6 @@ function HomePage() {
         <SelectedProjects />
         <NewsPress />
         <PraiseFromClients />
-        <CTA />
         <Footer />
       </div>
     </div>

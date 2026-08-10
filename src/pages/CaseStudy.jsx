@@ -13,9 +13,30 @@ export default function CaseStudy() {
   }, [id])
 
   const handleBackClick = () => {
-    sessionStorage.setItem('returnedFromPage', 'true')
-    navigate('/', { replace: true })
+    const referrer = sessionStorage.getItem('caseStudyReferrer')
+    
+    if (referrer) {
+      // Navigate back to the referrer page
+      sessionStorage.removeItem('caseStudyReferrer')
+      navigate(referrer, { replace: true })
+    } else if (window.history.length > 1) {
+      window.history.back()
+    } else {
+      sessionStorage.setItem('returnedFromPage', 'true')
+      navigate('/', { replace: true })
+    }
   }
+
+  // Store referrer when coming from another case study
+  useEffect(() => {
+    const currentPath = `/case-study/${id}`
+    return () => {
+      // Store current path as referrer when navigating away
+      if (window.location.pathname.startsWith('/case-study/')) {
+        sessionStorage.setItem('caseStudyReferrer', currentPath)
+      }
+    }
+  }, [id])
 
   if (id !== '1') {
     return (
@@ -24,6 +45,57 @@ export default function CaseStudy() {
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
           <button onClick={handleBackClick} className="page-back">← Back</button>
         </div>
+        
+        {/* Renaissance Case Study (id=3) */}
+        {id === '3' && (
+          <>
+            {/* Section 1: Hero Section (w=1920, h=667) */}
+            <section className="renaissance-hero-section">
+              <h1 className="renaissance-hero-title">Renaissance</h1>
+              <div className="renaissance-hero-paragraphs">
+                <p>
+                  Renaissance Africa Energy Company represents a new chapter for Africa's energy sector. As the brand set out to define its identity, it needed physical experiences that reflected the same ambition.
+                </p>
+                <p>
+                  Rather than creating conventional corporate merchandise, we developed a collection of executive and commemorative items that transform everyday interactions into memorable brand moments. Every piece was designed to reinforce Renaissance's identity while making employees, partners, and stakeholders feel genuinely valued.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 2: POST PROCESS 8 Image (w=1920, h=980) */}
+            <section className="renaissance-image-section">
+              <img
+                src="/assets/POST PROCESS 8.jpg"
+                alt="Renaissance Post Process 8"
+              />
+            </section>
+          </>
+        )}
+        
+        {/* Guinness Case Study (id=4) */}
+        {id === '4' && (
+          <>
+            <section className="rainoil-hero-section">
+              <h1 className="rainoil-hero-title">Guinness Nigeria</h1>
+              <div className="rainoil-hero-paragraphs">
+                <p>
+                  Guinness Nigeria is one of Nigeria's most iconic beverage brands with a rich heritage.
+                </p>
+                <p>
+                  As the company evolved, it became essential to create experiences that resonate with modern audiences.
+                </p>
+              </div>
+            </section>
+            
+            <section className="rainoil-image-section">
+              <img
+                src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.jpg"
+                alt="Guinness Nigeria"
+              />
+            </section>
+          </>
+        )}
+        
         <Footer />
       </div>
     )
@@ -263,7 +335,10 @@ export default function CaseStudy() {
         />
         <div
           className="rainoil-next-project-text"
-          onClick={() => navigate('/case-study/4')}
+          onClick={() => {
+            sessionStorage.setItem('caseStudyReferrer', '/case-study/1')
+            navigate('/case-study/4')
+          }}
         >
           Next Project
         </div>

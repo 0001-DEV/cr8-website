@@ -380,6 +380,79 @@
   margin: 0;
   overflow-x: hidden;
   font-family: 'Aeonik', sans-serif;
+  font-weight: 400;
+}
+
+/* Renaissance Hero Section (w=1920, h=667) */
+.renaissance-hero-section {
+  width: 100%;
+  max-width: 1920px;
+  min-height: 667px;
+  margin: 0 auto 3rem auto;
+  padding: 100px 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #000000;
+}
+
+.renaissance-hero-title {
+  font-size: 104pt;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: 'Aeonik', sans-serif;
+  width: 1103px;
+  max-width: 100%;
+  height: 205px;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.renaissance-hero-paragraphs {
+  width: 1736px;
+  max-width: 100%;
+  min-height: 475px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.renaissance-hero-paragraphs p {
+  font-size: clamp(1.1rem, 1.8vw, 28px);
+  line-height: 1.5;
+  color: #cccccc;
+  margin: 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Renaissance Image Section (w=1920, h=980) */
+.renaissance-image-section {
+  width: 100%;
+  max-width: 1920px;
+  height: 980px;
+  margin: 0 auto 4rem auto;
+  overflow: hidden;
+  position: relative;
+  background-color: #000000;
+}
+
+.renaissance-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .rainoil-hero-section {
@@ -481,14 +554,16 @@
 }
 
 .rainoil-challenge-heading {
-  font-size: clamp(3rem, 7.5vw, 136px);
+  font-size: clamp(1.5rem, 7.5vw, 136px);
   font-weight: 400;
   color: #ffffff;
-  max-width: 1705px;
-  min-height: 144px;
+  max-width: 100%;
+  min-height: auto;
   margin: 0;
   line-height: 1.05;
   letter-spacing: -0.03em;
+  white-space: nowrap;
+  overflow: visible;
 }
 
 .rainoil-challenge-body {
@@ -976,101 +1051,271 @@
 @media (max-width: 900px) {
   .rainoil-hero-section {
     height: auto;
-    min-height: 380px;
+    min-height: 300px;
     padding-top: 100px;
     padding-bottom: 2rem;
   }
 
+  .rainoil-hero-title {
+    white-space: normal;
+    min-height: auto;
+  }
+
+  .rainoil-hero-paragraphs {
+    min-height: auto;
+  }
+
   .rainoil-image-section {
     height: auto;
-    max-height: 600px;
-    aspect-ratio: 16 / 9;
+    max-height: none;
+  }
+  
+  .rainoil-image-section img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .rainoil-compiled-section {
     height: auto;
-    max-height: 500px;
-    aspect-ratio: 16 / 9;
+    max-height: none;
+  }
+  
+  .rainoil-compiled-section img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .rainoil-flasks-section {
-    flex-direction: column;
-    gap: 1.5rem;
+    padding: 0 0.5rem;
+    gap: 4px;
+    max-width: 100%;
+    height: auto;
+    align-items: stretch;
   }
 
   .rainoil-flask-card {
-    width: 100%;
+    max-width: none;
+    flex: 1;
     height: auto;
-    max-height: 550px;
-    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-flask-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .rainoil-flask3-postprocess-section {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .rainoil-flask3-card,
-  .rainoil-postprocess5-card {
+    padding: 0 0.5rem;
+    gap: 4px;
     max-width: 100%;
     height: auto;
-    max-height: 550px;
-    aspect-ratio: 1 / 1;
+    align-items: stretch;
+  }
+
+  .rainoil-flask3-card {
+    max-width: none;
+    flex: 0 0 auto;
+    width: 35%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-flask3-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rainoil-postprocess5-card {
+    max-width: none;
+    flex: 0 0 auto;
+    width: calc(65% - 4px);
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-postprocess5-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .rainoil-cup7-section {
     height: auto;
-    max-height: 500px;
-    aspect-ratio: 16 / 9;
+    max-height: none;
+    padding: 0 0.5rem;
+  }
+  
+  .rainoil-cup7-section img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .rainoil-cups-9-10-section,
-  .rainoil-cups-6-3-section,
-  .rainoil-mugs-1-2-section,
-  .rainoil-mugs-4-6-section {
-    flex-direction: column;
-    gap: 1.5rem;
+  .rainoil-cups-6-3-section {
+    padding: 0 0.5rem;
+    gap: 4px;
+    max-width: 100%;
+    height: auto;
+    align-items: stretch;
   }
 
-  .rainoil-cup-card,
-  .rainoil-cup63-card,
-  .rainoil-mug800-card {
-    width: 100%;
+  .rainoil-cup-card {
+    max-width: none;
+    flex: 1;
     height: auto;
-    max-height: 550px;
-    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-cup-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rainoil-cup63-card {
+    max-width: none;
+    flex: 1;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-cup63-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rainoil-mugs-1-2-section,
+  .rainoil-mugs-4-6-section {
+    padding: 0 0.5rem;
+    gap: 4px;
+    max-width: 100%;
+    height: auto;
+    align-items: stretch;
+  }
+
+  .rainoil-mug800-card {
+    max-width: none;
+    flex: 1;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-mug800-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .rainoil-mug1-mug3-section {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .rainoil-mug650-card,
-  .rainoil-mug1195-card {
+    padding: 0 0.5rem;
+    gap: 4px;
     max-width: 100%;
     height: auto;
-    max-height: 550px;
-    aspect-ratio: 1 / 1;
+    align-items: stretch;
+  }
+
+  .rainoil-mug650-card {
+    max-width: none;
+    flex: 0 0 auto;
+    width: 35%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-mug650-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rainoil-mug1195-card {
+    max-width: none;
+    flex: 0 0 auto;
+    width: calc(65% - 4px);
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-mug1195-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .rainoil-compiled-cup8-section {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .rainoil-compiled-card,
-  .rainoil-cup8-card {
+    padding: 0 0.5rem;
+    gap: 4px;
     max-width: 100%;
     height: auto;
-    max-height: 550px;
-    aspect-ratio: 1 / 1;
+    align-items: stretch;
+  }
+
+  .rainoil-compiled-card {
+    max-width: none;
+    flex: 0 0 auto;
+    width: calc(65% - 4px);
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-compiled-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rainoil-cup8-card {
+    max-width: none;
+    flex: 0 0 auto;
+    width: 35%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .rainoil-cup8-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .rainoil-next-project-section {
     height: auto;
-    max-height: 380px;
-    aspect-ratio: 1870 / 380;
+    max-height: none;
+    padding: 0 0.5rem;
+  }
+  
+  .rainoil-next-project-section img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: relative;
   }
 
   .rainoil-next-project-text {
@@ -1078,6 +1323,82 @@
     height: auto;
     font-size: clamp(2rem, 10vw, 80pt);
     padding: 0 1rem;
+  }
+
+  .rainoil-challenge-section,
+  .rainoil-strategy-section,
+  .rainoil-solution-section {
+    min-height: auto;
+  }
+
+  .rainoil-challenge-heading,
+  .rainoil-strategy-heading,
+  .rainoil-solution-heading {
+    min-height: auto;
+  }
+
+  .rainoil-challenge-heading {
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  .rainoil-strategy-heading,
+  .rainoil-solution-heading {
+    white-space: normal;
+  }
+
+  .rainoil-challenge-body,
+  .rainoil-strategy-body,
+  .rainoil-solution-body {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .rainoil-page-container {
+    padding: 0;
+  }
+
+  .rainoil-hero-section {
+    padding: 80px 1rem 1.5rem 1rem;
+    min-height: 250px;
+  }
+
+  .rainoil-hero-paragraphs p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .rainoil-challenge-section,
+  .rainoil-strategy-section,
+  .rainoil-solution-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .rainoil-challenge-body p,
+  .rainoil-strategy-body p,
+  .rainoil-solution-body p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .rainoil-flasks-section,
+  .rainoil-flask3-postprocess-section,
+  .rainoil-cups-9-10-section,
+  .rainoil-cups-6-3-section,
+  .rainoil-mugs-1-2-section,
+  .rainoil-mugs-4-6-section,
+  .rainoil-mug1-mug3-section,
+  .rainoil-compiled-cup8-section {
+    padding: 0 0.25rem;
+    gap: 2px;
+  }
+
+  .rainoil-cup7-section,
+  .rainoil-next-project-section {
+    padding: 0 0.25rem;
+  }
+
+  .page-back {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
   }
 }
 

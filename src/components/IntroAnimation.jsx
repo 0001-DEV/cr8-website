@@ -123,8 +123,8 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
   return (
     <motion.div
       className="intro-animation"
-      initial={{ backgroundColor: 'rgba(10,10,10,0.85)' }}
-      animate={{ backgroundColor: fadeOverlay ? 'rgba(10,10,10,0)' : 'rgba(10,10,10,0.85)' }}
+      initial={{ backgroundColor: '#000000' }}
+      animate={{ backgroundColor: fadeOverlay ? 'rgba(10,10,10,0)' : '#000000' }}
       transition={{ duration: 0.8, ease: [0.25, 1, 0.35, 1] }}
     >
       <motion.div
