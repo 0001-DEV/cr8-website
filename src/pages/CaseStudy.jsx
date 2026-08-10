@@ -69,6 +69,103 @@ export default function CaseStudy() {
                 alt="Renaissance Post Process 8"
               />
             </section>
+
+            {/* Section 3: The Challenge & Making Vision Tangible */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">Making Vision Tangible</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    Energy powers industries and economies, but its impact is rarely something people can physically hold. Our challenge was to translate Renaissance's vision of transformation, African leadership, and industrial growth into tangible objects that people would use, remember, and associate with the brand.
+                  </p>
+                  <p>
+                    The goal wasn't visibility alone, it was memorability.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Oil & Gas
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: RENDER 34 Image (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/RENDER 34.jpg"
+                alt="Renaissance Render 34"
+              />
+            </section>
+
+            {/* Section 5: Carousel Images (w=892px, h=930px each) */}
+            <section className="renaissance-carousel-section">
+              <div className="renaissance-carousel-container" id="renaissance-carousel">
+                <button className="carousel-arrow carousel-arrow-left" onClick={() => {
+                  const track = document.getElementById('renaissance-carousel-track');
+                  if (track) {
+                    console.log('Left arrow clicked, scrolling by:', -(892 * 2));
+                    track.scrollBy({ left: -(892 * 2), behavior: 'smooth' });
+                  }
+                }}>
+                  ←
+                </button>
+                <div className="renaissance-carousel-track" id="renaissance-carousel-track">
+                  <div className="renaissance-carousel-item">
+                    <img src="/assets/RENDER 1.jpg" alt="Renaissance Render 1" />
+                  </div>
+                  <div className="renaissance-carousel-item">
+                    <img src="/assets/RENDER 13 copy.jpg" alt="Renaissance Render 13" />
+                  </div>
+                  <div className="renaissance-carousel-item">
+                    <img src="/assets/RENDER 12.jpg" alt="Renaissance Render 12" />
+                  </div>
+                  <div className="renaissance-carousel-item">
+                    <img src="/assets/RENDER 11.jpg" alt="Renaissance Render 11" />
+                  </div>
+                  <div className="renaissance-carousel-item">
+                    <img src="/assets/RENDER 7.jpg" alt="Renaissance Render 7" />
+                  </div>
+                </div>
+                <button className="carousel-arrow carousel-arrow-right" onClick={() => {
+                  const track = document.getElementById('renaissance-carousel-track');
+                  if (track) {
+                    console.log('Right arrow clicked, scrolling by:', 892 * 2);
+                    track.scrollBy({ left: (892 * 2), behavior: 'smooth' });
+                  }
+                }}>
+                  →
+                </button>
+              </div>
+            </section>
+
+            {/* Section 6: Our Strategy Section */}
+            <section className="rainoil-strategy-section">
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Bridging the Experience</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  Rather than applying Renaissance's identity to generic merchandise, we looked inward to the brand's own world for inspiration.
+                </p>
+                <p>
+                  We translated industrial characteristics into a collection of commemorative items inspired by the visual language of the energy industry itself. From petroleum storage tanks to structural containment systems, familiar engineering forms became the foundation for refined, functional objects that feel unmistakably connected to the brand.
+                </p>
+                <p>
+                  Every design decision was guided by a single objective: create memorabilia that doesn't just carry the Renaissance logo, but embodies the essence of the company behind it.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: RENDER 9 copy Image (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/RENDER 9 copy.jpg"
+                alt="Renaissance Render 9 Copy"
+              />
+            </section>
           </>
         )}
         

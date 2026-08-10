@@ -1,5 +1,5 @@
 .footer {
-  background-color: #1e2121;
+  background-color: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: clamp(3rem, 5vw, 4rem) max(1.25rem, 3vw) 0;
 }
@@ -13,8 +13,8 @@
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 0.8fr 0.8fr;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  column-gap: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  column-gap: clamp(0.5rem, 1.5vw, 1rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
   align-items: start;
 }
@@ -26,7 +26,7 @@
 
 .footer-section:nth-child(2) {
   margin-left: auto;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .footer-section h4 {
@@ -55,7 +55,7 @@
 }
 
 .footer-section:nth-child(3) h4 {
-  margin-top: 2.9rem;
+  margin-top: 3rem;
 }
 
 .footer-brand-section {
@@ -159,41 +159,50 @@
 
 @media (max-width: 900px) {
   .footer-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    grid-template-columns: 2fr 0.8fr 0.8fr;
+    gap: 0.5rem;
   }
 
   .footer-section:first-child {
-    grid-column: 1 / -1;
+    grid-column: 1 / 2;
+  }
+
+  .footer-section:nth-child(2) {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  .footer-section:nth-child(3) h4 {
+    margin-top: 2.5rem;
   }
 
   .footer-intro-heading {
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     white-space: normal;
   }
 
   .footer-main-tagline {
-    font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+    font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
     width: auto;
     height: auto;
   }
 
-  .footer-main-tagline br {
-    display: none;
-  }
-
   .footer-brand-section {
     max-width: 100%;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
   }
 
   .footer-brand-line {
-    font-size: clamp(2rem, 10vw, 4rem);
+    font-size: clamp(2.5rem, 12vw, 5rem);
     white-space: nowrap;
   }
 
   .footer-bottom {
     padding: 0.75rem 0 2rem;
+  }
+
+  .footer-email {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
   }
 }
 
@@ -203,25 +212,34 @@
   }
 
   .footer-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    grid-template-columns: 2fr 0.8fr 0.8fr;
+    gap: 0.25rem;
+    column-gap: 0.25rem;
   }
 
   .footer-section:first-child {
-    grid-column: 1 / -1;
-    margin-bottom: 1rem;
+    grid-column: 1 / 2;
+    margin-bottom: 0;
+  }
+
+  .footer-section:nth-child(2) {
+    margin-right: 0.5rem;
+  }
+
+  .footer-section:nth-child(3) h4 {
+    margin-top: 2.5rem;
   }
 
   .footer-intro-heading {
-    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
   }
 
   .footer-main-tagline {
-    font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
+    font-size: clamp(0.75rem, 1.8vw, 1rem) !important;
   }
 
   .footer-brand-line {
-    font-size: clamp(1.5rem, 8vw, 3rem);
+    font-size: clamp(2rem, 10vw, 4rem);
     white-space: nowrap;
   }
 
@@ -230,17 +248,22 @@
   }
 
   .footer-section h4 {
-    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  }
+
+  .footer-email {
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    margin-bottom: 1rem;
   }
 
   .social-links,
   .footer-links {
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .social-links a,
   .footer-links a {
-    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   }
 }
 
