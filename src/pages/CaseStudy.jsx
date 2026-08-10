@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import './Page.css'
 
 export default function CaseStudy() {
@@ -23,6 +24,7 @@ export default function CaseStudy() {
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
           <button onClick={handleBackClick} className="page-back">← Back</button>
         </div>
+        <Footer />
       </div>
     )
   }
@@ -266,6 +268,7 @@ export default function CaseStudy() {
           Next Project
         </div>
       </section>
+      <Footer />
     </div>
   )
 }
