@@ -137,8 +137,8 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
             left: '50%',
             x: '-50%',
             y: '-50%',
-            scale: 1.35,
-            gap: '0.5rem',
+            scale: 1.0,
+            gap: '0.25rem',
             opacity: 1,
           }}
           animate={

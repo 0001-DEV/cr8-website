@@ -576,10 +576,17 @@
   }
 
   .card-corner-arrow {
+    bottom: 1rem;
+    right: 1rem;
+    top: auto;
+    padding: 0.5rem;
+  }
+
+  .card-corner-arrow--nigerian-breweries,
+  .card-corner-arrow--2 {
     top: 1rem;
     right: 1rem;
     bottom: auto;
-    padding: 0.5rem;
   }
 
   .stacked-card {

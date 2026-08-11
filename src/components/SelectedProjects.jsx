@@ -269,7 +269,7 @@ export default function SelectedProjects() {
                     </div>
                     <a
                       href={`/case-study/${project.slug || project.id}`}
-                      className="card-corner-arrow"
+                      className={`card-corner-arrow card-corner-arrow--${project.slug || project.id}`}
                       aria-label={`View ${project.name} case study`}
                       ref={(el) => (arrowRefs.current[index] = el)}
                     >
