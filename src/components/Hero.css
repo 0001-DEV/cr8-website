@@ -45,9 +45,10 @@
   font-family: 'Montserrat';
   letter-spacing: 0.04em;
   color: white;
-  line-height: 1.05;
+  line-height: 1.15;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 0.1em;
 }
 
 .animated-char {

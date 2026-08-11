@@ -450,7 +450,7 @@ export default function CaseStudy() {
             </section>
 
             {/* Section 4: RENDER 8 Image (w=1870, h=1080) */}
-            <section className="rainoil-cup7-section" style={{ height: 'auto', minHeight: 'auto', margin: '0 auto 8px auto' }}>
+            <section className="rainoil-cup7-section" style={{ height: 'auto', minHeight: 'auto' }}>
               <img
                 src="/assets/RENDER 8.jpg"
                 alt="Guinness Render 8"
