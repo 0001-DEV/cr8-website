@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1rem, 2.5vw, 2.25rem) 2rem;
+  padding: clamp(2rem, 4.5vw, 4.5rem) 2rem;
   margin: 0;
 }
 
 .cross-icon {
   position: relative;
-  width: clamp(40px, 4vw, 54px);
-  height: clamp(40px, 4vw, 54px);
+  width: clamp(54px, 5vw, 68px);
+  height: clamp(54px, 5vw, 68px);
   transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
