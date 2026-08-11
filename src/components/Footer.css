@@ -68,7 +68,7 @@
 
 .footer-brand-line {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.5rem, 8vw, 125pt);
+  font-size: clamp(1.5rem, 8.8vw, 175pt);
   font-weight: 400;
   color: #808080;
   text-align: left;
@@ -76,7 +76,7 @@
   line-height: 1;
   white-space: nowrap;
   width: 100%;
-  max-width: 1500px;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -251,7 +251,13 @@
 }
 
 @media (min-width: 1440px) {
-  .footer-container {
+  .footer-container,
+  .footer-brand-section {
     max-width: 1798px;
+  }
+
+  .footer-brand-line {
+    max-width: 100%;
+    font-size: clamp(8rem, 9.2vw, 175pt);
   }
 }

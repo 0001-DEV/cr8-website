@@ -126,9 +126,14 @@
   color: #ffffff;
 }
 
-.page-case-study-1::before { content: "CASE"; color: #bced00; }
-.page-case-study-2::before { content: "CASE"; color: #0036f3; }
-.page-case-study-3::before { content: "CASE"; color: #ff38fd; }
+.page-case-study-1::before,
+.page-case-study-rainoil::before { content: "CASE"; color: #bced00; }
+.page-case-study-2::before,
+.page-case-study-nigerian-breweries::before { content: "CASE"; color: #0036f3; }
+.page-case-study-3::before,
+.page-case-study-renaissance::before { content: "CASE"; color: #ff38fd; }
+.page-case-study-4::before,
+.page-case-study-guinness::before { content: "CASE"; color: #ff9900; }
 
 .cs-meta-row {
   display: flex;
@@ -481,11 +486,9 @@
 }
 
 .renaissance-two-image-card img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -998,11 +1001,11 @@
   display: block;
 }
 
-/* Our Strategy Section (w=1920, h=1002) */
+/* Our Strategy Section */
 .rainoil-strategy-section {
   width: 100%;
   max-width: 1920px;
-  min-height: 1002px;
+  min-height: auto;
   margin: 0 auto 1.5rem auto;
   padding: 2rem max(2rem, 4vw);
   box-sizing: border-box;
@@ -1016,7 +1019,7 @@
   font-weight: 600;
   color: #888888;
   max-width: 284px;
-  min-height: 34px;
+  min-height: auto;
   margin: 0;
   line-height: 1.2;
 }
@@ -1026,7 +1029,7 @@
   font-weight: 400;
   color: #ffffff;
   max-width: 1709px;
-  min-height: 118px;
+  min-height: auto;
   margin: 1.25rem 0 0 0;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -1034,7 +1037,7 @@
 
 .rainoil-strategy-body {
   max-width: 1337px;
-  min-height: 409px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
@@ -1171,11 +1174,11 @@
   display: block;
 }
 
-/* The Solution Section (w=1912, h=864) */
+/* The Solution Section */
 .rainoil-solution-section {
   width: 100%;
   max-width: 1912px;
-  min-height: 864px;
+  min-height: auto;
   margin: 0 auto 6rem auto;
   padding: 2rem max(2rem, 4vw);
   box-sizing: border-box;
@@ -1189,7 +1192,7 @@
   font-weight: 600;
   color: #888888;
   max-width: none;
-  min-height: 34px;
+  min-height: auto;
   margin: 0;
   line-height: 1.2;
   white-space: nowrap;
@@ -1201,7 +1204,7 @@
   color: #ffffff;
   max-width: 1709px;
   width: 100%;
-  min-height: 118px;
+  min-height: auto;
   margin: 1.25rem 0 0 0;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -1210,7 +1213,7 @@
 
 .rainoil-solution-body {
   max-width: 952px;
-  min-height: 345px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
@@ -1467,6 +1470,8 @@
     max-width: none;
     flex: 1;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
+    aspect-ratio: 922.5 / 930;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1494,6 +1499,8 @@
     max-width: none;
     flex: 1;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
+    aspect-ratio: 922.5 / 930;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1511,6 +1518,7 @@
     flex: 0 0 auto;
     width: 35%;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1527,6 +1535,7 @@
     flex: 0 0 auto;
     width: calc(65% - 4px);
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1656,6 +1665,8 @@
     max-width: none;
     flex: 1;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
+    aspect-ratio: 922.5 / 930;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1671,6 +1682,8 @@
     max-width: none;
     flex: 1;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
+    aspect-ratio: 922.5 / 930;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1695,6 +1708,8 @@
     max-width: none;
     flex: 1;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
+    aspect-ratio: 922.5 / 800;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1719,6 +1734,7 @@
     flex: 0 0 auto;
     width: 35%;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1735,6 +1751,7 @@
     flex: 0 0 auto;
     width: calc(65% - 4px);
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1759,6 +1776,7 @@
     flex: 0 0 auto;
     width: calc(65% - 4px);
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1775,6 +1793,7 @@
     flex: 0 0 auto;
     width: 35%;
     height: auto;
+    min-height: clamp(220px, 50vw, 450px);
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -1827,6 +1846,8 @@
   .rainoil-solution-heading {
     min-height: auto;
     white-space: normal;
+    word-break: break-word;
+    font-size: clamp(2rem, 6.5vw, 4.5rem);
   }
 
   .rainoil-challenge-body,
@@ -1933,5 +1954,32 @@
   .renaissance-asym-images-gap4-section
 ) {
   margin-top: 8px !important;
+}
+
+:is(
+  .rainoil-image-section,
+  .renaissance-image-section,
+  .rainoil-compiled-section,
+  .rainoil-flasks-section,
+  .rainoil-flask3-postprocess-section,
+  .rainoil-cup7-section,
+  .rainoil-cups-9-10-section,
+  .rainoil-cups-6-3-section,
+  .rainoil-compiled-cup8-section,
+  .rainoil-mugs-1-2-section,
+  .rainoil-mug1-mug3-section,
+  .rainoil-mugs-4-6-section,
+  .rainoil-next-project-section,
+  .renaissance-carousel-nav-section,
+  .renaissance-two-images-section,
+  .renaissance-two-images-gap4-section,
+  .renaissance-two-images-800-gap4-section,
+  .renaissance-asym-images-gap4-section
+) + :is(
+  .renaissance-two-images-gap4-section,
+  .renaissance-two-images-800-gap4-section,
+  .renaissance-asym-images-gap4-section
+) {
+  margin-top: 4px !important;
 }
 

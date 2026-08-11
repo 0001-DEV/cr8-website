@@ -72,17 +72,13 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
     const landTimer = setTimeout(() => {
       setLanded(true)
       onLand?.()
-    }, 2200)
-
-    const unmountTimer = setTimeout(() => {
       setShowIntro(false)
       onFinished?.()
-    }, 2380)
+    }, 2200)
 
     return () => {
       clearTimeout(fadeTimer)
       clearTimeout(landTimer)
-      clearTimeout(unmountTimer)
     }
   }, [onLand, onFinished])
 
@@ -132,7 +128,7 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
         variants={container}
         initial="hidden"
         animate="visible"
-        style={{ transformOrigin: 'top left' }}
+        style={{ transformOrigin: 'top left', opacity: landed ? 0 : 1 }}
       >
         <motion.div
           className={`intro-brand-inner${landed ? ' intro-brand-inner--landed' : ''}`}

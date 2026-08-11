@@ -39,6 +39,7 @@ function HomePage() {
       setSkipIntro(true)
       setIntroLanded(true)
       setPageRevealed(true)
+      window.scrollTo(0, 0)
       sessionStorage.removeItem('returnedFromPage')
     }
   }, [location])

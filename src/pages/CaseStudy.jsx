@@ -116,39 +116,59 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
   )
 }
 
+const slugToIdMap = {
+  '1': '1',
+  'rainoil': '1',
+  'rain-oil': '1',
+  '2': '2',
+  'nigerian-breweries': '2',
+  'nigerianbreweries': '2',
+  '3': '3',
+  'renaissance': '3',
+  '4': '4',
+  'guinness': '4',
+}
+
+const idToSlugMap = {
+  '1': 'rainoil',
+  '2': 'nigerian-breweries',
+  '3': 'renaissance',
+  '4': 'guinness',
+}
+
 export default function CaseStudy() {
   const navigate = useNavigate()
-  const { id } = useParams()
+  const { id: rawParam } = useParams()
+  const normalizedParam = rawParam ? rawParam.toLowerCase() : '1'
+  const id = slugToIdMap[normalizedParam] || normalizedParam
+  const currentSlug = idToSlugMap[id] || normalizedParam
+
+  const handleNextProject = (targetKey) => {
+    const targetSlug = idToSlugMap[targetKey] || targetKey
+    sessionStorage.setItem('caseStudyReferrer', `/case-study/${currentSlug}`)
+    navigate(`/case-study/${targetSlug}`)
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [id])
 
   const handleBackClick = () => {
-    const referrer = sessionStorage.getItem('caseStudyReferrer')
-    
-    if (referrer) {
-      // Navigate back to the referrer page
-      sessionStorage.removeItem('caseStudyReferrer')
-      navigate(referrer, { replace: true })
-    } else if (window.history.length > 1) {
-      window.history.back()
-    } else {
-      sessionStorage.setItem('returnedFromPage', 'true')
-      navigate('/', { replace: true })
-    }
+    sessionStorage.setItem('returnedFromPage', 'true')
+    sessionStorage.removeItem('caseStudyReferrer')
+    navigate('/')
   }
 
   // Store referrer when coming from another case study
   useEffect(() => {
-    const currentPath = `/case-study/${id}`
+    const currentPath = `/case-study/${currentSlug}`
     return () => {
       // Store current path as referrer when navigating away
       if (window.location.pathname.startsWith('/case-study/')) {
         sessionStorage.setItem('caseStudyReferrer', currentPath)
       }
     }
-  }, [id])
+  }, [currentSlug])
 
   if (id !== '1') {
     return (
@@ -217,7 +237,7 @@ export default function CaseStudy() {
             <RenaissanceCarousel />
 
             {/* Section 6: Our Strategy Section */}
-            <section className="rainoil-strategy-section">
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
               <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
               <h1 className="rainoil-strategy-heading">Embedding the Brand</h1>
               <div className="rainoil-strategy-body">
@@ -293,7 +313,7 @@ export default function CaseStudy() {
             </section>
 
             {/* Section 11: The Impact Section */}
-            <section className="rainoil-solution-section">
+            <section className="rainoil-solution-section" style={{ marginTop: '60px' }}>
               <h2 className="rainoil-solution-subheading">The Impact</h2>
               <h1 className="rainoil-solution-heading">Designed to Leave a Mark</h1>
               <div className="rainoil-solution-body">
@@ -378,12 +398,10 @@ export default function CaseStudy() {
               />
               <div
                 className="rainoil-next-project-text rainoil-next-project-text--black"
-                onClick={() => {
-                  sessionStorage.setItem('caseStudyReferrer', '/case-study/3')
-                  navigate('/case-study/4')
-                }}
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleNextProject('guinness')}
               >
-                Next Project
+                NEXT PROJECT
               </div>
             </section>
           </>
@@ -426,8 +444,216 @@ export default function CaseStudy() {
               <div className="rainoil-sector-badge">
                 <div className="rainoil-sector-text">
                   <span className="rainoil-sector-label">Sector:</span><br />
-                  Oil & Gas
+                  Food & Beverages
                 </div>
+              </div>
+            </section>
+
+            {/* Section 4: RENDER 8 Image (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section" style={{ height: 'auto', minHeight: 'auto', margin: '0 auto 8px auto' }}>
+              <img
+                src="/assets/RENDER 8.jpg"
+                alt="Guinness Render 8"
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
+              />
+            </section>
+
+            {/* Section 5: RENDER 4 + RENDER 5 (w=922.5, h=930 each, 4px gap) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 4.jpg"
+                  alt="Guinness Render 4"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 5.jpg"
+                  alt="Guinness Render 5"
+                />
+              </div>
+            </section>
+
+            {/* Section 6: Our Strategy Section (Replicated from Renaissance) */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Embedding the Brand</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  We designed the collection as a connected brand experience rather than a series of standalone products.
+                </p>
+                <p>
+                  The Africa silhouette became a bold symbol of ownership and leadership, while the warm gradient reflects the journey from potential to progress. Every material, finish, and detail was chosen to express confidence, longevity, and purpose.
+                </p>
+                <p>
+                  Instead of simply placing a logo on products, we embedded the brand into every interaction.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: RENDER 6 GUINNESS + RENDER 7 copy (w=922.5, h=930 each, 4px gap) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 6 GUINNESS.png"
+                  alt="Guinness Render 6"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 7 copy.jpg"
+                  alt="Guinness Render 7 Copy"
+                />
+              </div>
+            </section>
+
+            {/* Section 8: LOOK DEV 3 Image (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/LOOK DEV 3.jpg"
+                alt="Guinness Look Dev 3"
+              />
+            </section>
+
+            {/* Section 9: The Solution Section (Replicated from Renaissance) */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">The Brand<br />Made Tangible</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  From diaries, notepads, mugs, and flasks to calendars, clocks, umbrellas, and wristbands, every item shares a unified visual language.
+                </p>
+                <p>
+                  Designed for both executive settings and everyday use, the collection extends Renaissance's identity beyond the workplace, ensuring every touchpoint feels intentional, cohesive, and unmistakably connected to the brand.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 10: RENDER 12 copy (w=650, h=930) + RENDER 11 copy (w=1195, h=930) (4px gap) */}
+            <section className="renaissance-asym-images-gap4-section">
+              <div className="renaissance-asym-650-card">
+                <img
+                  src="/assets/RENDER 12 copy.jpg"
+                  alt="Guinness Render 12 Copy"
+                />
+              </div>
+              <div className="renaissance-asym-1195-card">
+                <img
+                  src="/assets/RENDER 11 copy.jpg"
+                  alt="Guinness Render 11 Copy"
+                />
+              </div>
+            </section>
+
+            {/* Section 11: LOOK DEV 4 + RENDER 10 (w=922.5, h=930 each, 4px gap) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/LOOK DEV 4.jpg"
+                  alt="Guinness Look Dev 4"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 10.jpg"
+                  alt="Guinness Render 10"
+                />
+              </div>
+            </section>
+
+            {/* Section 12: The Impact Section (Replicated from Renaissance) */}
+            <section className="rainoil-solution-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-solution-subheading">The Impact</h2>
+              <h1 className="rainoil-solution-heading">Designed to Leave a Mark</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  Brands become memorable through repeated, meaningful experiences.
+                </p>
+                <p>
+                  By turning practical objects into purposeful touchpoints, Renaissance gains more than branded merchandise. It creates lasting reminders of its vision, strengthens relationships with the people who matter most, and reinforces its position as a company helping shape Africa's energy future.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 13: RENDER 17_EDIT_FULL + RENDER 18_EDIT_FULL (w=922.5, h=800 each, 4px gap) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/RENDER 17_EDIT_FULL.png"
+                  alt="Guinness Render 17 Edit Full"
+                />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/RENDER 18_EDIT_FULL.png"
+                  alt="Guinness Render 18 Edit Full"
+                />
+              </div>
+            </section>
+
+            {/* Section 14: RENDER 19 (w=650, h=930) + RENDER 20_EDIT_FULL (w=1195, h=930) (4px gap) */}
+            <section className="renaissance-asym-images-gap4-section">
+              <div className="renaissance-asym-650-card">
+                <img
+                  src="/assets/RENDER 19.jpg"
+                  alt="Guinness Render 19"
+                />
+              </div>
+              <div className="renaissance-asym-1195-card">
+                <img
+                  src="/assets/RENDER 20_EDIT_FULL.png"
+                  alt="Guinness Render 20 Edit Full"
+                />
+              </div>
+            </section>
+
+            {/* Section 15: RENDER 21_EDIT_FULL + RENDER 22_EDIT_FULL (w=922.5, h=800 each, 4px gap) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/RENDER 21_EDIT_FULL.png"
+                  alt="Guinness Render 21 Edit Full"
+                />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/RENDER 22_EDIT_FULL.png"
+                  alt="Guinness Render 22 Edit Full"
+                />
+              </div>
+            </section>
+
+            {/* Section 16: RENDER 15_EDIT_FULL + RENDER 16_EDIT_FULL (w=922.5, h=930 each, 4px gap) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 15_EDIT_FULL.png"
+                  alt="Guinness Render 15 Edit Full"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 16_EDIT_FULL.png"
+                  alt="Guinness Render 16 Edit Full"
+                />
+              </div>
+            </section>
+
+            {/* Spacer 110px */}
+            <div style={{ height: '110px' }} />
+
+            {/* Section 17: Next Project - POST PROCESS 2 with black text overlay */}
+            <section className="rainoil-next-project-section" style={{ marginTop: 0 }}>
+              <img
+                src="/assets/POST PROCESS 2.jpg"
+                alt="POST PROCESS 2 Next Project"
+              />
+              <div
+                className="rainoil-next-project-text rainoil-next-project-text--black"
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleNextProject('rainoil')}
+              >
+                NEXT PROJECT
               </div>
             </section>
           </>
@@ -675,12 +901,10 @@ export default function CaseStudy() {
         />
         <div
           className="rainoil-next-project-text"
-          onClick={() => {
-            sessionStorage.setItem('caseStudyReferrer', '/case-study/1')
-            navigate('/case-study/4')
-          }}
+          style={{ cursor: 'pointer' }}
+          onClick={() => handleNextProject('guinness')}
         >
-          Next Project
+          NEXT PROJECT
         </div>
       </section>
       <Footer />

@@ -24,6 +24,7 @@ export default function SelectedProjects() {
   const projects = [
     {
       id: 1,
+      slug: 'rainoil',
       number: '01',
       name: 'Rainoil',
       category: 'Oil & Gas',
@@ -35,6 +36,7 @@ export default function SelectedProjects() {
     },
     {
       id: 2,
+      slug: 'nigerian-breweries',
       number: '02',
       name: 'Nigerian Breweries',
       category: 'Food & Beverage',
@@ -46,6 +48,7 @@ export default function SelectedProjects() {
     },
     {
       id: 3,
+      slug: 'renaissance',
       number: '03',
       name: 'Renaissance',
       category: 'Oil & Gas',
@@ -85,9 +88,9 @@ export default function SelectedProjects() {
     }
   }, [])
 
-  const openCaseStudy = (projectId) => {
-    sessionStorage.setItem('returnedFromPage', 'true')
-    navigate(`/case-study/${projectId}`)
+  const handleProjectClick = (project) => {
+    sessionStorage.setItem('returnedFromPage', 'false')
+    navigate(`/case-study/${project.slug || project.id}`)
   }
 
   useEffect(() => {
@@ -265,7 +268,7 @@ export default function SelectedProjects() {
                       </button>
                     </div>
                     <a
-                      href={`/case-study/${project.id}`}
+                      href={`/case-study/${project.slug || project.id}`}
                       className="card-corner-arrow"
                       aria-label={`View ${project.name} case study`}
                       ref={(el) => (arrowRefs.current[index] = el)}

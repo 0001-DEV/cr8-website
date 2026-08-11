@@ -2,8 +2,8 @@
 
 .hero {
   padding-top: clamp(1rem, 4vh, 3rem);
-  padding-bottom: clamp(4rem, 10vh, 8rem);
-  min-height: 50vh;
+  padding-bottom: clamp(1rem, 3vh, 2.5rem);
+  min-height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: flex-start;
