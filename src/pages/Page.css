@@ -477,7 +477,9 @@
 .renaissance-two-image-card {
   flex: 1;
   max-width: 923px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 922.5 / 930;
   overflow: hidden;
   background-color: #000000;
   display: flex;
@@ -522,7 +524,9 @@
 .renaissance-two-image-800-card {
   flex: 1;
   max-width: 922.5px;
-  height: 800px;
+  height: auto;
+  max-height: 800px;
+  aspect-ratio: 922.5 / 800;
   overflow: hidden;
   background-color: #000000;
   display: flex;
@@ -553,7 +557,9 @@
 .renaissance-asym-650-card {
   width: 100%;
   max-width: 650px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 650 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -568,7 +574,9 @@
 .renaissance-asym-1195-card {
   width: 100%;
   max-width: 1195px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 1195 / 930;
   overflow: hidden;
   background-color: #000000;
 }
