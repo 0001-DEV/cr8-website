@@ -490,8 +490,7 @@
 .renaissance-two-image-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
@@ -538,8 +537,7 @@
 .renaissance-two-image-800-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
@@ -557,9 +555,9 @@
 }
 
 .renaissance-asym-650-card {
-  flex: 650 1 0%;
+  flex: 0 0 35.17%;
   min-width: 0;
-  width: 100%;
+  width: 35.17%;
   max-width: 650px;
   height: auto;
   max-height: 930px;
@@ -571,15 +569,14 @@
 .renaissance-asym-650-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
 .renaissance-asym-1195-card {
-  flex: 1195 1 0%;
+  flex: 0 0 calc(64.83% - 4px);
   min-width: 0;
-  width: 100%;
+  width: calc(64.83% - 4px);
   max-width: 1195px;
   height: auto;
   max-height: 930px;
@@ -591,8 +588,7 @@
 .renaissance-asym-1195-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
@@ -685,8 +681,7 @@
 .renaissance-carousel-image-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
@@ -1538,14 +1533,13 @@
   .renaissance-two-image-800-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background-color: #000000;
+    object-fit: cover;
   }
 
   .renaissance-asym-650-card {
     max-width: none;
-    flex: 0 0 auto;
-    width: 35%;
+    flex: 0 0 35.17%;
+    width: 35.17%;
     height: auto;
     min-height: clamp(220px, 50vw, 450px);
     display: flex;
@@ -1556,14 +1550,13 @@
   .renaissance-asym-650-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background-color: #000000;
+    object-fit: cover;
   }
 
   .renaissance-asym-1195-card {
     max-width: none;
-    flex: 0 0 auto;
-    width: calc(65% - 4px);
+    flex: 0 0 calc(64.83% - 4px);
+    width: calc(64.83% - 4px);
     height: auto;
     min-height: clamp(220px, 50vw, 450px);
     display: flex;
@@ -1574,8 +1567,7 @@
   .renaissance-asym-1195-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background-color: #000000;
+    object-fit: cover;
   }
 
   .renaissance-carousel-nav-section {
