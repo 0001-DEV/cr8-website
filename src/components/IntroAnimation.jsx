@@ -167,22 +167,17 @@ export default function IntroAnimation({ onLand, onFinished, targetRect }) {
               key={lineIndex}
               className="intro-brand-line"
               initial={{
-                color: '#959da5',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-                lineHeight: 1,
+                color: '#ffffff',
+                fontWeight: 900,
+                letterSpacing: '0.04em',
+                lineHeight: 1.15,
               }}
-              animate={
-                targetPos
-                  ? {
-                      color: '#ffffff',
-                      fontWeight: 900,
-                      letterSpacing: '0.04em',
-                      lineHeight: 1.05,
-                      transition: { duration: 1.0, delay: 1.2, ease: [0.25, 1, 0.35, 1] }
-                    }
-                  : {}
-              }
+              animate={{
+                color: '#ffffff',
+                fontWeight: 900,
+                letterSpacing: '0.04em',
+                lineHeight: 1.15,
+              }}
             >
               {line.text.split("").map((char, charIndex) => (
                 <motion.span key={charIndex} variants={child}>
