@@ -63,7 +63,7 @@
 .intro-brand-line {
   font-size: clamp(1.8rem, 7vw, 220px);
   font-weight: 900;
-  font-family: 'Montserrat', 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: 0.04em;
   color: #ffffff;
   text-transform: none;
