@@ -110,7 +110,6 @@ function HomePage() {
         <SegmentedCrossIcon />
         <WhyWeExist />
         <SelectedProjects />
-        <Carousel />
         <NewsPress />
         <PraiseFromClients />
         <Footer />

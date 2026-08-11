@@ -490,29 +490,33 @@
     grid-template-rows: 1fr 1fr;
   }
 
-  .card-inner.image-left .card-visual {
-    order: 0;
-  }
-
-  .card-inner.image-left .card-info {
-    order: -1;
-    border-left: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: none;
-  }
-
-  .card-visual {
-    order: -1;
-  }
-
+  /* Standard card: Text 1st (top), Image 2nd (bottom) - matches desktop left-to-right */
   .card-info {
+    order: -1;
     padding: clamp(1.5rem, 4.5vh, 2.5rem) clamp(1rem, 4vw, 1.75rem);
     gap: clamp(0.75rem, 2vh, 1.25rem);
     border-right: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: none;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
+  }
+
+  .card-visual {
+    order: 0;
+  }
+
+  /* Image-left card: Image 1st (top), Text 2nd (bottom) - matches desktop left-to-right */
+  .card-inner.image-left .card-visual {
+    order: -1;
+  }
+
+  .card-inner.image-left .card-info {
+    order: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: none;
   }
 
   .card-meta {
@@ -645,20 +649,25 @@
     grid-template-rows: 1fr 1fr;
   }
 
-  .card-inner.image-left .card-visual {
-    order: 0;
-  }
-
-  .card-inner.image-left .card-info {
-    order: -1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: none;
-  }
-
   .card-info {
+    order: -1;
     padding: clamp(1.25rem, 4.5vh, 2rem) 1rem 1.25rem 1rem;
     gap: clamp(0.65rem, 2vh, 1rem);
     justify-content: flex-start;
+  }
+
+  .card-visual {
+    order: 0;
+  }
+
+  .card-inner.image-left .card-visual {
+    order: -1;
+  }
+
+  .card-inner.image-left .card-info {
+    order: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: none;
   }
 
   .card-meta {
@@ -753,13 +762,13 @@
   }
 
   .card-inner.image-left .card-visual {
-    order: 0;
+    order: -1;
   }
 
   .card-inner.image-left .card-info {
-    order: -1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: none;
+    order: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: none;
   }
 
   .card-info {

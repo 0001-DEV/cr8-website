@@ -11,51 +11,48 @@
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: 2fr 0.8fr 0.8fr;
-  gap: clamp(0.5rem, 1.5vw, 1rem);
-  column-gap: clamp(0.5rem, 1.5vw, 1rem);
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 3vw, 4rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
-  align-items: start;
+  align-items: flex-start;
 }
 
-.footer-section:nth-child(2),
-.footer-section:nth-child(3) {
-  justify-self: start;
+.footer-section-main {
+  flex: 1 1 auto;
+  max-width: 750px;
 }
 
-.footer-section:nth-child(2) {
-  margin-left: auto;
-  margin-right: 0.5rem;
+.footer-right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 auto;
+  padding-right: clamp(2rem, 5vw, 6rem);
+  margin-top: 10px;
+}
+
+.footer-email {
+  font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.footer-nav-columns {
+  display: flex;
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: flex-start;
 }
 
 .footer-section h4 {
   font-size: clamp(0.85rem, 1vw, 1rem);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #808080;
-}
-
-.footer-section-connect {
-  margin-left: 0;
-}
-
-.footer-email {
-  font-size: clamp(0.85rem, 1vw, 1rem);
-  color: #ffffff;
-  margin: 0 0 1.5rem 0;
-  font-weight: 400;
-}
-
-.footer-section-with-email {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-section:nth-child(3) h4 {
-  margin-top: 3rem;
 }
 
 .footer-brand-section {
@@ -71,11 +68,11 @@
 
 .footer-brand-line {
   font-family: 'Montserrat', sans-serif;
-  font-size: 125pt;
+  font-size: clamp(1.5rem, 8vw, 125pt);
   font-weight: 400;
   color: #808080;
   text-align: left;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1;
   white-space: nowrap;
   width: 100%;
@@ -159,21 +156,18 @@
 
 @media (max-width: 900px) {
   .footer-content {
-    grid-template-columns: 2fr 0.8fr 0.8fr;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .footer-section:first-child {
-    grid-column: 1 / 2;
+  .footer-right-column {
+    width: 100%;
+    padding-right: 0;
+    margin-top: 0;
   }
 
-  .footer-section:nth-child(2) {
-    margin-left: auto;
-    margin-right: 1rem;
-  }
-
-  .footer-section:nth-child(3) h4 {
-    margin-top: 2.5rem;
+  .footer-nav-columns {
+    gap: 3rem;
   }
 
   .footer-intro-heading {
@@ -193,7 +187,7 @@
   }
 
   .footer-brand-line {
-    font-size: clamp(2.5rem, 12vw, 5rem);
+    font-size: clamp(1.4rem, 7.8vw, 5rem);
     white-space: nowrap;
   }
 
@@ -202,7 +196,7 @@
   }
 
   .footer-email {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   }
 }
 
@@ -212,22 +206,11 @@
   }
 
   .footer-content {
-    grid-template-columns: 2fr 0.8fr 0.8fr;
-    gap: 0.25rem;
-    column-gap: 0.25rem;
+    gap: 1.5rem;
   }
 
-  .footer-section:first-child {
-    grid-column: 1 / 2;
-    margin-bottom: 0;
-  }
-
-  .footer-section:nth-child(2) {
-    margin-right: 0.5rem;
-  }
-
-  .footer-section:nth-child(3) h4 {
-    margin-top: 2.5rem;
+  .footer-nav-columns {
+    gap: 2rem;
   }
 
   .footer-intro-heading {
@@ -239,7 +222,7 @@
   }
 
   .footer-brand-line {
-    font-size: clamp(2rem, 10vw, 4rem);
+    font-size: clamp(1.1rem, 7.8vw, 3rem);
     white-space: nowrap;
   }
 
@@ -248,11 +231,11 @@
   }
 
   .footer-section h4 {
-    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   }
 
   .footer-email {
-    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
     margin-bottom: 1rem;
   }
 

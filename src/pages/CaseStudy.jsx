@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Page.css'
 
-function RenaissanceCarousel() {
+function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1600, imageGap = 2 }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [slideDirection, setSlideDirection] = useState('next')
+  const [hasEntered, setHasEntered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const sectionRef = useRef(null)
 
-  const images = [
+  const defaultImages = [
     { id: 1, src: '/assets/RENDER 1.jpg', alt: 'Renaissance Render 1' },
     { id: 2, src: '/assets/RENDER 13 copy.jpg', alt: 'Renaissance Render 13' },
     { id: 3, src: '/assets/RENDER 12.jpg', alt: 'Renaissance Render 12' },
@@ -16,7 +19,49 @@ function RenaissanceCarousel() {
     { id: 5, src: '/assets/RENDER 7.jpg', alt: 'Renaissance Render 7' },
   ]
 
+  const images = customImages || defaultImages
   const imagesPerView = 2
+
+  const showNext = useCallback(() => {
+    setSlideDirection('next')
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }, [images.length])
+
+  const showPrevious = () => {
+    setSlideDirection('prev')
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+  }
+
+  // Intersection observer to track when carousel is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHasEntered(entry.isIntersecting)
+      },
+      { threshold: 0.15 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
+  // Auto-play sliding continuously once user scrolls to the carousel section
+  useEffect(() => {
+    if (!hasEntered) return
+
+    const timer = setInterval(() => {
+      showNext()
+    }, autoPlayInterval)
+
+    return () => clearInterval(timer)
+  }, [hasEntered, showNext, autoPlayInterval])
 
   const getVisibleImages = () => {
     const result = []
@@ -27,26 +72,21 @@ function RenaissanceCarousel() {
     return result
   }
 
-  const showPrevious = () => {
-    setSlideDirection('prev')
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
-
-  const showNext = () => {
-    setSlideDirection('next')
-    setCurrentIndex((prev) => (prev + 1) % images.length)
-  }
-
   const visibleImages = getVisibleImages()
 
   return (
-    <section className="renaissance-carousel-nav-section">
+    <section
+      ref={sectionRef}
+      className={`renaissance-carousel-nav-section ${hasEntered ? 'in-view' : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div
-        key={`renaissance-carousel-${slideDirection}-${currentIndex}`}
-        className={`renaissance-carousel-images renaissance-carousel-images--${slideDirection}`}
+        key={`${carouselId}-${slideDirection}-${currentIndex}`}
+        className={`renaissance-carousel-images renaissance-carousel-images--${slideDirection} ${imageGap === 4 ? 'renaissance-carousel-images--gap-4' : ''}`}
       >
-        {visibleImages.map((image) => (
-          <div key={image.id} className="renaissance-carousel-image-card">
+        {visibleImages.map((image, index) => (
+          <div key={image.id || index} className="renaissance-carousel-image-card">
             <img
               src={image.src}
               alt={image.alt}
@@ -179,16 +219,16 @@ export default function CaseStudy() {
             {/* Section 6: Our Strategy Section */}
             <section className="rainoil-strategy-section">
               <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
-              <h1 className="rainoil-strategy-heading">Bridging the Experience</h1>
+              <h1 className="rainoil-strategy-heading">Embedding the Brand</h1>
               <div className="rainoil-strategy-body">
                 <p>
-                  Rather than applying Renaissance's identity to generic merchandise, we looked inward to the brand's own world for inspiration.
+                  We designed the collection as a connected brand experience rather than a series of standalone products.
                 </p>
                 <p>
-                  We translated industrial characteristics into a collection of commemorative items inspired by the visual language of the energy industry itself. From petroleum storage tanks to structural containment systems, familiar engineering forms became the foundation for refined, functional objects that feel unmistakably connected to the brand.
+                  The Africa silhouette became a bold symbol of ownership and leadership, while the warm gradient reflects the journey from potential to progress. Every material, finish, and detail was chosen to express confidence, longevity, and purpose.
                 </p>
                 <p>
-                  Every design decision was guided by a single objective: create memorabilia that doesn't just carry the Renaissance logo, but embodies the essence of the company behind it.
+                  Instead of simply placing a logo on products, we embedded the brand into every interaction.
                 </p>
               </div>
             </section>
@@ -200,6 +240,152 @@ export default function CaseStudy() {
                 alt="Renaissance Render 9 Copy"
               />
             </section>
+
+            {/* Section 7: Second Navigable Carousel (8px gap) */}
+            <RenaissanceCarousel
+              carouselId="renaissance-carousel-2"
+              imageGap={8}
+              images={[
+                { id: 1, src: '/assets/RENDER 14.jpg', alt: 'Renaissance Render 14' },
+                { id: 2, src: '/assets/RENDER 15.jpg', alt: 'Renaissance Render 15' },
+                { id: 3, src: '/assets/RENDER 6.jpg', alt: 'Renaissance Render 6' },
+                { id: 4, src: '/assets/RENDER 16.jpg', alt: 'Renaissance Render 16' },
+                { id: 5, src: '/assets/RENDER 3.jpg', alt: 'Renaissance Render 3' },
+              ]}
+            />
+
+            {/* Section 8: The Solution Section */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">The Brand<br />Made Tangible</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  From diaries, notepads, mugs, and flasks to calendars, clocks, umbrellas, and wristbands, every item shares a unified visual language.
+                </p>
+                <p>
+                  Designed for both executive settings and everyday use, the collection extends Renaissance's identity beyond the workplace, ensuring every touchpoint feels intentional, cohesive, and unmistakably connected to the brand.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 9: POST PROCESS 22 Image (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/POST PROCESS 22.jpg"
+                alt="Renaissance Post Process 22"
+              />
+            </section>
+
+            {/* Section 10: RENDER 23 + RENDER 26 (w=922.5, h=930 each, 4px gap) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 23.jpg"
+                  alt="Renaissance Render 23"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/RENDER 26.jpg"
+                  alt="Renaissance Render 26"
+                />
+              </div>
+            </section>
+
+            {/* Section 11: The Impact Section */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Impact</h2>
+              <h1 className="rainoil-solution-heading">Designed to Leave a Mark</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  Brands become memorable through repeated, meaningful experiences.
+                </p>
+                <p>
+                  By turning practical objects into purposeful touchpoints, Renaissance gains more than branded merchandise. It creates lasting reminders of its vision, strengthens relationships with the people who matter most, and reinforces its position as a company helping shape Africa's energy future.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 12: RENDER 27 + RENDER 28 copy (w=922.5, h=800 each, 4px gap) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/RENDER 27.jpg"
+                  alt="Renaissance Render 27"
+                />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/RENDER 28 copy.jpg"
+                  alt="Renaissance Render 28 Copy"
+                />
+              </div>
+            </section>
+
+            {/* Section 13: RENDER 30 (w=650, h=930) + RENDER 29 (w=1195, h=930) (4px gap) */}
+            <section className="renaissance-asym-images-gap4-section">
+              <div className="renaissance-asym-650-card">
+                <img
+                  src="/assets/RENDER 30.jpg"
+                  alt="Renaissance Render 30"
+                />
+              </div>
+              <div className="renaissance-asym-1195-card">
+                <img
+                  src="/assets/RENDER 29.jpg"
+                  alt="Renaissance Render 29"
+                />
+              </div>
+            </section>
+
+            {/* Section 14: POST PROCESS 37 + POST PROCESS 36 (w=922.5, h=800 each, 4px gap) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/POST PROCESS 37.jpg"
+                  alt="Renaissance Post Process 37"
+                />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/POST PROCESS 36.jpg"
+                  alt="Renaissance Post Process 36"
+                />
+              </div>
+            </section>
+
+            {/* Section 15: Third Navigable Carousel (4px gap) */}
+            <RenaissanceCarousel
+              carouselId="renaissance-carousel-3"
+              imageGap={4}
+              images={[
+                { id: 1, src: '/assets/RENDER 35.jpg', alt: 'Renaissance Render 35' },
+                { id: 2, src: '/assets/Umbrella Mockup_2.jpg', alt: 'Umbrella Mockup 2' },
+                { id: 3, src: '/assets/Umbrella Mockup.png', alt: 'Umbrella Mockup' },
+                { id: 4, src: '/assets/RON 1.png', alt: 'RON 1' },
+                { id: 5, src: '/assets/Umbrella Mockupblack.jpg', alt: 'Umbrella Mockup Black' },
+              ]}
+            />
+
+            {/* Spacer 90px */}
+            <div style={{ height: '90px' }} />
+
+            {/* Section 16: Next Project - POST PROCESS 2 with text overlay */}
+            <section className="rainoil-next-project-section" style={{ marginTop: 0 }}>
+              <img
+                src="/assets/POST PROCESS 2.jpg"
+                alt="POST PROCESS 2 Next Project"
+              />
+              <div
+                className="rainoil-next-project-text rainoil-next-project-text--black"
+                onClick={() => {
+                  sessionStorage.setItem('caseStudyReferrer', '/case-study/3')
+                  navigate('/case-study/4')
+                }}
+              >
+                Next Project
+              </div>
+            </section>
           </>
         )}
         
@@ -207,22 +393,42 @@ export default function CaseStudy() {
         {id === '4' && (
           <>
             <section className="rainoil-hero-section">
-              <h1 className="rainoil-hero-title">Guinness Nigeria</h1>
+              <h1 className="rainoil-hero-title">Guinness</h1>
               <div className="rainoil-hero-paragraphs">
                 <p>
-                  Guinness Nigeria is one of Nigeria's most iconic beverage brands with a rich heritage.
-                </p>
-                <p>
-                  As the company evolved, it became essential to create experiences that resonate with modern audiences.
+                  For 75 years, Guinness Nigeria has been woven into the country's celebrations, culture, and history. To honour this milestone, Xtreme Cr8tivity developed a commemorative identity system inspired by the iconic Guinness harp, extending across a 75th anniversary logo, branded memorabilia, and campaign concepts. The goal was simple: celebrate a remarkable legacy while creating a visual language worthy of its future.
                 </p>
               </div>
             </section>
             
             <section className="rainoil-image-section">
               <img
-                src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.jpg"
-                alt="Guinness Nigeria"
+                src="/assets/RENDER 9 copy 2.jpg"
+                alt="Guinness Render 9 Copy 2"
               />
+            </section>
+
+            {/* Repeat Challenge Section from Rain Oil */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">The Missing Connection</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    The old commemorative solutions are outdated, Rainoil needed something that reflected the scale, sophistication, or engineering excellence behind the brand. Like many forms of corporate merchandise, they served a functional purpose but did little to create a lasting emotional connection or reinforce what Rainoil truly represents.
+                  </p>
+                  <p>
+                    The challenge wasn't simply to design better gifts. It was to create memorable brand experiences, objects that clients would value, keep, and associate with the Rainoil story long after receiving them.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Oil & Gas
+                </div>
+              </div>
             </section>
           </>
         )}
@@ -458,8 +664,11 @@ export default function CaseStudy() {
         </div>
       </section>
 
+      {/* Spacer 110px */}
+      <div style={{ height: '110px' }} />
+
       {/* Section 16: Next Project - LOOK DEV 2 (w=1870, h=380) with text overlay */}
-      <section className="rainoil-next-project-section">
+      <section className="rainoil-next-project-section" style={{ marginTop: 0 }}>
         <img
           src="/assets/LOOK DEV 2.png"
           alt="LOOK DEV 2 Next Project"
