@@ -386,10 +386,10 @@
 /* Renaissance Hero Section (w=1920, h=667) */
 .renaissance-hero-section {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1869px;
   min-height: 667px;
   margin: 0 auto 3rem auto;
-  padding: 100px 1.5rem 2rem 1.5rem;
+  padding: 100px 1rem 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,12 +440,14 @@
 /* Renaissance Image Section (w=1920, h=980) */
 .renaissance-image-section {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1869px;
   height: 980px;
   margin: 0 auto 4rem auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;
+  box-sizing: border-box;
+  padding: 0 1rem;
 }
 
 .renaissance-image-section img {
@@ -466,7 +468,7 @@
   align-items: stretch;
   gap: 8px;
   box-sizing: border-box;
-  padding: 0 4rem;
+  padding: 0 1rem;
 }
 
 .renaissance-two-image-card {
@@ -494,13 +496,22 @@
   position: relative;
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 2px auto 6rem auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 0 1rem;
+  padding: 0 2rem;
+}
+
+.renaissance-carousel-bottom {
+  margin-top: 2px !important;
+  margin-bottom: 6rem !important;
+}
+
+.rainoil-cup7-section + .renaissance-carousel-nav-section {
+  margin-top: 2px !important;
 }
 
 .renaissance-carousel-images {
@@ -508,25 +519,26 @@
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  gap: 0;
+  gap: 2px;
   width: 100%;
   margin: 0;
+  padding: 0 2rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .renaissance-carousel-images--next {
-  animation: renaissanceSlideInRight 1s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: renaissanceSlideInRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .renaissance-carousel-images--prev {
-  animation: renaissanceSlideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: renaissanceSlideInLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .renaissance-carousel-image-card {
-  flex: 0 0 922.5px;
-  width: 922.5px;
-  max-width: 922.5px;
-  min-width: 922.5px;
+  flex: 0 0 calc((100% - 2px) / 2);
+  width: calc((100% - 2px) / 2);
+  max-width: 923px;
   height: 930px;
   min-height: 930px;
   max-height: 930px;
@@ -566,11 +578,11 @@
 }
 
 .renaissance-nav-arrow--prev {
-  left: 2rem;
+  left: 0.5rem;
 }
 
 .renaissance-nav-arrow--next {
-  right: 2rem;
+  right: 0.5rem;
 }
 
 .renaissance-nav-arrow:hover {
@@ -584,8 +596,8 @@
 
 @keyframes renaissanceSlideInRight {
   from {
-    opacity: 0;
-    transform: translateX(60px);
+    opacity: 0.3;
+    transform: translateX(100%);
   }
   to {
     opacity: 1;
@@ -595,8 +607,8 @@
 
 @keyframes renaissanceSlideInLeft {
   from {
-    opacity: 0;
-    transform: translateX(-60px);
+    opacity: 0.3;
+    transform: translateX(-100%);
   }
   to {
     opacity: 1;
@@ -973,7 +985,7 @@
   width: 100%;
   max-width: 1869px;
   height: 1080px;
-  margin: 0 auto 8px auto;
+  margin: 6rem auto 2px auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;

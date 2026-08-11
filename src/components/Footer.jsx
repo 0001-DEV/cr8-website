@@ -13,10 +13,10 @@ export default function Footer() {
               At Xtreme Cr8tivity, we challenge ordinary thinking to create
               brands, products, and experiences that leave a lasting impression.
             </p>
+            <p className="footer-email">Inquiries: xc@cr8.com.ng</p>
           </div>
 
-          <div className="footer-section footer-section-with-email">
-            <p className="footer-email">Inquiries: xc@cr8.com.ng</p>
+          <div className="footer-section">
             <h4>Connect with us</h4>
             <ul className="social-links">
               <li><a href="#">Instagram</a></li>
