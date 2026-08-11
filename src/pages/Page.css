@@ -1109,7 +1109,7 @@
   width: 100%;
   max-width: 1869px;
   height: 1080px;
-  margin: 0 auto 6rem auto;
+  margin: 0 auto 8px auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;
@@ -1922,6 +1922,48 @@
 }
 
 /* Uniform 8px gap when an image or carousel section follows an image or carousel section */
+:is(
+  .rainoil-image-section,
+  .renaissance-image-section,
+  .rainoil-compiled-section,
+  .rainoil-flasks-section,
+  .rainoil-flask3-postprocess-section,
+  .rainoil-cup7-section,
+  .rainoil-cups-9-10-section,
+  .rainoil-cups-6-3-section,
+  .rainoil-compiled-cup8-section,
+  .rainoil-mugs-1-2-section,
+  .rainoil-mug1-mug3-section,
+  .rainoil-mugs-4-6-section,
+  .rainoil-next-project-section,
+  .renaissance-carousel-nav-section,
+  .renaissance-two-images-section,
+  .renaissance-two-images-gap4-section,
+  .renaissance-two-images-800-gap4-section,
+  .renaissance-asym-images-gap4-section
+):has(+ :is(
+  .rainoil-image-section,
+  .renaissance-image-section,
+  .rainoil-compiled-section,
+  .rainoil-flasks-section,
+  .rainoil-flask3-postprocess-section,
+  .rainoil-cup7-section,
+  .rainoil-cups-9-10-section,
+  .rainoil-cups-6-3-section,
+  .rainoil-compiled-cup8-section,
+  .rainoil-mugs-1-2-section,
+  .rainoil-mug1-mug3-section,
+  .rainoil-mugs-4-6-section,
+  .rainoil-next-project-section,
+  .renaissance-carousel-nav-section,
+  .renaissance-two-images-section,
+  .renaissance-two-images-gap4-section,
+  .renaissance-two-images-800-gap4-section,
+  .renaissance-asym-images-gap4-section
+)) {
+  margin-bottom: 0 !important;
+}
+
 :is(
   .rainoil-image-section,
   .renaissance-image-section,
