@@ -557,6 +557,8 @@
 }
 
 .renaissance-asym-650-card {
+  flex: 650 1 0%;
+  min-width: 0;
   width: 100%;
   max-width: 650px;
   height: auto;
@@ -575,6 +577,8 @@
 }
 
 .renaissance-asym-1195-card {
+  flex: 1195 1 0%;
+  min-width: 0;
   width: 100%;
   max-width: 1195px;
   height: auto;
@@ -649,9 +653,10 @@
   flex: 0 0 calc((100% - 2px) / 2);
   width: calc((100% - 2px) / 2);
   max-width: 923px;
-  height: 930px;
-  min-height: 930px;
+  height: auto;
+  min-height: auto;
   max-height: 930px;
+  aspect-ratio: 922.5 / 930;
   overflow: hidden;
   background-color: #000000;
   display: flex;
@@ -680,7 +685,8 @@
 .renaissance-carousel-image-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #000000;
   display: block;
 }
 
@@ -1079,9 +1085,13 @@
 }
 
 .rainoil-flask3-card {
+  flex: 650 1 0%;
+  min-width: 0;
   width: 100%;
   max-width: 650px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 650 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1089,14 +1099,19 @@
 .rainoil-flask3-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #000000;
   display: block;
 }
 
 .rainoil-postprocess5-card {
+  flex: 1195 1 0%;
+  min-width: 0;
   width: 100%;
   max-width: 1195px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 1195 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1104,7 +1119,8 @@
 .rainoil-postprocess5-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #000000;
   display: block;
 }
 
