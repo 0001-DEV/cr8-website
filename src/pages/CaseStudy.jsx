@@ -37,7 +37,7 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
       ([entry]) => {
         setHasEntered(entry.isIntersecting)
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     )
 
     if (sectionRef.current) {
@@ -55,11 +55,19 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
   useEffect(() => {
     if (!hasEntered || isHovered) return
 
+    // Trigger first slide immediately upon entering view
+    const immediateTimeout = setTimeout(() => {
+      showNext()
+    }, 100)
+
     const timer = setInterval(() => {
       showNext()
     }, autoPlayInterval)
 
-    return () => clearInterval(timer)
+    return () => {
+      clearTimeout(immediateTimeout)
+      clearInterval(timer)
+    }
   }, [hasEntered, isHovered, showNext, autoPlayInterval])
 
   const staticImage = images[0]
