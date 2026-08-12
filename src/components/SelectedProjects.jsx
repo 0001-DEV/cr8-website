@@ -90,7 +90,8 @@ export default function SelectedProjects() {
 
   const handleProjectClick = (project) => {
     sessionStorage.setItem('returnedFromPage', 'false')
-    navigate(`/case-study/${project.slug || project.id}`)
+    sessionStorage.setItem('previousPage', '/')
+    navigate(`/project/${project.slug || project.id}`)
   }
 
   useEffect(() => {
@@ -260,7 +261,7 @@ export default function SelectedProjects() {
                         className="card-btn"
                         ref={(el) => (btnRefs.current[index] = el)}
                       >
-                        <span>Explore Case Study</span>
+                        <span>Explore</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12" />
                           <polyline points="12 5 19 12 12 19" />
@@ -268,12 +269,12 @@ export default function SelectedProjects() {
                       </button>
                     </div>
                     <a
-                      href={`/case-study/${project.slug || project.id}`}
+                      href={`/project/${project.slug || project.id}`}
                       className={`card-corner-arrow card-corner-arrow--${project.slug || project.id}`}
-                      aria-label={`View ${project.name} case study`}
+                      aria-label={`View ${project.name}`}
                       ref={(el) => (arrowRefs.current[index] = el)}
                     >
-                      <img src="/assets/Asset 35.svg" alt="Open case study" />
+                      <img src="/assets/Asset 35.svg" alt="Open project" />
                     </a>                  </div>
                   <div className="card-visual">
                     <div className="card-image-wrapper">

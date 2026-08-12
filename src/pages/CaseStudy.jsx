@@ -4,8 +4,8 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Page.css'
 
-function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1600, imageGap = 2 }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1800, imageGap = 2 }) {
+  const [rightIndex, setRightIndex] = useState(1)
   const [slideDirection, setSlideDirection] = useState('next')
   const [hasEntered, setHasEntered] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -20,16 +20,15 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
   ]
 
   const images = customImages || defaultImages
-  const imagesPerView = 2
 
   const showNext = useCallback(() => {
     setSlideDirection('next')
-    setCurrentIndex((prev) => (prev + 1) % images.length)
+    setRightIndex((prev) => (prev + 1 >= images.length ? 1 : prev + 1))
   }, [images.length])
 
   const showPrevious = () => {
     setSlideDirection('prev')
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+    setRightIndex((prev) => (prev <= 1 ? images.length - 1 : prev - 1))
   }
 
   // Intersection observer to track when carousel is in view
@@ -54,25 +53,17 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
 
   // Auto-play sliding continuously once user scrolls to the carousel section
   useEffect(() => {
-    if (!hasEntered) return
+    if (!hasEntered || isHovered) return
 
     const timer = setInterval(() => {
       showNext()
     }, autoPlayInterval)
 
     return () => clearInterval(timer)
-  }, [hasEntered, showNext, autoPlayInterval])
+  }, [hasEntered, isHovered, showNext, autoPlayInterval])
 
-  const getVisibleImages = () => {
-    const result = []
-    for (let i = 0; i < imagesPerView; i++) {
-      const idx = (currentIndex + i) % images.length
-      result.push(images[idx])
-    }
-    return result
-  }
-
-  const visibleImages = getVisibleImages()
+  const staticImage = images[0]
+  const activeRightImage = images[rightIndex] || images[1]
 
   return (
     <section
@@ -82,25 +73,35 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        key={`${carouselId}-${slideDirection}-${currentIndex}`}
-        className={`renaissance-carousel-images renaissance-carousel-images--${slideDirection} ${imageGap === 4 ? 'renaissance-carousel-images--gap-4' : ''}`}
+        className={`renaissance-carousel-images ${imageGap === 4 ? 'renaissance-carousel-images--gap-4' : ''} ${imageGap === 8 ? 'renaissance-carousel-images--gap-8' : ''}`}
       >
-        {visibleImages.map((image, index) => (
-          <div key={image.id || index} className="renaissance-carousel-image-card">
-            <img
-              src={image.src}
-              alt={image.alt}
-              loading="eager"
-            />
-          </div>
-        ))}
+        {/* Left Image: Always Static (First Image) */}
+        <div className="renaissance-carousel-image-card renaissance-carousel-image-card--static">
+          <img
+            src={staticImage.src}
+            alt={staticImage.alt}
+            loading="eager"
+          />
+        </div>
+
+        {/* Right Image: Swipes in Next Image in sequence */}
+        <div
+          key={`${carouselId}-right-${rightIndex}-${slideDirection}`}
+          className={`renaissance-carousel-image-card renaissance-carousel-image-card--animated renaissance-carousel-image-card--${slideDirection}`}
+        >
+          <img
+            src={activeRightImage.src}
+            alt={activeRightImage.alt}
+            loading="eager"
+          />
+        </div>
       </div>
 
       <button
         type="button"
         className="renaissance-nav-arrow renaissance-nav-arrow--prev"
         onClick={showPrevious}
-        aria-label="Previous images"
+        aria-label="Previous image"
       >
         ←
       </button>
@@ -108,7 +109,7 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
         type="button"
         className="renaissance-nav-arrow renaissance-nav-arrow--next"
         onClick={showNext}
-        aria-label="Next images"
+        aria-label="Next image"
       >
         →
       </button>
@@ -145,8 +146,8 @@ export default function CaseStudy() {
 
   const handleNextProject = (targetKey) => {
     const targetSlug = idToSlugMap[targetKey] || targetKey
-    sessionStorage.setItem('caseStudyReferrer', `/case-study/${currentSlug}`)
-    navigate(`/case-study/${targetSlug}`)
+    sessionStorage.setItem('caseStudyReferrer', `/project/${currentSlug}`)
+    navigate(`/project/${targetSlug}`)
   }
 
   useEffect(() => {
@@ -156,15 +157,20 @@ export default function CaseStudy() {
   const handleBackClick = () => {
     sessionStorage.setItem('returnedFromPage', 'true')
     sessionStorage.removeItem('caseStudyReferrer')
-    navigate('/')
+    const prevPage = sessionStorage.getItem('previousPage')
+    if (prevPage) {
+      navigate(prevPage)
+    } else {
+      navigate(-1)
+    }
   }
 
   // Store referrer when coming from another case study
   useEffect(() => {
-    const currentPath = `/case-study/${currentSlug}`
+    const currentPath = `/project/${currentSlug}`
     return () => {
       // Store current path as referrer when navigating away
-      if (window.location.pathname.startsWith('/case-study/')) {
+      if (window.location.pathname.startsWith('/project/') || window.location.pathname.startsWith('/case-study/')) {
         sessionStorage.setItem('caseStudyReferrer', currentPath)
       }
     }

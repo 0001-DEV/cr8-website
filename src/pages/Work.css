@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Aeonik:wght@300;400;700&family=Montserrat:wght@700;900&display=swap');
+
+.work-page-container {
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background watermark */
+.work-page-container::before {
+  content: "WORK";
+  position: absolute;
+  top: clamp(4rem, 10vw, 8rem);
+  left: max(1rem, 2vw);
+  font-size: clamp(4rem, 16vw, 16rem);
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.04;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  z-index: 0;
+  color: #bced00;
+}
+
+.work-main-content {
+  flex: 1;
+  max-width: 1868px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(6rem, 10vw, 9rem) 12px clamp(4rem, 8vw, 6rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Back button header */
+.work-back-nav {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  margin-left: 72px;
+}
+
+.work-back-btn {
+  color: #959da5;
+  background: none;
+  border: none;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.work-back-btn:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Hero Section */
+.work-hero-section {
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+  min-height: 200px;
+}
+
+.work-hero-heading {
+  margin-left: 72px;
+  text-align: left;
+  max-width: 1000px;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.work-title-main {
+  margin: 0;
+  padding: 0;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.work-title-line1 {
+  color: #888888;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem 0;
+}
+
+.work-title-line2 {
+  color: #888888;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Filter Dropdown Section - Centered text with fit-content underline */
+.work-filter-container {
+  margin-top: clamp(5.5rem, 9.5vw, 8rem);
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.work-filter-trigger {
+  background: transparent;
+  border: none;
+  padding: 0.35rem 0 0.4rem 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: fit-content;
+  color: #888888;
+  font-family: inherit;
+  font-size: clamp(1.15rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  transition: color 0.3s ease;
+  user-select: none;
+  text-align: center;
+}
+
+.work-filter-label {
+  border-bottom: 2px solid #888888;
+  padding-bottom: 0.25rem;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.work-filter-trigger:hover,
+.work-filter-trigger.active {
+  color: #ffffff;
+  background: transparent;
+}
+
+.work-filter-trigger:hover .work-filter-label,
+.work-filter-trigger.active .work-filter-label {
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+}
+
+.work-filter-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  color: inherit;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.work-filter-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Sector List Dropdown */
+.work-sector-dropdown {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 40px);
+  max-width: calc(100% - 40px);
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  animation: workSectorSlideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes workSectorSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.work-sector-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  background: transparent;
+}
+
+/* Sector Dropdown Close / Times Line */
+.work-sector-close-line {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+}
+
+.work-sector-close-btn {
+  background: transparent;
+  border: none;
+  color: #888888;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.work-sector-close-line:hover .work-sector-close-btn,
+.work-sector-close-btn:hover {
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+/* Sector 1: Banking & Finance - Lime Hover (#bced00) */
+.work-sector-line:nth-child(2):hover .work-sector-name,
+.work-sector-line:nth-child(2):hover .work-sector-count,
+.work-sector-line:nth-child(2).active .work-sector-name,
+.work-sector-line:nth-child(2).active .work-sector-count {
+  color: #bced00;
+}
+.work-sector-line:nth-child(2):hover,
+.work-sector-line:nth-child(2).active {
+  background: transparent;
+  border-bottom-color: #bced00;
+}
+
+/* Sector 2: Food & Beverages - Royal Blue Hover (#0036f3) */
+.work-sector-line:nth-child(3):hover .work-sector-name,
+.work-sector-line:nth-child(3):hover .work-sector-count,
+.work-sector-line:nth-child(3).active .work-sector-name,
+.work-sector-line:nth-child(3).active .work-sector-count {
+  color: #0036f3;
+}
+.work-sector-line:nth-child(3):hover,
+.work-sector-line:nth-child(3).active {
+  background: transparent;
+  border-bottom-color: #0036f3;
+}
+
+/* Sector 3: Oil & Gas - Hot Pink Hover (#ff38fd) */
+.work-sector-line:nth-child(4):hover .work-sector-name,
+.work-sector-line:nth-child(4):hover .work-sector-count,
+.work-sector-line:nth-child(4).active .work-sector-name,
+.work-sector-line:nth-child(4).active .work-sector-count {
+  color: #ff38fd;
+}
+.work-sector-line:nth-child(4):hover,
+.work-sector-line:nth-child(4).active {
+  background: transparent;
+  border-bottom-color: #ff38fd;
+}
+
+/* Sector 4: Telecommunication - Amber Orange Hover (#ff9900) */
+.work-sector-line:nth-child(5):hover .work-sector-name,
+.work-sector-line:nth-child(5):hover .work-sector-count,
+.work-sector-line:nth-child(5).active .work-sector-name,
+.work-sector-line:nth-child(5).active .work-sector-count {
+  color: #ff9900;
+}
+.work-sector-line:nth-child(5):hover,
+.work-sector-line:nth-child(5).active {
+  background: transparent;
+  border-bottom-color: #ff9900;
+}
+
+/* Gray color for sector text */
+.work-sector-name {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+  color: #888888;
+  transition: color 0.25s ease;
+}
+
+/* Gray color for sector numbers in brackets */
+.work-sector-count {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 400;
+  color: #888888;
+  font-family: 'Aeonik', monospace, sans-serif;
+  transition: color 0.25s ease;
+}
+
+/* Two Images Grid Section (w=922.5, h=930, gap 12px, 12px text gap) */
+.work-two-images-container {
+  width: 100%;
+  max-width: 1857px;
+  margin: clamp(3rem, 6vw, 4.5rem) auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.8rem, 4vw, 3rem);
+}
+
+.work-two-images-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px; /* 12px gap between images */
+  box-sizing: border-box;
+}
+
+.work-two-image-card {
+  flex: 1;
+  max-width: 922.5px; /* w=922.5 */
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.work-two-image-box {
+  width: 100%;
+  max-height: 930px; /* h=930 */
+  aspect-ratio: 922.5 / 930;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.work-two-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.work-two-image-card:hover .work-two-image-box img {
+  transform: scale(1.03);
+}
+
+.work-two-image-text-bar {
+  margin-top: 12px; /* 12px gap so texts sit well */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 0 2px;
+}
+
+.work-two-image-left-text {
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-weight: 500;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.work-two-image-right-text {
+  font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+  font-weight: 400;
+  color: #888888;
+  transition: color 0.2s ease;
+}
+
+/* Company Name Hover Colors matching Sector Dropdown */
+.work-two-image-card.sector-banking:hover .work-two-image-left-text {
+  color: #bced00; /* Lime Green for Banking & Finance */
+}
+
+.work-two-image-card.sector-food:hover .work-two-image-left-text {
+  color: #0036f3; /* Royal Blue for Food & Beverages */
+}
+
+.work-two-image-card.sector-oil:hover .work-two-image-left-text {
+  color: #ff38fd; /* Hot Pink for Oil & Gas */
+}
+
+.work-two-image-card.sector-telecom:hover .work-two-image-left-text {
+  color: #ff9900; /* Amber Orange for Telecommunication */
+}
+
+@media (max-width: 768px) {
+  .work-main-content {
+    padding: 4rem 8px 3rem;
+  }
+
+  .work-back-nav,
+  .work-hero-heading {
+    margin-left: 12px;
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .work-hero-section {
+    margin-bottom: 2.5rem;
+    min-height: auto;
+  }
+
+  .work-title-line1,
+  .work-title-line2 {
+    font-size: clamp(2rem, 9.5vw, 3.8rem);
+    line-height: 1.1;
+  }
+
+  .work-filter-container {
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  .work-filter-trigger {
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    width: fit-content;
+    padding: 0.35rem 0 0.4rem 0;
+  }
+
+  .work-two-images-container {
+    margin-top: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .work-two-images-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .work-two-image-card {
+    flex: 1;
+    min-width: 0;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .work-two-image-box {
+    max-height: none;
+    aspect-ratio: 922.5 / 930;
+    width: 100%;
+  }
+
+  .work-two-image-left-text {
+    font-size: clamp(0.75rem, 2.5vw, 1.1rem);
+  }
+
+  .work-two-image-right-text {
+    font-size: clamp(0.65rem, 2vw, 0.95rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .work-main-content {
+    padding: 3rem 4px 2rem;
+  }
+
+  .work-back-nav,
+  .work-hero-heading {
+    margin-left: 8px;
+  }
+
+  .work-title-line1,
+  .work-title-line2 {
+    font-size: clamp(1.5rem, 8vw, 2.3rem);
+  }
+
+  .work-filter-trigger {
+    font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+  }
+
+  .work-two-images-container {
+    margin-top: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .work-two-images-row {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .work-two-image-card {
+    flex: 1;
+    min-width: 0;
+    max-width: 50%;
+  }
+
+  .work-two-image-text-bar {
+    margin-top: 6px;
+    padding: 0 1px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .work-two-image-left-text {
+    font-size: clamp(0.7rem, 2.8vw, 0.9rem);
+    line-height: 1.2;
+  }
+
+  .work-two-image-right-text {
+    font-size: clamp(0.6rem, 2.3vw, 0.8rem);
+    line-height: 1.2;
+  }
+}

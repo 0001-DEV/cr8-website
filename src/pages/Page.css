@@ -637,12 +637,34 @@
   overflow: hidden;
 }
 
-.renaissance-carousel-images--next {
-  animation: renaissanceSlideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.renaissance-carousel-image-card--animated.renaissance-carousel-image-card--next {
+  animation: rightCardSlideNext 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.renaissance-carousel-images--prev {
-  animation: renaissanceSlideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.renaissance-carousel-image-card--animated.renaissance-carousel-image-card--prev {
+  animation: rightCardSlidePrev 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes rightCardSlideNext {
+  from {
+    transform: translateX(100%);
+    opacity: 0.3;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightCardSlidePrev {
+  from {
+    transform: translateX(-100%);
+    opacity: 0.3;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .renaissance-carousel-image-card {
@@ -994,7 +1016,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -1073,16 +1095,16 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 8px;
+  align-items: stretch;
+  gap: 4px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
 
 .rainoil-flask3-card {
-  flex: 650 1 0%;
+  flex: 0 0 35.17%;
   min-width: 0;
-  width: 100%;
+  width: 35.17%;
   max-width: 650px;
   height: auto;
   max-height: 930px;
@@ -1094,15 +1116,14 @@
 .rainoil-flask3-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
 .rainoil-postprocess5-card {
-  flex: 1195 1 0%;
+  flex: 0 0 calc(64.83% - 4px);
   min-width: 0;
-  width: 100%;
+  width: calc(64.83% - 4px);
   max-width: 1195px;
   height: auto;
   max-height: 930px;
@@ -1114,8 +1135,7 @@
 .rainoil-postprocess5-card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background-color: #000000;
+  object-fit: cover;
   display: block;
 }
 
@@ -1148,7 +1168,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
@@ -1177,7 +1197,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   box-sizing: border-box;
   padding: 0 1rem;
 }

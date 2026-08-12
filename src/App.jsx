@@ -130,6 +130,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/news/:id" element={<NewsArticle />} />
+        <Route path="/project/:id" element={<CaseStudy />} />
         <Route path="/case-study/:id" element={<CaseStudy />} />
       </Routes>
     </BrowserRouter>
