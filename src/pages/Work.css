@@ -465,7 +465,7 @@
 
 @media (max-width: 480px) {
   .work-main-content {
-    padding: 3rem 4px 2rem;
+    padding: clamp(5.8rem, 16vw, 7.5rem) 4px 2rem;
   }
 
   .work-back-nav,

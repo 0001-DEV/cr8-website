@@ -284,7 +284,7 @@
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
   .about-main-content {
-    padding: 4rem 0 3rem;
+    padding: clamp(6rem, 14vw, 8.5rem) 0 3rem;
   }
 
   .about-back-nav,
@@ -366,7 +366,7 @@
 
 @media (max-width: 480px) {
   .about-main-content {
-    padding: 3rem 0 2rem;
+    padding: clamp(5.8rem, 16vw, 7.5rem) 0 2rem;
   }
 
   .about-back-nav,

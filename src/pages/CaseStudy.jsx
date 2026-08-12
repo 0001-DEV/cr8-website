@@ -397,16 +397,16 @@ export default function CaseStudy() {
             <div style={{ height: '90px' }} />
 
             {/* Section 16: Next Project - POST PROCESS 2 with text overlay */}
-            <section className="rainoil-next-project-section" style={{ marginTop: 0 }}>
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('guinness')}
+            >
               <img
                 src="/assets/POST PROCESS 2.jpg"
-                alt="POST PROCESS 2 Next Project"
+                alt="Guinness Next Project"
               />
-              <div
-                className="rainoil-next-project-text rainoil-next-project-text--black"
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleNextProject('guinness')}
-              >
+              <div className="rainoil-next-project-text rainoil-next-project-text--black">
                 NEXT PROJECT
               </div>
             </section>
@@ -648,17 +648,17 @@ export default function CaseStudy() {
             {/* Spacer 110px */}
             <div style={{ height: '110px' }} />
 
-            {/* Section 17: Next Project - POST PROCESS 2 with black text overlay */}
-            <section className="rainoil-next-project-section" style={{ marginTop: 0 }}>
+            {/* Section 17: Next Project - RENDER 1 (Renaissance) with text overlay */}
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('renaissance')}
+            >
               <img
-                src="/assets/POST PROCESS 2.jpg"
-                alt="POST PROCESS 2 Next Project"
+                src="/assets/RENDER 1.jpg"
+                alt="Renaissance Next Project"
               />
-              <div
-                className="rainoil-next-project-text rainoil-next-project-text--black"
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleNextProject('rainoil')}
-              >
+              <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
             </section>
@@ -900,16 +900,16 @@ export default function CaseStudy() {
       <div style={{ height: '110px' }} />
 
       {/* Section 16: Next Project - LOOK DEV 2 (w=1870, h=380) with text overlay */}
-      <section className="rainoil-next-project-section" style={{ marginTop: 0 }}>
+      <section
+        className="rainoil-next-project-section"
+        style={{ marginTop: 0 }}
+        onClick={() => handleNextProject('guinness')}
+      >
         <img
           src="/assets/LOOK DEV 2.png"
           alt="LOOK DEV 2 Next Project"
         />
-        <div
-          className="rainoil-next-project-text"
-          style={{ cursor: 'pointer' }}
-          onClick={() => handleNextProject('guinness')}
-        >
+        <div className="rainoil-next-project-text">
           NEXT PROJECT
         </div>
       </section>
