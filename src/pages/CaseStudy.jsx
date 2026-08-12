@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Page.css'
 
-function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1800, imageGap = 2 }) {
+function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1200, imageGap = 2 }) {
   const [rightIndex, setRightIndex] = useState(1)
   const [slideDirection, setSlideDirection] = useState('next')
   const [hasEntered, setHasEntered] = useState(false)

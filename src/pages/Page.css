@@ -638,11 +638,11 @@
 }
 
 .renaissance-carousel-image-card--animated.renaissance-carousel-image-card--next {
-  animation: rightCardSlideNext 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: rightCardSlideNext 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .renaissance-carousel-image-card--animated.renaissance-carousel-image-card--prev {
-  animation: rightCardSlidePrev 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: rightCardSlidePrev 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes rightCardSlideNext {
