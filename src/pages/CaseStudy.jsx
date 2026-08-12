@@ -6,6 +6,7 @@ import './Page.css'
 
 function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1200, imageGap = 2 }) {
   const [rightIndex, setRightIndex] = useState(1)
+  const [prevRightIndex, setPrevRightIndex] = useState(1)
   const [slideDirection, setSlideDirection] = useState('next')
   const [hasEntered, setHasEntered] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -23,12 +24,18 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
 
   const showNext = useCallback(() => {
     setSlideDirection('next')
-    setRightIndex((prev) => (prev + 1 >= images.length ? 1 : prev + 1))
+    setRightIndex((prev) => {
+      setPrevRightIndex(prev)
+      return prev + 1 >= images.length ? 1 : prev + 1
+    })
   }, [images.length])
 
   const showPrevious = () => {
     setSlideDirection('prev')
-    setRightIndex((prev) => (prev <= 1 ? images.length - 1 : prev - 1))
+    setRightIndex((prev) => {
+      setPrevRightIndex(prev)
+      return prev <= 1 ? images.length - 1 : prev - 1
+    })
   }
 
   // Intersection observer to track when carousel is in view
@@ -72,6 +79,7 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
 
   const staticImage = images[0]
   const activeRightImage = images[rightIndex] || images[1]
+  const backdropRightImage = images[prevRightIndex] || images[1]
 
   return (
     <section
@@ -92,16 +100,26 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
           />
         </div>
 
-        {/* Right Image: Swipes in Next Image in sequence */}
-        <div
-          key={`${carouselId}-right-${rightIndex}-${slideDirection}`}
-          className={`renaissance-carousel-image-card renaissance-carousel-image-card--animated renaissance-carousel-image-card--${slideDirection}`}
-        >
-          <img
-            src={activeRightImage.src}
-            alt={activeRightImage.alt}
-            loading="eager"
-          />
+        {/* Right Image Slot: Backdrop + Smooth Top Slide Layer (Zero Flickering) */}
+        <div className="renaissance-carousel-right-slot">
+          <div className="renaissance-carousel-image-card renaissance-carousel-image-card--backdrop">
+            <img
+              src={backdropRightImage.src}
+              alt={backdropRightImage.alt}
+              loading="eager"
+            />
+          </div>
+
+          <div
+            key={`${carouselId}-right-${rightIndex}-${slideDirection}`}
+            className={`renaissance-carousel-image-card renaissance-carousel-image-card--animated renaissance-carousel-image-card--${slideDirection}`}
+          >
+            <img
+              src={activeRightImage.src}
+              alt={activeRightImage.alt}
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
 
