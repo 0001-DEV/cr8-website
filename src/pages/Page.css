@@ -405,7 +405,7 @@
 }
 
 .renaissance-hero-title {
-  font-size: 104pt;
+  font-size: clamp(2.8rem, 7.5vw, 104pt);
   font-weight: 400;
   color: #ffffff;
   font-family: 'Aeonik', sans-serif;
@@ -440,11 +440,13 @@
   font-weight: 400;
 }
 
-/* Renaissance Image Section (w=1920, h=980) */
+/* Renaissance Image Section */
 .renaissance-image-section {
   width: 100%;
   max-width: 1869px;
-  height: 980px;
+  height: auto;
+  max-height: 85vh;
+  aspect-ratio: 1920 / 980;
   margin: 0 auto 4rem auto;
   overflow: hidden;
   position: relative;
@@ -724,7 +726,7 @@
   gap: 4px;
 }
 
-.renaissance-carousel-images--gap-4 .renaissance-carousel-image-card {
+.renaissance-carousel-images--gap-4 > .renaissance-carousel-image-card {
   flex: 0 0 calc((100% - 4px) / 2);
   width: calc((100% - 4px) / 2);
 }
@@ -733,7 +735,7 @@
   gap: 8px;
 }
 
-.renaissance-carousel-images--gap-8 .renaissance-carousel-image-card {
+.renaissance-carousel-images--gap-8 > .renaissance-carousel-image-card {
   flex: 0 0 calc((100% - 8px) / 2);
   width: calc((100% - 8px) / 2);
 }
@@ -896,17 +898,16 @@
 }
 
 .rainoil-hero-title {
-  font-size: clamp(3rem, 10vw, 180px);
+  font-size: clamp(2.5rem, 8vw, 140px);
   font-weight: 400;
   color: #ffffff;
   max-width: 100%;
   width: auto;
-  min-height: 177px;
+  min-height: auto;
   margin: 0 0 1.5rem 0;
   letter-spacing: -0.03em;
   line-height: 0.95;
   text-align: center;
-  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -914,7 +915,7 @@
 
 .rainoil-hero-paragraphs {
   max-width: 1156px;
-  min-height: 241px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -933,7 +934,9 @@
 .rainoil-image-section {
   width: 100%;
   max-width: 1920px;
-  height: 804px;
+  height: auto;
+  max-height: 85vh;
+  aspect-ratio: 1920 / 804;
   margin: 0 auto 4rem auto;
   overflow: hidden;
   position: relative;
@@ -969,18 +972,17 @@
 }
 
 .rainoil-challenge-subheading {
-  font-size: clamp(2.5rem, 2.2vw, 35px);
+  font-size: clamp(1.8rem, 2.2vw, 35px);
   font-weight: 600;
   color: #888888;
   max-width: 100%;
-  min-height: 37px;
+  min-height: auto;
   margin: 0;
   line-height: 1.2;
-  white-space: nowrap;
 }
 
 .rainoil-challenge-heading {
-  font-size: clamp(2.5rem, 7.5vw, 136px);
+  font-size: clamp(2.2rem, 6.5vw, 110px);
   font-weight: 400;
   color: #ffffff;
   max-width: 100%;
@@ -988,7 +990,6 @@
   margin: 0;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  white-space: nowrap;
   overflow: visible;
 }
 
@@ -1031,8 +1032,9 @@
 .rainoil-compiled-section {
   width: 100%;
   max-width: 1852px;
-  height: 1080px;
-  margin: 0 auto 8px auto;
+  height: auto;
+  max-height: 930px;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;
@@ -1129,7 +1131,7 @@
 .rainoil-flask3-postprocess-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1182,7 +1184,7 @@
   width: 100%;
   max-width: 1869px;
   height: 1080px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
   background-color: #000000;
@@ -1201,7 +1203,7 @@
 .rainoil-cups-9-10-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1276,7 +1278,6 @@
   min-height: auto;
   margin: 0;
   line-height: 1.2;
-  white-space: nowrap;
 }
 
 .rainoil-solution-heading {
@@ -1289,7 +1290,6 @@
   margin: 1.25rem 0 0 0;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  white-space: nowrap;
 }
 
 .rainoil-solution-body {
@@ -1313,20 +1313,24 @@
 .rainoil-compiled-cup8-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
 
 .rainoil-compiled-card {
-  width: 100%;
+  flex: 0 0 calc(64.83% - 4px);
+  min-width: 0;
+  width: calc(64.83% - 4px);
   max-width: 1195px;
-  height: 1020px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 1195 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1339,9 +1343,13 @@
 }
 
 .rainoil-cup8-card {
-  width: 100%;
+  flex: 0 0 35.17%;
+  min-width: 0;
+  width: 35.17%;
   max-width: 650px;
-  height: 1020px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 650 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1357,11 +1365,11 @@
 .rainoil-mugs-1-2-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
@@ -1369,8 +1377,11 @@
 
 .rainoil-mug800-card {
   flex: 1;
+  min-width: 0;
   max-width: 922.5px;
-  height: 800px;
+  height: auto;
+  max-height: 800px;
+  aspect-ratio: 922.5 / 800;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1386,20 +1397,24 @@
 .rainoil-mug1-mug3-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
 
 .rainoil-mug650-card {
-  width: 100%;
+  flex: 0 0 35.17%;
+  min-width: 0;
+  width: 35.17%;
   max-width: 650px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 650 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1412,9 +1427,13 @@
 }
 
 .rainoil-mug1195-card {
-  width: 100%;
+  flex: 0 0 calc(64.83% - 4px);
+  min-width: 0;
+  width: calc(64.83% - 4px);
   max-width: 1195px;
-  height: 930px;
+  height: auto;
+  max-height: 930px;
+  aspect-ratio: 1195 / 930;
   overflow: hidden;
   background-color: #000000;
 }
@@ -1430,22 +1449,22 @@
 .rainoil-mugs-4-6-section {
   width: 100%;
   max-width: 1869px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 8px;
   box-sizing: border-box;
   padding: 0 1rem;
 }
 
-/* Next Project Section (w=1870 h=380) with text overlay */
+/* Next Project Section with text overlay */
 .rainoil-next-project-section {
   width: 100%;
   max-width: 1870px;
-  height: 380px;
-  margin: 380px auto 6rem auto;
+  height: clamp(160px, 35vw, 380px);
+  margin: clamp(3rem, 8vw, 8rem) auto 6rem auto;
   position: relative;
   overflow: hidden;
   background-color: #000000;
@@ -2009,49 +2028,46 @@
   }
 }
 
-/* Uniform 8px gap when an image or carousel section follows an image or carousel section */
-:is(
-  .rainoil-image-section,
-  .renaissance-image-section,
-  .rainoil-compiled-section,
-  .rainoil-flasks-section,
-  .rainoil-flask3-postprocess-section,
-  .rainoil-cup7-section,
-  .rainoil-cups-9-10-section,
-  .rainoil-cups-6-3-section,
-  .rainoil-compiled-cup8-section,
-  .rainoil-mugs-1-2-section,
-  .rainoil-mug1-mug3-section,
-  .rainoil-mugs-4-6-section,
-  .rainoil-next-project-section,
-  .renaissance-carousel-nav-section,
-  .renaissance-two-images-section,
-  .renaissance-two-images-gap4-section,
-  .renaissance-two-images-800-gap4-section,
-  .renaissance-asym-images-gap4-section
-):has(+ :is(
-  .rainoil-image-section,
-  .renaissance-image-section,
-  .rainoil-compiled-section,
-  .rainoil-flasks-section,
-  .rainoil-flask3-postprocess-section,
-  .rainoil-cup7-section,
-  .rainoil-cups-9-10-section,
-  .rainoil-cups-6-3-section,
-  .rainoil-compiled-cup8-section,
-  .rainoil-mugs-1-2-section,
-  .rainoil-mug1-mug3-section,
-  .rainoil-mugs-4-6-section,
-  .rainoil-next-project-section,
-  .renaissance-carousel-nav-section,
-  .renaissance-two-images-section,
-  .renaissance-two-images-gap4-section,
-  .renaissance-two-images-800-gap4-section,
-  .renaissance-asym-images-gap4-section
-)) {
+/* Uniform 8px gap between consecutive image or carousel sections */
+.rainoil-image-section,
+.rainoil-compiled-section,
+.rainoil-flasks-section,
+.rainoil-flask3-postprocess-section,
+.rainoil-cup7-section,
+.rainoil-cups-9-10-section,
+.rainoil-cups-6-3-section,
+.rainoil-compiled-cup8-section,
+.rainoil-mugs-1-2-section,
+.rainoil-mug1-mug3-section,
+.rainoil-mugs-4-6-section,
+.renaissance-image-section,
+.renaissance-two-images-section,
+.renaissance-two-images-gap4-section,
+.renaissance-two-images-800-gap4-section,
+.renaissance-asym-images-gap4-section {
   margin-bottom: 0 !important;
 }
 
+.rainoil-compiled-section + .rainoil-flasks-section,
+.rainoil-flask3-postprocess-section + .rainoil-cup7-section,
+.rainoil-cup7-section + .rainoil-cups-9-10-section,
+.rainoil-cups-9-10-section + .rainoil-cups-6-3-section,
+.rainoil-compiled-cup8-section + .rainoil-mugs-1-2-section,
+.rainoil-mugs-1-2-section + .rainoil-mug1-mug3-section,
+.rainoil-mug1-mug3-section + .rainoil-mugs-4-6-section,
+.renaissance-image-section + .rainoil-cup7-section,
+.renaissance-image-section + .renaissance-carousel-nav-section,
+.renaissance-carousel-nav-section + .renaissance-carousel-nav-section,
+.rainoil-cup7-section + .renaissance-carousel-nav-section,
+.renaissance-two-images-gap4-section + .renaissance-two-images-gap4-section,
+.renaissance-two-images-800-gap4-section + .renaissance-two-images-800-gap4-section,
+.renaissance-asym-images-gap4-section + .renaissance-asym-images-gap4-section,
+.renaissance-asym-images-gap4-section + .renaissance-two-images-gap4-section,
+.renaissance-two-images-800-gap4-section + .renaissance-asym-images-gap4-section {
+  margin-top: 8px !important;
+}
+
+/* Broad fallback for any custom image section placed adjacent to another image section */
 :is(
   .rainoil-image-section,
   .renaissance-image-section,
@@ -2065,7 +2081,6 @@
   .rainoil-mugs-1-2-section,
   .rainoil-mug1-mug3-section,
   .rainoil-mugs-4-6-section,
-  .rainoil-next-project-section,
   .renaissance-carousel-nav-section,
   .renaissance-two-images-section,
   .renaissance-two-images-gap4-section,
@@ -2084,7 +2099,6 @@
   .rainoil-mugs-1-2-section,
   .rainoil-mug1-mug3-section,
   .rainoil-mugs-4-6-section,
-  .rainoil-next-project-section,
   .renaissance-carousel-nav-section,
   .renaissance-two-images-section,
   .renaissance-two-images-gap4-section,

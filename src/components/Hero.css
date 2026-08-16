@@ -40,13 +40,14 @@
 }
 
 .brand-line {
-  font-size: clamp(1.8rem, 7vw, 220px);
+  font-size: clamp(1.6rem, 5.5vw, 180px);
   font-weight: 900;
   font-family: 'Montserrat';
   letter-spacing: 0.04em;
   color: white;
   line-height: 1.15;
   white-space: nowrap;
+  max-width: 100%;
   overflow: visible;
   padding-bottom: 0.1em;
 }
@@ -126,7 +127,7 @@
   }
 
   .brand-line {
-    font-size: clamp(1.8rem, 10vw, 80px);
+    font-size: clamp(1.4rem, 8.5vw, 72px);
   }
 
   .hero-visual {

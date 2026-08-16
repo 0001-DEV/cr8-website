@@ -17,7 +17,7 @@
 
 /* Back Navigation Button */
 .about-back-nav {
-  margin-left: 48px;
+  margin-left: clamp(0.75rem, 4vw, 3rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
@@ -44,15 +44,15 @@
 /* Hero Section */
 .about-hero-section {
   margin-bottom: clamp(4rem, 8vw, 7rem);
-  min-height: 200px;
+  min-height: auto;
 }
 
 .about-hero-heading {
-  margin-left: 48px;
+  margin-left: clamp(0.75rem, 4vw, 3rem);
   text-align: left;
   max-width: 1000px;
   width: 100%;
-  min-height: 200px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,12 +82,11 @@
   line-height: 1.08;
   letter-spacing: -0.02em;
   margin: 0;
-  white-space: nowrap;
 }
 
 /* About Content Sections */
 .about-intro-section {
-  margin-left: 48px;
+  margin-left: clamp(0.75rem, 4vw, 3rem);
   max-width: 967px;
   width: 100%;
   min-height: auto;
@@ -131,10 +130,10 @@
   color: #888888;
 }
 
-/* Excellent Minds Section (gap 200px, 112pt Aeonik) */
+/* Excellent Minds Section */
 .about-minds-section {
-  margin-top: 200px;
-  margin-left: 48px;
+  margin-top: clamp(3rem, 10vw, 12.5rem);
+  margin-left: clamp(0.75rem, 4vw, 3rem);
   margin-bottom: clamp(4rem, 8vw, 6rem);
 }
 

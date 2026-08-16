@@ -248,7 +248,7 @@
   flex-direction: column;
   gap: 0.5rem;
   justify-content: flex-start;
-  padding-top: 170px;
+  padding-top: clamp(1rem, 3vh, 2.5rem);
 }
 
 .card-description {
@@ -262,7 +262,7 @@
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  padding-top: 250px;
+  padding-top: clamp(1rem, 2vh, 1.75rem);
 }
 
 .card-tag {

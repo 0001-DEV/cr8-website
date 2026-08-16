@@ -40,7 +40,7 @@
 /* Back button header */
 .work-back-nav {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  margin-left: 72px;
+  margin-left: clamp(0.75rem, 4vw, 4.5rem);
 }
 
 .work-back-btn {
@@ -64,15 +64,15 @@
 /* Hero Section */
 .work-hero-section {
   margin-bottom: clamp(4rem, 8vw, 7rem);
-  min-height: 200px;
+  min-height: auto;
 }
 
 .work-hero-heading {
-  margin-left: 72px;
+  margin-left: clamp(0.75rem, 4vw, 4.5rem);
   text-align: left;
   max-width: 1000px;
   width: 100%;
-  min-height: 200px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

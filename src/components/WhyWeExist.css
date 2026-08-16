@@ -106,7 +106,7 @@
 .pillar-text-bottom { max-height: 0; }
 .pillar-text-top { max-height: 0; order: 1; }
 .pillar-image-container:hover .pillar-text-overlay {
-  max-height: 220px;
+  max-height: 350px;
   padding: 0.75rem 1rem;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .pillar-image-top:hover .pillar-text-overlay-middle {
-  max-height: 160px;
+  max-height: 280px;
   opacity: 1;
   top: 0;
   padding: 0.5rem 1rem;
@@ -227,7 +227,7 @@
   margin-left: clamp(0rem, 4vw, 4rem);
   line-height: 1.2;
   max-width: 844px;
-  min-height: 218px;
+  min-height: auto;
 }
 
 .clients-container {
