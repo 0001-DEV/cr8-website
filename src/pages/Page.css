@@ -1548,29 +1548,23 @@
 
   .rainoil-image-section,
   .renaissance-image-section,
-  .rainoil-cup7-section {
-    height: auto;
-    max-height: none;
+  .rainoil-cup7-section,
+  .rainoil-compiled-section {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
     padding: 0 0.5rem;
   }
   
   .rainoil-image-section img,
   .renaissance-image-section img,
-  .rainoil-cup7-section img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .rainoil-compiled-section {
-    height: auto;
-    max-height: none;
-  }
-  
+  .rainoil-cup7-section img,
   .rainoil-compiled-section img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: auto !important;
+    display: block;
+    object-fit: cover;
   }
 
   .rainoil-flasks-section {
