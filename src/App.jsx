@@ -112,7 +112,8 @@ function HomePage() {
         <WhyWeExist />
         <SelectedProjects />
         <NewsPress />
-        <PraiseFromClients />
+        {/* Praise from clients section - hidden for now, can be restored later */}
+        {/* <PraiseFromClients /> */}
         <Footer />
       </div>
     </div>
