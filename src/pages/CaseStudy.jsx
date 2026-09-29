@@ -13,11 +13,11 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
   const sectionRef = useRef(null)
 
   const defaultImages = [
-    { id: 1, src: '/assets/RENDER 1.jpg', alt: 'Renaissance Render 1' },
-    { id: 2, src: '/assets/RENDER 13 copy.jpg', alt: 'Renaissance Render 13' },
-    { id: 3, src: '/assets/RENDER 12.jpg', alt: 'Renaissance Render 12' },
-    { id: 4, src: '/assets/RENDER 11.jpg', alt: 'Renaissance Render 11' },
-    { id: 5, src: '/assets/RENDER 7.jpg', alt: 'Renaissance Render 7' },
+    { id: 1, src: '/assets/RENDER 1.webp', alt: 'Renaissance Render 1' },
+    { id: 2, src: '/assets/RENDER 13 copy.webp', alt: 'Renaissance Render 13' },
+    { id: 3, src: '/assets/RENDER 12.webp', alt: 'Renaissance Render 12' },
+    { id: 4, src: '/assets/RENDER 11.webp', alt: 'Renaissance Render 11' },
+    { id: 5, src: '/assets/RENDER 7.webp', alt: 'Renaissance Render 7' },
   ]
 
   const images = customImages || defaultImages
@@ -154,6 +154,14 @@ const slugToIdMap = {
   'renaissance': '3',
   '4': '4',
   'guinness': '4',
+  '5': '5',
+  'adnoc': '5',
+  '6': '6',
+  'seplat': '6',
+  'seplat-energy': '6',
+  '7': '7',
+  'mtn': '7',
+  '8': '7',
 }
 
 const idToSlugMap = {
@@ -161,6 +169,9 @@ const idToSlugMap = {
   '2': 'nigerian-breweries',
   '3': 'renaissance',
   '4': 'guinness',
+  '5': 'adnoc',
+  '6': 'seplat',
+  '7': 'mtn',
 }
 
 export default function CaseStudy() {
@@ -229,7 +240,7 @@ export default function CaseStudy() {
             {/* Section 2: POST PROCESS 8 Image (w=1920, h=980) */}
             <section className="renaissance-image-section">
               <img
-                src="/assets/POST PROCESS 8.jpg"
+                src="/assets/POST PROCESS 8.webp"
                 alt="Renaissance Post Process 8"
               />
             </section>
@@ -260,7 +271,7 @@ export default function CaseStudy() {
             {/* Section 4: RENDER 34 Image (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img
-                src="/assets/RENDER 34.jpg"
+                src="/assets/RENDER 34.webp"
                 alt="Renaissance Render 34"
               />
             </section>
@@ -288,7 +299,7 @@ export default function CaseStudy() {
             {/* Section 6: RENDER 9 copy Image (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img
-                src="/assets/RENDER 9 copy.jpg"
+                src="/assets/RENDER 9 copy.webp"
                 alt="Renaissance Render 9 Copy"
               />
             </section>
@@ -298,11 +309,11 @@ export default function CaseStudy() {
               carouselId="renaissance-carousel-2"
               imageGap={8}
               images={[
-                { id: 1, src: '/assets/RENDER 14.jpg', alt: 'Renaissance Render 14' },
-                { id: 2, src: '/assets/RENDER 15.jpg', alt: 'Renaissance Render 15' },
-                { id: 3, src: '/assets/RENDER 6.jpg', alt: 'Renaissance Render 6' },
-                { id: 4, src: '/assets/RENDER 16.jpg', alt: 'Renaissance Render 16' },
-                { id: 5, src: '/assets/RENDER 3.jpg', alt: 'Renaissance Render 3' },
+                { id: 1, src: '/assets/RENDER 14.webp', alt: 'Renaissance Render 14' },
+                { id: 2, src: '/assets/RENDER 15.webp', alt: 'Renaissance Render 15' },
+                { id: 3, src: '/assets/RENDER 6.webp', alt: 'Renaissance Render 6' },
+                { id: 4, src: '/assets/RENDER 16.webp', alt: 'Renaissance Render 16' },
+                { id: 5, src: '/assets/RENDER 3.webp', alt: 'Renaissance Render 3' },
               ]}
             />
 
@@ -323,7 +334,7 @@ export default function CaseStudy() {
             {/* Section 9: POST PROCESS 22 Image (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img
-                src="/assets/POST PROCESS 22.jpg"
+                src="/assets/POST PROCESS 22.webp"
                 alt="Renaissance Post Process 22"
               />
             </section>
@@ -332,13 +343,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 23.jpg"
+                  src="/assets/RENDER 23.webp"
                   alt="Renaissance Render 23"
                 />
               </div>
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 26.jpg"
+                  src="/assets/RENDER 26.webp"
                   alt="Renaissance Render 26"
                 />
               </div>
@@ -362,13 +373,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-800-gap4-section">
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/RENDER 27.jpg"
+                  src="/assets/RENDER 27.webp"
                   alt="Renaissance Render 27"
                 />
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/RENDER 28 copy.jpg"
+                  src="/assets/RENDER 28 copy.webp"
                   alt="Renaissance Render 28 Copy"
                 />
               </div>
@@ -378,13 +389,13 @@ export default function CaseStudy() {
             <section className="renaissance-asym-images-gap4-section">
               <div className="renaissance-asym-650-card">
                 <img
-                  src="/assets/RENDER 30.jpg"
+                  src="/assets/RENDER 30.webp"
                   alt="Renaissance Render 30"
                 />
               </div>
               <div className="renaissance-asym-1195-card">
                 <img
-                  src="/assets/RENDER 29.jpg"
+                  src="/assets/RENDER 29.webp"
                   alt="Renaissance Render 29"
                 />
               </div>
@@ -394,13 +405,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-800-gap4-section">
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/POST PROCESS 37.jpg"
+                  src="/assets/POST PROCESS 37.webp"
                   alt="Renaissance Post Process 37"
                 />
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/POST PROCESS 36.jpg"
+                  src="/assets/POST PROCESS 36.webp"
                   alt="Renaissance Post Process 36"
                 />
               </div>
@@ -411,11 +422,11 @@ export default function CaseStudy() {
               carouselId="renaissance-carousel-3"
               imageGap={4}
               images={[
-                { id: 1, src: '/assets/RENDER 35.jpg', alt: 'Renaissance Render 35' },
-                { id: 2, src: '/assets/Umbrella Mockup_2.jpg', alt: 'Umbrella Mockup 2' },
-                { id: 3, src: '/assets/Umbrella Mockup.png', alt: 'Umbrella Mockup' },
-                { id: 4, src: '/assets/RON 1.png', alt: 'RON 1' },
-                { id: 5, src: '/assets/Umbrella Mockupblack.jpg', alt: 'Umbrella Mockup Black' },
+                { id: 1, src: '/assets/RENDER 35.webp', alt: 'Renaissance Render 35' },
+                { id: 2, src: '/assets/Umbrella Mockup_2.webp', alt: 'Umbrella Mockup 2' },
+                { id: 3, src: '/assets/Umbrella Mockup.webp', alt: 'Umbrella Mockup' },
+                { id: 4, src: '/assets/RON 1.webp', alt: 'RON 1' },
+                { id: 5, src: '/assets/Umbrella Mockupblack.webp', alt: 'Umbrella Mockup Black' },
               ]}
             />
 
@@ -429,7 +440,7 @@ export default function CaseStudy() {
               onClick={() => handleNextProject('guinness')}
             >
               <img
-                src="/assets/POST PROCESS 2.jpg"
+                src="/assets/POST PROCESS 2.webp"
                 alt="Guinness Next Project"
               />
               <div className="rainoil-next-project-text rainoil-next-project-text--black">
@@ -453,7 +464,7 @@ export default function CaseStudy() {
             
             <section className="rainoil-image-section">
               <img
-                src="/assets/RENDER 9 copy 2.jpg"
+                src="/assets/RENDER 9 copy 2.webp"
                 alt="Guinness Render 9 Copy 2"
               />
             </section>
@@ -484,7 +495,7 @@ export default function CaseStudy() {
             {/* Section 4: RENDER 8 Image (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img
-                src="/assets/RENDER 8.jpg"
+                src="/assets/RENDER 8.webp"
                 alt="Guinness Render 8"
               />
             </section>
@@ -493,13 +504,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 4.jpg"
+                  src="/assets/RENDER 4.webp"
                   alt="Guinness Render 4"
                 />
               </div>
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 5.jpg"
+                  src="/assets/RENDER 5.webp"
                   alt="Guinness Render 5"
                 />
               </div>
@@ -526,13 +537,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 6 GUINNESS.png"
+                  src="/assets/RENDER 6 GUINNESS.webp"
                   alt="Guinness Render 6"
                 />
               </div>
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 7 copy.jpg"
+                  src="/assets/RENDER 7 copy.webp"
                   alt="Guinness Render 7 Copy"
                 />
               </div>
@@ -541,7 +552,7 @@ export default function CaseStudy() {
             {/* Section 8: LOOK DEV 3 Image (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img
-                src="/assets/LOOK DEV 3.jpg"
+                src="/assets/LOOK DEV 3.webp"
                 alt="Guinness Look Dev 3"
               />
             </section>
@@ -564,13 +575,13 @@ export default function CaseStudy() {
             <section className="renaissance-asym-images-gap4-section">
               <div className="renaissance-asym-650-card">
                 <img
-                  src="/assets/RENDER 12 copy.jpg"
+                  src="/assets/RENDER 12 copy.webp"
                   alt="Guinness Render 12 Copy"
                 />
               </div>
               <div className="renaissance-asym-1195-card">
                 <img
-                  src="/assets/RENDER 11 copy.jpg"
+                  src="/assets/RENDER 11 copy.webp"
                   alt="Guinness Render 11 Copy"
                 />
               </div>
@@ -580,13 +591,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/LOOK DEV 4.jpg"
+                  src="/assets/LOOK DEV 4.webp"
                   alt="Guinness Look Dev 4"
                 />
               </div>
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 10.jpg"
+                  src="/assets/RENDER 10.webp"
                   alt="Guinness Render 10"
                 />
               </div>
@@ -610,13 +621,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-800-gap4-section">
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/RENDER 17_EDIT_FULL.png"
+                  src="/assets/RENDER 17_EDIT_FULL.webp"
                   alt="Guinness Render 17 Edit Full"
                 />
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/RENDER 18_EDIT_FULL.png"
+                  src="/assets/RENDER 18_EDIT_FULL.webp"
                   alt="Guinness Render 18 Edit Full"
                 />
               </div>
@@ -626,13 +637,13 @@ export default function CaseStudy() {
             <section className="renaissance-asym-images-gap4-section">
               <div className="renaissance-asym-650-card">
                 <img
-                  src="/assets/RENDER 19.jpg"
+                  src="/assets/RENDER 19.webp"
                   alt="Guinness Render 19"
                 />
               </div>
               <div className="renaissance-asym-1195-card">
                 <img
-                  src="/assets/RENDER 20_EDIT_FULL.png"
+                  src="/assets/RENDER 20_EDIT_FULL.webp"
                   alt="Guinness Render 20 Edit Full"
                 />
               </div>
@@ -642,13 +653,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-800-gap4-section">
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/RENDER 21_EDIT_FULL.png"
+                  src="/assets/RENDER 21_EDIT_FULL.webp"
                   alt="Guinness Render 21 Edit Full"
                 />
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
-                  src="/assets/RENDER 22_EDIT_FULL.png"
+                  src="/assets/RENDER 22_EDIT_FULL.webp"
                   alt="Guinness Render 22 Edit Full"
                 />
               </div>
@@ -658,13 +669,13 @@ export default function CaseStudy() {
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 15_EDIT_FULL.png"
+                  src="/assets/RENDER 15_EDIT_FULL.webp"
                   alt="Guinness Render 15 Edit Full"
                 />
               </div>
               <div className="renaissance-two-image-card">
                 <img
-                  src="/assets/RENDER 16_EDIT_FULL.png"
+                  src="/assets/RENDER 16_EDIT_FULL.webp"
                   alt="Guinness Render 16 Edit Full"
                 />
               </div>
@@ -673,15 +684,15 @@ export default function CaseStudy() {
             {/* Spacer 110px */}
             <div style={{ height: '110px' }} />
 
-            {/* Section 17: Next Project - RENDER 1 (Renaissance) with text overlay */}
+            {/* Section 17: Next Project - Adnoc with text overlay */}
             <section
               className="rainoil-next-project-section"
               style={{ marginTop: 0 }}
-              onClick={() => handleNextProject('renaissance')}
+              onClick={() => handleNextProject('adnoc')}
             >
               <img
-                src="/assets/RENDER 1.jpg"
-                alt="Renaissance Next Project"
+                src="/assets/Adnoc.webp"
+                alt="ADNOC Next Project"
               />
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
@@ -689,7 +700,471 @@ export default function CaseStudy() {
             </section>
           </>
         )}
-        
+
+        {/* ADNOC Case Study (id=5) */}
+        {id === '5' && (
+          <>
+            {/* Section 1: Hero Section */}
+            <section className="renaissance-hero-section">
+              <h1 className="renaissance-hero-title">ADNOC</h1>
+              <div className="renaissance-hero-paragraphs">
+                <p>
+                  Beyond the products it delivers. For its end-of-year celebration, the opportunity was to create a gesture that could acknowledge the year, reflect the stature of the organisation, and leave people with something meaningful beyond the moment of celebration. We approached the project as an opportunity to turn a familiar corporate gift into a more considered expression of the ADNOC brand.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 2: ADNOC hero image */}
+            <section className="rainoil-image-section">
+              <img
+                src="/assets/Adnoc.webp"
+                alt="ADNOC"
+              />
+            </section>
+
+            {/* Section 3: The Challenge - Defining the Intent */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">Defining the Intent</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    The challenge was not simply to create something branded. It was to ensure the gesture felt intentional, premium, and unmistakably ADNOC, while still being useful enough to remain part of the recipient's everyday life. This required striking a careful balance between celebration and utility — designing something that could commemorate the occasion without feeling like a conventional promotional item.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Oil &amp; Gas
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: POST 3 full-width image */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/POST 3.webp"
+                alt="ADNOC Post 3"
+              />
+            </section>
+
+            {/* Section 5: POST 4 + POST 2 side by side (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/POST 4.webp"
+                  alt="ADNOC Post 4"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/POST 2.webp"
+                  alt="ADNOC Post 2"
+                />
+              </div>
+            </section>
+
+            {/* Section 6: Our Strategy - Translating Identity into Experience */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Translating Identity into Experience</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  We focused on translating ADNOC's identity into a refined, tactile experience. Rather than relying on overt branding, we looked to the company's strongest visual cues — its rich blue palette, clean white space, bilingual Arabic and English typography, and the iconic falcon mark — as the foundation for the design system. This approach allowed the brand to be felt rather than simply seen, elevating the gesture into something more enduring and considered.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: POST 8 + POST 12 side by side (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/POST 8.webp"
+                  alt="ADNOC Post 8"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/POST 12.webp"
+                  alt="ADNOC Post 12"
+                />
+              </div>
+            </section>
+
+            {/* Section 8: POST 11 + POST 14 side by side (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/POST 11.webp"
+                  alt="ADNOC Post 11"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/POST 14.webp"
+                  alt="ADNOC Post 14"
+                />
+              </div>
+            </section>
+
+            {/* Section 9: The Solution - Crafting the Final Expression */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">Crafting the<br />Final Expression</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  The final outcome was a coordinated collection of two diaries and a notepad, each designed with precision and restraint to reflect ADNOC's sense of scale and professionalism. Together, they form a cohesive set that carries the same visual language while giving the end-of-year gesture a tangible, lasting presence. Rather than simply placing a logo on a gift, we created a branded object that could mark the end of one year while becoming part of the next.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 10: POST 7 (w=784, h=980) + POST 9 (w=1205, h=980) asymmetric */}
+            <section className="adnoc-asym-images-section">
+              <div className="adnoc-asym-784-card">
+                <img
+                  src="/assets/POST 7.webp"
+                  alt="ADNOC Post 7"
+                />
+              </div>
+              <div className="adnoc-asym-1205-card">
+                <img
+                  src="/assets/POST 9.webp"
+                  alt="ADNOC Post 9"
+                />
+              </div>
+            </section>
+
+            {/* Section 11: Adnoc1 (w=922.5, h=1153) + adnoc2 (w=972.5, h=1153) */}
+            <section className="adnoc-tall-images-section">
+              <div className="adnoc-tall-922-card">
+                <img
+                  src="/assets/Adnoc1.webp"
+                  alt="ADNOC 1"
+                />
+              </div>
+              <div className="adnoc-tall-972-card">
+                <img
+                  src="/assets/adnoc2.webp"
+                  alt="ADNOC 2"
+                />
+              </div>
+            </section>
+
+            {/* Spacer 90px */}
+            <div style={{ height: '90px' }} />
+
+            {/* Section 12: Next Project - Seplat */}
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('seplat')}
+            >
+              <img
+                src="/assets/Seplat11.webp"
+                alt="Seplat Next Project"
+              />
+              <div className="rainoil-next-project-text">
+                NEXT PROJECT
+              </div>
+            </section>
+          </>
+        )}
+
+        {/* Seplat Case Study (id=6) */}
+        {id === '6' && (
+          <>
+            {/* Section 1: Hero */}
+            <section className="renaissance-hero-section">
+              <h1 className="renaissance-hero-title">Seplat Energy</h1>
+              <div className="renaissance-hero-paragraphs">
+                <p>
+                  Seplat Energy operates at the intersection of national infrastructure and long-term energy development. Beyond production, it supports systems that power industries and everyday life. Because of this scale, the brand is shaped not only by major communications, but also by smaller, everyday touchpoints where it is quietly experienced. This project started from that idea: making sure Seplat's identity is felt consistently, even in routine interactions.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 2: Seplat11 full-width hero image */}
+            <section className="rainoil-image-section">
+              <img src="/assets/Seplat11.webp" alt="Seplat Energy" />
+            </section>
+
+            {/* Section 3: Challenge */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">Making the Small Things Carry the Same Weight</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    We began by defining how the brand should feel at its best: measured, reliable, structured, and forward-looking. From there, we built a restrained, consistent visual system that could work across different applications, with only subtle variation where necessary. The aim was simple: every touchpoint, no matter how small, should feel like it belongs to the same way of thinking.
+                  </p>
+                </div>
+              </div>
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Oil &amp; Gas
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: Seplat2 full-width (w=1870 h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img src="/assets/Seplat2.webp" alt="Seplat 2" />
+            </section>
+
+            {/* Section 5: Seplat1 + Seplat3 side by side (w=922.5 h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img src="/assets/Seplat1.webp" alt="Seplat 1" />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img src="/assets/Seplat3.webp" alt="Seplat 3" />
+              </div>
+            </section>
+
+            {/* Section 6: Our Strategy */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Designing from Behaviour, Not Objects</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  We began by defining how the brand should feel at its best: measured, reliable, structured, and forward-looking. From there, we built a restrained, consistent visual system that could work across different applications, with only subtle variation where necessary. The aim was simple: every touchpoint, no matter how small, should feel like it belongs to the same way of thinking.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: Seplat4 (w=650 h=930) + Seplat5 (w=1195 h=930) asymmetric */}
+            <section className="renaissance-asym-images-gap4-section">
+              <div className="renaissance-asym-650-card">
+                <img src="/assets/Seplat4.webp" alt="Seplat 4" />
+              </div>
+              <div className="renaissance-asym-1195-card">
+                <img src="/assets/Seplat5.webp" alt="Seplat 5" />
+              </div>
+            </section>
+
+            {/* Section 8: Seplat7 full-width (w=1870 h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img src="/assets/Seplat7.webp" alt="Seplat 7" />
+            </section>
+
+            {/* Section 9: Seplat6 + Seplat8 side by side (w=922.5 h=1153 each) */}
+            <section className="adnoc-tall-images-section">
+              <div className="adnoc-tall-922-card">
+                <img src="/assets/Seplat6.webp" alt="Seplat 6" />
+              </div>
+              <div className="adnoc-tall-972-card">
+                <img src="/assets/Seplat8.webp" alt="Seplat 8" />
+              </div>
+            </section>
+
+            {/* Section 10: Solution */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">Quiet Consistency<br />Across Everyday Use</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  The final system brings Seplat's identity into daily use in a calm, structured, and intentional way. Nothing is overworked, but everything feels deliberate. More importantly, it reinforces what Seplat already stands for — stability, clarity, and long-term thinking — by ensuring even its smallest touchpoints carry the same care as its largest operations.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 11: Seplat9 + Seplat10 side by side (w=922.5 h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img src="/assets/Seplat9.webp" alt="Seplat 9" />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img src="/assets/Seplat10.webp" alt="Seplat 10" />
+              </div>
+            </section>
+
+            {/* Section 12: Seplat11 full-width (w=1870 h=1200) */}
+            <section className="seplat-full-section">
+              <img src="/assets/Seplat11.webp" alt="Seplat 11" />
+            </section>
+
+            {/* Spacer */}
+            <div style={{ height: '90px' }} />
+
+            {/* Section 13: Next Project — MTN */}
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('mtn')}
+            >
+              <img src="/assets/MTN26.webp" alt="MTN Next Project" />
+              <div className="rainoil-next-project-text">
+                NEXT PROJECT
+              </div>
+            </section>
+          </>
+        )}
+
+        {/* MTN Case Study (id=7) */}
+        {id === '7' && (
+          <>
+            {/* Section 1: Hero */}
+            <section className="renaissance-hero-section">
+              <h1 className="renaissance-hero-title">MTN</h1>
+              <div className="renaissance-hero-paragraphs">
+                <p>
+                  MTN is a brand built around connection, communication, and the everyday technologies that keep people moving. For this project, the opportunity was to translate that energy into a physical brand experience, creating a corporate gift collection that felt contemporary, distinctive, and unmistakably MTN. The goal was to move beyond conventional branded merchandise and create objects that carried the character of the brand into the hands of its audience.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 2: MTN26 full-width (w=1920 h=980) */}
+            <section className="mtn-hero-image-section">
+              <img src="/assets/MTN26.webp" alt="MTN" />
+            </section>
+
+            {/* Section 3: Challenge */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">Breaking Away from the Expected</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    The challenge was to create something that felt as dynamic as the brand itself without relying on the usual language of corporate gifting. The experience needed to feel useful, personal, and technologically relevant, while still maintaining the polish and consistency expected of a major global brand. Every element had to feel intentional rather than simply branded.
+                  </p>
+                </div>
+              </div>
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Telecommunications
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: MTN24 (w=650 h=930) + MTNA (w=1195 h=930) asymmetric */}
+            <section className="renaissance-asym-images-gap4-section">
+              <div className="renaissance-asym-650-card">
+                <img src="/assets/MTN24.webp" alt="MTN 24" />
+              </div>
+              <div className="renaissance-asym-1195-card">
+                <img src="/assets/MTNA.webp" alt="MTN A" />
+              </div>
+            </section>
+
+            {/* Section 5: MTN21 full-width (w=1870 h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img src="/assets/MTN21.webp" alt="MTN 21" />
+            </section>
+
+            {/* Section 6: Our Strategy */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Turning Connection into Form</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  We looked at the visual and cultural language surrounding MTN. Technology, communication, interfaces, security, and the idea of connection, and translated these themes into physical design cues. Instead of treating each item as an isolated piece, we developed a visual system where distinctive forms and interactions could make the brand experience feel more engaging and contemporary.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: MTN20 + MTN15 side by side (w=922.5 h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img src="/assets/MTN20.webp" alt="MTN 20" />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img src="/assets/MTN15.webp" alt="MTN 15" />
+              </div>
+            </section>
+
+            {/* Section 8: MTN14 full-width (w=1870 h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img src="/assets/MTN14.webp" alt="MTN 14" />
+            </section>
+
+            {/* Section 9: Solution */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">A More Personal<br />Brand Experience</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  The resulting collection brought together a series of considered touchpoints: expressive forms, tactile details, and moments of interaction that made each piece feel more than functional. Across the collection, familiar references to technology and digital interaction were reinterpreted into physical experiences, creating a balance between playfulness, utility, and premium craftsmanship. The result was a gift experience that felt distinctly MTN without needing to overstate the brand.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 10: MTN18 full-width (w=1870 h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img src="/assets/MTN18.webp" alt="MTN 18" />
+            </section>
+
+            {/* Section 11: MTN10 + MTN16 side by side (w=922.5 h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img src="/assets/MTN10.webp" alt="MTN 10" />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img src="/assets/MTN16.webp" alt="MTN 16" />
+              </div>
+            </section>
+
+            {/* Section 12: Impact */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">The Impact</h2>
+              <h1 className="rainoil-strategy-heading">A Brand You Can Experience</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  The collection gave MTN a more memorable physical presence, transforming everyday objects into moments of brand interaction. By embedding the brand's personality into the experience rather than simply applying its identity to products, we created something that could feel useful in the everyday, distinctive in the hand, and memorable long after the initial exchange.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 13: MTN17 + MTN8 side by side (w=922.5 h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img src="/assets/MTN17.webp" alt="MTN 17" />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img src="/assets/MTN8.webp" alt="MTN 8" />
+              </div>
+            </section>
+
+            {/* Section 14: MTN19 (w=650 h=930) + MTN6 (w=1195 h=930) asymmetric */}
+            <section className="renaissance-asym-images-gap4-section">
+              <div className="renaissance-asym-650-card">
+                <img src="/assets/MTN19.webp" alt="MTN 19" />
+              </div>
+              <div className="renaissance-asym-1195-card">
+                <img src="/assets/MTN6.webp" alt="MTN 6" />
+              </div>
+            </section>
+
+            {/* Section 15: MTN22 + MTN23 side by side (w=922.5 h=800 each) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img src="/assets/MTN22.webp" alt="MTN 22" />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img src="/assets/MTN23.webp" alt="MTN 23" />
+              </div>
+            </section>
+
+            {/* Spacer */}
+            <div style={{ height: '90px' }} />
+
+            {/* Section 16: Next Project — Rainoil */}
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('rainoil')}
+            >
+              <img src="/assets/RAINOIL_CUP_RENDER_9.webp" alt="Rainoil Next Project" />
+              <div className="rainoil-next-project-text">
+                NEXT PROJECT
+              </div>
+            </section>
+          </>
+        )}
+
         <Footer />
       </div>
     )
@@ -718,7 +1193,7 @@ export default function CaseStudy() {
       {/* Section 2: RAINOIL_RENDER_POST_PROCESS_5.jpg (w=1920, h=804) */}
       <section className="rainoil-image-section">
         <img
-          src="/assets/RAINOIL_RENDER_POST_PROCESS_5.jpg"
+          src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
           alt="Rain Oil Render Post Process 5"
         />
       </section>
@@ -749,7 +1224,7 @@ export default function CaseStudy() {
       {/* Section 4: Rainoil Compiled Render (w=1852, h=1080) */}
       <section className="rainoil-compiled-section">
         <img
-          src="/assets/RAINOIL_COMPILED_RENDER_1.jpg"
+          src="/assets/RAINOIL_COMPILED_RENDER_1.webp"
           alt="Rainoil Compiled Render"
         />
       </section>
@@ -758,13 +1233,13 @@ export default function CaseStudy() {
       <section className="rainoil-flasks-section">
         <div className="rainoil-flask-card">
           <img
-            src="/assets/RAINOIL_FLASK_RENDER_8.jpg"
+            src="/assets/RAINOIL_FLASK_RENDER_8.webp"
             alt="Rainoil Flask Render 8"
           />
         </div>
         <div className="rainoil-flask-card">
           <img
-            src="/assets/RAINOIL_FLASK_RENDER_6.jpg"
+            src="/assets/RAINOIL_FLASK_RENDER_6.webp"
             alt="Rainoil Flask Render 6"
           />
         </div>
@@ -791,13 +1266,13 @@ export default function CaseStudy() {
       <section className="rainoil-flask3-postprocess-section">
         <div className="rainoil-flask3-card">
           <img
-            src="/assets/RAINOIL_FLASK_RENDER_3.jpg"
+            src="/assets/RAINOIL_FLASK_RENDER_3.webp"
             alt="Rainoil Flask Render 3"
           />
         </div>
         <div className="rainoil-postprocess5-card">
           <img
-            src="/assets/RAINOIL_RENDER_POST_PROCESS_5.jpg"
+            src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
             alt="Rainoil Render Post Process 5"
           />
         </div>
@@ -806,7 +1281,7 @@ export default function CaseStudy() {
       {/* Section 8: Cup Render 7 (w=1870, h=1080) */}
       <section className="rainoil-cup7-section">
         <img
-          src="/assets/RAINOIL_CUP_RENDER_7.jpg"
+          src="/assets/RAINOIL_CUP_RENDER_7.webp"
           alt="Rainoil Cup Render 7"
         />
       </section>
@@ -815,13 +1290,13 @@ export default function CaseStudy() {
       <section className="rainoil-cups-9-10-section">
         <div className="rainoil-cup-card">
           <img
-            src="/assets/RAINOIL_CUP_RENDER_10.jpg"
+            src="/assets/RAINOIL_CUP_RENDER_10.webp"
             alt="Rainoil Cup Render 10"
           />
         </div>
         <div className="rainoil-cup-card">
           <img
-            src="/assets/RAINOIL_CUP_RENDER_9.jpg"
+            src="/assets/RAINOIL_CUP_RENDER_9.webp"
             alt="Rainoil Cup Render 9"
           />
         </div>
@@ -831,13 +1306,13 @@ export default function CaseStudy() {
       <section className="rainoil-cups-6-3-section">
         <div className="rainoil-cup63-card">
           <img
-            src="/assets/RAINOIL_CUP_RENDER_6.jpg"
+            src="/assets/RAINOIL_CUP_RENDER_6.webp"
             alt="Rainoil Cup Render 6"
           />
         </div>
         <div className="rainoil-cup63-card">
           <img
-            src="/assets/RAINOIL_CUP_RENDER_3.jpg"
+            src="/assets/RAINOIL_CUP_RENDER_3.webp"
             alt="Rainoil Cup Render 3"
           />
         </div>
@@ -861,13 +1336,13 @@ export default function CaseStudy() {
       <section className="rainoil-compiled-cup8-section">
         <div className="rainoil-compiled-card">
           <img
-            src="/assets/RAINOIL_COMPILED_RENDER_1.jpg"
+            src="/assets/RAINOIL_COMPILED_RENDER_1.webp"
             alt="Rainoil Compiled Render 1"
           />
         </div>
         <div className="rainoil-cup8-card">
           <img
-            src="/assets/RAINOIL_CUP_RENDER_8.jpg"
+            src="/assets/RAINOIL_CUP_RENDER_8.webp"
             alt="Rainoil Cup Render 8"
           />
         </div>
@@ -877,13 +1352,13 @@ export default function CaseStudy() {
       <section className="rainoil-mugs-1-2-section">
         <div className="rainoil-mug800-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_1.jpg"
+            src="/assets/RAINOIL_MUG_RENDER_1.webp"
             alt="Rainoil Mug Render 1"
           />
         </div>
         <div className="rainoil-mug800-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_2.jpg"
+            src="/assets/RAINOIL_MUG_RENDER_2.webp"
             alt="Rainoil Mug Render 2"
           />
         </div>
@@ -893,13 +1368,13 @@ export default function CaseStudy() {
       <section className="rainoil-mug1-mug3-section">
         <div className="rainoil-mug650-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_7.jpg"
+            src="/assets/RAINOIL_MUG_RENDER_7.webp"
             alt="Rainoil Mug Render 7"
           />
         </div>
         <div className="rainoil-mug1195-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_3.jpg"
+            src="/assets/RAINOIL_MUG_RENDER_3.webp"
             alt="Rainoil Mug Render 3"
           />
         </div>
@@ -909,13 +1384,13 @@ export default function CaseStudy() {
       <section className="rainoil-mugs-4-6-section">
         <div className="rainoil-mug800-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_4.jpg"
+            src="/assets/RAINOIL_MUG_RENDER_4.webp"
             alt="Rainoil Mug Render 4"
           />
         </div>
         <div className="rainoil-mug800-card">
           <img
-            src="/assets/RAINOIL_MUG_RENDER_6.jpg"
+            src="/assets/RAINOIL_MUG_RENDER_6.webp"
             alt="Rainoil Mug Render 6"
           />
         </div>
@@ -931,7 +1406,7 @@ export default function CaseStudy() {
         onClick={() => handleNextProject('guinness')}
       >
         <img
-          src="/assets/LOOK DEV 2.png"
+          src="/assets/LOOK DEV 2.webp"
           alt="LOOK DEV 2 Next Project"
         />
         <div className="rainoil-next-project-text">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -37,7 +37,7 @@ export default function Work() {
       title: 'Rainoil',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/RAINOIL_CUP_RENDER_9.jpg',
+      image: '/assets/RAINOIL_CUP_RENDER_9.webp',
       slug: 'rainoil',
     },
     {
@@ -45,7 +45,7 @@ export default function Work() {
       title: 'Nigerian Breweries',
       sector: 'Food & Beverages',
       subtitle: 'Food & Beverages',
-      image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.jpg',
+      image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp',
       slug: 'nigerian-breweries',
     },
     {
@@ -53,7 +53,7 @@ export default function Work() {
       title: 'Guinness',
       sector: 'Food & Beverages',
       subtitle: 'Food & Beverages',
-      image: '/assets/RENDER 9 copy 2.jpg',
+      image: '/assets/RENDER 9 copy 2.webp',
       slug: 'guinness',
     },
     {
@@ -61,7 +61,7 @@ export default function Work() {
       title: 'Renaissance Energy',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/RENDER 28.jpg',
+      image: '/assets/RENDER 28.webp',
       slug: 'renaissance',
     },
     {
@@ -69,7 +69,7 @@ export default function Work() {
       title: 'Stanbic IBTC',
       sector: 'Banking & Finance',
       subtitle: 'Banking & Finance',
-      image: '/assets/STANBIC_IBTC_RENDER_21.jpg',
+      image: '/assets/STANBIC_IBTC_RENDER_21.webp',
       slug: 'renaissance',
     },
     {
@@ -77,24 +77,24 @@ export default function Work() {
       title: 'Seplat Energy',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/RENDER 3 copy.jpg',
-      slug: 'rainoil',
+      image: '/assets/Seplat11.webp',
+      slug: 'seplat',
     },
     {
       id: 7,
       title: 'ADNOC',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/RENDER 9 copy 3.jpg',
-      slug: 'rainoil',
+      image: '/assets/Adnoc.webp',
+      slug: 'adnoc',
     },
     {
       id: 8,
       title: 'MTN',
-      sector: 'Telecommunication',
-      subtitle: 'Telecommunication',
-      image: '/assets/RENDER 12 copy 4.jpg',
-      slug: 'renaissance',
+      sector: 'Telecommunications',
+      subtitle: 'Telecommunications',
+      image: '/assets/MTN26.webp',
+      slug: 'mtn',
     },
   ]
 
@@ -118,6 +118,43 @@ export default function Work() {
   for (let i = 0; i < filteredProjects.length; i += 2) {
     rows.push(filteredProjects.slice(i, i + 2))
   }
+
+  const rowRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('row-risen')
+            entry.target.classList.remove('row-sleeping')
+          } else if (
+            entry.boundingClientRect.top >
+            (window.innerHeight || document.documentElement.clientHeight)
+          ) {
+            entry.target.classList.add('row-sleeping')
+            entry.target.classList.remove('row-risen')
+          }
+        })
+      },
+      {
+        threshold: 0.08,
+        rootMargin: '0px 0px -20px 0px',
+      }
+    )
+
+    rowRefs.current.forEach((el, index) => {
+      if (el && index > 0) {
+        observer.observe(el)
+      }
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [filteredProjects])
+
+
 
   return (
     <div className="work-page-container">
@@ -200,18 +237,24 @@ export default function Work() {
 
         <section className="work-two-images-container">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="work-two-images-row">
+            <div
+              key={rowIndex}
+              ref={(el) => (rowRefs.current[rowIndex] = el)}
+              className={`work-two-images-row ${
+                rowIndex === 0 ? 'row-risen' : 'row-sleeping'
+              }`}
+            >
               {row.map((project) => {
                 const sectorClass =
                   project.sector === 'Banking & Finance'
                     ? 'sector-banking'
                     : project.sector === 'Food & Beverages'
-                    ? 'sector-food'
-                    : project.sector === 'Oil & Gas'
-                    ? 'sector-oil'
-                    : project.sector === 'Telecommunication'
-                    ? 'sector-telecom'
-                    : ''
+                      ? 'sector-food'
+                      : project.sector === 'Oil & Gas'
+                        ? 'sector-oil'
+                        : project.sector?.startsWith('Telecommunication')
+                          ? 'sector-telecom'
+                          : ''
 
                 return (
                   <Link

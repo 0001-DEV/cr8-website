@@ -6,11 +6,11 @@ export default function Carousel() {
   const [slideDirection, setSlideDirection] = useState('next')
 
   const images = [
-    { id: 1, src: '/assets/RENDER 1.jpg', alt: 'Render 1' },
-    { id: 2, src: '/assets/RENDER 13 copy.jpg', alt: 'Render 13' },
-    { id: 3, src: '/assets/RENDER 12.jpg', alt: 'Render 12' },
-    { id: 4, src: '/assets/RENDER 11.jpg', alt: 'Render 11' },
-    { id: 5, src: '/assets/RENDER 7.jpg', alt: 'Render 7' },
+    { id: 1, src: '/assets/RENDER 1.webp', alt: 'Render 1' },
+    { id: 2, src: '/assets/RENDER 13 copy.webp', alt: 'Render 13' },
+    { id: 3, src: '/assets/RENDER 12.webp', alt: 'Render 12' },
+    { id: 4, src: '/assets/RENDER 11.webp', alt: 'Render 11' },
+    { id: 5, src: '/assets/RENDER 7.webp', alt: 'Render 7' },
   ]
 
   const imagesPerView = 2

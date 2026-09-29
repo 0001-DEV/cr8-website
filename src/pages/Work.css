@@ -318,6 +318,7 @@
   align-items: stretch;
   gap: 12px; /* 12px gap between images */
   box-sizing: border-box;
+  perspective: 1200px;
 }
 
 .work-two-image-card {
@@ -328,6 +329,29 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sleeping state: rolls up from small size at the bottom */
+.work-two-images-row.row-sleeping .work-two-image-card {
+  opacity: 0.15;
+  transform: perspective(1200px) translateY(120px) rotateX(32deg) scale(0.75);
+  pointer-events: none;
+}
+
+/* Risen state: unfolds and rolls up smoothly to full natural size */
+.work-two-images-row.row-risen .work-two-image-card {
+  opacity: 1;
+  transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
+  pointer-events: auto;
+}
+
+/* Organic stagger: second image in each row rolls up with a slight delay */
+.work-two-images-row.row-risen .work-two-image-card:nth-child(2) {
+  transition-delay: 0.12s;
 }
 
 .work-two-image-box {
@@ -343,10 +367,18 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.work-two-image-card:hover .work-two-image-box img {
+.work-two-images-row.row-sleeping .work-two-image-box img {
+  transform: scale(1.14);
+}
+
+.work-two-images-row.row-risen .work-two-image-box img {
+  transform: scale(1);
+}
+
+.work-two-images-row.row-risen .work-two-image-card:hover .work-two-image-box img {
   transform: scale(1.03);
 }
 

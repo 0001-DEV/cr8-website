@@ -6,13 +6,13 @@ export default function WhyWeExist() {
 
   const description = "We exist to create solutions backed by excellent thinking for brands seeking to stand out beyond the overly crowded marketplace."
   const clientLogos = [
-    '/assets/Asset 24.png',
-    '/assets/Asset 25.png',
-    '/assets/Asset 26.png',
-    '/assets/Asset 27.png',
-    '/assets/Asset 28.png',
-    '/assets/Asset 29.png',
-    '/assets/Asset 30.png'
+    '/assets/Asset 24.webp',
+    '/assets/Asset 25.webp',
+    '/assets/Asset 26.webp',
+    '/assets/Asset 27.webp',
+    '/assets/Asset 28.webp',
+    '/assets/Asset 29.webp',
+    '/assets/Asset 30.webp'
   ]
 
   return (
@@ -33,7 +33,7 @@ export default function WhyWeExist() {
             onMouseLeave={() => setHoveredPillar(null)}
           >
             <div className="pillar-image-container pillar-image-bottom">
-              <img src="/assets/Paper postal packages.jpg" alt="Brand Memorability" className="pillar-image" />
+              <img src="/assets/Paper postal packages.webp" alt="Brand Memorability" className="pillar-image" />
               <div className="pillar-text-label">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
@@ -55,7 +55,7 @@ export default function WhyWeExist() {
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
-              <img src="/assets/Asset 1 (1).png" alt="Brand Memorability" className="pillar-image" />
+              <img src="/assets/Asset 1 (1).webp" alt="Brand Memorability" className="pillar-image" />
               <div className="pillar-text-overlay-middle">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <p className="pillar-text-description">{description}</p>
@@ -69,7 +69,7 @@ export default function WhyWeExist() {
             onMouseLeave={() => setHoveredPillar(null)}
           >
             <div className="pillar-image-container pillar-image-bottom">
-              <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.jpg" alt="Brand Memorability" className="pillar-image" />
+              <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp" alt="Brand Memorability" className="pillar-image" />
               <div className="pillar-text-label">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />

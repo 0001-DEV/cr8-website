@@ -5,7 +5,7 @@ export default function NewsPress() {
   const items = [
     {
       id: 1,
-      image: '/assets/Natura Ad Campaign_Mobile Wallpaper.jpg',
+      image: '/assets/Natura Ad Campaign_Mobile Wallpaper.webp',
       title: "Travel and tourism shouldn't be that serious.",
       meta: '19 Jul, 2026 • 3 mins read',
       reverse: false,
@@ -15,7 +15,7 @@ export default function NewsPress() {
     },
     {
       id: 2,
-      image: '/assets/Asset 1.png',
+      image: '/assets/Asset 1.webp',
       title: 'Unblanding an archaic gym brand system.',
       meta: '07 Jul, 2026 • 2 mins read',
       reverse: true,
@@ -25,7 +25,7 @@ export default function NewsPress() {
     },
     {
       id: 3,
-      image: '/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.jpg',
+      image: '/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.webp',
       title: 'How Xtreme Cr8tivity ended an era of boring, unintentional commemorative memorabilia.',
       meta: '08 Jun, 2026 • 3 mins read',
       reverse: false,
@@ -35,7 +35,7 @@ export default function NewsPress() {
     },
     {
       id: 4,
-      image: '/assets/RENDER 21.jpg',
+      image: '/assets/RENDER 21.webp',
       title: 'The necessity of digitalization and not just aesthetics.',
       meta: '21 May, 2026 • 5 mins read',
       reverse: true,
@@ -46,7 +46,7 @@ export default function NewsPress() {
     },
     {
       id: 5,
-      image: '/assets/Natura Ad Campaign_Mobile Wallpaper.jpg',
+      image: '/assets/Natura Ad Campaign_Mobile Wallpaper.webp',
       title: "Travel and tourism shouldn't be that serious.",
       meta: '19 Jul, 2026 • 3 mins read',
       reverse: false,
@@ -56,7 +56,7 @@ export default function NewsPress() {
     },
     {
       id: 6,
-      image: '/assets/Asset 1.png',
+      image: '/assets/Asset 1.webp',
       title: 'Unblanding an archaic gym brand system.',
       meta: '07 Jul, 2026 • 2 mins read',
       reverse: true,
@@ -66,7 +66,7 @@ export default function NewsPress() {
     },
     {
       id: 7,
-      image: '/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.jpg',
+      image: '/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.webp',
       title: 'How Xtreme Cr8tivity ended an era of boring, unintentional commemorative memorabilia.',
       meta: '08 Jun, 2026 • 3 mins read',
       reverse: false,
@@ -76,7 +76,7 @@ export default function NewsPress() {
     },
     {
       id: 8,
-      image: '/assets/RENDER 21.jpg',
+      image: '/assets/RENDER 21.webp',
       title: 'The necessity of digitalization and not just aesthetics.',
       meta: '21 May, 2026 • 5 mins read',
       reverse: true,

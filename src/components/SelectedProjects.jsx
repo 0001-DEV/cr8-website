@@ -30,7 +30,7 @@ export default function SelectedProjects() {
       category: 'Oil & Gas',
       subcategory: 'Commemorative Memorabilia Packaging',
       description: "Rainoil's operations are built on movement, storage, distribution, and reliability. Rather than applying branding onto generic merchandise, this collection draws directly from the visual language of the energy industry itself.",
-      image: '/assets/RAINOIL_CUP_RENDER_9.jpg',
+      image: '/assets/RAINOIL_CUP_RENDER_9.webp',
       tags: ['Brand Identity', 'Custom Packaging', 'Industrial Design'],
 
     },
@@ -42,7 +42,7 @@ export default function SelectedProjects() {
       category: 'Food & Beverage',
       subcategory: 'Commemorative Memorabilia Packaging',
       description: "Crafting bespoke commemorative packaging celebrating heritage and excellence for Nigeria's premier brewing company, combining traditional craftsmanship with modern luxury aesthetic.",
-      image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.jpg',
+      image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp',
       tags: ['Packaging Design', '3D Rendering', 'Luxury Packaging'],
       imageLeft: true,
     },
@@ -54,7 +54,7 @@ export default function SelectedProjects() {
       category: 'Oil & Gas',
       subcategory: 'Executive Gift Sets & Brand Assets',
       description: "Exclusive executive gift sets and custom brand assets designed for high-level corporate engagements, showcasing elegance, prestige, and meticulous craftsmanship.",
-      image: '/assets/RENDER 28.jpg',
+      image: '/assets/RENDER 28.webp',
       tags: ['Corporate Gifting', 'Brand Strategy', 'Product Design'],
 
     }

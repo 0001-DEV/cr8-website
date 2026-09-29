@@ -160,7 +160,7 @@
   margin: 0 0 0.25rem 0;
 }
 
-/* 3 Rows of Team Images Section (w=607, h=750 per card, gap 12px) */
+/* Team Section & Interactive Grids */
 .about-team-section {
   margin-top: clamp(3rem, 6vw, 5rem);
   margin-left: 12px;
@@ -169,45 +169,348 @@
   max-width: calc(100% - 24px);
   margin-bottom: clamp(4rem, 8vw, 6rem);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
-.about-team-images-row {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2.5rem, 5vw, 4rem) 12px;
   width: 100%;
   max-width: 100%;
-  justify-content: flex-start;
-  align-items: stretch;
   box-sizing: border-box;
 }
 
 .about-team-card-wrapper {
-  flex: 1;
-  min-width: 0;
-  max-width: 607px;
   width: 100%;
+  max-width: 607px;
   display: flex;
   flex-direction: column;
 }
 
+/* Interactive Aura Mesh Gradient Image Card */
 .about-team-image-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 607 / 750;
   height: auto;
   max-height: 750px;
-  background-color: #262626;
+  background-color: var(--card-bg, #ffffff);
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+  will-change: transform;
+  isolation: isolate;
 }
 
-.about-team-card-wrapper:hover .about-team-image-card {
-  background-color: #333333;
+/* Individual Aura Mesh Blobs */
+.aura-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(52px);
+  will-change: transform, left, top;
+  pointer-events: none;
+  opacity: 0.96;
 }
 
+/* Cursor Interactive Glow Bloom */
+.aura-cursor-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 240px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 45%, transparent 70%);
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: background, opacity;
+}
+
+.about-team-card-wrapper:hover .aura-cursor-glow,
+.about-team-image-card.is-hovered .aura-cursor-glow {
+  opacity: 1;
+}
+
+/* 1. Joshua Itorobong: Top-Left Periwinkle, Bottom-Right Flame Orange, Bottom Red-Orange, Top-Right Blush */
+.gradient-itorobong .aura-blob-1 {
+  width: 110%;
+  height: 105%;
+  background: var(--c1);
+  left: calc(-20% + (var(--mouse-x, 50%) - 50%) * 0.28);
+  top: calc(-20% + (var(--mouse-y, 50%) - 50%) * 0.28);
+  transition: left 0.16s ease-out, top 0.16s ease-out;
+}
+.gradient-itorobong .aura-blob-2 {
+  width: 125%;
+  height: 115%;
+  background: var(--c2);
+  left: calc(20% + (var(--mouse-x, 50%) - 50%) * 0.32);
+  top: calc(30% + (var(--mouse-y, 50%) - 50%) * 0.32);
+  transition: left 0.18s ease-out, top 0.18s ease-out;
+}
+.gradient-itorobong .aura-blob-3 {
+  width: 105%;
+  height: 95%;
+  background: var(--c3);
+  left: calc(-10% + (50% - var(--mouse-x, 50%)) * 0.24);
+  top: calc(40% + (var(--mouse-y, 50%) - 50%) * 0.24);
+  transition: left 0.2s ease-out, top 0.2s ease-out;
+}
+.gradient-itorobong .aura-blob-4 {
+  width: 90%;
+  height: 85%;
+  background: var(--c4);
+  left: calc(35% + (var(--mouse-x, 50%) - 50%) * 0.2);
+  top: calc(-15% + (50% - var(--mouse-y, 50%)) * 0.2);
+  transition: left 0.17s ease-out, top 0.17s ease-out;
+}
+
+/* 2. Joshua Oladele: Top Half Azure Blue, Bottom Half Vivid Lemon Yellow */
+.gradient-oladele .aura-blob-1 {
+  width: 140%;
+  height: 95%;
+  background: var(--c1);
+  left: calc(-20% + (var(--mouse-x, 50%) - 50%) * 0.25);
+  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.25);
+  transition: left 0.16s ease-out, top 0.16s ease-out;
+}
+.gradient-oladele .aura-blob-2 {
+  width: 140%;
+  height: 95%;
+  background: var(--c2);
+  left: calc(-20% + (50% - var(--mouse-x, 50%)) * 0.25);
+  top: calc(40% + (var(--mouse-y, 50%) - 50%) * 0.25);
+  transition: left 0.18s ease-out, top 0.18s ease-out;
+}
+.gradient-oladele .aura-blob-3 {
+  width: 95%;
+  height: 85%;
+  background: var(--c3);
+  left: calc(-25% + (var(--mouse-x, 50%) - 50%) * 0.3);
+  top: calc(-15% + (var(--mouse-y, 50%) - 50%) * 0.3);
+  transition: left 0.2s ease-out, top 0.2s ease-out;
+}
+.gradient-oladele .aura-blob-4 {
+  width: 105%;
+  height: 90%;
+  background: var(--c4);
+  left: calc(20% + (var(--mouse-x, 50%) - 50%) * 0.3);
+  top: calc(45% + (var(--mouse-y, 50%) - 50%) * 0.3);
+  transition: left 0.17s ease-out, top 0.17s ease-out;
+}
+
+/* 3. Zino Amayido: Top Sunny Yellow, Bottom-Right Electric Blue, Mid-Left Cobalt Splash, Bottom-Left Ice Cyan */
+.gradient-amayido .aura-blob-1 {
+  width: 135%;
+  height: 95%;
+  background: var(--c1);
+  left: calc(-15% + (var(--mouse-x, 50%) - 50%) * 0.26);
+  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.26);
+  transition: left 0.16s ease-out, top 0.16s ease-out;
+}
+.gradient-amayido .aura-blob-2 {
+  width: 120%;
+  height: 105%;
+  background: var(--c2);
+  left: calc(25% + (var(--mouse-x, 50%) - 50%) * 0.32);
+  top: calc(35% + (var(--mouse-y, 50%) - 50%) * 0.32);
+  transition: left 0.18s ease-out, top 0.18s ease-out;
+}
+.gradient-amayido .aura-blob-3 {
+  width: 90%;
+  height: 90%;
+  background: var(--c3);
+  left: calc(-30% + (var(--mouse-x, 50%) - 50%) * 0.28);
+  top: calc(15% + (50% - var(--mouse-y, 50%)) * 0.28);
+  transition: left 0.2s ease-out, top 0.2s ease-out;
+}
+.gradient-amayido .aura-blob-4 {
+  width: 95%;
+  height: 85%;
+  background: var(--c4);
+  left: calc(-15% + (50% - var(--mouse-x, 50%)) * 0.22);
+  top: calc(45% + (var(--mouse-y, 50%) - 50%) * 0.22);
+  transition: left 0.17s ease-out, top 0.17s ease-out;
+}
+
+/* 4. Barokah Olorunlogbon: Bottom-Left Flame Red-Orange, Top-Left Sky Blue, Top-Right Lemon Yellow, Center-Right Sunset Orange */
+.gradient-barokah .aura-blob-1 {
+  width: 125%;
+  height: 115%;
+  background: var(--c1);
+  left: calc(-25% + (var(--mouse-x, 50%) - 50%) * 0.3);
+  top: calc(25% + (var(--mouse-y, 50%) - 50%) * 0.3);
+  transition: left 0.16s ease-out, top 0.16s ease-out;
+}
+.gradient-barokah .aura-blob-2 {
+  width: 95%;
+  height: 90%;
+  background: var(--c2);
+  left: calc(-25% + (50% - var(--mouse-x, 50%)) * 0.28);
+  top: calc(-25% + (50% - var(--mouse-y, 50%)) * 0.28);
+  transition: left 0.18s ease-out, top 0.18s ease-out;
+}
+.gradient-barokah .aura-blob-3 {
+  width: 100%;
+  height: 95%;
+  background: var(--c3);
+  left: calc(30% + (var(--mouse-x, 50%) - 50%) * 0.26);
+  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.26);
+  transition: left 0.2s ease-out, top 0.2s ease-out;
+}
+.gradient-barokah .aura-blob-4 {
+  width: 100%;
+  height: 95%;
+  background: var(--c4);
+  left: calc(25% + (50% - var(--mouse-x, 50%)) * 0.24);
+  top: calc(15% + (var(--mouse-y, 50%) - 50%) * 0.24);
+  transition: left 0.17s ease-out, top 0.17s ease-out;
+}
+
+/* 5. Nathaniel Aremu: Top-Right Crimson Pink-Red, Bottom Lemon Yellow, Bottom-Left Golden Amber, Top-Left Ice White */
+.gradient-aremu .aura-blob-1 {
+  width: 120%;
+  height: 110%;
+  background: var(--c1);
+  left: calc(15% + (var(--mouse-x, 50%) - 50%) * 0.3);
+  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.3);
+  transition: left 0.16s ease-out, top 0.16s ease-out;
+}
+.gradient-aremu .aura-blob-2 {
+  width: 130%;
+  height: 100%;
+  background: var(--c2);
+  left: calc(-5% + (50% - var(--mouse-x, 50%)) * 0.26);
+  top: calc(45% + (var(--mouse-y, 50%) - 50%) * 0.26);
+  transition: left 0.18s ease-out, top 0.18s ease-out;
+}
+.gradient-aremu .aura-blob-3 {
+  width: 100%;
+  height: 95%;
+  background: var(--c3);
+  left: calc(-30% + (var(--mouse-x, 50%) - 50%) * 0.28);
+  top: calc(35% + (var(--mouse-y, 50%) - 50%) * 0.28);
+  transition: left 0.2s ease-out, top 0.2s ease-out;
+}
+.gradient-aremu .aura-blob-4 {
+  width: 90%;
+  height: 90%;
+  background: var(--c4);
+  left: calc(-25% + (50% - var(--mouse-x, 50%)) * 0.22);
+  top: calc(-25% + (50% - var(--mouse-y, 50%)) * 0.22);
+  transition: left 0.17s ease-out, top 0.17s ease-out;
+}
+
+/* Active Hover Dynamic Fluid Swirl Keyframes */
+@keyframes activeSwirl1 {
+  0% {
+    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.75), calc((var(--mouse-y, 50%) - 50%) * 0.75), 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.75 + 20px), calc((var(--mouse-y, 50%) - 50%) * 0.75 - 24px), 0) scale(1.15) rotate(18deg);
+  }
+  100% {
+    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.75 - 20px), calc((var(--mouse-y, 50%) - 50%) * 0.75 + 20px), 0) scale(0.92) rotate(-14deg);
+  }
+}
+
+@keyframes activeSwirl2 {
+  0% {
+    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.75), calc((50% - var(--mouse-y, 50%)) * 0.75), 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.75 - 24px), calc((50% - var(--mouse-y, 50%)) * 0.75 + 20px), 0) scale(1.18) rotate(-18deg);
+  }
+  100% {
+    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.75 + 20px), calc((50% - var(--mouse-y, 50%)) * 0.75 - 20px), 0) scale(0.90) rotate(14deg);
+  }
+}
+
+@keyframes activeSwirl3 {
+  0% {
+    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.65), calc((50% - var(--mouse-y, 50%)) * 0.65), 0) scale(1);
+  }
+  50% {
+    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.65 + 24px), calc((50% - var(--mouse-y, 50%)) * 0.65 + 22px), 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.65 - 22px), calc((50% - var(--mouse-y, 50%)) * 0.65 - 16px), 0) scale(0.94);
+  }
+}
+
+@keyframes activeSwirl4 {
+  0% {
+    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.65), calc((var(--mouse-y, 50%) - 50%) * 0.65), 0) scale(1);
+  }
+  50% {
+    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.65 - 20px), calc((var(--mouse-y, 50%) - 50%) * 0.65 - 24px), 0) scale(1.14);
+  }
+  100% {
+    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.65 + 24px), calc((var(--mouse-y, 50%) - 50%) * 0.65 + 20px), 0) scale(0.92);
+  }
+}
+
+/* Hover: Actively Moving, Swirling Liquid Gradients */
+.about-team-card-wrapper:hover .aura-blob-1,
+.about-team-image-card.is-hovered .aura-blob-1 {
+  animation: activeSwirl1 4.5s ease-in-out infinite alternate !important;
+}
+
+.about-team-card-wrapper:hover .aura-blob-2,
+.about-team-image-card.is-hovered .aura-blob-2 {
+  animation: activeSwirl2 5s ease-in-out infinite alternate !important;
+}
+
+.about-team-card-wrapper:hover .aura-blob-3,
+.about-team-image-card.is-hovered .aura-blob-3 {
+  animation: activeSwirl3 4.2s ease-in-out infinite alternate !important;
+}
+
+.about-team-card-wrapper:hover .aura-blob-4,
+.about-team-image-card.is-hovered .aura-blob-4 {
+  animation: activeSwirl4 4.8s ease-in-out infinite alternate !important;
+}
+
+/* Idle State: Gentle ambient breathing */
+@keyframes auraMorph1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6%, 8%, 0) scale(1.08); }
+  100% { transform: translate3d(-5%, 4%, 0) scale(0.95); }
+}
+
+@keyframes auraMorph2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-8%, -7%, 0) scale(0.92); }
+  100% { transform: translate3d(6%, -5%, 0) scale(1.06); }
+}
+
+@keyframes auraMorph3 {
+  0% { transform: translate(0, 0, 0) scale(1); }
+  50% { transform: translate(7%, -8%, 0) scale(1.07); }
+  100% { transform: translate(-6%, 6%, 0) scale(0.94); }
+}
+
+.about-team-card-wrapper:not(:hover) .aura-blob-1 {
+  animation: auraMorph1 9s ease-in-out infinite alternate;
+}
+
+.about-team-card-wrapper:not(:hover) .aura-blob-2 {
+  animation: auraMorph2 10s ease-in-out infinite alternate;
+}
+
+.about-team-card-wrapper:not(:hover) .aura-blob-3 {
+  animation: auraMorph3 8s ease-in-out infinite alternate;
+}
+
+.about-team-card-wrapper:not(:hover) .aura-blob-4 {
+  animation: auraMorph1 11s ease-in-out infinite alternate-reverse;
+}
+
+/* Team Text Info */
 .about-team-text-bar {
   margin-top: 12px;
   display: flex;
@@ -226,7 +529,7 @@
 }
 
 .about-team-card-wrapper:hover .about-team-member-name {
-  color: #ffd700;
+  color: #bced00;
 }
 
 .about-team-member-role {
@@ -270,14 +573,17 @@
   aspect-ratio: 1870 / 930;
   height: auto;
   max-height: 930px;
-  background-color: #262626;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  background: radial-gradient(circle 800px at 50% 50%, #151a10 0%, #0d100b 45%, #050608 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   margin: 0 auto;
 }
 
 .about-banner-image-card:hover {
-  background-color: #333333;
+  border-color: rgba(188, 237, 0, 0.25);
+  box-shadow: 0 20px 50px -15px rgba(188, 237, 0, 0.15), inset 0 0 80px rgba(0, 0, 0, 0.7);
 }
 
 /* Media Queries for Mobile Responsiveness */
@@ -317,12 +623,11 @@
     max-width: calc(100% - 24px);
     margin-top: 2rem;
     margin-bottom: 3rem;
-    gap: 2rem;
   }
 
-  .about-team-images-row {
-    flex-direction: row;
-    gap: 6px;
+  .about-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 10px;
   }
 
   .about-team-image-card {
@@ -332,16 +637,16 @@
   }
 
   .about-team-text-bar {
-    margin-top: 6px;
+    margin-top: 8px;
     gap: 2px;
   }
 
   .about-team-member-name {
-    font-size: clamp(0.75rem, 2.5vw, 1rem);
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
   }
 
   .about-team-member-role {
-    font-size: clamp(0.65rem, 2vw, 0.85rem);
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
   }
 
   .about-minds-section {
@@ -374,6 +679,11 @@
   .about-minds-section,
   .about-belief-section {
     margin-left: 8px;
+  }
+
+  .about-team-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .about-minds-section {
