@@ -96,8 +96,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background-color: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -106,6 +108,8 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.35s ease, visibility 0.35s ease;
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .mobile-menu-overlay.open {
@@ -120,13 +124,39 @@
   justify-content: space-between;
   height: auto;
   min-height: 70vh;
-  max-height: 85vh;
+  min-height: 70dvh;
+  max-height: 88vh;
+  max-height: 88dvh;
   width: 90%;
   max-width: 400px;
   text-align: center;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 1.5rem 0;
   box-sizing: border-box;
+}
+
+@media (max-height: 550px) {
+  .mobile-menu-content {
+    min-height: auto;
+    max-height: 94dvh;
+    padding: 0.5rem 0;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .mobile-nav {
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.25rem !important;
+  }
+
+  .mobile-menu-footer {
+    padding-top: 0.75rem;
+  }
 }
 
 .mobile-nav {

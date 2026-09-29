@@ -69,8 +69,8 @@ export default function Work() {
       title: 'Stanbic IBTC',
       sector: 'Banking & Finance',
       subtitle: 'Banking & Finance',
-      image: '/assets/STANBIC_IBTC_RENDER_21.webp',
-      slug: 'renaissance',
+      image: '/assets/stanbic.webp',
+      slug: 'stanbic',
     },
     {
       id: 6,

@@ -35,7 +35,7 @@ export default function Footer() {
                   <li><a href="#services">Services</a></li>
                   <li><a href="#methodology">Our methodology</a></li>
                   <li><a href="#about">About</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="https://wa.me/2347046367754" target="_blank" rel="noopener noreferrer">Contact</a></li>
                   <li><a href="#">Why we exist</a></li>
                 </ul>
               </div>

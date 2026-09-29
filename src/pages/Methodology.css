@@ -1,0 +1,286 @@
+/* ─────────────────────────────────────────────
+   METHODOLOGY PAGE — COMPLETE STYLES
+   ───────────────────────────────────────────── */
+
+.meth-page-container {
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.meth-main-content {
+  flex: 1;
+  padding: clamp(6rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 7rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Back Button ── */
+.meth-back-nav {
+  margin-left: clamp(0.75rem, 4vw, 48px);
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.meth-back-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.meth-back-btn:hover {
+  color: #bced00;
+  transform: translateX(-4px);
+}
+
+/* ─────────────────────────────────────────────
+   SECTION 1 — Philosophy
+   "Our philosophy is," / "There is no formula for" / "extraordinary."
+   Aeonik 112pt regular
+   ───────────────────────────────────────────── */
+.meth-philosophy-section {
+  margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
+  max-width: 1400px;
+}
+
+.meth-philosophy-title {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem) 0;
+  padding: 0;
+}
+
+.meth-philosophy-pre,
+.meth-philosophy-line1,
+.meth-philosophy-line2 {
+  display: block;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.meth-philosophy-pre {
+  margin-bottom: 0.1em;
+}
+
+.meth-philosophy-line1 {
+  margin-bottom: 0.1em;
+}
+
+.meth-philosophy-line2 {
+  margin-bottom: 0;
+}
+
+.meth-philosophy-body {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-weight: 400;
+  color: #888888;
+  line-height: 1.4;
+  max-width: 1100px;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION 2 — The Principle
+   112pt title / 80pt light subtitle / 38pt body paragraphs
+   ───────────────────────────────────────────── */
+.meth-principle-section {
+  margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
+  max-width: 1400px;
+}
+
+.meth-principle-title {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem) 0;
+  padding: 0;
+}
+
+.meth-principle-subtitle {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2rem, 5.5vw, 80pt);
+  font-weight: 300;
+  color: #888888;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem) 0;
+  max-width: 1200px;
+}
+
+.meth-principle-body {
+  max-width: 967px;
+}
+
+.meth-principle-body p {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-weight: 400;
+  color: #888888;
+  line-height: 1.4;
+  margin: 0 0 clamp(0.5rem, 1.5vw, 1rem) 0;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION 3 — Turn thinking into direction
+   112pt title / 38pt body
+   ───────────────────────────────────────────── */
+.meth-direction-section {
+  margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
+  max-width: 1400px;
+}
+
+.meth-direction-title {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  margin: 0 0 clamp(2rem, 4vw, 3rem) 0;
+  padding: 0;
+}
+
+.meth-direction-line1,
+.meth-direction-line2 {
+  display: block;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.meth-direction-body {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-weight: 400;
+  color: #888888;
+  line-height: 1.45;
+  max-width: 967px;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION 4 — Segmented Cross Icon
+   ───────────────────────────────────────────── */
+.meth-cross-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 clamp(5rem, 10vw, 9rem) 0;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION 5 — How we behave while we build
+   112pt title / 38pt body paragraphs
+   ───────────────────────────────────────────── */
+.meth-behave-section {
+  margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
+  max-width: 1400px;
+}
+
+.meth-behave-title {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  margin: 0 0 clamp(2rem, 4vw, 3rem) 0;
+  padding: 0;
+}
+
+.meth-behave-line1,
+.meth-behave-line2 {
+  display: block;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.meth-behave-body {
+  max-width: 967px;
+}
+
+.meth-behave-body p {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-weight: 400;
+  color: #888888;
+  line-height: 1.45;
+  margin: 0 0 clamp(0.5rem, 1.5vw, 1rem) 0;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .meth-philosophy-pre,
+  .meth-philosophy-line1,
+  .meth-philosophy-line2,
+  .meth-principle-title,
+  .meth-direction-line1,
+  .meth-direction-line2,
+  .meth-behave-line1,
+  .meth-behave-line2 {
+    font-size: clamp(2rem, 9.5vw, 4rem);
+  }
+
+  .meth-principle-subtitle {
+    font-size: clamp(1.6rem, 6vw, 3rem);
+  }
+
+  .meth-philosophy-body,
+  .meth-principle-body p,
+  .meth-direction-body,
+  .meth-behave-body p {
+    font-size: clamp(1rem, 3.5vw, 1.8rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .meth-main-content {
+    padding-top: clamp(6rem, 16vw, 8rem);
+  }
+
+  .meth-philosophy-section,
+  .meth-principle-section,
+  .meth-direction-section,
+  .meth-behave-section,
+  .meth-back-nav {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .meth-philosophy-pre,
+  .meth-philosophy-line1,
+  .meth-philosophy-line2,
+  .meth-principle-title,
+  .meth-direction-line1,
+  .meth-direction-line2,
+  .meth-behave-line1,
+  .meth-behave-line2 {
+    font-size: clamp(1.6rem, 8vw, 2.8rem);
+    letter-spacing: -0.01em;
+  }
+
+  .meth-principle-subtitle {
+    font-size: clamp(1.3rem, 5.5vw, 2rem);
+  }
+
+  .meth-philosophy-body,
+  .meth-principle-body p,
+  .meth-direction-body,
+  .meth-behave-body p {
+    font-size: clamp(0.95rem, 3.5vw, 1.3rem);
+  }
+}

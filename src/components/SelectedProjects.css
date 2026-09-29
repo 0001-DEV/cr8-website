@@ -828,3 +828,57 @@
     width: 28px;
   }
 }
+
+/* Small Height Screen Monitors & Landscape Handheld Devices */
+@media (max-height: 650px) {
+  .selected-projects-section,
+  .cards-stack-stage,
+  .stacked-card-wrapper {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 440px;
+  }
+
+  .stacked-card {
+    min-height: 380px !important;
+    height: 100%;
+    max-height: 100%;
+  }
+
+  .card-info {
+    padding: clamp(0.75rem, 3vh, 1.5rem) clamp(1rem, 2.5vw, 2rem) !important;
+    gap: clamp(0.35rem, 1.2vh, 0.75rem) !important;
+  }
+
+  .card-body {
+    padding-top: 0.35rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .card-title {
+    font-size: clamp(1.2rem, 3.8vh, 1.8rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .card-description {
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    font-size: clamp(0.72rem, 1.8vh, 0.82rem) !important;
+  }
+
+  .card-tags {
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  .card-btn {
+    padding: 0.35rem 0.8rem !important;
+    font-size: 0.75rem !important;
+    margin-top: 0.2rem !important;
+  }
+
+  .stacked-controls-overlay {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+}

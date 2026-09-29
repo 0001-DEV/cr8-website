@@ -1,3 +1,7 @@
+/* ─────────────────────────────────────────────
+   ABOUT PAGE — COMPLETE STYLES
+   ───────────────────────────────────────────── */
+
 .about-page-container {
   background-color: #000000;
   color: #ffffff;
@@ -15,9 +19,9 @@
   box-sizing: border-box;
 }
 
-/* Back Navigation Button */
+/* ── Back Button ── */
 .about-back-nav {
-  margin-left: clamp(0.75rem, 4vw, 3rem);
+  margin-left: clamp(0.75rem, 4vw, 48px);
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
@@ -35,62 +39,57 @@
   gap: 0.5rem;
   transition: color 0.25s ease, transform 0.25s ease;
 }
-
 .about-back-btn:hover {
   color: #bced00;
   transform: translateX(-4px);
 }
 
-/* Hero Section */
+/* ─────────────────────────────────────────────
+   HERO: split layout — text left, A(12) right
+   ───────────────────────────────────────────── */
 .about-hero-section {
   margin-bottom: clamp(4rem, 8vw, 7rem);
-  min-height: auto;
+  padding: 0 clamp(0.75rem, 4vw, 48px);
 }
 
-.about-hero-heading {
-  margin-left: clamp(0.75rem, 4vw, 3rem);
-  text-align: left;
-  max-width: 1000px;
-  width: 100%;
-  min-height: auto;
+.about-hero-inner {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 64px);
+  max-width: 1870px;
+  margin: 0 auto;
+}
+
+.about-hero-text-col {
+  flex: 1 1 55%;
+  min-width: 0;
+  max-width: 967px;
 }
 
 .about-title-main {
-  margin: 0;
+  margin: 0 0 clamp(2rem, 3.5vw, 3.5rem) 0;
   padding: 0;
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.about-title-line1 {
-  color: #888888;
+.about-title-line1,
+.about-title-line2 {
+  display: block;
+  color: #ffffff;
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.5rem, 7.5vw, 112pt);
   font-weight: 400;
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.2rem 0;
 }
 
-.about-title-line2 {
-  color: #888888;
-  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2rem, 6.4vw, 112pt);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-/* About Content Sections */
-.about-intro-section {
-  margin-left: clamp(0.75rem, 4vw, 3rem);
+/* ── Intro Content (inside text column, right next to image) ── */
+.about-intro-content {
   max-width: 967px;
   width: 100%;
-  min-height: auto;
-  margin-bottom: clamp(3rem, 6vw, 4.5rem);
 }
 
 .about-intro-paragraph {
@@ -98,69 +97,76 @@
   font-size: clamp(1.1rem, 2vw, 24pt);
   font-weight: 400;
   line-height: 1.35;
-  color: #ffffff;
-  margin-bottom: 1.25rem;
+  color: #808080;
+  margin: 0 0 1.25rem 0;
+}
+.about-intro-paragraph:last-child {
+  margin-bottom: 0;
 }
 
-.about-pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  margin-top: 2.5rem;
+/* ── Image A (12) Col: w=1241 h=830 ── */
+.about-hero-image-col {
+  flex: 0 1 clamp(280px, 42vw, 850px);
+  max-width: 1241px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-self: flex-end;
 }
 
-.about-pillar-card {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 1.25rem;
+.about-hero-side-img {
+  width: 100%;
+  max-width: 1241px;
+  height: auto;
+  aspect-ratio: 1241 / 830;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
 }
 
-.about-pillar-title {
-  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-.about-pillar-desc {
-  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
-  font-weight: 400;
-  line-height: 1.5;
-  color: #888888;
-}
-
-/* Excellent Minds Section */
+/* ── Excellent Minds (Center aligned, color #ffffff) ── */
 .about-minds-section {
   margin-top: clamp(3rem, 10vw, 12.5rem);
-  margin-left: clamp(0.75rem, 4vw, 3rem);
   margin-bottom: clamp(4rem, 8vw, 6rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0 clamp(0.75rem, 4vw, 48px);
+  box-sizing: border-box;
 }
 
 .about-minds-heading {
-  max-width: 1000px;
+  max-width: 1400px;
   width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .about-minds-title {
   margin: 0;
   padding: 0;
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
 }
 
 .about-minds-line1,
-.about-minds-line2,
-.about-minds-line3 {
-  color: #888888;
+.about-minds-line2 {
+  display: block;
+  color: #ffffff;
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.5rem, 7.5vw, 112pt);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em;
   margin: 0 0 0.25rem 0;
+  text-align: center;
 }
 
-/* Team Section & Interactive Grids */
+/* ─────────────────────────────────────────────
+   TEAM CARDS — Real Photo versions
+   ───────────────────────────────────────────── */
 .about-team-section {
   margin-top: clamp(3rem, 6vw, 5rem);
   margin-left: 12px;
@@ -187,330 +193,112 @@
   flex-direction: column;
 }
 
-/* Interactive Aura Mesh Gradient Image Card */
 .about-team-image-card {
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-  --tilt-x: 0deg;
-  --tilt-y: 0deg;
   position: relative;
   overflow: hidden;
   width: 100%;
   aspect-ratio: 607 / 750;
   height: auto;
   max-height: 750px;
-  background-color: var(--card-bg, #ffffff);
   border-radius: 4px;
   cursor: pointer;
-  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
-  will-change: transform;
-  isolation: isolate;
+  background-color: #111;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
 }
 
-/* Individual Aura Mesh Blobs */
-.aura-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(52px);
-  will-change: transform, left, top;
-  pointer-events: none;
-  opacity: 0.96;
+.about-team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
 }
 
-/* Cursor Interactive Glow Bloom */
-.aura-cursor-glow {
+/* ── Moving, changing gradient color overlay on hover ── */
+.about-team-gradient-flow {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle 240px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 45%, transparent 70%);
+  background: linear-gradient(
+    135deg,
+    rgba(188, 237, 0, 0.5) 0%,
+    rgba(255, 0, 128, 0.45) 25%,
+    rgba(0, 229, 255, 0.5) 50%,
+    rgba(138, 43, 226, 0.5) 75%,
+    rgba(188, 237, 0, 0.5) 100%
+  );
+  background-size: 300% 300%;
   mix-blend-mode: overlay;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  will-change: background, opacity;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
-.about-team-card-wrapper:hover .aura-cursor-glow,
-.about-team-image-card.is-hovered .aura-cursor-glow {
+/* ── Moving ambient glow overlay on hover ── */
+.about-team-gradient-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(188, 237, 0, 0.35) 0%,
+    rgba(255, 45, 120, 0.3) 35%,
+    rgba(0, 229, 255, 0.3) 70%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.about-team-card-wrapper:hover .about-team-image-card {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 32px rgba(188, 237, 0, 0.2);
+}
+
+.about-team-card-wrapper:hover .about-team-photo {
+  transform: scale(1.05);
+  filter: contrast(1.08) brightness(1.04);
+}
+
+.about-team-card-wrapper:hover .about-team-gradient-flow {
   opacity: 1;
+  animation: flowingGradientShift 3.5s ease-in-out infinite alternate;
 }
 
-/* 1. Joshua Itorobong: Top-Left Periwinkle, Bottom-Right Flame Orange, Bottom Red-Orange, Top-Right Blush */
-.gradient-itorobong .aura-blob-1 {
-  width: 110%;
-  height: 105%;
-  background: var(--c1);
-  left: calc(-20% + (var(--mouse-x, 50%) - 50%) * 0.28);
-  top: calc(-20% + (var(--mouse-y, 50%) - 50%) * 0.28);
-  transition: left 0.16s ease-out, top 0.16s ease-out;
-}
-.gradient-itorobong .aura-blob-2 {
-  width: 125%;
-  height: 115%;
-  background: var(--c2);
-  left: calc(20% + (var(--mouse-x, 50%) - 50%) * 0.32);
-  top: calc(30% + (var(--mouse-y, 50%) - 50%) * 0.32);
-  transition: left 0.18s ease-out, top 0.18s ease-out;
-}
-.gradient-itorobong .aura-blob-3 {
-  width: 105%;
-  height: 95%;
-  background: var(--c3);
-  left: calc(-10% + (50% - var(--mouse-x, 50%)) * 0.24);
-  top: calc(40% + (var(--mouse-y, 50%) - 50%) * 0.24);
-  transition: left 0.2s ease-out, top 0.2s ease-out;
-}
-.gradient-itorobong .aura-blob-4 {
-  width: 90%;
-  height: 85%;
-  background: var(--c4);
-  left: calc(35% + (var(--mouse-x, 50%) - 50%) * 0.2);
-  top: calc(-15% + (50% - var(--mouse-y, 50%)) * 0.2);
-  transition: left 0.17s ease-out, top 0.17s ease-out;
+.about-team-card-wrapper:hover .about-team-gradient-glow {
+  opacity: 1;
+  animation: flowingGlowShift 4s linear infinite;
 }
 
-/* 2. Joshua Oladele: Top Half Azure Blue, Bottom Half Vivid Lemon Yellow */
-.gradient-oladele .aura-blob-1 {
-  width: 140%;
-  height: 95%;
-  background: var(--c1);
-  left: calc(-20% + (var(--mouse-x, 50%) - 50%) * 0.25);
-  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.25);
-  transition: left 0.16s ease-out, top 0.16s ease-out;
-}
-.gradient-oladele .aura-blob-2 {
-  width: 140%;
-  height: 95%;
-  background: var(--c2);
-  left: calc(-20% + (50% - var(--mouse-x, 50%)) * 0.25);
-  top: calc(40% + (var(--mouse-y, 50%) - 50%) * 0.25);
-  transition: left 0.18s ease-out, top 0.18s ease-out;
-}
-.gradient-oladele .aura-blob-3 {
-  width: 95%;
-  height: 85%;
-  background: var(--c3);
-  left: calc(-25% + (var(--mouse-x, 50%) - 50%) * 0.3);
-  top: calc(-15% + (var(--mouse-y, 50%) - 50%) * 0.3);
-  transition: left 0.2s ease-out, top 0.2s ease-out;
-}
-.gradient-oladele .aura-blob-4 {
-  width: 105%;
-  height: 90%;
-  background: var(--c4);
-  left: calc(20% + (var(--mouse-x, 50%) - 50%) * 0.3);
-  top: calc(45% + (var(--mouse-y, 50%) - 50%) * 0.3);
-  transition: left 0.17s ease-out, top 0.17s ease-out;
-}
-
-/* 3. Zino Amayido: Top Sunny Yellow, Bottom-Right Electric Blue, Mid-Left Cobalt Splash, Bottom-Left Ice Cyan */
-.gradient-amayido .aura-blob-1 {
-  width: 135%;
-  height: 95%;
-  background: var(--c1);
-  left: calc(-15% + (var(--mouse-x, 50%) - 50%) * 0.26);
-  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.26);
-  transition: left 0.16s ease-out, top 0.16s ease-out;
-}
-.gradient-amayido .aura-blob-2 {
-  width: 120%;
-  height: 105%;
-  background: var(--c2);
-  left: calc(25% + (var(--mouse-x, 50%) - 50%) * 0.32);
-  top: calc(35% + (var(--mouse-y, 50%) - 50%) * 0.32);
-  transition: left 0.18s ease-out, top 0.18s ease-out;
-}
-.gradient-amayido .aura-blob-3 {
-  width: 90%;
-  height: 90%;
-  background: var(--c3);
-  left: calc(-30% + (var(--mouse-x, 50%) - 50%) * 0.28);
-  top: calc(15% + (50% - var(--mouse-y, 50%)) * 0.28);
-  transition: left 0.2s ease-out, top 0.2s ease-out;
-}
-.gradient-amayido .aura-blob-4 {
-  width: 95%;
-  height: 85%;
-  background: var(--c4);
-  left: calc(-15% + (50% - var(--mouse-x, 50%)) * 0.22);
-  top: calc(45% + (var(--mouse-y, 50%) - 50%) * 0.22);
-  transition: left 0.17s ease-out, top 0.17s ease-out;
-}
-
-/* 4. Barokah Olorunlogbon: Bottom-Left Flame Red-Orange, Top-Left Sky Blue, Top-Right Lemon Yellow, Center-Right Sunset Orange */
-.gradient-barokah .aura-blob-1 {
-  width: 125%;
-  height: 115%;
-  background: var(--c1);
-  left: calc(-25% + (var(--mouse-x, 50%) - 50%) * 0.3);
-  top: calc(25% + (var(--mouse-y, 50%) - 50%) * 0.3);
-  transition: left 0.16s ease-out, top 0.16s ease-out;
-}
-.gradient-barokah .aura-blob-2 {
-  width: 95%;
-  height: 90%;
-  background: var(--c2);
-  left: calc(-25% + (50% - var(--mouse-x, 50%)) * 0.28);
-  top: calc(-25% + (50% - var(--mouse-y, 50%)) * 0.28);
-  transition: left 0.18s ease-out, top 0.18s ease-out;
-}
-.gradient-barokah .aura-blob-3 {
-  width: 100%;
-  height: 95%;
-  background: var(--c3);
-  left: calc(30% + (var(--mouse-x, 50%) - 50%) * 0.26);
-  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.26);
-  transition: left 0.2s ease-out, top 0.2s ease-out;
-}
-.gradient-barokah .aura-blob-4 {
-  width: 100%;
-  height: 95%;
-  background: var(--c4);
-  left: calc(25% + (50% - var(--mouse-x, 50%)) * 0.24);
-  top: calc(15% + (var(--mouse-y, 50%) - 50%) * 0.24);
-  transition: left 0.17s ease-out, top 0.17s ease-out;
-}
-
-/* 5. Nathaniel Aremu: Top-Right Crimson Pink-Red, Bottom Lemon Yellow, Bottom-Left Golden Amber, Top-Left Ice White */
-.gradient-aremu .aura-blob-1 {
-  width: 120%;
-  height: 110%;
-  background: var(--c1);
-  left: calc(15% + (var(--mouse-x, 50%) - 50%) * 0.3);
-  top: calc(-25% + (var(--mouse-y, 50%) - 50%) * 0.3);
-  transition: left 0.16s ease-out, top 0.16s ease-out;
-}
-.gradient-aremu .aura-blob-2 {
-  width: 130%;
-  height: 100%;
-  background: var(--c2);
-  left: calc(-5% + (50% - var(--mouse-x, 50%)) * 0.26);
-  top: calc(45% + (var(--mouse-y, 50%) - 50%) * 0.26);
-  transition: left 0.18s ease-out, top 0.18s ease-out;
-}
-.gradient-aremu .aura-blob-3 {
-  width: 100%;
-  height: 95%;
-  background: var(--c3);
-  left: calc(-30% + (var(--mouse-x, 50%) - 50%) * 0.28);
-  top: calc(35% + (var(--mouse-y, 50%) - 50%) * 0.28);
-  transition: left 0.2s ease-out, top 0.2s ease-out;
-}
-.gradient-aremu .aura-blob-4 {
-  width: 90%;
-  height: 90%;
-  background: var(--c4);
-  left: calc(-25% + (50% - var(--mouse-x, 50%)) * 0.22);
-  top: calc(-25% + (50% - var(--mouse-y, 50%)) * 0.22);
-  transition: left 0.17s ease-out, top 0.17s ease-out;
-}
-
-/* Active Hover Dynamic Fluid Swirl Keyframes */
-@keyframes activeSwirl1 {
+@keyframes flowingGradientShift {
   0% {
-    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.75), calc((var(--mouse-y, 50%) - 50%) * 0.75), 0) scale(1) rotate(0deg);
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
   }
   50% {
-    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.75 + 20px), calc((var(--mouse-y, 50%) - 50%) * 0.75 - 24px), 0) scale(1.15) rotate(18deg);
+    background-position: 100% 50%;
+    filter: hue-rotate(90deg);
   }
   100% {
-    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.75 - 20px), calc((var(--mouse-y, 50%) - 50%) * 0.75 + 20px), 0) scale(0.92) rotate(-14deg);
+    background-position: 50% 100%;
+    filter: hue-rotate(180deg);
   }
 }
 
-@keyframes activeSwirl2 {
+@keyframes flowingGlowShift {
   0% {
-    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.75), calc((50% - var(--mouse-y, 50%)) * 0.75), 0) scale(1) rotate(0deg);
+    background-position: 0% 0%;
   }
   50% {
-    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.75 - 24px), calc((50% - var(--mouse-y, 50%)) * 0.75 + 20px), 0) scale(1.18) rotate(-18deg);
+    background-position: 100% 100%;
   }
   100% {
-    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.75 + 20px), calc((50% - var(--mouse-y, 50%)) * 0.75 - 20px), 0) scale(0.90) rotate(14deg);
+    background-position: 0% 0%;
   }
 }
 
-@keyframes activeSwirl3 {
-  0% {
-    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.65), calc((50% - var(--mouse-y, 50%)) * 0.65), 0) scale(1);
-  }
-  50% {
-    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.65 + 24px), calc((50% - var(--mouse-y, 50%)) * 0.65 + 22px), 0) scale(1.12);
-  }
-  100% {
-    transform: translate3d(calc((var(--mouse-x, 50%) - 50%) * 0.65 - 22px), calc((50% - var(--mouse-y, 50%)) * 0.65 - 16px), 0) scale(0.94);
-  }
-}
-
-@keyframes activeSwirl4 {
-  0% {
-    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.65), calc((var(--mouse-y, 50%) - 50%) * 0.65), 0) scale(1);
-  }
-  50% {
-    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.65 - 20px), calc((var(--mouse-y, 50%) - 50%) * 0.65 - 24px), 0) scale(1.14);
-  }
-  100% {
-    transform: translate3d(calc((50% - var(--mouse-x, 50%)) * 0.65 + 24px), calc((var(--mouse-y, 50%) - 50%) * 0.65 + 20px), 0) scale(0.92);
-  }
-}
-
-/* Hover: Actively Moving, Swirling Liquid Gradients */
-.about-team-card-wrapper:hover .aura-blob-1,
-.about-team-image-card.is-hovered .aura-blob-1 {
-  animation: activeSwirl1 4.5s ease-in-out infinite alternate !important;
-}
-
-.about-team-card-wrapper:hover .aura-blob-2,
-.about-team-image-card.is-hovered .aura-blob-2 {
-  animation: activeSwirl2 5s ease-in-out infinite alternate !important;
-}
-
-.about-team-card-wrapper:hover .aura-blob-3,
-.about-team-image-card.is-hovered .aura-blob-3 {
-  animation: activeSwirl3 4.2s ease-in-out infinite alternate !important;
-}
-
-.about-team-card-wrapper:hover .aura-blob-4,
-.about-team-image-card.is-hovered .aura-blob-4 {
-  animation: activeSwirl4 4.8s ease-in-out infinite alternate !important;
-}
-
-/* Idle State: Gentle ambient breathing */
-@keyframes auraMorph1 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(6%, 8%, 0) scale(1.08); }
-  100% { transform: translate3d(-5%, 4%, 0) scale(0.95); }
-}
-
-@keyframes auraMorph2 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-8%, -7%, 0) scale(0.92); }
-  100% { transform: translate3d(6%, -5%, 0) scale(1.06); }
-}
-
-@keyframes auraMorph3 {
-  0% { transform: translate(0, 0, 0) scale(1); }
-  50% { transform: translate(7%, -8%, 0) scale(1.07); }
-  100% { transform: translate(-6%, 6%, 0) scale(0.94); }
-}
-
-.about-team-card-wrapper:not(:hover) .aura-blob-1 {
-  animation: auraMorph1 9s ease-in-out infinite alternate;
-}
-
-.about-team-card-wrapper:not(:hover) .aura-blob-2 {
-  animation: auraMorph2 10s ease-in-out infinite alternate;
-}
-
-.about-team-card-wrapper:not(:hover) .aura-blob-3 {
-  animation: auraMorph3 8s ease-in-out infinite alternate;
-}
-
-.about-team-card-wrapper:not(:hover) .aura-blob-4 {
-  animation: auraMorph1 11s ease-in-out infinite alternate-reverse;
-}
-
-/* Team Text Info */
+/* Team text */
 .about-team-text-bar {
   margin-top: 12px;
   display: flex;
@@ -538,13 +326,25 @@
   color: #888888;
 }
 
-/* About Belief Section (38pt Aeonik, gray color) */
+/* ─────────────────────────────────────────────
+   BELIEF SECTION — text top + A(10) image UNDER it (w=1870 h=930)
+   ───────────────────────────────────────────── */
 .about-belief-section {
   margin-top: clamp(4rem, 8vw, 6rem);
-  margin-left: 48px;
-  max-width: 1000px;
-  width: 100%;
+  margin-left: clamp(0.75rem, 4vw, 48px);
+  margin-right: clamp(0.75rem, 4vw, 48px);
   margin-bottom: clamp(4rem, 8vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(2.5rem, 4vw, 4rem);
+  max-width: 1870px;
+  box-sizing: border-box;
+}
+
+.about-belief-text {
+  max-width: 967px;
+  width: 100%;
 }
 
 .about-belief-paragraph {
@@ -555,60 +355,253 @@
   color: #888888;
   margin-bottom: 1.75rem;
 }
+.about-belief-paragraph:last-child {
+  margin-bottom: 0;
+}
 
-/* Full Width Banner Image Section (w=1870, h=930) */
-.about-banner-image-section {
-  margin-top: clamp(3rem, 6vw, 5rem);
-  margin-left: 12px;
-  margin-right: 12px;
-  width: calc(100% - 24px);
-  max-width: calc(100% - 24px);
-  margin-bottom: clamp(4rem, 8vw, 6rem);
+.about-belief-image-col {
+  width: 100%;
+  max-width: 1870px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.about-belief-img {
+  width: 100%;
+  max-width: 1870px;
+  height: auto;
+  aspect-ratio: 1870 / 930;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.about-belief-img:hover {
+  transform: scale(1.02);
+}
+
+/* ─────────────────────────────────────────────
+   PERFECTION SECTION
+   ───────────────────────────────────────────── */
+.about-perfection-section {
+  margin-left: clamp(0.75rem, 4vw, 48px);
+  margin-right: clamp(0.75rem, 4vw, 48px);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  max-width: 1200px;
+}
+
+.about-perfection-title {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem) 0;
+  padding: 0;
+}
+
+.about-perfection-line1,
+.about-perfection-line2 {
+  display: block;
+  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.about-perfection-body {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-weight: 400;
+  color: #888888;
+  line-height: 1.35;
+  max-width: 967px;
+}
+
+/* ─────────────────────────────────────────────
+   ASYMMETRIC IMAGES: A(1) 650px + A(11) 1195px
+   ───────────────────────────────────────────── */
+.about-asym-images-section {
+  width: 100%;
+  max-width: 1869px;
+  margin: 0 auto clamp(3rem, 6vw, 5rem) auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 4px;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.about-asym-650-card {
+  flex: 0 0 34.83%;
+  min-width: 0;
+  width: 34.83%;
+  max-width: 650px;
+  aspect-ratio: 650 / 930;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.about-asym-650-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.about-asym-650-card:hover img {
+  transform: scale(1.04);
+}
+
+.about-asym-1195-card {
+  flex: 0 0 calc(65.17% - 4px);
+  min-width: 0;
+  width: calc(65.17% - 4px);
+  max-width: 1195px;
+  aspect-ratio: 1195 / 930;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.about-asym-1195-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.about-asym-1195-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ─────────────────────────────────────────────
+   ITALIC QUOTE
+   ───────────────────────────────────────────── */
+.about-italic-quote-section {
+  margin: clamp(3rem, 6vw, 5rem) clamp(0.75rem, 4vw, 48px);
+  max-width: 967px;
+}
+
+.about-italic-quote {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 28pt);
+  font-weight: 400;
+  font-style: italic;
+  color: #888888;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   CENTRED TAGLINE
+   ───────────────────────────────────────────── */
+.about-centre-tagline-section {
+  margin: clamp(3rem, 6vw, 5rem) auto;
+  max-width: 1145px;
+  width: 100%;
+  text-align: center;
+  padding: 0 clamp(0.75rem, 4vw, 48px);
   box-sizing: border-box;
 }
 
-.about-banner-image-card {
-  width: 100%;
-  max-width: 1870px;
-  aspect-ratio: 1870 / 930;
-  height: auto;
-  max-height: 930px;
-  background: radial-gradient(circle 800px at 50% 50%, #151a10 0%, #0d100b 45%, #050608 100%);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.7);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto;
+.about-centre-tagline {
+  margin: 0;
+  padding: 0;
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
 }
 
-.about-banner-image-card:hover {
-  border-color: rgba(188, 237, 0, 0.25);
-  box-shadow: 0 20px 50px -15px rgba(188, 237, 0, 0.15), inset 0 0 80px rgba(0, 0, 0, 0.7);
+.about-centre-tagline-line1,
+.about-centre-tagline-line2 {
+  display: block;
+  font-size: clamp(2rem, 6vw, 80pt);
+  color: #ffffff;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
-/* Media Queries for Mobile Responsiveness */
+/* ── Methodology link ── */
+.about-methodology-link-section {
+  margin: clamp(2rem, 4vw, 3rem) clamp(0.75rem, 4vw, 48px);
+}
+
+.about-methodology-link {
+  font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 2px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.about-methodology-link:hover {
+  color: #bced00;
+  border-color: #bced00;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-hero-inner {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+  .about-hero-text-col {
+    flex: 1 1 58%;
+    min-width: 0;
+  }
+  .about-hero-image-col {
+    flex: 0 1 clamp(160px, 38vw, 360px);
+    width: 100%;
+    align-self: flex-end;
+  }
+
+  .about-belief-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-belief-image-col {
+    width: 100%;
+  }
+
+  .about-asym-images-section {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .about-asym-650-card,
+  .about-asym-1195-card {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .about-main-content {
     padding: clamp(6rem, 14vw, 8.5rem) 0 3rem;
   }
 
+  .about-hero-inner {
+    gap: clamp(0.75rem, 2.5vw, 1.5rem);
+  }
+
+  .about-intro-paragraph {
+    font-size: clamp(0.95rem, 2.6vw, 1.25rem);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
   .about-back-nav,
-  .about-hero-heading,
-  .about-intro-section,
-  .about-minds-section,
   .about-belief-section {
     margin-left: 12px;
     max-width: 100%;
-    min-height: auto;
-  }
-
-  .about-banner-image-section {
-    margin-left: 12px;
-    margin-right: 12px;
-    width: calc(100% - 24px);
-    max-width: calc(100% - 24px);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
   }
 
   .about-belief-paragraph {
@@ -621,50 +614,38 @@
     margin-right: 12px;
     width: calc(100% - 24px);
     max-width: calc(100% - 24px);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .about-team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem 10px;
-  }
-
-  .about-team-image-card {
-    height: auto;
-    max-height: none;
-    aspect-ratio: 607 / 750;
-  }
-
-  .about-team-text-bar {
-    margin-top: 8px;
-    gap: 2px;
-  }
-
-  .about-team-member-name {
-    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
-  }
-
-  .about-team-member-role {
-    font-size: clamp(0.75rem, 2vw, 0.9rem);
   }
 
   .about-minds-section {
     margin-top: 100px;
+    padding: 0 12px;
   }
 
   .about-hero-section {
     margin-bottom: 2.5rem;
-    min-height: auto;
   }
 
   .about-title-line1,
   .about-title-line2,
   .about-minds-line1,
   .about-minds-line2,
-  .about-minds-line3 {
+  .about-perfection-line1,
+  .about-perfection-line2 {
     font-size: clamp(2rem, 9.5vw, 3.8rem);
     line-height: 1.1;
+  }
+
+  .about-perfection-body {
+    font-size: clamp(1rem, 3.5vw, 1.6rem);
+  }
+
+  .about-italic-quote {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  }
+
+  .about-centre-tagline-line1,
+  .about-centre-tagline-line2 {
+    font-size: clamp(1.8rem, 7vw, 3rem);
   }
 }
 
@@ -673,12 +654,36 @@
     padding: clamp(5.8rem, 16vw, 7.5rem) 0 2rem;
   }
 
+  .about-hero-inner {
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .about-hero-text-col {
+    flex: 1 1 60%;
+    min-width: 0;
+  }
+
+  .about-hero-image-col {
+    flex: 0 0 clamp(110px, 36vw, 150px);
+    max-width: 150px;
+    align-self: flex-end;
+  }
+
+  .about-intro-paragraph {
+    font-size: clamp(0.85rem, 3.2vw, 1.05rem);
+    line-height: 1.35;
+    margin-bottom: 0.85rem;
+  }
+
   .about-back-nav,
-  .about-hero-heading,
-  .about-intro-section,
-  .about-minds-section,
-  .about-belief-section {
+  .about-hero-section,
+  .about-belief-section,
+  .about-perfection-section,
+  .about-italic-quote-section,
+  .about-methodology-link-section {
     margin-left: 8px;
+    margin-right: 8px;
   }
 
   .about-team-grid {
@@ -688,13 +693,20 @@
 
   .about-minds-section {
     margin-top: 60px;
+    padding: 0 8px;
   }
 
   .about-title-line1,
   .about-title-line2,
   .about-minds-line1,
   .about-minds-line2,
-  .about-minds-line3 {
+  .about-perfection-line1,
+  .about-perfection-line2 {
     font-size: clamp(1.5rem, 8vw, 2.3rem);
+  }
+
+  .about-centre-tagline-line1,
+  .about-centre-tagline-line2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 }

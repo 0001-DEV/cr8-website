@@ -121,25 +121,25 @@ export default function Services() {
       id: 'understand',
       title: 'Understand',
       content:
-        'We take the time to immerse ourselves in your context, uncover core challenges, and identify the strategic opportunities that will shape the solution.',
+        "Every project starts with questions. We immerse ourselves in the brand, its audience, its market and the problem we're trying to solve. We listen, research and challenge assumptions before we put pen to paper.",
     },
     {
       id: 'define',
       title: 'Define',
       content:
-        'We articulate a clear vision, establish the brand architecture and positioning, and craft the strategic foundation for all creative expressions.',
+        "We turn what we've learned into a clear direction. We identify the opportunity, establish the core idea and define what the solution needs to achieve, giving creativity a purpose beyond aesthetics.",
     },
     {
       id: 'develop',
       title: 'Develop',
       content:
-        'We explore, design, and prototype concepts, building tangible systems and distinctive visual identities that bring the strategy to life.',
+        'This is where thinking becomes tangible. We explore, experiment and refine ideas across identity, products, concepts and experiences until we find the solution that feels both right and unmistakably yours.',
     },
     {
       id: 'deliver',
       title: 'Deliver',
       content:
-        'We execute with precision across physical and digital touchpoints, launching cohesive brand experiences that are impossible to overlook.',
+        `A great idea means little if it doesn't work in the real world. We bring the solution to life with precision, consistency and attention to detail, creating work designed to be seen, experienced and remembered.`,
     },
   ]
 

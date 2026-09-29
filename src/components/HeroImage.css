@@ -14,6 +14,13 @@
   object-fit: cover;
 }
 
+@media (max-height: 580px) {
+  .hero-image-section {
+    height: clamp(180px, 45vh, 280px);
+    padding-top: 45px;
+  }
+}
+
 @media (min-width: 1440px) {
   .hero-image-section {
     max-width: 1600px;

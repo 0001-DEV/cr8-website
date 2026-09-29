@@ -58,7 +58,7 @@ export default function Header() {
             <Link to="/services" className="nav-link nav-link-2">Services</Link>
             <Link to="/methodology" className="nav-link nav-link-3">Our Methodology</Link>
             <Link to="/about" className="nav-link nav-link-4">About</Link>
-            <Link to="/contact" className="nav-link">Contact</Link>
+            <a href="https://wa.me/2347046367754" target="_blank" rel="noopener noreferrer" className="nav-link">Contact</a>
           </nav>
           <button 
             className="menu-toggle" 
@@ -78,7 +78,7 @@ export default function Header() {
                 <Link to="/services" onClick={closeMobileMenu} className="mobile-nav-link link-2">Services</Link>
                 <Link to="/methodology" onClick={closeMobileMenu} className="mobile-nav-link link-3">Our Methodology</Link>
                 <Link to="/about" onClick={closeMobileMenu} className="mobile-nav-link link-4">About</Link>
-                <Link to="/contact" onClick={closeMobileMenu} className="mobile-nav-link link-5">Contact</Link>
+                <a href="https://wa.me/2347046367754" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-5">Contact</a>
               </nav>
               <div className="mobile-menu-footer">
                 <p className="mobile-brand">Xtreme Cr8tivity</p>

@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Page.css'
 
-function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1200, imageGap = 2 }) {
+function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-carousel-1', autoPlayInterval = 1200, imageGap = 2, imageHeight = 930, className = '', style = {} }) {
   const [rightIndex, setRightIndex] = useState(1)
   const [prevRightIndex, setPrevRightIndex] = useState(1)
   const [slideDirection, setSlideDirection] = useState('next')
@@ -84,7 +84,8 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
   return (
     <section
       ref={sectionRef}
-      className={`renaissance-carousel-nav-section ${hasEntered ? 'in-view' : ''}`}
+      className={`renaissance-carousel-nav-section ${className} ${hasEntered ? 'in-view' : ''}`}
+      style={style}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -92,7 +93,7 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
         className={`renaissance-carousel-images ${imageGap === 4 ? 'renaissance-carousel-images--gap-4' : ''} ${imageGap === 8 ? 'renaissance-carousel-images--gap-8' : ''}`}
       >
         {/* Left Image: Always Static (First Image) */}
-        <div className="renaissance-carousel-image-card renaissance-carousel-image-card--static">
+        <div className="renaissance-carousel-image-card renaissance-carousel-image-card--static" style={{ aspectRatio: `922.5 / ${imageHeight}`, maxHeight: `${imageHeight}px` }}>
           <img
             src={staticImage.src}
             alt={staticImage.alt}
@@ -101,8 +102,8 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
         </div>
 
         {/* Right Image Slot: Backdrop + Smooth Top Slide Layer (Zero Flickering) */}
-        <div className="renaissance-carousel-right-slot">
-          <div className="renaissance-carousel-image-card renaissance-carousel-image-card--backdrop">
+        <div className="renaissance-carousel-right-slot" style={{ aspectRatio: `922.5 / ${imageHeight}`, maxHeight: `${imageHeight}px` }}>
+          <div className="renaissance-carousel-image-card renaissance-carousel-image-card--backdrop" style={{ aspectRatio: `922.5 / ${imageHeight}`, maxHeight: `${imageHeight}px` }}>
             <img
               src={backdropRightImage.src}
               alt={backdropRightImage.alt}
@@ -113,6 +114,7 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
           <div
             key={`${carouselId}-right-${rightIndex}-${slideDirection}`}
             className={`renaissance-carousel-image-card renaissance-carousel-image-card--animated renaissance-carousel-image-card--${slideDirection}`}
+            style={{ aspectRatio: `922.5 / ${imageHeight}`, maxHeight: `${imageHeight}px` }}
           >
             <img
               src={activeRightImage.src}
@@ -161,7 +163,9 @@ const slugToIdMap = {
   'seplat-energy': '6',
   '7': '7',
   'mtn': '7',
-  '8': '7',
+  '8': '8',
+  'stanbic': '8',
+  'stanbic-ibtc': '8',
 }
 
 const idToSlugMap = {
@@ -172,6 +176,7 @@ const idToSlugMap = {
   '5': 'adnoc',
   '6': 'seplat',
   '7': 'mtn',
+  '8': 'stanbic',
 }
 
 export default function CaseStudy() {
@@ -221,6 +226,222 @@ export default function CaseStudy() {
           <button onClick={handleBackClick} className="page-back">← Back</button>
         </div>
         
+        {/* Nigerian Breweries Case Study (id=2) */}
+        {id === '2' && (
+          <>
+            {/* Section 1: Hero */}
+            <section className="renaissance-hero-section">
+              <h1 className="renaissance-hero-title">Nigerian Breweries</h1>
+              <div className="renaissance-hero-paragraphs">
+                <p>
+                  Nigerian Breweries has spent 80 years brewing moments that have become part of Nigeria's story. For its 80th anniversary, Xtreme Cr8tivity set out a goal to turn that legacy into a commemorative experience, one that felt as significant, thoughtful and enduring as the milestone itself.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 2: Collection 3 hero (w=1920, h=980) */}
+            <section className="mtn-hero-image-section">
+              <img
+                src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
+                alt="Nigerian Breweries Collection 3"
+              />
+            </section>
+
+            {/* Section 3: The Challenge */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">The Weight of a Milestone</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    The challenge was to move beyond conventional anniversary merchandise. Eight decades deserved more than branded objects; it needed a collection that could communicate history, longevity and pride while giving people something meaningful to experience and keep.
+                  </p>
+                </div>
+              </div>
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Food &amp; Beverages
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: Award Kit 5 (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_5.webp"
+                alt="Nigerian Breweries Award Kit 5"
+              />
+            </section>
+
+            {/* Section 5: Award Kit 2 + Award Kit 1 (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_2.webp"
+                  alt="Nigerian Breweries Award Kit 2"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_1.webp"
+                  alt="Nigerian Breweries Award Kit 1"
+                />
+              </div>
+            </section>
+
+            {/* Section 6: Our Strategy */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Turning Legacy into Objects</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  We developed a visual language around the number 80, using the anniversary identity as the foundation for an entire collection. Every object was designed to carry a piece of the story, while maintaining a sense of cohesion, distinction and collectability.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: Award Kit 3 + Nigerian Breweries (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_3.webp"
+                  alt="Nigerian Breweries Award Kit 3"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/Nigerian Breweries.webp"
+                  alt="Nigerian Breweries"
+                />
+              </div>
+            </section>
+
+            {/* Section 8: Gold Award Render 6 (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_6.webp"
+                alt="Nigerian Breweries Gold Award Render 6"
+              />
+            </section>
+
+            {/* Section 9: Gold Award Render 5 + Gold Award Render 3 (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.webp"
+                  alt="Nigerian Breweries Gold Award Render 5"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_3.webp"
+                  alt="Nigerian Breweries Gold Award Render 3"
+                />
+              </div>
+            </section>
+
+            {/* Section 10: Silver Award Render 3 + Silver Award Render 4 (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_SILVER_AWARD_RENDER_3.webp"
+                  alt="Nigerian Breweries Silver Award Render 3"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_SILVER_AWARD_RENDER_4.webp"
+                  alt="Nigerian Breweries Silver Award Render 4"
+                />
+              </div>
+            </section>
+
+            {/* Section 11: The Solution */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">Eight Decades<br />Beautifully Unveiled</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  The result was an extensive commemorative collection: an anniversary logo, bespoke gold and silver awards representing the longevity of brands within Nigerian Breweries, a logo-inspired gold corkscrew, a bespoke pen and bottle opener, eight commemorative coins representing eight decades, and a memory and timeline notebook. The collection was housed in a bespoke box inspired by the anniversary logo. To complement the collection we created a one-of-a-kind custom crate and bespoke key holders, turning every item itself into part of the experience.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 12: Silver Award Render 5 (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/NIGERIAN_BREWERIES_SILVER_AWARD_RENDER_5.webp"
+                alt="Nigerian Breweries Silver Award Render 5"
+              />
+            </section>
+
+            {/* Section 13: Gold Coin Front (w=1195, h=1020) + Gold Coin Front & Back (w=650, h=1020) */}
+            <section className="nb-coin-asym-section">
+              <div className="nb-coin-1195-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_GOLD_COIN_FRONT.webp"
+                  alt="Nigerian Breweries Gold Coin Front"
+                />
+              </div>
+              <div className="nb-coin-650-card">
+                <img
+                  src="/assets/NIGERIAN_BREWERIES_GOLD_COIN_FRONT_&_BACK.webp"
+                  alt="Nigerian Breweries Gold Coin Front and Back"
+                />
+              </div>
+            </section>
+
+            {/* Section 14: Carousel 1 — pen, accessories, corkscrew, collection (w=922.5, h=800) */}
+            <RenaissanceCarousel
+              carouselId="nb-carousel-1"
+              className="nb-carousel-1"
+              imageGap={4}
+              imageHeight={800}
+              autoPlayInterval={1200}
+              images={[
+                { id: 1, src: '/assets/pen.webp', alt: 'Nigerian Breweries Pen' },
+                { id: 2, src: '/assets/NIGERIAN_BREWERIES_ACCESSORIES_EDITED_1.webp', alt: 'Nigerian Breweries Accessories' },
+                { id: 3, src: '/assets/NIGERIAN_BREWERIES_GOLD_CORKSCREW.webp', alt: 'Nigerian Breweries Gold Corkscrew' },
+                { id: 4, src: '/assets/NIGERIAN_BREWERIES_COLLECTION_1.webp', alt: 'Nigerian Breweries Collection 1' },
+              ]}
+            />
+
+            {/* Section 15: Carousel 2 — Special Edition Crates (w=922.5, h=800) */}
+            <RenaissanceCarousel
+              carouselId="nb-carousel-2"
+              className="nb-carousel-2"
+              imageGap={4}
+              imageHeight={800}
+              autoPlayInterval={1200}
+              images={[
+                { id: 1, src: '/assets/NIGERIAN_BREWERIES_SPECIAL_EDITION_CRATE_1.webp', alt: 'Nigerian Breweries Special Edition Crate 1' },
+                { id: 2, src: '/assets/NIGERIAN_BREWERIES_SPECIAL_EDITION_CRATE_3.webp', alt: 'Nigerian Breweries Special Edition Crate 3' },
+                { id: 3, src: '/assets/NIGERIAN_BREWERIES_SPECIAL_EDITION_CRATE_4.webp', alt: 'Nigerian Breweries Special Edition Crate 4' },
+                { id: 4, src: '/assets/NIGERIAN_BREWERIES_SPECIAL_EDITION_CRATE_2.webp', alt: 'Nigerian Breweries Special Edition Crate 2' },
+              ]}
+            />
+
+            {/* Spacer */}
+            <div style={{ height: '90px' }} />
+
+            {/* Section 16: Next Project — Rain Oil (RAINOIL_RENDER_POST_PROCESS_5) */}
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('rainoil')}
+            >
+              <img
+                src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
+                alt="Rain Oil Next Project"
+              />
+              <div className="rainoil-next-project-text">
+                NEXT PROJECT
+              </div>
+            </section>
+          </>
+        )}
+
         {/* Renaissance Case Study (id=3) */}
         {id === '3' && (
           <>
@@ -433,17 +654,17 @@ export default function CaseStudy() {
             {/* Spacer 90px */}
             <div style={{ height: '90px' }} />
 
-            {/* Section 16: Next Project - POST PROCESS 2 with text overlay */}
+            {/* Section 16: Next Project - Nigerian Breweries */}
             <section
               className="rainoil-next-project-section"
               style={{ marginTop: 0 }}
-              onClick={() => handleNextProject('guinness')}
+              onClick={() => handleNextProject('nigerian-breweries')}
             >
               <img
-                src="/assets/POST PROCESS 2.webp"
-                alt="Guinness Next Project"
+                src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
+                alt="Nigerian Breweries Next Project"
               />
-              <div className="rainoil-next-project-text rainoil-next-project-text--black">
+              <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
             </section>
@@ -894,7 +1115,7 @@ export default function CaseStudy() {
             <section className="rainoil-challenge-section">
               <div className="rainoil-challenge-content">
                 <h2 className="rainoil-challenge-subheading">The Challenge</h2>
-                <h1 className="rainoil-challenge-heading">Making the Small Things Carry the Same Weight</h1>
+                <h1 className="rainoil-challenge-heading">Making the Small Things<br />Carry the Same Weight</h1>
                 <div className="rainoil-challenge-body">
                   <p>
                     We began by defining how the brand should feel at its best: measured, reliable, structured, and forward-looking. From there, we built a restrained, consistent visual system that could work across different applications, with only subtle variation where necessary. The aim was simple: every touchpoint, no matter how small, should feel like it belongs to the same way of thinking.
@@ -927,7 +1148,7 @@ export default function CaseStudy() {
             {/* Section 6: Our Strategy */}
             <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
               <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
-              <h1 className="rainoil-strategy-heading">Designing from Behaviour, Not Objects</h1>
+              <h1 className="rainoil-strategy-heading">Designing from<br />Behaviour, Not Objects</h1>
               <div className="rainoil-strategy-body">
                 <p>
                   We began by defining how the brand should feel at its best: measured, reliable, structured, and forward-looking. From there, we built a restrained, consistent visual system that could work across different applications, with only subtle variation where necessary. The aim was simple: every touchpoint, no matter how small, should feel like it belongs to the same way of thinking.
@@ -1025,7 +1246,7 @@ export default function CaseStudy() {
             <section className="rainoil-challenge-section">
               <div className="rainoil-challenge-content">
                 <h2 className="rainoil-challenge-subheading">The Challenge</h2>
-                <h1 className="rainoil-challenge-heading">Breaking Away from the Expected</h1>
+                <h1 className="rainoil-challenge-heading">Breaking Away<br />from the Expected</h1>
                 <div className="rainoil-challenge-body">
                   <p>
                     The challenge was to create something that felt as dynamic as the brand itself without relying on the usual language of corporate gifting. The experience needed to feel useful, personal, and technologically relevant, while still maintaining the polish and consistency expected of a major global brand. Every element had to feel intentional rather than simply branded.
@@ -1058,7 +1279,7 @@ export default function CaseStudy() {
             {/* Section 6: Our Strategy */}
             <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
               <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
-              <h1 className="rainoil-strategy-heading">Turning Connection into Form</h1>
+              <h1 className="rainoil-strategy-heading">Turning Connection<br />into Form</h1>
               <div className="rainoil-strategy-body">
                 <p>
                   We looked at the visual and cultural language surrounding MTN. Technology, communication, interfaces, security, and the idea of connection, and translated these themes into physical design cues. Instead of treating each item as an isolated piece, we developed a visual system where distinctive forms and interactions could make the brand experience feel more engaging and contemporary.
@@ -1110,7 +1331,7 @@ export default function CaseStudy() {
             {/* Section 12: Impact */}
             <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
               <h2 className="rainoil-strategy-subheading">The Impact</h2>
-              <h1 className="rainoil-strategy-heading">A Brand You Can Experience</h1>
+              <h1 className="rainoil-strategy-heading">A Brand You Can<br />Experience</h1>
               <div className="rainoil-strategy-body">
                 <p>
                   The collection gave MTN a more memorable physical presence, transforming everyday objects into moments of brand interaction. By embedding the brand's personality into the experience rather than simply applying its identity to products, we created something that could feel useful in the everyday, distinctive in the hand, and memorable long after the initial exchange.
@@ -1151,13 +1372,237 @@ export default function CaseStudy() {
             {/* Spacer */}
             <div style={{ height: '90px' }} />
 
-            {/* Section 16: Next Project — Rainoil */}
+            {/* Section 16: Next Project — Stanbic IBTC */}
             <section
               className="rainoil-next-project-section"
               style={{ marginTop: 0 }}
-              onClick={() => handleNextProject('rainoil')}
+              onClick={() => handleNextProject('stanbic')}
             >
-              <img src="/assets/RAINOIL_CUP_RENDER_9.webp" alt="Rainoil Next Project" />
+              <img src="/assets/stanbic.webp" alt="Stanbic IBTC Next Project" />
+              <div className="rainoil-next-project-text">
+                NEXT PROJECT
+              </div>
+            </section>
+          </>
+        )}
+
+        {/* Stanbic IBTC Case Study (id=8) */}
+        {id === '8' && (
+          <>
+            {/* Section 1: Hero */}
+            <section className="renaissance-hero-section">
+              <h1 className="renaissance-hero-title">Stanbic IBTC</h1>
+              <div className="renaissance-hero-paragraphs">
+                <p>
+                  Stanbic IBTC is a financial institution focused on helping people and businesses move forward with confidence. With such a strong and recognisable identity, the opportunity was to extend it beyond traditional touchpoints into everyday experiences. Our brief was to design a set of corporate pieces that felt unmistakably Stanbic IBTC—cohesive, considered, and memorable, while strengthening the brand's physical presence throughout the year.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 2: stanbic full-width (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img src="/assets/stanbic.webp" alt="Stanbic IBTC" />
+            </section>
+
+            {/* Section 3: The Challenge */}
+            <section className="rainoil-challenge-section">
+              <div className="rainoil-challenge-content">
+                <h2 className="rainoil-challenge-subheading">The Challenge</h2>
+                <h1 className="rainoil-challenge-heading">Moving Beyond<br />Corporate Design</h1>
+                <div className="rainoil-challenge-body">
+                  <p>
+                    Corporate calendars and stationery often default to functional objects with a logo applied. For Stanbic IBTC, the goal was to go further—creating a unified experience where the brand is recognised through its design language even before the logo appears. The work needed to feel distinct, practical, and refined for everyday use.
+                  </p>
+                </div>
+              </div>
+              <div className="rainoil-sector-badge">
+                <div className="rainoil-sector-text">
+                  <span className="rainoil-sector-label">Sector:</span><br />
+                  Banking &amp; Finance
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: STANBIC_IBTC_RENDER_19 (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/STANBIC_IBTC_RENDER_19.webp"
+                alt="Stanbic IBTC Render 19"
+              />
+            </section>
+
+            {/* Section 5: stanbic stairs + STANBIC_IBTC_RENDER_20 (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/stanbic stairs.webp"
+                  alt="Stanbic Stairs"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_20.webp"
+                  alt="Stanbic IBTC Render 20"
+                />
+              </div>
+            </section>
+
+            {/* Section 6: Our Strategy */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">Our Strategy</h2>
+              <h1 className="rainoil-strategy-heading">Building a System<br />From the Brand Identity</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  We started with the identity itself. Instead of treating the logo as a label, we explored its forms, geometry, rhythm, and structure as a design system. This became the foundation for a connected set of touchpoints that felt cohesive without being repetitive.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 7: STANBIC_IBTC_RENDER_21 copy (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/STANBIC_IBTC_RENDER_21 copy.webp"
+                alt="Stanbic IBTC Render 21"
+              />
+            </section>
+
+            {/* Section 8: RENDER_29_EDIT + RENDER_30_EDIT (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_29_EDIT.webp"
+                  alt="Stanbic IBTC Render 29 Edit"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_30_EDIT.webp"
+                  alt="Stanbic IBTC Render 30 Edit"
+                />
+              </div>
+            </section>
+
+            {/* Section 9: RENDER_31 (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/STANBIC_IBTC_RENDER_31.webp"
+                alt="Stanbic IBTC Render 31"
+              />
+            </section>
+
+            {/* Section 10: The Solution */}
+            <section className="rainoil-solution-section">
+              <h2 className="rainoil-solution-subheading">The Solution</h2>
+              <h1 className="rainoil-solution-heading">Turning Identity Into<br />Physical Touchpoints</h1>
+              <div className="rainoil-solution-body">
+                <p>
+                  We created a suite of everyday brand assets built around a single visual idea. Elements drawn from the Stanbic IBTC identity were translated into patterns, structures, and compositions, giving each piece individuality while maintaining a clear family resemblance.
+                </p>
+                <p>
+                  The result was a physical extension of the brand that could be experienced throughout the year.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 11: RENDER_4 + RENDER_5 (w=922.5, h=930 each) */}
+            <section className="renaissance-two-images-gap4-section">
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_4.webp"
+                  alt="Stanbic IBTC Render 4"
+                />
+              </div>
+              <div className="renaissance-two-image-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_5.webp"
+                  alt="Stanbic IBTC Render 5"
+                />
+              </div>
+            </section>
+
+            {/* Section 12: RENDER_6 (w=1870, h=1080) */}
+            <section className="rainoil-cup7-section">
+              <img
+                src="/assets/STANBIC_IBTC_RENDER_6.webp"
+                alt="Stanbic IBTC Render 6"
+              />
+            </section>
+
+            {/* Section 13: The Impact */}
+            <section className="rainoil-strategy-section" style={{ marginTop: '60px' }}>
+              <h2 className="rainoil-strategy-subheading">The Impact</h2>
+              <h1 className="rainoil-strategy-heading">Reinforcing Recognition<br />Through Experience</h1>
+              <div className="rainoil-strategy-body">
+                <p>
+                  Familiar corporate items became opportunities for stronger brand presence. Rather than relying on repeated logos, the identity was embedded in the visual experience itself, reinforcing cohesion and recognition at every interaction.
+                </p>
+                <p>
+                  We helped Stanbic IBTC turn everyday objects into brand experiences that linger beyond first impressions.
+                </p>
+              </div>
+            </section>
+
+            {/* Section 11: RENDER_1 + RENDER_3 (w=922.5, h=1020 each) */}
+            <section className="stanbic-two-images-1020-section">
+              <div className="stanbic-two-image-1020-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_1.webp"
+                  alt="Stanbic IBTC Render 1"
+                />
+              </div>
+              <div className="stanbic-two-image-1020-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_3.webp"
+                  alt="Stanbic IBTC Render 3"
+                />
+              </div>
+            </section>
+
+            {/* Section 12: RENDER_25 + RENDER_26 (w=922.5, h=800 each) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_25.webp"
+                  alt="Stanbic IBTC Render 25"
+                />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_26.webp"
+                  alt="Stanbic IBTC Render 26"
+                />
+              </div>
+            </section>
+
+            {/* Section 13: RENDER_27 + RENDER_28_EDIT (w=922.5, h=800 each) */}
+            <section className="renaissance-two-images-800-gap4-section">
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_27.webp"
+                  alt="Stanbic IBTC Render 27"
+                />
+              </div>
+              <div className="renaissance-two-image-800-card">
+                <img
+                  src="/assets/STANBIC_IBTC_RENDER_28_EDIT.webp"
+                  alt="Stanbic IBTC Render 28 Edit"
+                />
+              </div>
+            </section>
+
+            {/* Spacer */}
+            <div style={{ height: '90px' }} />
+
+            {/* Section 14: Next Project — Nigerian Breweries (NIGERIAN_BREWERIES_COLLECTION_3) */}
+            <section
+              className="rainoil-next-project-section"
+              style={{ marginTop: 0 }}
+              onClick={() => handleNextProject('nigerian-breweries')}
+            >
+              <img
+                src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
+                alt="Nigerian Breweries Next Project"
+              />
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
