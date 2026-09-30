@@ -229,7 +229,6 @@
   }
 }
 
-
 /* Accessibility sr-only */
 .sr-only {
   position: absolute;
@@ -261,40 +260,78 @@
 .written-char {
   display: inline-block;
   opacity: 0;
-  animation: writeChar 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
-  will-change: transform, opacity, filter;
   color: inherit;
+  will-change: transform, opacity, filter;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
+.mobile-menu-overlay.open .written-char {
+  -webkit-animation: writeChar 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: writeChar 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
 
-@keyframes writeChar {
+@-webkit-keyframes writeChar {
   0% {
     opacity: 0;
+    -webkit-transform: translateY(10px) scale(0.78) skewX(-14deg);
     transform: translateY(10px) scale(0.78) skewX(-14deg);
+    -webkit-filter: blur(4px);
     filter: blur(4px);
   }
   55% {
     opacity: 0.9;
+    -webkit-transform: translateY(-1.5px) scale(1.04) skewX(-3deg);
     transform: translateY(-1.5px) scale(1.04) skewX(-3deg);
+    -webkit-filter: blur(0.5px);
     filter: blur(0.5px);
   }
   100% {
     opacity: 1;
+    -webkit-transform: translateY(0) scale(1) skewX(0deg);
     transform: translateY(0) scale(1) skewX(0deg);
+    -webkit-filter: blur(0);
     filter: blur(0);
   }
 }
 
+@keyframes writeChar {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px) scale(0.78) skewX(-14deg);
+    transform: translateY(10px) scale(0.78) skewX(-14deg);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  55% {
+    opacity: 0.9;
+    -webkit-transform: translateY(-1.5px) scale(1.04) skewX(-3deg);
+    transform: translateY(-1.5px) scale(1.04) skewX(-3deg);
+    -webkit-filter: blur(0.5px);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1) skewX(0deg);
+    transform: translateY(0) scale(1) skewX(0deg);
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
 
 .mobile-menu-overlay.open .mobile-menu-footer {
+  -webkit-animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.25s both;
   animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.25s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .written-char {
+    -webkit-animation: none !important;
     animation: none !important;
     opacity: 1 !important;
+    -webkit-transform: none !important;
     transform: none !important;
+    -webkit-filter: none !important;
     filter: none !important;
   }
 }

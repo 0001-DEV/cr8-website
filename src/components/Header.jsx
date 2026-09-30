@@ -63,12 +63,10 @@ export default function Header() {
   }, [isMobileMenuOpen])
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => {
-      if (!prev) {
-        setMenuOpenCount((c) => c + 1)
-      }
-      return !prev
-    })
+    if (!isMobileMenuOpen) {
+      setMenuOpenCount((c) => c + 1)
+    }
+    setIsMobileMenuOpen((prev) => !prev)
   }
 
   const closeMobileMenu = () => {
