@@ -45,7 +45,7 @@ export default function About() {
     { id: 'joshua-oladele',   name: 'Joshua Oladele',   role: 'Senior Brand Designer', image: '/assets/A (6).webp' },
     { id: 'zino-amayido',     name: 'Zino Amayido',     role: 'Head of Production',    image: '/assets/A (3).webp' },
     { id: 'barokah-olorunlogbon', name: 'Barokah Olorunlogbon', role: 'Motion Designer', image: '/assets/A (4).webp' },
-    { id: 'nathaniel-aremu',  name: 'Nathaniel Aremu',  role: 'Animation Direction',   image: '/assets/A (5).webp' },
+    { id: 'nathaniel-aremu',  name: 'Nathaniel Aremu',  role: 'Animation Director',    image: '/assets/A (5).webp' },
   ]
 
   return (
