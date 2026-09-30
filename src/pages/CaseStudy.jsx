@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useLayoutEffect, useState, useRef, useCallback } from 'react'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Page.css'
@@ -184,6 +184,7 @@ const idToSlugMap = {
 
 export default function CaseStudy() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { id: rawParam } = useParams()
   const normalizedParam = rawParam ? rawParam.toLowerCase() : '1'
   const id = slugToIdMap[normalizedParam] || normalizedParam
@@ -192,12 +193,13 @@ export default function CaseStudy() {
   const handleNextProject = (targetKey) => {
     const targetSlug = idToSlugMap[targetKey] || targetKey
     sessionStorage.setItem('caseStudyReferrer', `/project/${currentSlug}`)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     navigate(`/project/${targetSlug}`)
   }
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [id])
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [location.pathname])
 
   const handleBackClick = () => {
     sessionStorage.setItem('returnedFromPage', 'true')
@@ -223,7 +225,7 @@ export default function CaseStudy() {
 
   if (id !== '1') {
     return (
-      <div key={id} className="rainoil-page-container">
+      <div key={location.pathname} className="rainoil-page-container">
         <Header />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
           <button onClick={handleBackClick} className="page-back">← Back</button>
@@ -1837,7 +1839,7 @@ export default function CaseStudy() {
   }
 
   return (
-    <div key={id || 'rainoil-1'} className="rainoil-page-container">
+    <div key={location.pathname} className="rainoil-page-container">
       <Header />
       <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
         <button onClick={handleBackClick} className="page-back">← Back</button>

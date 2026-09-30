@@ -333,6 +333,19 @@ button,
   }
 }
 
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.rainoil-page-container {
+  animation: pageFadeIn 0.35s ease-out both;
+}
+
 /* Stagger 1: Main titles and headings (Company case studies & Subpages only) */
 .animate-hero-fade-1,
 .rainoil-page-container .renaissance-hero-title,
@@ -365,6 +378,8 @@ button,
 .meth-page-container .meth-philosophy-image-col,
 .rainoil-page-container .renaissance-image-section:first-of-type,
 .rainoil-page-container .rainoil-image-section:first-of-type,
+  .rainoil-page-container .mtn-hero-image-section:first-of-type,
+  .rainoil-page-container .rainoil-cup7-section:first-of-type,
 .work-page-container .work-grid-container {
   animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
   will-change: opacity, transform, filter;
