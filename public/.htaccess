@@ -1,27 +1,100 @@
+# =====================================================================
+# Xtreme Cr8tivity Hybrid Routing: React Frontend + WordPress
+# =====================================================================
+
+# Priority 1: Serve React index.html first, WordPress index.php fallback
+DirectoryIndex index.html index.php
+
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
+
+  # 1. Real WordPress directories — pass through directly
+  RewriteRule ^wp-admin($|/) - [L]
+  RewriteRule ^wp-content/ - [L]
+  RewriteRule ^wp-includes/ - [L]
+
+  # 2. WordPress PHP files — pass through directly
+  RewriteRule ^wp-login\.php - [L]
+  RewriteRule ^wp-cron\.php - [L]
+  RewriteRule ^xmlrpc\.php - [L]
+  RewriteRule ^wp-.*\.php$ - [L]
+
+  # 3. Custom folders & tools
+  RewriteRule ^(\.well-known|cards|cardzzz|Adron15anniversary|cgi-bin)($|/) - [L]
+
+  # 4. Serve physical files and folders directly (images, PDFs, vcf, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 5. WordPress REST API — route to WordPress index.php
+  RewriteRule ^wp-json/ /index.php [L]
+
+  # 6. Never rewrite missing /assets/ files to index.html (prevents MIME type errors)
+  RewriteCond %{REQUEST_URI} ^/assets/ [NC]
+  RewriteRule ^ - [R=404,L]
+
+  # 7. Sitemap XML + XSL stylesheet — WordPress
+  RewriteRule ^sitemap_index\.xml$ /index.php [L]
+  RewriteRule ^sitemap\.xml$ /index.php [L]
+  RewriteRule ^[a-z0-9_-]+-sitemap\.xml$ /index.php [L]
+  RewriteRule ^[a-z0-9_-]+-sitemap([0-9]+)?\.xml$ /index.php [L]
+  RewriteRule ^main-sitemap\.xsl$ /index.php [L]
+
+  # 8. All other routes — React SPA
   RewriteRule . /index.html [L]
 </IfModule>
 
-<IfModule mod_headers.c>
-  # Prevent caching of index.html so users always get the latest version
-  <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires 0
-  </FilesMatch>
+# =====================================================================
+# Performance: Browser Caching for Images, Fonts, CSS & JS
+# =====================================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
 
-  # Cache hashed static assets permanently
-  <FilesMatch "\.(js|css|webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
-  </FilesMatch>
+  # Images: 1 year cache
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+
+  # CSS & JS (Vite hashes filenames on each build so caching is 100% safe)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+
+  # HTML & JSON: no cache so updates show immediately
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
 </IfModule>
 
+# =====================================================================
+# Performance: GZIP Compression
+# =====================================================================
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
