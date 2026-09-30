@@ -41,11 +41,11 @@ export default function About() {
   }
 
   const teamMembers = [
-    { id: 'joshua-itorobong', name: 'Joshua Itorobong', role: 'Creative Director',         image: '/assets/AA.webp' },
-    { id: 'joshua-oladele',   name: 'Joshua Oladele',   role: 'Brand Identity Strategist', image: '/assets/A (6).webp' },
-    { id: 'zino-amayido',     name: 'Zino Amayido',     role: 'Brand Identity Designer',   image: '/assets/A (3).webp' },
-    { id: 'barokah-olorunlogbon', name: 'Barokah Olorunlogbon', role: 'Motion Designer',   image: '/assets/A (4).webp' },
-    { id: 'nathaniel-aremu',  name: 'Nathaniel Aremu',  role: '3D Artist',                 image: '/assets/A (5).webp' },
+    { id: 'joshua-itorobong', name: 'Joshua Itorobong', role: 'Creative Director',    image: '/assets/AA.webp' },
+    { id: 'joshua-oladele',   name: 'Joshua Oladele',   role: 'Senior Brand Designer', image: '/assets/A (6).webp' },
+    { id: 'zino-amayido',     name: 'Zino Amayido',     role: 'Head of Production',    image: '/assets/A (3).webp' },
+    { id: 'barokah-olorunlogbon', name: 'Barokah Olorunlogbon', role: 'Motion Designer', image: '/assets/A (4).webp' },
+    { id: 'nathaniel-aremu',  name: 'Nathaniel Aremu',  role: 'Animation Direction',   image: '/assets/A (5).webp' },
   ]
 
   return (

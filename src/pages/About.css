@@ -710,3 +710,80 @@
     font-size: clamp(1.5rem, 6vw, 2rem);
   }
 }
+
+/* ── 1440px+ large desktop ── */
+@media (min-width: 1440px) {
+  .about-team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── 1920px very large desktop ── */
+@media (min-width: 1920px) {
+  .about-hero-inner,
+  .about-belief-section {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem 12px;
+  }
+
+  .about-title-line1,
+  .about-title-line2,
+  .about-minds-line1,
+  .about-minds-line2,
+  .about-perfection-line1,
+  .about-perfection-line2 {
+    font-size: clamp(3rem, 7vw, 130pt);
+  }
+}
+
+/* ── 4K screens (≥ 2560px) ── */
+@media (min-width: 2560px) {
+  .about-main-content {
+    padding-top: clamp(8rem, 10vw, 12rem);
+    padding-bottom: clamp(5rem, 6vw, 8rem);
+  }
+
+  .about-hero-inner,
+  .about-belief-section {
+    max-width: 2400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-team-section {
+    max-width: 2400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem 16px;
+  }
+
+  .about-title-line1,
+  .about-title-line2,
+  .about-minds-line1,
+  .about-minds-line2,
+  .about-perfection-line1,
+  .about-perfection-line2 {
+    font-size: clamp(4rem, 7vw, 160pt);
+  }
+
+  .about-intro-paragraph,
+  .about-belief-paragraph {
+    font-size: clamp(1.5rem, 1.8vw, 30pt);
+  }
+
+  .about-centre-tagline-line1,
+  .about-centre-tagline-line2 {
+    font-size: clamp(3rem, 6vw, 100pt);
+  }
+}

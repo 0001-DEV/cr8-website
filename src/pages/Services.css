@@ -158,10 +158,12 @@
   box-sizing: border-box;
   opacity: 0.35;
   transition: opacity 0.5s ease;
+  cursor: pointer;
 }
 
 .services-item-block.is-focused {
   opacity: 1;
+  cursor: default;
 }
 
 .services-item-block:first-child {
@@ -385,13 +387,13 @@
 }
 
 /* Our clientele and trusted partners section (Matches Home Page) */
-.clientele {
+.services-clientele {
   margin-top: clamp(4rem, 8vw, 8rem);
   margin-bottom: clamp(4rem, 8vw, 8rem);
   width: 100%;
 }
 
-.clientele h3 {
+.services-clientele h3 {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2rem, 4.5vw, 3.7rem);
   font-weight: 700;
@@ -403,17 +405,30 @@
   min-height: auto;
 }
 
-.clients-container {
+/* ─── Seamless marquee (shared with home page WhyWeExist) ─── */
+.clients-marquee-wrapper {
   width: 100%;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-.clients-grid {
+.clients-marquee-track {
   display: flex;
-  gap: clamp(3rem, 6vw, 6rem);
-  padding: 1.5rem 0;
   width: max-content;
-  animation: scroll-logos 30s linear infinite;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.clients-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.clients-marquee-set {
+  display: flex;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 6rem);
+  padding: 1.5rem clamp(1.5rem, 3vw, 3rem);
+  flex-shrink: 0;
 }
 
 .client-logo {
@@ -423,29 +438,24 @@
   flex-shrink: 0;
 }
 
-@keyframes scroll-logos {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-33.333% - clamp(2rem, 4vw, 4rem)));
-  }
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @media (max-width: 900px) {
-  .clientele h3 br {
+  .services-clientele h3 br {
     display: inline;
   }
 }
 
 @media (max-width: 680px) {
-  .clientele {
+  .services-clientele {
     margin-top: clamp(3rem, 6vw, 5rem);
     margin-bottom: clamp(3rem, 6vw, 5rem);
   }
 
-  .clientele h3 {
+  .services-clientele h3 {
     margin-left: clamp(10px, 3.5vw, 18px);
     font-size: clamp(1.75rem, 7vw, 2.5rem);
   }
@@ -609,5 +619,63 @@
 
   .services-accordion-name {
     font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+  }
+}
+
+/* ── 4K screens (≥ 2560px) ── */
+@media (min-width: 2560px) {
+  .services-main-content {
+    padding-top: clamp(8rem, 10vw, 12rem);
+    max-width: 2400px;
+    margin: 0 auto;
+  }
+
+  .services-hero-title {
+    font-size: clamp(3rem, 5vw, 7rem);
+  }
+
+  .services-hero-subtitle {
+    font-size: clamp(1.4rem, 1.5vw, 2rem);
+    max-width: 1200px;
+  }
+
+  .services-showcase-section {
+    grid-template-columns: minmax(500px, 52%) 1fr;
+    gap: clamp(3rem, 5vw, 7rem);
+    margin-left: clamp(2rem, 4vw, 5rem);
+    margin-right: clamp(2rem, 4vw, 5rem);
+  }
+
+  .services-item-title {
+    font-size: clamp(2.5rem, 3vw, 5rem);
+  }
+
+  .services-item-tagline {
+    font-size: clamp(1.4rem, 1.5vw, 2.2rem);
+  }
+
+  .services-item-desc {
+    font-size: clamp(1.2rem, 1.2vw, 1.8rem);
+  }
+
+  .services-thinking-title {
+    font-size: clamp(3rem, 4.5vw, 6rem);
+  }
+
+  .services-thinking-subtitle {
+    font-size: clamp(1.3rem, 1.4vw, 1.8rem);
+  }
+
+  .services-accordion-name {
+    font-size: clamp(2rem, 2.5vw, 3.5rem);
+  }
+
+  .services-clientele h3 {
+    font-size: clamp(3rem, 4vw, 5rem);
+  }
+
+  .client-logo {
+    height: clamp(80px, 6vw, 140px);
+    width: clamp(80px, 6vw, 140px);
   }
 }

@@ -550,3 +550,38 @@
     line-height: 1.2;
   }
 }
+
+/* ── 4K screens (≥ 2560px) ── */
+@media (min-width: 2560px) {
+  .work-main-content {
+    max-width: 2400px;
+    padding-top: clamp(8rem, 10vw, 12rem);
+  }
+
+  .work-title-line1,
+  .work-title-line2 {
+    font-size: clamp(4rem, 7vw, 160pt);
+  }
+
+  .work-two-image-card {
+    max-width: 1200px;
+  }
+
+  .work-two-image-left-text {
+    font-size: clamp(1.4rem, 1.5vw, 2rem);
+  }
+
+  .work-two-image-right-text {
+    font-size: clamp(1.1rem, 1.2vw, 1.6rem);
+  }
+
+  .work-filter-trigger {
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+  }
+
+  .work-sector-name,
+  .work-sector-count {
+    font-size: clamp(1.5rem, 1.6vw, 2rem);
+  }
+}
+

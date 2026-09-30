@@ -9,24 +9,11 @@ export default function Services() {
   const [activeService, setActiveService] = useState(0)
   const itemRefs = useRef([])
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
-  const handleBackClick = () => {
-    sessionStorage.setItem('returnedFromPage', 'true')
-    const prevPage = sessionStorage.getItem('previousPage')
-    if (prevPage) {
-      navigate(prevPage)
-    } else {
-      navigate(-1)
-    }
-  }
-
   // 3 service sections using specified images and custom content
   const servicesData = [
     {
       id: 1,
+      slug: 'brand-memorability',
       image: '/assets/Paper postal packages.webp',
       title: 'Brand Memorability',
       subtitle: 'Make the brand impossible to overlook.',
@@ -42,6 +29,7 @@ export default function Services() {
     },
     {
       id: 2,
+      slug: 'tangible-thinking',
       image: '/assets/Asset 1 (1).webp',
       title: 'Tangible Thinking',
       subtitle: 'Turn good ideas into things people can experience.',
@@ -57,6 +45,7 @@ export default function Services() {
     },
     {
       id: 3,
+      slug: 'brand-signatures',
       image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp',
       title: 'Brand Signatures',
       subtitle: 'Create the things people remember the brand by.',
@@ -71,6 +60,47 @@ export default function Services() {
       ],
     },
   ]
+
+  const scrollToService = (index) => {
+    setActiveService(index)
+    if (itemRefs.current[index]) {
+      itemRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const foundIndex = servicesData.findIndex((s) => s.slug === hash)
+        if (foundIndex !== -1 && itemRefs.current[foundIndex]) {
+          setActiveService(foundIndex)
+          setTimeout(() => {
+            itemRefs.current[foundIndex]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          }, 150)
+          return true
+        }
+      }
+      return false
+    }
+
+    if (!handleHash()) {
+      window.scrollTo(0, 0)
+    }
+
+    window.addEventListener('hashchange', handleHash)
+    return () => window.removeEventListener('hashchange', handleHash)
+  }, [])
+
+  const handleBackClick = () => {
+    sessionStorage.setItem('returnedFromPage', 'true')
+    const prevPage = sessionStorage.getItem('previousPage')
+    if (prevPage) {
+      navigate(prevPage)
+    } else {
+      navigate(-1)
+    }
+  }
 
   // Track scroll position so the second image shows exactly when scrolling to the second text
   useEffect(() => {
@@ -206,8 +236,10 @@ export default function Services() {
             {servicesData.map((service, index) => (
               <div
                 key={service.id}
+                id={service.slug}
                 ref={(el) => (itemRefs.current[index] = el)}
                 data-index={index}
+                onClick={() => scrollToService(index)}
                 className={`services-item-block ${
                   activeService === index ? 'is-focused' : ''
                 }`}
@@ -232,19 +264,32 @@ export default function Services() {
         </section>
 
         {/* Our clientele and trusted partners section */}
-        <section className="clientele">
+        <section className="services-clientele">
           <h3>Our clientele and<br />trusted partners</h3>
-          <div className="clients-container">
-            <div className="clients-grid">
-              {clientLogos.concat(clientLogos, clientLogos).map((logo, index) => (
-                <img
-                  key={`${logo}-${index}`}
-                  src={logo}
-                  alt={index < clientLogos.length ? 'Client' : ''}
-                  aria-hidden={index >= clientLogos.length}
-                  className="client-logo"
-                />
-              ))}
+          <div className="clients-marquee-wrapper">
+            <div className="clients-marquee-track">
+              {/* Set 1 */}
+              <div className="clients-marquee-set" aria-hidden="false">
+                {clientLogos.map((logo, index) => (
+                  <img
+                    key={`set1-${index}`}
+                    src={logo}
+                    alt="Client"
+                    className="client-logo"
+                  />
+                ))}
+              </div>
+              {/* Set 2 — exact clone, visually seamless */}
+              <div className="clients-marquee-set" aria-hidden="true">
+                {clientLogos.map((logo, index) => (
+                  <img
+                    key={`set2-${index}`}
+                    src={logo}
+                    alt=""
+                    className="client-logo"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>

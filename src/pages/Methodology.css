@@ -49,8 +49,39 @@
    Aeonik 70pt regular
    ───────────────────────────────────────────── */
 .meth-philosophy-section {
-  margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
-  max-width: 1400px;
+  margin: 0 0 clamp(5rem, 10vw, 9rem);
+  max-width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+.meth-philosophy-inner {
+  position: relative;
+  padding: 0 clamp(0.75rem, 4vw, 48px);
+}
+
+.meth-philosophy-text-col {
+  /* leave room for the image on the right */
+  max-width: calc(65% - clamp(2rem, 4vw, 5rem));
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.meth-philosophy-image-col {
+  position: absolute;
+  top: calc(clamp(2rem, 4vw, 4rem) + 15px);
+  right: clamp(0.75rem, 4vw, 48px);
+  width: clamp(220px, 28%, 480px);
+  pointer-events: none;
+}
+
+.meth-philosophy-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
 }
 
 .meth-philosophy-title {
@@ -64,7 +95,7 @@
 .meth-philosophy-line1,
 .meth-philosophy-line2 {
   display: block;
-  font-size: clamp(2.5rem, 7.5vw, 70pt);
+  font-size: clamp(2.5rem, 7.5vw, 60pt);
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -84,7 +115,7 @@
 
 .meth-philosophy-body {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-size: clamp(1.1rem, 2vw, 30pt);
   font-weight: 400;
   color: #888888;
   line-height: 1.4;
@@ -103,7 +134,7 @@
 
 .meth-principle-title {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.5rem, 7.5vw, 70pt);
+  font-size: clamp(2.5rem, 7.5vw, 60pt);
   font-weight: 400;
   color: #ffffff;
   line-height: 1.05;
@@ -114,7 +145,7 @@
 
 .meth-principle-subtitle {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2rem, 5.5vw, 50pt);
+  font-size: clamp(2rem, 5.5vw, 40pt);
   font-weight: 300;
   color: #888888;
   line-height: 1.1;
@@ -129,7 +160,7 @@
 
 .meth-principle-body p {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-size: clamp(1.1rem, 2vw, 30pt);
   font-weight: 400;
   color: #888888;
   line-height: 1.4;
@@ -155,7 +186,7 @@
 .meth-direction-line1,
 .meth-direction-line2 {
   display: block;
-  font-size: clamp(2.5rem, 7.5vw, 70pt);
+  font-size: clamp(2.5rem, 7.5vw, 60pt);
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -163,7 +194,7 @@
 
 .meth-direction-body {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-size: clamp(1.1rem, 2vw, 30pt);
   font-weight: 400;
   color: #888888;
   line-height: 1.45;
@@ -201,7 +232,7 @@
 .meth-behave-line1,
 .meth-behave-line2 {
   display: block;
-  font-size: clamp(2.5rem, 7.5vw, 70pt);
+  font-size: clamp(2.5rem, 7.5vw, 60pt);
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -213,7 +244,7 @@
 
 .meth-behave-body p {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 2vw, 38pt);
+  font-size: clamp(1.1rem, 2vw, 30pt);
   font-weight: 400;
   color: #888888;
   line-height: 1.45;
@@ -224,6 +255,16 @@
    RESPONSIVE
    ───────────────────────────────────────────── */
 @media (max-width: 900px) {
+  /* Narrow the image and give text more room — image stays visible */
+  .meth-philosophy-text-col {
+    max-width: calc(62% - 1rem);
+  }
+
+  .meth-philosophy-image-col {
+    width: clamp(180px, 34%, 320px);
+    top: calc(clamp(1rem, 3vw, 3rem) + 15px);
+  }
+
   .meth-philosophy-pre,
   .meth-philosophy-line1,
   .meth-philosophy-line2,
@@ -247,9 +288,14 @@
   }
 }
 
-@media (max-width: 600px) {
-  .meth-main-content {
-    padding-top: clamp(6rem, 16vw, 8rem);
+@media (max-width: 650px) {
+  /* Hide image on true mobile — too narrow to show alongside text */
+  .meth-philosophy-image-col {
+    display: none;
+  }
+
+  .meth-philosophy-text-col {
+    max-width: 100%;
   }
 
   .meth-philosophy-section,
@@ -282,5 +328,45 @@
   .meth-direction-body,
   .meth-behave-body p {
     font-size: clamp(0.95rem, 3.5vw, 1.3rem);
+  }
+}
+
+/* ── 4K screens (≥ 2560px) ── */
+@media (min-width: 2560px) {
+  .meth-main-content {
+    padding-top: clamp(8rem, 10vw, 12rem);
+  }
+
+  .meth-philosophy-inner {
+    padding: 0 clamp(2rem, 5vw, 80px);
+  }
+
+  .meth-philosophy-pre,
+  .meth-philosophy-line1,
+  .meth-philosophy-line2,
+  .meth-principle-title,
+  .meth-direction-line1,
+  .meth-direction-line2,
+  .meth-behave-line1,
+  .meth-behave-line2 {
+    font-size: clamp(3rem, 5vw, 80pt);
+  }
+
+  .meth-principle-subtitle {
+    font-size: clamp(2rem, 3.5vw, 50pt);
+  }
+
+  .meth-philosophy-body,
+  .meth-principle-body p,
+  .meth-direction-body,
+  .meth-behave-body p {
+    font-size: clamp(1.5rem, 1.8vw, 36pt);
+  }
+
+  .meth-philosophy-section,
+  .meth-principle-section,
+  .meth-direction-section,
+  .meth-behave-section {
+    margin-bottom: clamp(7rem, 12vw, 12rem);
   }
 }

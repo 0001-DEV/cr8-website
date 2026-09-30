@@ -101,7 +101,7 @@ export default function SelectedProjects() {
       const handler = (e) => {
         e.stopImmediatePropagation()
         e.preventDefault()
-        openCaseStudy(projects[i].id)
+        handleProjectClick(projects[i])
       }
       el.addEventListener('pointerdown', handler, { capture: true })
       handlers.push({ el, handler })
@@ -257,30 +257,40 @@ export default function SelectedProjects() {
                       ))}
                     </div>
                     <div className="card-actions">
-                      <button
+                      <Link
+                        to={`/project/${project.slug || project.id}`}
                         className="card-btn"
                         ref={(el) => (btnRefs.current[index] = el)}
+                        onClick={() => handleProjectClick(project)}
                       >
                         <span>Explore</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12" />
                           <polyline points="12 5 19 12 12 19" />
                         </svg>
-                      </button>
+                      </Link>
                     </div>
-                    <a
-                      href={`/project/${project.slug || project.id}`}
+                    <Link
+                      to={`/project/${project.slug || project.id}`}
                       className={`card-corner-arrow card-corner-arrow--${project.slug || project.id}`}
                       aria-label={`View ${project.name}`}
                       ref={(el) => (arrowRefs.current[index] = el)}
+                      onClick={() => handleProjectClick(project)}
                     >
                       <img src="/assets/Asset 35.svg" alt="Open project" />
-                    </a>                  </div>
+                    </Link>
+                  </div>
                   <div className="card-visual">
-                    <div className="card-image-wrapper">
+                    <Link
+                      to={`/project/${project.slug || project.id}`}
+                      className="card-image-wrapper"
+                      onClick={() => handleProjectClick(project)}
+                      style={{ display: 'block', cursor: 'pointer' }}
+                      aria-label={`Explore ${project.name}`}
+                    >
                       <img src={project.image} alt={project.name} className="card-image" loading="eager" />
                       <div className="card-image-overlay" />
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>

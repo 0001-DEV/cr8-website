@@ -29,7 +29,7 @@ export default function WhyWeExist() {
         <div className="pillars">
           {/* Pillar 1: Brand Memorability */}
           <Link 
-            to="/services"
+            to="/services#brand-memorability"
             className="pillar"
             onMouseEnter={() => setHoveredPillar(0)}
             onMouseLeave={() => setHoveredPillar(null)}
@@ -52,7 +52,7 @@ export default function WhyWeExist() {
 
           {/* Pillar 2: Tangible Thinking */}
           <Link 
-            to="/services"
+            to="/services#tangible-thinking"
             className="pillar"
             onMouseEnter={() => setHoveredPillar(1)}
             onMouseLeave={() => setHoveredPillar(null)}
@@ -75,7 +75,7 @@ export default function WhyWeExist() {
 
           {/* Pillar 3: Brand Signatures */}
           <Link 
-            to="/services"
+            to="/services#brand-signatures"
             className="pillar"
             onMouseEnter={() => setHoveredPillar(2)}
             onMouseLeave={() => setHoveredPillar(null)}
@@ -99,17 +99,30 @@ export default function WhyWeExist() {
 
         <div className="clientele">
           <h3>Our clientele and<br />trusted partners</h3>
-          <div className="clients-container">
-            <div className="clients-grid">
-              {clientLogos.concat(clientLogos, clientLogos).map((logo, index) => (
-                <img
-                  key={`${logo}-${index}`}
-                  src={logo}
-                  alt={index < clientLogos.length ? 'Client' : ''}
-                  aria-hidden={index >= clientLogos.length}
-                  className="client-logo"
-                />
-              ))}
+          <div className="clients-marquee-wrapper">
+            <div className="clients-marquee-track">
+              {/* Set 1 */}
+              <div className="clients-marquee-set" aria-hidden="false">
+                {clientLogos.map((logo, index) => (
+                  <img
+                    key={`set1-${index}`}
+                    src={logo}
+                    alt="Client"
+                    className="client-logo"
+                  />
+                ))}
+              </div>
+              {/* Set 2 — exact clone, visually seamless */}
+              <div className="clients-marquee-set" aria-hidden="true">
+                {clientLogos.map((logo, index) => (
+                  <img
+                    key={`set2-${index}`}
+                    src={logo}
+                    alt=""
+                    className="client-logo"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

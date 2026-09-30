@@ -262,3 +262,41 @@
     font-size: clamp(8rem, 11vw, 240px);
   }
 }
+
+/* ── 4K screens (≥ 2560px) ── */
+@media (min-width: 2560px) {
+  .footer {
+    padding: clamp(5rem, 6vw, 7rem) clamp(3rem, 5vw, 6rem) 0;
+  }
+
+  .footer-brand-line {
+    font-size: clamp(10rem, 13vw, 340px);
+  }
+
+  .footer-intro-heading {
+    font-size: clamp(2rem, 2.8vw, 44pt);
+  }
+
+  .footer-main-tagline {
+    font-size: clamp(1.4rem, 1.4vw, 20pt) !important;
+    max-width: 900px;
+  }
+
+  .footer-email {
+    font-size: clamp(1.2rem, 1.2vw, 1.6rem);
+  }
+
+  .footer-section h4 {
+    font-size: clamp(1rem, 1vw, 1.3rem);
+  }
+
+  .social-links a,
+  .footer-links a {
+    font-size: clamp(1rem, 1vw, 1.2rem);
+  }
+
+  .footer-bottom {
+    font-size: clamp(0.95rem, 0.9vw, 1.1rem);
+  }
+}
+

@@ -29,21 +29,34 @@ export default function Methodology() {
 
         {/* ── Section 1: Our philosophy is, / There is no formula / for extraordinary ── */}
         <section className="meth-philosophy-section">
-          <h1 className="meth-philosophy-title">
-            <span className="meth-philosophy-pre">Our philosophy is,</span>
-            <span className="meth-philosophy-line1">There is no formula for</span>
-            <span className="meth-philosophy-line2">extraordinary.</span>
-          </h1>
-          <p className="meth-philosophy-body">
-            We believe the world has enough brands, products and ideas that look, sound and feel the same. So we don't start by asking what we should make, but rather, why it needs to exist. Everything we do is built on one belief: If it's been done a thousand times, it's not worth doing the same way again.
-          </p>
+          <div className="meth-philosophy-inner">
+            <div className="meth-philosophy-text-col">
+              <h1 className="meth-philosophy-title">
+                <span className="meth-philosophy-pre">Our philosophy is,</span>
+                <span className="meth-philosophy-line1">There is no formula for</span>
+                <span className="meth-philosophy-line2">extraordinary.</span>
+              </h1>
+              <p className="meth-philosophy-body">
+                We believe the world has enough brands, products and ideas that look, sound and feel the same. So we don't start by asking what we should make, but rather, why it needs to exist. Everything we do is built on one belief: If it's been done a thousand times, it's not worth doing the same way again.
+              </p>
+            </div>
+            <div className="meth-philosophy-image-col">
+              <img
+                src="/assets/last.webp"
+                alt="Xtreme Cr8tivity philosophy"
+                className="meth-philosophy-img"
+                loading="eager"
+              />
+            </div>
+          </div>
         </section>
 
         {/* ── Section 2: The principle we live by ── */}
         <section className="meth-principle-section">
           <h2 className="meth-principle-title">The principle we live by:</h2>
           <p className="meth-principle-subtitle">
-            Nothing memorable starts with "That's how it's usually done."
+            Nothing memorable starts with<br />
+            "That's how it's usually done."
           </p>
           <div className="meth-principle-body">
             <p>We question before we create.</p>
