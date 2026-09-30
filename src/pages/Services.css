@@ -299,10 +299,14 @@
 
   .services-sticky-col {
     top: 72px;
+    container-type: inline-size;
   }
 
   .services-sticky-card {
     border-radius: 4px;
+    aspect-ratio: auto;
+    height: calc(clamp(175px, 55vw, 300px) + 15px);
+    height: calc(125cqw + 15px);
     max-height: min(54vh, calc(100dvh - 85px));
   }
 
@@ -351,6 +355,11 @@
     gap: 8px;
     margin-left: 8px;
     margin-right: 8px;
+  }
+
+  .services-sticky-card {
+    height: calc(clamp(156px, 52.5vw, 194px) + 15px);
+    height: calc(125cqw + 15px);
   }
 
   .services-item-title {
