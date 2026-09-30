@@ -74,6 +74,7 @@
   right: clamp(0.75rem, 4vw, 48px);
   width: clamp(220px, 28%, 480px);
   pointer-events: none;
+  z-index: 2;
 }
 
 .meth-philosophy-img {
@@ -289,13 +290,35 @@
 }
 
 @media (max-width: 650px) {
-  /* Hide image on true mobile — too narrow to show alongside text */
-  .meth-philosophy-image-col {
-    display: none;
+  /* Keep image visible in front of and alongside text on mobile, matching desktop */
+  .meth-philosophy-inner {
+    position: relative;
+    padding: 0 12px;
   }
 
   .meth-philosophy-text-col {
-    max-width: 100%;
+    max-width: calc(60% - 8px);
+    position: relative;
+    z-index: 1;
+  }
+
+  .meth-philosophy-image-col {
+    display: block;
+    position: absolute;
+    top: calc(clamp(0.5rem, 2vw, 1.5rem) + 10px);
+    right: 12px;
+    width: clamp(120px, 38vw, 180px);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .meth-philosophy-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 
   .meth-philosophy-section,
@@ -309,7 +332,12 @@
 
   .meth-philosophy-pre,
   .meth-philosophy-line1,
-  .meth-philosophy-line2,
+  .meth-philosophy-line2 {
+    font-size: clamp(1.4rem, 6.2vw, 2.2rem);
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+
   .meth-principle-title,
   .meth-direction-line1,
   .meth-direction-line2,
@@ -323,7 +351,11 @@
     font-size: clamp(1.3rem, 5.5vw, 2rem);
   }
 
-  .meth-philosophy-body,
+  .meth-philosophy-body {
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+    line-height: 1.4;
+  }
+
   .meth-principle-body p,
   .meth-direction-body,
   .meth-behave-body p {
@@ -331,6 +363,26 @@
   }
 }
 
+@media (max-width: 380px) {
+  .meth-philosophy-text-col {
+    max-width: calc(58% - 6px);
+  }
+
+  .meth-philosophy-image-col {
+    width: clamp(110px, 40vw, 140px);
+  }
+
+  .meth-philosophy-pre,
+  .meth-philosophy-line1,
+  .meth-philosophy-line2 {
+    font-size: 1.3rem;
+  }
+
+  .meth-philosophy-body {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+}
 /* ── 4K screens (≥ 2560px) ── */
 @media (min-width: 2560px) {
   .meth-main-content {
