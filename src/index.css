@@ -310,11 +310,26 @@ button,
     opacity: 0;
     transform: translateY(32px) scale(0.96);
     filter: blur(8px);
+    -webkit-filter: blur(8px);
   }
   100% {
     opacity: 1;
     transform: none;
     filter: none;
+    -webkit-filter: none;
+  }
+}
+
+@-webkit-keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(32px) scale(0.96);
+    -webkit-filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -webkit-filter: none;
   }
 }
 
