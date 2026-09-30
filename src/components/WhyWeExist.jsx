@@ -1,10 +1,10 @@
 import './WhyWeExist.css'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function WhyWeExist() {
   const [hoveredPillar, setHoveredPillar] = useState(null)
 
-  const description = "We exist to create solutions backed by excellent thinking for brands seeking to stand out beyond the overly crowded marketplace."
   const clientLogos = [
     '/assets/Asset 24.webp',
     '/assets/Asset 25.webp',
@@ -27,7 +27,9 @@ export default function WhyWeExist() {
         </p>
 
         <div className="pillars">
-          <div 
+          {/* Pillar 1: Brand Memorability */}
+          <Link 
+            to="/services"
             className="pillar"
             onMouseEnter={() => setHoveredPillar(0)}
             onMouseLeave={() => setHoveredPillar(null)}
@@ -40,47 +42,59 @@ export default function WhyWeExist() {
               </div>
               <div className="pillar-text-overlay pillar-text-bottom">
                 <h3 className="pillar-text">Brand Memorability</h3>
-                <p className="pillar-text-description">{description}</p>
+                <p className="pillar-text-description">
+                  We build brands with clarity, character and distinction. From strategy and architecture to identity and creative direction.
+                </p>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-overlay" />
               </div>
             </div>
-          </div>
-          <div 
+          </Link>
+
+          {/* Pillar 2: Tangible Thinking */}
+          <Link 
+            to="/services"
             className="pillar"
             onMouseEnter={() => setHoveredPillar(1)}
             onMouseLeave={() => setHoveredPillar(null)}
           >
             <div className="pillar-image-container pillar-image-top">
               <div className="pillar-text-label pillar-text-label-top">
-                <h3 className="pillar-text">Brand Memorability</h3>
+                <h3 className="pillar-text">Tangible Thinking</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
-              <img src="/assets/Asset 1 (1).webp" alt="Brand Memorability" className="pillar-image" />
+              <img src="/assets/Asset 1 (1).webp" alt="Tangible Thinking" className="pillar-image" />
               <div className="pillar-text-overlay-middle">
-                <h3 className="pillar-text">Brand Memorability</h3>
-                <p className="pillar-text-description">{description}</p>
+                <h3 className="pillar-text">Tangible Thinking</h3>
+                <p className="pillar-text-description">
+                  We transform opportunities and ideas into tangible products, concepts and experiences.
+                </p>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-overlay" />
               </div>
             </div>
-          </div>
-          <div 
+          </Link>
+
+          {/* Pillar 3: Brand Signatures */}
+          <Link 
+            to="/services"
             className="pillar"
             onMouseEnter={() => setHoveredPillar(2)}
             onMouseLeave={() => setHoveredPillar(null)}
           >
             <div className="pillar-image-container pillar-image-bottom">
-              <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp" alt="Brand Memorability" className="pillar-image" />
+              <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp" alt="Brand Signatures" className="pillar-image" />
               <div className="pillar-text-label">
-                <h3 className="pillar-text">Brand Memorability</h3>
+                <h3 className="pillar-text">Brand Signatures</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
               <div className="pillar-text-overlay pillar-text-bottom">
-                <h3 className="pillar-text">Brand Memorability</h3>
-                <p className="pillar-text-description">{description}</p>
+                <h3 className="pillar-text">Brand Signatures</h3>
+                <p className="pillar-text-description">
+                  We create distinctive physical expressions of brands from corporate gifts and merchandise to commemorative identities, objects and limited-edition pieces.
+                </p>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-overlay" />
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="clientele">
