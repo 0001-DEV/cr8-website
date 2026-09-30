@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function WrittenWord({ text, baseDelay = 0.1, charInterval = 0.038 }) {
   const chars = text.split('')
-  const caretDelay = (baseDelay + (chars.length - 1) * charInterval).toFixed(3)
 
   return (
     <span className="written-word" aria-label={text}>
@@ -20,12 +19,6 @@ function WrittenWord({ text, baseDelay = 0.1, charInterval = 0.038 }) {
             {char === ' ' ? '\u00A0' : char}
           </span>
         ))}
-        <span
-          className="written-pen-caret"
-          style={{
-            animationDelay: `${caretDelay}s`,
-          }}
-        />
       </span>
       <span className="sr-only">{text}</span>
     </span>
