@@ -301,3 +301,80 @@ button,
   display: block;
 }
 
+/* ──────────────────────────────────────────────
+   PAGE & COMPANY CASE STUDY ENTRANCE ANIMATION
+   Identifine signature blur fade-up on opening any page or company
+   ────────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Stagger 1: Main titles and headings (Company case studies & Subpages only) */
+.animate-hero-fade-1,
+.rainoil-page-container .renaissance-hero-title,
+.rainoil-page-container .rainoil-hero-title,
+.services-page-container .services-hero-title,
+.meth-page-container .meth-philosophy-title,
+.about-page-container .about-title-main,
+.work-page-container .work-title-main,
+.page:not(.app) .page-title {
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+  will-change: opacity, transform, filter;
+}
+
+/* Stagger 2: Hero descriptions, paragraphs, category filters */
+.animate-hero-fade-2,
+.rainoil-page-container .renaissance-hero-paragraphs,
+.rainoil-page-container .rainoil-hero-paragraphs,
+.services-page-container .services-hero-subtitle,
+.meth-page-container .meth-philosophy-body,
+.about-page-container .about-intro-content,
+.work-page-container .work-category-bar,
+.page:not(.app) .page-tagline {
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  will-change: opacity, transform, filter;
+}
+
+/* Stagger 3: Initial visual media or hero image */
+.animate-hero-fade-3,
+.about-page-container .about-hero-image-col,
+.meth-page-container .meth-philosophy-image-col,
+.rainoil-page-container .renaissance-image-section:first-of-type,
+.rainoil-page-container .rainoil-image-section:first-of-type,
+.work-page-container .work-grid-container {
+  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
+  will-change: opacity, transform, filter;
+}
+
+/* Back button smooth entrance */
+.page-back,
+.services-back-btn,
+.about-back-btn,
+.meth-back-btn,
+.work-back-btn {
+  animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+
+/* Explicitly ensure the homepage hero and elements NEVER receive heroFadeUp */
+.app .hero,
+.app .hero-content,
+.app .hero-brand-container,
+.app .brand-line,
+.app .hero-visual,
+.app .hero-visual-text,
+.app .hero-image-section {
+  animation: none !important;
+  filter: none !important;
+}
+
+
+

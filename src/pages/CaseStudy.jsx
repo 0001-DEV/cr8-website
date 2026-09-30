@@ -220,7 +220,7 @@ export default function CaseStudy() {
 
   if (id !== '1') {
     return (
-      <div className="rainoil-page-container">
+      <div key={id} className="rainoil-page-container">
         <Header />
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
           <button onClick={handleBackClick} className="page-back">← Back</button>
@@ -1616,7 +1616,7 @@ export default function CaseStudy() {
   }
 
   return (
-    <div className="rainoil-page-container">
+    <div key={id || 'rainoil-1'} className="rainoil-page-container">
       <Header />
       <div style={{ position: 'relative', zIndex: 10, maxWidth: '1920px', margin: '0 auto', padding: '90px 2rem 0 2rem' }}>
         <button onClick={handleBackClick} className="page-back">← Back</button>
