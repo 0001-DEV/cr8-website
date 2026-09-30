@@ -2,9 +2,40 @@ import './Header.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+function WrittenWord({ text, baseDelay = 0.1, charInterval = 0.038 }) {
+  const chars = text.split('')
+  const caretDelay = (baseDelay + (chars.length - 1) * charInterval).toFixed(3)
+
+  return (
+    <span className="written-word" aria-label={text}>
+      <span className="written-letters" aria-hidden="true">
+        {chars.map((char, i) => (
+          <span
+            key={i}
+            className="written-char"
+            style={{
+              animationDelay: `${(baseDelay + i * charInterval).toFixed(3)}s`,
+            }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+        <span
+          className="written-pen-caret"
+          style={{
+            animationDelay: `${caretDelay}s`,
+          }}
+        />
+      </span>
+      <span className="sr-only">{text}</span>
+    </span>
+  )
+}
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [menuOpenCount, setMenuOpenCount] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +70,12 @@ export default function Header() {
   }, [isMobileMenuOpen])
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    setIsMobileMenuOpen((prev) => {
+      if (!prev) {
+        setMenuOpenCount((c) => c + 1)
+      }
+      return !prev
+    })
   }
 
   const closeMobileMenu = () => {
@@ -70,23 +106,32 @@ export default function Header() {
         </div>
       </header>
 
-          {/* Mobile Overlay Menu */}
-          <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
-            <div className="mobile-menu-content">
-              <nav className="mobile-nav">
-                <Link to="/work" onClick={closeMobileMenu} className="mobile-nav-link link-1">Work</Link>
-                <Link to="/services" onClick={closeMobileMenu} className="mobile-nav-link link-2">Services</Link>
-                <Link to="/methodology" onClick={closeMobileMenu} className="mobile-nav-link link-3">Our Methodology</Link>
-                <Link to="/about" onClick={closeMobileMenu} className="mobile-nav-link link-4">About</Link>
-                <a href="https://wa.me/2347046367754" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-5">Contact</a>
-              </nav>
-              <div className="mobile-menu-footer">
-                <p className="mobile-brand">Xtreme Cr8tivity</p>
-                <p className="mobile-tagline">Bringing excellence to everyday things of life.</p>
-              </div>
-            </div>
+      {/* Mobile Overlay Menu */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-content">
+          <nav key={menuOpenCount} className="mobile-nav">
+            <Link to="/work" onClick={closeMobileMenu} className="mobile-nav-link link-1">
+              <WrittenWord text="Work" baseDelay={0.10} charInterval={0.038} />
+            </Link>
+            <Link to="/services" onClick={closeMobileMenu} className="mobile-nav-link link-2">
+              <WrittenWord text="Services" baseDelay={0.26} charInterval={0.035} />
+            </Link>
+            <Link to="/methodology" onClick={closeMobileMenu} className="mobile-nav-link link-3">
+              <WrittenWord text="Our Methodology" baseDelay={0.48} charInterval={0.028} />
+            </Link>
+            <Link to="/about" onClick={closeMobileMenu} className="mobile-nav-link link-4">
+              <WrittenWord text="About" baseDelay={0.80} charInterval={0.038} />
+            </Link>
+            <a href="https://wa.me/2347046367754" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="mobile-nav-link link-5">
+              <WrittenWord text="Contact" baseDelay={0.98} charInterval={0.035} />
+            </a>
+          </nav>
+          <div className="mobile-menu-footer">
+            <p className="mobile-brand">Xtreme Cr8tivity</p>
+            <p className="mobile-tagline">Bringing excellence to everyday things of life.</p>
           </div>
+        </div>
+      </div>
     </>
   )
 }
-
