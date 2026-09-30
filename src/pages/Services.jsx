@@ -224,7 +224,7 @@ export default function Services() {
                     src={service.image}
                     alt={service.title}
                     className="services-showcase-img"
-                  />
+                   loading="lazy" decoding="async"/>
                   <div className="services-image-vignette" />
                 </div>
               ))}
@@ -276,7 +276,7 @@ export default function Services() {
                     src={logo}
                     alt="Client"
                     className="client-logo"
-                  />
+                   loading="lazy" decoding="async"/>
                 ))}
               </div>
               {/* Set 2 — exact clone, visually seamless */}
@@ -287,7 +287,7 @@ export default function Services() {
                     src={logo}
                     alt=""
                     className="client-logo"
-                  />
+                   loading="lazy" decoding="async"/>
                 ))}
               </div>
             </div>

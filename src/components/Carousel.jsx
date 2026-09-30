@@ -53,7 +53,7 @@ export default function Carousel() {
                   alt={image.alt}
                   className="carousel-image"
                   loading="eager"
-                />
+                 decoding="async"/>
               </div>
             ))}
           </div>

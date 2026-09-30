@@ -98,7 +98,8 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
             src={staticImage.src}
             alt={staticImage.alt}
             loading="eager"
-          />
+          
+            decoding="async"/>
         </div>
 
         {/* Right Image Slot: Backdrop + Smooth Top Slide Layer (Zero Flickering) */}
@@ -108,7 +109,8 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
               src={backdropRightImage.src}
               alt={backdropRightImage.alt}
               loading="eager"
-            />
+            
+            decoding="async"/>
           </div>
 
           <div
@@ -120,7 +122,8 @@ function RenaissanceCarousel({ images: customImages, carouselId = 'renaissance-c
               src={activeRightImage.src}
               alt={activeRightImage.alt}
               loading="eager"
-            />
+            
+            decoding="async"/>
           </div>
         </div>
       </div>
@@ -244,7 +247,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
                 alt="Nigerian Breweries Collection 3"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge */}
@@ -271,7 +276,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_5.webp"
                 alt="Nigerian Breweries Award Kit 5"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 5: Award Kit 2 + Award Kit 1 (w=922.5, h=930 each) */}
@@ -280,13 +287,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_2.webp"
                   alt="Nigerian Breweries Award Kit 2"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_1.webp"
                   alt="Nigerian Breweries Award Kit 1"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -307,13 +318,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/NIGERIAN_BREWERIES_AWARD_KIT_3.webp"
                   alt="Nigerian Breweries Award Kit 3"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/Nigerian Breweries.webp"
                   alt="Nigerian Breweries"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -322,7 +337,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_6.webp"
                 alt="Nigerian Breweries Gold Award Render 6"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 9: Gold Award Render 5 + Gold Award Render 3 (w=922.5, h=930 each) */}
@@ -331,13 +348,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_5.webp"
                   alt="Nigerian Breweries Gold Award Render 5"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/NIGERIAN_BREWERIES_GOLD_AWARD_RENDER_3.webp"
                   alt="Nigerian Breweries Gold Award Render 3"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -347,13 +368,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/NIGERIAN_BREWERIES_SILVER_AWARD_RENDER_3.webp"
                   alt="Nigerian Breweries Silver Award Render 3"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/NIGERIAN_BREWERIES_SILVER_AWARD_RENDER_4.webp"
                   alt="Nigerian Breweries Silver Award Render 4"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -373,7 +398,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_SILVER_AWARD_RENDER_5.webp"
                 alt="Nigerian Breweries Silver Award Render 5"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 13: Gold Coin Front (w=1195, h=1020) + Gold Coin Front & Back (w=650, h=1020) */}
@@ -382,13 +409,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/NIGERIAN_BREWERIES_GOLD_COIN_FRONT.webp"
                   alt="Nigerian Breweries Gold Coin Front"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="nb-coin-650-card">
                 <img
                   src="/assets/NIGERIAN_BREWERIES_GOLD_COIN_FRONT_&_BACK.webp"
                   alt="Nigerian Breweries Gold Coin Front and Back"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -434,7 +465,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
                 alt="Rain Oil Next Project"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -463,7 +496,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/POST PROCESS 8.webp"
                 alt="Renaissance Post Process 8"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge & Making Vision Tangible */}
@@ -494,7 +529,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/RENDER 34.webp"
                 alt="Renaissance Render 34"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 5: Navigable Carousel - 2 images at once, 930px each */}
@@ -522,7 +559,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/RENDER 9 copy.webp"
                 alt="Renaissance Render 9 Copy"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 7: Second Navigable Carousel (8px gap) */}
@@ -557,7 +596,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/POST PROCESS 22.webp"
                 alt="Renaissance Post Process 22"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 10: RENDER 23 + RENDER 26 (w=922.5, h=930 each, 4px gap) */}
@@ -566,13 +607,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 23.webp"
                   alt="Renaissance Render 23"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/RENDER 26.webp"
                   alt="Renaissance Render 26"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -596,13 +641,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 27.webp"
                   alt="Renaissance Render 27"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
                   src="/assets/RENDER 28 copy.webp"
                   alt="Renaissance Render 28 Copy"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -612,13 +661,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 30.webp"
                   alt="Renaissance Render 30"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-asym-1195-card">
                 <img
                   src="/assets/RENDER 29.webp"
                   alt="Renaissance Render 29"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -628,13 +681,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/POST PROCESS 37.webp"
                   alt="Renaissance Post Process 37"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
                   src="/assets/POST PROCESS 36.webp"
                   alt="Renaissance Post Process 36"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -663,7 +720,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
                 alt="Nigerian Breweries Next Project"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -687,7 +746,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/RENDER 9 copy 2.webp"
                 alt="Guinness Render 9 Copy 2"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Repeat Challenge Section from Rain Oil */}
@@ -718,7 +779,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/RENDER 8.webp"
                 alt="Guinness Render 8"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 5: RENDER 4 + RENDER 5 (w=922.5, h=930 each, 4px gap) */}
@@ -727,13 +790,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 4.webp"
                   alt="Guinness Render 4"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/RENDER 5.webp"
                   alt="Guinness Render 5"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -760,13 +827,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 6 GUINNESS.webp"
                   alt="Guinness Render 6"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/RENDER 7 copy.webp"
                   alt="Guinness Render 7 Copy"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -775,7 +846,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/LOOK DEV 3.webp"
                 alt="Guinness Look Dev 3"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 9: The Solution Section (Replicated from Renaissance) */}
@@ -798,13 +871,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 12 copy.webp"
                   alt="Guinness Render 12 Copy"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-asym-1195-card">
                 <img
                   src="/assets/RENDER 11 copy.webp"
                   alt="Guinness Render 11 Copy"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -814,13 +891,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/LOOK DEV 4.webp"
                   alt="Guinness Look Dev 4"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/RENDER 10.webp"
                   alt="Guinness Render 10"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -844,13 +925,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 17_EDIT_FULL.webp"
                   alt="Guinness Render 17 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
                   src="/assets/RENDER 18_EDIT_FULL.webp"
                   alt="Guinness Render 18 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -860,13 +945,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 19.webp"
                   alt="Guinness Render 19"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-asym-1195-card">
                 <img
                   src="/assets/RENDER 20_EDIT_FULL.webp"
                   alt="Guinness Render 20 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -876,13 +965,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 21_EDIT_FULL.webp"
                   alt="Guinness Render 21 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
                   src="/assets/RENDER 22_EDIT_FULL.webp"
                   alt="Guinness Render 22 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -892,13 +985,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/RENDER 15_EDIT_FULL.webp"
                   alt="Guinness Render 15 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/RENDER 16_EDIT_FULL.webp"
                   alt="Guinness Render 16 Edit Full"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -914,7 +1011,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/Adnoc.webp"
                 alt="ADNOC Next Project"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -940,7 +1039,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/Adnoc.webp"
                 alt="ADNOC"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge - Defining the Intent */}
@@ -968,7 +1069,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/POST 3.webp"
                 alt="ADNOC Post 3"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 5: POST 4 + POST 2 side by side (w=922.5, h=930 each) */}
@@ -977,13 +1080,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/POST 4.webp"
                   alt="ADNOC Post 4"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/POST 2.webp"
                   alt="ADNOC Post 2"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1004,13 +1111,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/POST 8.webp"
                   alt="ADNOC Post 8"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/POST 12.webp"
                   alt="ADNOC Post 12"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1020,13 +1131,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/POST 11.webp"
                   alt="ADNOC Post 11"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/POST 14.webp"
                   alt="ADNOC Post 14"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1047,13 +1162,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/POST 7.webp"
                   alt="ADNOC Post 7"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="adnoc-asym-1205-card">
                 <img
                   src="/assets/POST 9.webp"
                   alt="ADNOC Post 9"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1063,13 +1182,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/Adnoc1.webp"
                   alt="ADNOC 1"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="adnoc-tall-972-card">
                 <img
                   src="/assets/adnoc2.webp"
                   alt="ADNOC 2"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1085,7 +1208,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/Seplat11.webp"
                 alt="Seplat Next Project"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -1108,7 +1233,9 @@ export default function CaseStudy() {
 
             {/* Section 2: Seplat11 full-width hero image */}
             <section className="rainoil-image-section">
-              <img src="/assets/Seplat11.webp" alt="Seplat Energy" />
+              <img src="/assets/Seplat11.webp" alt="Seplat Energy" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 3: Challenge */}
@@ -1132,16 +1259,22 @@ export default function CaseStudy() {
 
             {/* Section 4: Seplat2 full-width (w=1870 h=1080) */}
             <section className="rainoil-cup7-section">
-              <img src="/assets/Seplat2.webp" alt="Seplat 2" />
+              <img src="/assets/Seplat2.webp" alt="Seplat 2" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 5: Seplat1 + Seplat3 side by side (w=922.5 h=930 each) */}
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
-                <img src="/assets/Seplat1.webp" alt="Seplat 1" />
+                <img src="/assets/Seplat1.webp" alt="Seplat 1" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
-                <img src="/assets/Seplat3.webp" alt="Seplat 3" />
+                <img src="/assets/Seplat3.webp" alt="Seplat 3" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1159,25 +1292,35 @@ export default function CaseStudy() {
             {/* Section 7: Seplat4 (w=650 h=930) + Seplat5 (w=1195 h=930) asymmetric */}
             <section className="renaissance-asym-images-gap4-section">
               <div className="renaissance-asym-650-card">
-                <img src="/assets/Seplat4.webp" alt="Seplat 4" />
+                <img src="/assets/Seplat4.webp" alt="Seplat 4" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-asym-1195-card">
-                <img src="/assets/Seplat5.webp" alt="Seplat 5" />
+                <img src="/assets/Seplat5.webp" alt="Seplat 5" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
             {/* Section 8: Seplat7 full-width (w=1870 h=1080) */}
             <section className="rainoil-cup7-section">
-              <img src="/assets/Seplat7.webp" alt="Seplat 7" />
+              <img src="/assets/Seplat7.webp" alt="Seplat 7" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 9: Seplat6 + Seplat8 side by side (w=922.5 h=1153 each) */}
             <section className="adnoc-tall-images-section">
               <div className="adnoc-tall-922-card">
-                <img src="/assets/Seplat6.webp" alt="Seplat 6" />
+                <img src="/assets/Seplat6.webp" alt="Seplat 6" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="adnoc-tall-972-card">
-                <img src="/assets/Seplat8.webp" alt="Seplat 8" />
+                <img src="/assets/Seplat8.webp" alt="Seplat 8" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1195,16 +1338,22 @@ export default function CaseStudy() {
             {/* Section 11: Seplat9 + Seplat10 side by side (w=922.5 h=930 each) */}
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
-                <img src="/assets/Seplat9.webp" alt="Seplat 9" />
+                <img src="/assets/Seplat9.webp" alt="Seplat 9" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
-                <img src="/assets/Seplat10.webp" alt="Seplat 10" />
+                <img src="/assets/Seplat10.webp" alt="Seplat 10" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
             {/* Section 12: Seplat11 full-width (w=1870 h=1200) */}
             <section className="seplat-full-section">
-              <img src="/assets/Seplat11.webp" alt="Seplat 11" />
+              <img src="/assets/Seplat11.webp" alt="Seplat 11" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Spacer */}
@@ -1216,7 +1365,9 @@ export default function CaseStudy() {
               style={{ marginTop: 0 }}
               onClick={() => handleNextProject('mtn')}
             >
-              <img src="/assets/MTN26.webp" alt="MTN Next Project" />
+              <img src="/assets/MTN26.webp" alt="MTN Next Project" 
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -1239,7 +1390,9 @@ export default function CaseStudy() {
 
             {/* Section 2: MTN26 full-width (w=1920 h=980) */}
             <section className="mtn-hero-image-section">
-              <img src="/assets/MTN26.webp" alt="MTN" />
+              <img src="/assets/MTN26.webp" alt="MTN" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 3: Challenge */}
@@ -1264,16 +1417,22 @@ export default function CaseStudy() {
             {/* Section 4: MTN24 (w=650 h=930) + MTNA (w=1195 h=930) asymmetric */}
             <section className="renaissance-asym-images-gap4-section">
               <div className="renaissance-asym-650-card">
-                <img src="/assets/MTN24.webp" alt="MTN 24" />
+                <img src="/assets/MTN24.webp" alt="MTN 24" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-asym-1195-card">
-                <img src="/assets/MTNA.webp" alt="MTN A" />
+                <img src="/assets/MTNA.webp" alt="MTN A" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
             {/* Section 5: MTN21 full-width (w=1870 h=1080) */}
             <section className="rainoil-cup7-section">
-              <img src="/assets/MTN21.webp" alt="MTN 21" />
+              <img src="/assets/MTN21.webp" alt="MTN 21" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 6: Our Strategy */}
@@ -1290,16 +1449,22 @@ export default function CaseStudy() {
             {/* Section 7: MTN20 + MTN15 side by side (w=922.5 h=930 each) */}
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
-                <img src="/assets/MTN20.webp" alt="MTN 20" />
+                <img src="/assets/MTN20.webp" alt="MTN 20" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
-                <img src="/assets/MTN15.webp" alt="MTN 15" />
+                <img src="/assets/MTN15.webp" alt="MTN 15" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
             {/* Section 8: MTN14 full-width (w=1870 h=1080) */}
             <section className="rainoil-cup7-section">
-              <img src="/assets/MTN14.webp" alt="MTN 14" />
+              <img src="/assets/MTN14.webp" alt="MTN 14" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 9: Solution */}
@@ -1315,16 +1480,22 @@ export default function CaseStudy() {
 
             {/* Section 10: MTN18 full-width (w=1870 h=1080) */}
             <section className="rainoil-cup7-section">
-              <img src="/assets/MTN18.webp" alt="MTN 18" />
+              <img src="/assets/MTN18.webp" alt="MTN 18" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 11: MTN10 + MTN16 side by side (w=922.5 h=930 each) */}
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
-                <img src="/assets/MTN10.webp" alt="MTN 10" />
+                <img src="/assets/MTN10.webp" alt="MTN 10" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
-                <img src="/assets/MTN16.webp" alt="MTN 16" />
+                <img src="/assets/MTN16.webp" alt="MTN 16" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1342,30 +1513,42 @@ export default function CaseStudy() {
             {/* Section 13: MTN17 + MTN8 side by side (w=922.5 h=930 each) */}
             <section className="renaissance-two-images-gap4-section">
               <div className="renaissance-two-image-card">
-                <img src="/assets/MTN17.webp" alt="MTN 17" />
+                <img src="/assets/MTN17.webp" alt="MTN 17" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
-                <img src="/assets/MTN8.webp" alt="MTN 8" />
+                <img src="/assets/MTN8.webp" alt="MTN 8" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
             {/* Section 14: MTN19 (w=650 h=930) + MTN6 (w=1195 h=930) asymmetric */}
             <section className="renaissance-asym-images-gap4-section">
               <div className="renaissance-asym-650-card">
-                <img src="/assets/MTN19.webp" alt="MTN 19" />
+                <img src="/assets/MTN19.webp" alt="MTN 19" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-asym-1195-card">
-                <img src="/assets/MTN6.webp" alt="MTN 6" />
+                <img src="/assets/MTN6.webp" alt="MTN 6" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
             {/* Section 15: MTN22 + MTN23 side by side (w=922.5 h=800 each) */}
             <section className="renaissance-two-images-800-gap4-section">
               <div className="renaissance-two-image-800-card">
-                <img src="/assets/MTN22.webp" alt="MTN 22" />
+                <img src="/assets/MTN22.webp" alt="MTN 22" 
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
-                <img src="/assets/MTN23.webp" alt="MTN 23" />
+                <img src="/assets/MTN23.webp" alt="MTN 23" 
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1378,7 +1561,9 @@ export default function CaseStudy() {
               style={{ marginTop: 0 }}
               onClick={() => handleNextProject('stanbic')}
             >
-              <img src="/assets/stanbic.webp" alt="Stanbic IBTC Next Project" />
+              <img src="/assets/stanbic.webp" alt="Stanbic IBTC Next Project" 
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -1401,7 +1586,9 @@ export default function CaseStudy() {
 
             {/* Section 2: stanbic full-width (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
-              <img src="/assets/stanbic.webp" alt="Stanbic IBTC" />
+              <img src="/assets/stanbic.webp" alt="Stanbic IBTC" 
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge */}
@@ -1428,7 +1615,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/STANBIC_IBTC_RENDER_19.webp"
                 alt="Stanbic IBTC Render 19"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 5: stanbic stairs + STANBIC_IBTC_RENDER_20 (w=922.5, h=930 each) */}
@@ -1437,13 +1626,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/stanbic stairs.webp"
                   alt="Stanbic Stairs"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_20.webp"
                   alt="Stanbic IBTC Render 20"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1463,7 +1656,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/STANBIC_IBTC_RENDER_21 copy.webp"
                 alt="Stanbic IBTC Render 21"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 8: RENDER_29_EDIT + RENDER_30_EDIT (w=922.5, h=930 each) */}
@@ -1472,13 +1667,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_29_EDIT.webp"
                   alt="Stanbic IBTC Render 29 Edit"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_30_EDIT.webp"
                   alt="Stanbic IBTC Render 30 Edit"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1487,7 +1686,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/STANBIC_IBTC_RENDER_31.webp"
                 alt="Stanbic IBTC Render 31"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 10: The Solution */}
@@ -1510,13 +1711,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_4.webp"
                   alt="Stanbic IBTC Render 4"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-card">
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_5.webp"
                   alt="Stanbic IBTC Render 5"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1525,7 +1730,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/STANBIC_IBTC_RENDER_6.webp"
                 alt="Stanbic IBTC Render 6"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
             </section>
 
             {/* Section 13: The Impact */}
@@ -1548,13 +1755,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_1.webp"
                   alt="Stanbic IBTC Render 1"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="stanbic-two-image-1020-card">
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_3.webp"
                   alt="Stanbic IBTC Render 3"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1564,13 +1775,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_25.webp"
                   alt="Stanbic IBTC Render 25"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_26.webp"
                   alt="Stanbic IBTC Render 26"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1580,13 +1795,17 @@ export default function CaseStudy() {
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_27.webp"
                   alt="Stanbic IBTC Render 27"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
               <div className="renaissance-two-image-800-card">
                 <img
                   src="/assets/STANBIC_IBTC_RENDER_28_EDIT.webp"
                   alt="Stanbic IBTC Render 28 Edit"
-                />
+                
+            loading="lazy"
+            decoding="async"/>
               </div>
             </section>
 
@@ -1602,7 +1821,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
                 alt="Nigerian Breweries Next Project"
-              />
+              
+            loading="lazy"
+            decoding="async"/>
               <div className="rainoil-next-project-text">
                 NEXT PROJECT
               </div>
@@ -1640,7 +1861,9 @@ export default function CaseStudy() {
         <img
           src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
           alt="Rain Oil Render Post Process 5"
-        />
+        
+            loading="lazy"
+            decoding="async"/>
       </section>
 
       {/* Section 3: The Challenge & The Missing Connection */}
@@ -1671,7 +1894,9 @@ export default function CaseStudy() {
         <img
           src="/assets/RAINOIL_COMPILED_RENDER_1.webp"
           alt="Rainoil Compiled Render"
-        />
+        
+            loading="lazy"
+            decoding="async"/>
       </section>
 
       {/* Section 5: Two Side-by-Side Flask Images (w=923, h=930 each) */}
@@ -1680,13 +1905,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_FLASK_RENDER_8.webp"
             alt="Rainoil Flask Render 8"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-flask-card">
           <img
             src="/assets/RAINOIL_FLASK_RENDER_6.webp"
             alt="Rainoil Flask Render 6"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1713,13 +1942,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_FLASK_RENDER_3.webp"
             alt="Rainoil Flask Render 3"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-postprocess5-card">
           <img
             src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
             alt="Rainoil Render Post Process 5"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1728,7 +1961,9 @@ export default function CaseStudy() {
         <img
           src="/assets/RAINOIL_CUP_RENDER_7.webp"
           alt="Rainoil Cup Render 7"
-        />
+        
+            loading="lazy"
+            decoding="async"/>
       </section>
 
       {/* Section 9: Cup Render 10 (w=922.5, h=930) + Cup Render 9 (w=922.5, h=930) */}
@@ -1737,13 +1972,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_CUP_RENDER_10.webp"
             alt="Rainoil Cup Render 10"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-cup-card">
           <img
             src="/assets/RAINOIL_CUP_RENDER_9.webp"
             alt="Rainoil Cup Render 9"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1753,13 +1992,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_CUP_RENDER_6.webp"
             alt="Rainoil Cup Render 6"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-cup63-card">
           <img
             src="/assets/RAINOIL_CUP_RENDER_3.webp"
             alt="Rainoil Cup Render 3"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1783,13 +2026,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_COMPILED_RENDER_1.webp"
             alt="Rainoil Compiled Render 1"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-cup8-card">
           <img
             src="/assets/RAINOIL_CUP_RENDER_8.webp"
             alt="Rainoil Cup Render 8"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1799,13 +2046,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_MUG_RENDER_1.webp"
             alt="Rainoil Mug Render 1"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-mug800-card">
           <img
             src="/assets/RAINOIL_MUG_RENDER_2.webp"
             alt="Rainoil Mug Render 2"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1815,13 +2066,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_MUG_RENDER_7.webp"
             alt="Rainoil Mug Render 7"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-mug1195-card">
           <img
             src="/assets/RAINOIL_MUG_RENDER_3.webp"
             alt="Rainoil Mug Render 3"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1831,13 +2086,17 @@ export default function CaseStudy() {
           <img
             src="/assets/RAINOIL_MUG_RENDER_4.webp"
             alt="Rainoil Mug Render 4"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
         <div className="rainoil-mug800-card">
           <img
             src="/assets/RAINOIL_MUG_RENDER_6.webp"
             alt="Rainoil Mug Render 6"
-          />
+          
+            loading="lazy"
+            decoding="async"/>
         </div>
       </section>
 
@@ -1853,7 +2112,9 @@ export default function CaseStudy() {
         <img
           src="/assets/LOOK DEV 2.webp"
           alt="LOOK DEV 2 Next Project"
-        />
+        
+            loading="lazy"
+            decoding="async"/>
         <div className="rainoil-next-project-text">
           NEXT PROJECT
         </div>

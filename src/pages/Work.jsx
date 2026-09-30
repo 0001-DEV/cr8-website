@@ -268,7 +268,7 @@ export default function Work() {
                         src={project.image}
                         alt={project.title}
                         loading="lazy"
-                      />
+                       decoding="async"/>
                     </div>
                     <div className="work-two-image-text-bar">
                       <span className="work-two-image-left-text">

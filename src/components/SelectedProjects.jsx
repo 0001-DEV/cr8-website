@@ -288,7 +288,13 @@ export default function SelectedProjects() {
                       style={{ display: 'block', cursor: 'pointer' }}
                       aria-label={`Explore ${project.name}`}
                     >
-                      <img src={project.image} alt={project.name} className="card-image" loading="eager" />
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="card-image"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                      />
                       <div className="card-image-overlay" />
                     </Link>
                   </div>

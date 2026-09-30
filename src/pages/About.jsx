@@ -14,7 +14,7 @@ function TeamMemberCard({ member }) {
           alt={member.name}
           className="about-team-photo"
           loading="lazy"
-        />
+         decoding="async"/>
         <div className="about-team-gradient-flow" />
         <div className="about-team-gradient-glow" />
       </div>
@@ -84,7 +84,7 @@ export default function About() {
                 width="1241"
                 height="830"
                 loading="eager"
-              />
+               decoding="async"/>
             </div>
           </div>
         </section>
@@ -126,7 +126,7 @@ export default function About() {
               width="1870"
               height="930"
               loading="lazy"
-            />
+             decoding="async"/>
           </div>
         </section>
 
@@ -144,10 +144,10 @@ export default function About() {
         {/* ── Asymmetric images: A(1) w=650 h=930 + A(11) w=1195 h=930 ── */}
         <section className="about-asym-images-section">
           <div className="about-asym-650-card">
-            <img src="/assets/A (1).webp" alt="Studio detail" loading="lazy" />
+            <img src="/assets/A (1).webp" alt="Studio detail" loading="lazy"  decoding="async"/>
           </div>
           <div className="about-asym-1195-card">
-            <img src="/assets/A (11).webp" alt="Studio work" loading="lazy" />
+            <img src="/assets/A (11).webp" alt="Studio work" loading="lazy"  decoding="async"/>
           </div>
         </section>
 

@@ -104,7 +104,7 @@ export default function NewsPress() {
                     src={item.image}
                     alt="News"
                     className={`news-image ${item.tall ? 'news-image-tall' : ''} ${item.wide ? 'news-image-wide' : ''}`}
-                  />
+                   loading="lazy" decoding="async"/>
                 )}
                 <div className="news-text">
                   <p className="news-title">{item.title}</p>
@@ -132,7 +132,7 @@ export default function NewsPress() {
                     src={item.image}
                     alt="News"
                     className={`news-image ${item.tall ? 'news-image-tall' : ''} ${item.wide ? 'news-image-wide' : ''}`}
-                  />
+                   loading="lazy" decoding="async"/>
                 )}
               </div>
             ))}

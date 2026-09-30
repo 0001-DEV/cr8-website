@@ -35,7 +35,7 @@ export default function WhyWeExist() {
             onMouseLeave={() => setHoveredPillar(null)}
           >
             <div className="pillar-image-container pillar-image-bottom">
-              <img src="/assets/Paper postal packages.webp" alt="Brand Memorability" className="pillar-image" />
+              <img src="/assets/Paper postal packages.webp" alt="Brand Memorability" className="pillar-image" loading="lazy" decoding="async" />
               <div className="pillar-text-label">
                 <h3 className="pillar-text">Brand Memorability</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
@@ -62,7 +62,7 @@ export default function WhyWeExist() {
                 <h3 className="pillar-text">Tangible Thinking</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
               </div>
-              <img src="/assets/Asset 1 (1).webp" alt="Tangible Thinking" className="pillar-image" />
+              <img src="/assets/Asset 1 (1).webp" alt="Tangible Thinking" className="pillar-image" loading="lazy" decoding="async" />
               <div className="pillar-text-overlay-middle">
                 <h3 className="pillar-text">Tangible Thinking</h3>
                 <p className="pillar-text-description">
@@ -81,7 +81,7 @@ export default function WhyWeExist() {
             onMouseLeave={() => setHoveredPillar(null)}
           >
             <div className="pillar-image-container pillar-image-bottom">
-              <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp" alt="Brand Signatures" className="pillar-image" />
+              <img src="/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp" alt="Brand Signatures" className="pillar-image" loading="lazy" decoding="async" />
               <div className="pillar-text-label">
                 <h3 className="pillar-text">Brand Signatures</h3>
                 <img src="/assets/Asset 35.svg" alt="Arrow" className="pillar-arrow pillar-arrow-label" />
@@ -109,6 +109,8 @@ export default function WhyWeExist() {
                     src={logo}
                     alt="Client"
                     className="client-logo"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ))}
               </div>
@@ -120,6 +122,8 @@ export default function WhyWeExist() {
                     src={logo}
                     alt=""
                     className="client-logo"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ))}
               </div>

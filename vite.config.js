@@ -8,5 +8,16 @@ export default defineConfig({
       ignored: ['**/dist/**', '**/.git/**', '**/*copy*', '**/public/assets/**'],
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-gsap': ['gsap', 'gsap/ScrollTrigger'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 800,
+  },
 })
 
