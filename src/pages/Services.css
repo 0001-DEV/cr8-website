@@ -305,9 +305,11 @@
   .services-sticky-card {
     border-radius: 4px;
     aspect-ratio: auto;
-    height: calc(clamp(175px, 55vw, 300px) + 15px);
-    height: calc(125cqw + 15px);
-    max-height: min(54vh, calc(100dvh - 85px));
+    height: calc(clamp(175px, 55vw, 300px) + 50px);
+    height: calc(125cqw + 50px);
+    min-height: calc(clamp(175px, 55vw, 300px) + 50px);
+    min-height: calc(125cqw + 50px);
+    max-height: min(65vh, calc(100dvh - 85px));
   }
 
   .services-item-block {
@@ -358,8 +360,10 @@
   }
 
   .services-sticky-card {
-    height: calc(clamp(156px, 52.5vw, 194px) + 15px);
-    height: calc(125cqw + 15px);
+    height: calc(clamp(156px, 52.5vw, 194px) + 50px);
+    height: calc(125cqw + 50px);
+    min-height: calc(clamp(156px, 52.5vw, 194px) + 50px);
+    min-height: calc(125cqw + 50px);
   }
 
   .services-item-title {
