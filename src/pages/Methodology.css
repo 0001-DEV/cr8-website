@@ -46,7 +46,7 @@
 /* ─────────────────────────────────────────────
    SECTION 1 — Philosophy
    "Our philosophy is," / "There is no formula for" / "extraordinary."
-   Aeonik 112pt regular
+   Aeonik 90pt regular
    ───────────────────────────────────────────── */
 .meth-philosophy-section {
   margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
@@ -64,7 +64,7 @@
 .meth-philosophy-line1,
 .meth-philosophy-line2 {
   display: block;
-  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-size: clamp(2.5rem, 7.5vw, 90pt);
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -94,7 +94,7 @@
 
 /* ─────────────────────────────────────────────
    SECTION 2 — The Principle
-   112pt title / 80pt light subtitle / 38pt body paragraphs
+   90pt title / 60pt light subtitle / 38pt body paragraphs
    ───────────────────────────────────────────── */
 .meth-principle-section {
   margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
@@ -103,7 +103,7 @@
 
 .meth-principle-title {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-size: clamp(2.5rem, 7.5vw, 90pt);
   font-weight: 400;
   color: #ffffff;
   line-height: 1.05;
@@ -114,7 +114,7 @@
 
 .meth-principle-subtitle {
   font-family: 'Aeonik', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2rem, 5.5vw, 80pt);
+  font-size: clamp(2rem, 5.5vw, 60pt);
   font-weight: 300;
   color: #888888;
   line-height: 1.1;
@@ -138,7 +138,7 @@
 
 /* ─────────────────────────────────────────────
    SECTION 3 — Turn thinking into direction
-   112pt title / 38pt body
+   90pt title / 38pt body
    ───────────────────────────────────────────── */
 .meth-direction-section {
   margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
@@ -155,7 +155,7 @@
 .meth-direction-line1,
 .meth-direction-line2 {
   display: block;
-  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-size: clamp(2.5rem, 7.5vw, 90pt);
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -184,7 +184,7 @@
 
 /* ─────────────────────────────────────────────
    SECTION 5 — How we behave while we build
-   112pt title / 38pt body paragraphs
+   90pt title / 38pt body paragraphs
    ───────────────────────────────────────────── */
 .meth-behave-section {
   margin: 0 clamp(0.75rem, 4vw, 48px) clamp(5rem, 10vw, 9rem);
@@ -201,7 +201,7 @@
 .meth-behave-line1,
 .meth-behave-line2 {
   display: block;
-  font-size: clamp(2.5rem, 7.5vw, 112pt);
+  font-size: clamp(2.5rem, 7.5vw, 90pt);
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
