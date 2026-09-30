@@ -559,8 +559,7 @@
   flex-shrink: 0;
 }
 
-.services-accordion-icon.is-open,
-.services-accordion-item:hover .services-accordion-icon {
+.services-accordion-icon.is-open {
   transform: rotate(45deg);
   color: #ffffff;
 }
@@ -571,8 +570,7 @@
   transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.services-accordion-body.is-open,
-.services-accordion-item:hover .services-accordion-body {
+.services-accordion-body.is-open {
   grid-template-rows: 1fr;
 }
 
@@ -594,8 +592,7 @@
   will-change: transform, opacity;
 }
 
-.services-accordion-body.is-open .services-accordion-content p,
-.services-accordion-item:hover .services-accordion-content p {
+.services-accordion-body.is-open .services-accordion-content p {
   transform: translateY(0);
   opacity: 1;
   transition: transform 0.52s cubic-bezier(0.2, 0.92, 0.3, 1.05) 0.06s, opacity 0.42s ease 0.06s;

@@ -313,8 +313,6 @@ export default function Services() {
                 <div
                   key={item.id}
                   className={`services-accordion-item ${isOpen ? 'is-open' : ''}`}
-                  onMouseEnter={() => setOpenAccordion(index)}
-                  onMouseLeave={() => setOpenAccordion(null)}
                 >
                   <button
                     type="button"
