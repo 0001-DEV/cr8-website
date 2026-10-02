@@ -37,7 +37,7 @@ export default function Work() {
       title: 'Rainoil',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/RAINOIL_CUP_RENDER_9.webp',
+      image: '/assets/rainoil-8.webp',
       slug: 'rainoil',
     },
     {
@@ -45,7 +45,7 @@ export default function Work() {
       title: 'Nigerian Breweries',
       sector: 'Food & Beverages',
       subtitle: 'Food & Beverages',
-      image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp',
+      image: '/assets/nigerian-breweries-23.webp',
       slug: 'nigerian-breweries',
     },
     {
@@ -53,7 +53,7 @@ export default function Work() {
       title: 'Guinness',
       sector: 'Food & Beverages',
       subtitle: 'Food & Beverages',
-      image: '/assets/RENDER 9 copy 2.webp',
+      image: '/assets/guinness-1.webp',
       slug: 'guinness',
     },
     {
@@ -61,7 +61,7 @@ export default function Work() {
       title: 'Renaissance Energy',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/RENDER 28.webp',
+      image: '/assets/renaissance-23.webp',
       slug: 'renaissance',
     },
     {
@@ -69,7 +69,7 @@ export default function Work() {
       title: 'Stanbic IBTC',
       sector: 'Banking & Finance',
       subtitle: 'Banking & Finance',
-      image: '/assets/stanbic.webp',
+      image: '/assets/stanbic-1.webp',
       slug: 'stanbic',
     },
     {
@@ -77,7 +77,7 @@ export default function Work() {
       title: 'Seplat Energy',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/Seplat11.webp',
+      image: '/assets/seplat-1.webp',
       slug: 'seplat',
     },
     {
@@ -85,7 +85,7 @@ export default function Work() {
       title: 'ADNOC',
       sector: 'Oil & Gas',
       subtitle: 'Oil & Gas',
-      image: '/assets/Adnoc.webp',
+      image: '/assets/adnoc-1.webp',
       slug: 'adnoc',
     },
     {
@@ -93,7 +93,7 @@ export default function Work() {
       title: 'MTN',
       sector: 'Telecommunications',
       subtitle: 'Telecommunications',
-      image: '/assets/MTN26.webp',
+      image: '/assets/mtn-1.webp',
       slug: 'mtn',
     },
   ]

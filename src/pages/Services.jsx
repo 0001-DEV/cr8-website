@@ -46,7 +46,7 @@ export default function Services() {
     {
       id: 3,
       slug: 'brand-signatures',
-      image: '/assets/NIGERIAN_BREWERIES_COLLECTION_2.webp',
+      image: '/assets/nigerian-breweries-23.webp',
       title: 'Brand Signatures',
       subtitle: 'Create the things people remember the brand by.',
       description:
