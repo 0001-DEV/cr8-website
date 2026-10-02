@@ -77,9 +77,9 @@ export default function Header() {
     <>
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
-          <a href="/" className="logo-link">
+          <Link to="/" className="logo-link">
             <img src="/assets/Asset 1.svg" alt="Xtreme Cr8tivity Logo" className="logo-img" />
-          </a>
+          </Link>
           <nav className="nav desktop-nav">
             <Link to="/work" className="nav-link nav-link-1">Work</Link>
             <Link to="/services" className="nav-link nav-link-2">Services</Link>

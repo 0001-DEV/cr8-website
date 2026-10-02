@@ -249,9 +249,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/NIGERIAN_BREWERIES_COLLECTION_3.webp"
                 alt="Nigerian Breweries Collection 3"
-              
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge */}
@@ -498,9 +498,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/POST PROCESS 8.webp"
                 alt="Renaissance Post Process 8"
-              
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge & Making Vision Tangible */}
@@ -748,9 +748,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/RENDER 9 copy 2.webp"
                 alt="Guinness Render 9 Copy 2"
-              
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Repeat Challenge Section from Rain Oil */}
@@ -1041,9 +1041,9 @@ export default function CaseStudy() {
               <img
                 src="/assets/Adnoc.webp"
                 alt="ADNOC"
-              
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge - Defining the Intent */}
@@ -1236,8 +1236,9 @@ export default function CaseStudy() {
             {/* Section 2: Seplat11 full-width hero image */}
             <section className="rainoil-image-section">
               <img src="/assets/Seplat11.webp" alt="Seplat Energy" 
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Section 3: Challenge */}
@@ -1393,8 +1394,9 @@ export default function CaseStudy() {
             {/* Section 2: MTN26 full-width (w=1920 h=980) */}
             <section className="mtn-hero-image-section">
               <img src="/assets/MTN26.webp" alt="MTN" 
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Section 3: Challenge */}
@@ -1589,8 +1591,9 @@ export default function CaseStudy() {
             {/* Section 2: stanbic full-width (w=1870, h=1080) */}
             <section className="rainoil-cup7-section">
               <img src="/assets/stanbic.webp" alt="Stanbic IBTC" 
-            loading="lazy"
-            decoding="async"/>
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"/>
             </section>
 
             {/* Section 3: The Challenge */}
@@ -1863,9 +1866,9 @@ export default function CaseStudy() {
         <img
           src="/assets/RAINOIL_RENDER_POST_PROCESS_5.webp"
           alt="Rain Oil Render Post Process 5"
-        
-            loading="lazy"
-            decoding="async"/>
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"/>
       </section>
 
       {/* Section 3: The Challenge & The Missing Connection */}

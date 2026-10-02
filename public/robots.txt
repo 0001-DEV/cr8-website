@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cr8.com.ng/sitemap_index.xml
+# LLM Information
+# See https://cr8.com.ng/llms.txt

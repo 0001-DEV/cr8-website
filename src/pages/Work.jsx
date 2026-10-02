@@ -267,8 +267,9 @@ export default function Work() {
                       <img
                         src={project.image}
                         alt={project.title}
-                        loading="lazy"
-                       decoding="async"/>
+                        loading={rowIndex === 0 ? "eager" : "lazy"}
+                        fetchpriority={rowIndex === 0 ? "high" : "auto"}
+                        decoding="async"/>
                     </div>
                     <div className="work-two-image-text-bar">
                       <span className="work-two-image-left-text">

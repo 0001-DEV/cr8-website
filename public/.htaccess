@@ -10,6 +10,7 @@ DirectoryIndex index.html index.php
   AddType text/css .css
   AddType image/webp .webp
   AddType font/woff2 .woff2
+  AddType text/plain;charset=utf-8 .txt
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -27,7 +28,8 @@ DirectoryIndex index.html index.php
   RewriteRule ^xmlrpc\.php - [L]
   RewriteRule ^wp-.*\.php$ - [L]
 
-  # 3. Custom folders & tools
+  # 3. Custom folders, tools & root static files
+  RewriteRule ^(robots\.txt|llms\.txt|llms-full\.txt)$ - [L]
   RewriteRule ^(\.well-known|cards|cardzzz|Adron15anniversary|cgi-bin)($|/) - [L]
 
   # 4. Serve physical files and folders directly (images, PDFs, vcf, etc.)

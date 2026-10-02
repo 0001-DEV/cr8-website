@@ -1,5 +1,6 @@
 import './Footer.css'
 import './Hero.css'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -31,12 +32,12 @@ export default function Footer() {
               <div className="footer-section">
                 <h4>Useful links</h4>
                 <ul className="footer-links">
-                  <li><a href="#work">Work</a></li>
-                  <li><a href="#services">Services</a></li>
-                  <li><a href="#methodology">Our methodology</a></li>
-                  <li><a href="#about">About</a></li>
+                  <li><Link to="/work">Work</Link></li>
+                  <li><Link to="/services">Services</Link></li>
+                  <li><Link to="/methodology">Our methodology</Link></li>
+                  <li><Link to="/about">About</Link></li>
                   <li><a href="https://wa.me/2347046367754" target="_blank" rel="noopener noreferrer">Contact</a></li>
-                  <li><a href="#">Why we exist</a></li>
+                  <li><a href="#why-we-exist">Why we exist</a></li>
                 </ul>
               </div>
             </div>

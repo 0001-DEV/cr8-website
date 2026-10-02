@@ -1,5 +1,5 @@
 import './App.css'
-import { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import IntroAnimation from './components/IntroAnimation'
 import Header from './components/Header'
@@ -13,14 +13,13 @@ import NewsPress from './components/NewsPress'
 import PraiseFromClients from './components/PraiseFromClients'
 import Footer from './components/Footer'
 
-// Route-level code splitting via dynamic imports
-const Work = lazy(() => import('./pages/Work'))
-const Services = lazy(() => import('./pages/Services'))
-const Methodology = lazy(() => import('./pages/Methodology'))
-const About = lazy(() => import('./pages/About'))
-const Contact = lazy(() => import('./pages/Contact'))
-const NewsArticle = lazy(() => import('./pages/NewsArticle'))
-const CaseStudy = lazy(() => import('./pages/CaseStudy'))
+import Work from './pages/Work'
+import Services from './pages/Services'
+import Methodology from './pages/Methodology'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import NewsArticle from './pages/NewsArticle'
+import CaseStudy from './pages/CaseStudy'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -134,19 +133,17 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/methodology" element={<Methodology />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/news/:id" element={<NewsArticle />} />
-          <Route path="/project/:id" element={<CaseStudy />} />
-          <Route path="/case-study/:id" element={<CaseStudy />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/methodology" element={<Methodology />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/news/:id" element={<NewsArticle />} />
+        <Route path="/project/:id" element={<CaseStudy />} />
+        <Route path="/case-study/:id" element={<CaseStudy />} />
+      </Routes>
     </BrowserRouter>
   )
 }
